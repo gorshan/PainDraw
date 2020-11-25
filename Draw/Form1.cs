@@ -122,6 +122,8 @@ namespace Draw
                 //graphics.DrawLine(pen, point, e.Location);
                 //pictureBox1.Image = mainBitmap;
                 //point = e.Location;
+
+                NAngle
             }
         }
 
