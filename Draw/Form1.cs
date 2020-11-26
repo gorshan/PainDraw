@@ -98,15 +98,15 @@ namespace Draw
                 //graphics.DrawPolygon(pen, points);
                 //pictureBox1.Image = mainBitmap;
 
-                // прямоугольник
-                //graphics.Clear(Color.White);
-                //PointF[] points = new PointF[4];
-                //points[0] = point;
-                //points[1] = new Point(point.X, e.Y);
-                //points[2] = e.Location;
-                //points[3] = new Point(e.X, point.Y);
-                //graphics.DrawPolygon(pen, points);
-                //pictureBox1.Image = mainBitmap;
+                //прямоугольник
+                graphics.Clear(Color.White);
+                PointF[] points = new PointF[4];
+                points[0] = point;
+                points[1] = new Point(point.X, e.Y);
+                points[2] = e.Location;
+                points[3] = new Point(e.X, point.Y);
+                graphics.DrawPolygon(pen, points);
+                pictureBox1.Image = mainBitmap;
 
                 // квадрат, но только 2 и 4 четверти
                 //graphics.Clear(Color.White);
