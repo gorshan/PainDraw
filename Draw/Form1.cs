@@ -118,10 +118,24 @@ namespace Draw
                 //graphics.DrawPolygon(pen, points);
                 //pictureBox1.Image = mainBitmap;
 
-                //кривая линия
+                //Brush
                 //graphics.DrawLine(pen, point, e.Location);
                 //pictureBox1.Image = mainBitmap;
                 //point = e.Location;
+
+
+                //if (MouseDown == true)
+                //{
+                //    tmpBitmap = (Bitmap)mainBitmap.Clone();
+                //    graphics = Graphics.FromImage(tmpBitmap);
+                // Point pointLine = new POint();
+                //    pictureBox1.Image = tmpBitmap;
+                //    pointLine = e.Location;
+                //    graphics.DrawLine(pen, pointLine.X, pointLine.Y, point[1].X, point[1].Y);
+                //    pointLine = e.Location;
+                //    GC.Collect();
+                //}
+
             }
         }
 
