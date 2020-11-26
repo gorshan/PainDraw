@@ -99,6 +99,7 @@
             this.SquareButton.TabIndex = 4;
             this.SquareButton.Text = "Square";
             this.SquareButton.UseVisualStyleBackColor = true;
+            this.SquareButton.Click += new System.EventHandler(this.SquareButton_Click);
             // 
             // CircleButton
             // 

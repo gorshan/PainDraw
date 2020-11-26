@@ -77,18 +77,6 @@ namespace Draw
                 //graphics.DrawPolygon(pen, points);
                 //pictureBox1.Image = mainBitmap;
 
-                
-
-                //прямая
-                //graphics.Clear(Color.White);
-                //PointF[] points = new PointF[2];
-                //points[0] = point;
-                //points[1] = e.Location;
-                //graphics.DrawPolygon(pen, points);
-                //pictureBox1.Image = mainBitmap;
-
-                
-                //прямоугольник
                 tmpBitmap = (Bitmap)mainBitmap.Clone();
                 graphics = Graphics.FromImage(tmpBitmap);                
                 graphics.DrawPolygon(pen, figure.GetPoints(point,e.Location));
@@ -156,6 +144,11 @@ namespace Draw
         private void LineButton_Click(object sender, EventArgs e)
         {
             figure = new LineFigure();
+        }
+
+        private void SquareButton_Click(object sender, EventArgs e)
+        {
+            figure = new SquareFigure();
         }
     }
 }
