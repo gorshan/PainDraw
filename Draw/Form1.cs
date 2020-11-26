@@ -16,6 +16,7 @@ namespace Draw
     {
 
         Bitmap mainBitmap;
+        Bitmap tmpBitmap;
         Graphics graphics;
         Pen pen;
         Point point;
@@ -101,10 +102,12 @@ namespace Draw
                 //pictureBox1.Image = mainBitmap;
 
                 //прямоугольник
-                graphics.Clear(Color.White);
+                tmpBitmap = (Bitmap)mainBitmap.Clone();
+                graphics = Graphics.FromImage(tmpBitmap);
                 IFigure figure = new RectangleFigure();
                 graphics.DrawPolygon(pen, figure.GetPoints(point,e.Location));
-                pictureBox1.Image = mainBitmap;
+                pictureBox1.Image = tmpBitmap;
+                GC.Collect();
 
                 // квадрат, но только 2 и 4 четверти
                 //graphics.Clear(Color.White);
@@ -145,6 +148,7 @@ namespace Draw
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
+            mainBitmap = tmpBitmap;
             mouseDown = false;
         }
     }
