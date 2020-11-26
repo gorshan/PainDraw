@@ -31,6 +31,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PenButton = new System.Windows.Forms.Button();
             this.LineButton = new System.Windows.Forms.Button();
+            this.RectangleButton = new System.Windows.Forms.Button();
+            this.SquareButton = new System.Windows.Forms.Button();
+            this.CircleButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,18 +60,48 @@
             // 
             // LineButton
             // 
-            this.LineButton.Location = new System.Drawing.Point(189, 23);
+            this.LineButton.Location = new System.Drawing.Point(151, 23);
             this.LineButton.Name = "LineButton";
             this.LineButton.Size = new System.Drawing.Size(75, 23);
             this.LineButton.TabIndex = 2;
             this.LineButton.Text = "Line";
             this.LineButton.UseVisualStyleBackColor = true;
             // 
+            // RectangleButton
+            // 
+            this.RectangleButton.Location = new System.Drawing.Point(257, 23);
+            this.RectangleButton.Name = "RectangleButton";
+            this.RectangleButton.Size = new System.Drawing.Size(75, 23);
+            this.RectangleButton.TabIndex = 3;
+            this.RectangleButton.Text = "Rectangle";
+            this.RectangleButton.UseVisualStyleBackColor = true;
+            // 
+            // SquareButton
+            // 
+            this.SquareButton.Location = new System.Drawing.Point(394, 22);
+            this.SquareButton.Name = "SquareButton";
+            this.SquareButton.Size = new System.Drawing.Size(75, 23);
+            this.SquareButton.TabIndex = 4;
+            this.SquareButton.Text = "Square";
+            this.SquareButton.UseVisualStyleBackColor = true;
+            // 
+            // CircleButton
+            // 
+            this.CircleButton.Location = new System.Drawing.Point(506, 23);
+            this.CircleButton.Name = "CircleButton";
+            this.CircleButton.Size = new System.Drawing.Size(75, 23);
+            this.CircleButton.TabIndex = 5;
+            this.CircleButton.Text = "Circle";
+            this.CircleButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CircleButton);
+            this.Controls.Add(this.SquareButton);
+            this.Controls.Add(this.RectangleButton);
             this.Controls.Add(this.LineButton);
             this.Controls.Add(this.PenButton);
             this.Controls.Add(this.pictureBox1);
@@ -85,6 +118,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button PenButton;
         private System.Windows.Forms.Button LineButton;
+        private System.Windows.Forms.Button RectangleButton;
+        private System.Windows.Forms.Button SquareButton;
+        private System.Windows.Forms.Button CircleButton;
     }
 }
 
