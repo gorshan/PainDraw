@@ -119,15 +119,16 @@ namespace Draw
                 //pictureBox1.Image = mainBitmap;
 
                 //кривая линия
-                //graphics.DrawLine(pen, point, e.Location);
-                //pictureBox1.Image = mainBitmap;
-                //point = e.Location;
+                graphics.DrawLine(pen, point, e.Location);
+                pictureBox1.Image = mainBitmap;
+                point = e.Location;
             }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             point = e.Location;
+            point.X=+3;
             mouseDown = true;
         }
 

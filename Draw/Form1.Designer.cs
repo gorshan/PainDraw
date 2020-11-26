@@ -39,16 +39,18 @@
             this.RightTriangleButton = new System.Windows.Forms.Button();
             this.NAngleButton = new System.Windows.Forms.Button();
             this.RightNAngleButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.N = new System.Windows.Forms.TextBox();
+            this.PenWigth = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 52);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 112);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(945, 453);
+            this.pictureBox1.Size = new System.Drawing.Size(1020, 521);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -138,28 +140,44 @@
             // 
             // RightNAngleButton
             // 
-            this.RightNAngleButton.Location = new System.Drawing.Point(804, 23);
+            this.RightNAngleButton.Location = new System.Drawing.Point(932, 23);
             this.RightNAngleButton.Name = "RightNAngleButton";
             this.RightNAngleButton.Size = new System.Drawing.Size(75, 23);
             this.RightNAngleButton.TabIndex = 10;
             this.RightNAngleButton.Text = "Right N-angle";
             this.RightNAngleButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // ClearButton
             // 
-            this.button3.Location = new System.Drawing.Point(886, 23);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ClearButton.Location = new System.Drawing.Point(12, 2);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(52, 44);
+            this.ClearButton.TabIndex = 12;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            // 
+            // N
+            // 
+            this.N.Location = new System.Drawing.Point(816, 23);
+            this.N.Name = "N";
+            this.N.Size = new System.Drawing.Size(100, 22);
+            this.N.TabIndex = 13;
+            // 
+            // PenWigth
+            // 
+            this.PenWigth.Location = new System.Drawing.Point(48, 73);
+            this.PenWigth.Name = "PenWigth";
+            this.PenWigth.Size = new System.Drawing.Size(113, 13);
+            this.PenWigth.TabIndex = 14;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 517);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(1076, 645);
+            this.Controls.Add(this.PenWigth);
+            this.Controls.Add(this.N);
+            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.RightNAngleButton);
             this.Controls.Add(this.NAngleButton);
             this.Controls.Add(this.RightTriangleButton);
@@ -176,6 +194,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -192,7 +211,9 @@
         private System.Windows.Forms.Button RightTriangleButton;
         private System.Windows.Forms.Button NAngleButton;
         private System.Windows.Forms.Button RightNAngleButton;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.TextBox N;
+        private System.Windows.Forms.ProgressBar PenWigth;
     }
 }
 
