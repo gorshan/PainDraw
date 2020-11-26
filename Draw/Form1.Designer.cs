@@ -34,6 +34,12 @@
             this.RectangleButton = new System.Windows.Forms.Button();
             this.SquareButton = new System.Windows.Forms.Button();
             this.CircleButton = new System.Windows.Forms.Button();
+            this.EllipsButton = new System.Windows.Forms.Button();
+            this.IsoscelesTriangleButton = new System.Windows.Forms.Button();
+            this.RightTriangleButton = new System.Windows.Forms.Button();
+            this.NAngleButton = new System.Windows.Forms.Button();
+            this.RightNAngleButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +48,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pictureBox1.Location = new System.Drawing.Point(22, 52);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(766, 386);
+            this.pictureBox1.Size = new System.Drawing.Size(945, 453);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -69,7 +75,7 @@
             // 
             // RectangleButton
             // 
-            this.RectangleButton.Location = new System.Drawing.Point(257, 23);
+            this.RectangleButton.Location = new System.Drawing.Point(232, 22);
             this.RectangleButton.Name = "RectangleButton";
             this.RectangleButton.Size = new System.Drawing.Size(75, 23);
             this.RectangleButton.TabIndex = 3;
@@ -78,7 +84,7 @@
             // 
             // SquareButton
             // 
-            this.SquareButton.Location = new System.Drawing.Point(394, 22);
+            this.SquareButton.Location = new System.Drawing.Point(313, 22);
             this.SquareButton.Name = "SquareButton";
             this.SquareButton.Size = new System.Drawing.Size(75, 23);
             this.SquareButton.TabIndex = 4;
@@ -87,18 +93,78 @@
             // 
             // CircleButton
             // 
-            this.CircleButton.Location = new System.Drawing.Point(506, 23);
+            this.CircleButton.Location = new System.Drawing.Point(394, 23);
             this.CircleButton.Name = "CircleButton";
             this.CircleButton.Size = new System.Drawing.Size(75, 23);
             this.CircleButton.TabIndex = 5;
             this.CircleButton.Text = "Circle";
             this.CircleButton.UseVisualStyleBackColor = true;
             // 
+            // EllipsButton
+            // 
+            this.EllipsButton.Location = new System.Drawing.Point(476, 23);
+            this.EllipsButton.Name = "EllipsButton";
+            this.EllipsButton.Size = new System.Drawing.Size(75, 23);
+            this.EllipsButton.TabIndex = 6;
+            this.EllipsButton.Text = "Ellips";
+            this.EllipsButton.UseVisualStyleBackColor = true;
+            // 
+            // IsoscelesTriangleButton
+            // 
+            this.IsoscelesTriangleButton.Location = new System.Drawing.Point(558, 23);
+            this.IsoscelesTriangleButton.Name = "IsoscelesTriangleButton";
+            this.IsoscelesTriangleButton.Size = new System.Drawing.Size(75, 23);
+            this.IsoscelesTriangleButton.TabIndex = 7;
+            this.IsoscelesTriangleButton.Text = "IsoscelesTriangle";
+            this.IsoscelesTriangleButton.UseVisualStyleBackColor = true;
+            // 
+            // RightTriangleButton
+            // 
+            this.RightTriangleButton.Location = new System.Drawing.Point(640, 23);
+            this.RightTriangleButton.Name = "RightTriangleButton";
+            this.RightTriangleButton.Size = new System.Drawing.Size(75, 23);
+            this.RightTriangleButton.TabIndex = 8;
+            this.RightTriangleButton.Text = "RightTriangle";
+            this.RightTriangleButton.UseVisualStyleBackColor = true;
+            // 
+            // NAngleButton
+            // 
+            this.NAngleButton.Location = new System.Drawing.Point(722, 23);
+            this.NAngleButton.Name = "NAngleButton";
+            this.NAngleButton.Size = new System.Drawing.Size(75, 23);
+            this.NAngleButton.TabIndex = 9;
+            this.NAngleButton.Text = "N-angle";
+            this.NAngleButton.UseVisualStyleBackColor = true;
+            // 
+            // RightNAngleButton
+            // 
+            this.RightNAngleButton.Location = new System.Drawing.Point(804, 23);
+            this.RightNAngleButton.Name = "RightNAngleButton";
+            this.RightNAngleButton.Size = new System.Drawing.Size(75, 23);
+            this.RightNAngleButton.TabIndex = 10;
+            this.RightNAngleButton.Text = "Right N-angle";
+            this.RightNAngleButton.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(886, 23);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(979, 517);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.RightNAngleButton);
+            this.Controls.Add(this.NAngleButton);
+            this.Controls.Add(this.RightTriangleButton);
+            this.Controls.Add(this.IsoscelesTriangleButton);
+            this.Controls.Add(this.EllipsButton);
             this.Controls.Add(this.CircleButton);
             this.Controls.Add(this.SquareButton);
             this.Controls.Add(this.RectangleButton);
@@ -121,6 +187,12 @@
         private System.Windows.Forms.Button RectangleButton;
         private System.Windows.Forms.Button SquareButton;
         private System.Windows.Forms.Button CircleButton;
+        private System.Windows.Forms.Button EllipsButton;
+        private System.Windows.Forms.Button IsoscelesTriangleButton;
+        private System.Windows.Forms.Button RightTriangleButton;
+        private System.Windows.Forms.Button NAngleButton;
+        private System.Windows.Forms.Button RightNAngleButton;
+        private System.Windows.Forms.Button button3;
     }
 }
 
