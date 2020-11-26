@@ -50,6 +50,7 @@
     <Compile Include="Figures\IFigure.cs" />
     <Compile Include="Figures\IsoscelesTriangleFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
+    <Compile Include="Figures\NAngleFigure.cs" />
     <Compile Include="Figures\RectangleFigure.cs" />
     <Compile Include="Figures\RightTriangleFigure.cs" />
     <Compile Include="Figures\SquareFigure.cs" />

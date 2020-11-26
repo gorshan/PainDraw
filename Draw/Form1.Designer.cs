@@ -40,16 +40,17 @@
             this.NAngleButton = new System.Windows.Forms.Button();
             this.RightNAngleButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
-            this.N = new System.Windows.Forms.TextBox();
             this.PenWigth = new System.Windows.Forms.ProgressBar();
+            this.NAngleNumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.pictureBox1.Location = new System.Drawing.Point(9, 91);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(765, 423);
             this.pictureBox1.TabIndex = 0;
@@ -61,7 +62,7 @@
             // PenButton
             // 
             this.PenButton.Location = new System.Drawing.Point(52, 19);
-            this.PenButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PenButton.Margin = new System.Windows.Forms.Padding(2);
             this.PenButton.Name = "PenButton";
             this.PenButton.Size = new System.Drawing.Size(56, 19);
             this.PenButton.TabIndex = 1;
@@ -71,7 +72,7 @@
             // LineButton
             // 
             this.LineButton.Location = new System.Drawing.Point(113, 19);
-            this.LineButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LineButton.Margin = new System.Windows.Forms.Padding(2);
             this.LineButton.Name = "LineButton";
             this.LineButton.Size = new System.Drawing.Size(56, 19);
             this.LineButton.TabIndex = 2;
@@ -82,7 +83,7 @@
             // RectangleButton
             // 
             this.RectangleButton.Location = new System.Drawing.Point(174, 18);
-            this.RectangleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RectangleButton.Margin = new System.Windows.Forms.Padding(2);
             this.RectangleButton.Name = "RectangleButton";
             this.RectangleButton.Size = new System.Drawing.Size(56, 19);
             this.RectangleButton.TabIndex = 3;
@@ -93,7 +94,7 @@
             // SquareButton
             // 
             this.SquareButton.Location = new System.Drawing.Point(235, 18);
-            this.SquareButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SquareButton.Margin = new System.Windows.Forms.Padding(2);
             this.SquareButton.Name = "SquareButton";
             this.SquareButton.Size = new System.Drawing.Size(56, 19);
             this.SquareButton.TabIndex = 4;
@@ -104,7 +105,7 @@
             // CircleButton
             // 
             this.CircleButton.Location = new System.Drawing.Point(296, 19);
-            this.CircleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CircleButton.Margin = new System.Windows.Forms.Padding(2);
             this.CircleButton.Name = "CircleButton";
             this.CircleButton.Size = new System.Drawing.Size(56, 19);
             this.CircleButton.TabIndex = 5;
@@ -114,7 +115,7 @@
             // EllipsButton
             // 
             this.EllipsButton.Location = new System.Drawing.Point(357, 19);
-            this.EllipsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EllipsButton.Margin = new System.Windows.Forms.Padding(2);
             this.EllipsButton.Name = "EllipsButton";
             this.EllipsButton.Size = new System.Drawing.Size(56, 19);
             this.EllipsButton.TabIndex = 6;
@@ -124,7 +125,7 @@
             // IsoscelesTriangleButton
             // 
             this.IsoscelesTriangleButton.Location = new System.Drawing.Point(418, 19);
-            this.IsoscelesTriangleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IsoscelesTriangleButton.Margin = new System.Windows.Forms.Padding(2);
             this.IsoscelesTriangleButton.Name = "IsoscelesTriangleButton";
             this.IsoscelesTriangleButton.Size = new System.Drawing.Size(58, 51);
             this.IsoscelesTriangleButton.TabIndex = 7;
@@ -135,7 +136,7 @@
             // RightTriangleButton
             // 
             this.RightTriangleButton.Location = new System.Drawing.Point(480, 19);
-            this.RightTriangleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RightTriangleButton.Margin = new System.Windows.Forms.Padding(2);
             this.RightTriangleButton.Name = "RightTriangleButton";
             this.RightTriangleButton.Size = new System.Drawing.Size(56, 19);
             this.RightTriangleButton.TabIndex = 8;
@@ -146,56 +147,67 @@
             // NAngleButton
             // 
             this.NAngleButton.Location = new System.Drawing.Point(542, 19);
-            this.NAngleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NAngleButton.Margin = new System.Windows.Forms.Padding(2);
             this.NAngleButton.Name = "NAngleButton";
-            this.NAngleButton.Size = new System.Drawing.Size(56, 19);
+            this.NAngleButton.Size = new System.Drawing.Size(72, 39);
             this.NAngleButton.TabIndex = 9;
             this.NAngleButton.Text = "N-angle";
             this.NAngleButton.UseVisualStyleBackColor = true;
             // 
             // RightNAngleButton
             // 
-            this.RightNAngleButton.Location = new System.Drawing.Point(699, 19);
-            this.RightNAngleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RightNAngleButton.Location = new System.Drawing.Point(628, 19);
+            this.RightNAngleButton.Margin = new System.Windows.Forms.Padding(2);
             this.RightNAngleButton.Name = "RightNAngleButton";
-            this.RightNAngleButton.Size = new System.Drawing.Size(56, 19);
+            this.RightNAngleButton.Size = new System.Drawing.Size(59, 39);
             this.RightNAngleButton.TabIndex = 10;
             this.RightNAngleButton.Text = "Right N-angle";
             this.RightNAngleButton.UseVisualStyleBackColor = true;
+            this.RightNAngleButton.Click += new System.EventHandler(this.RightNAngleButton_Click);
             // 
             // ClearButton
             // 
             this.ClearButton.Location = new System.Drawing.Point(9, 2);
-            this.ClearButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClearButton.Margin = new System.Windows.Forms.Padding(2);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(39, 36);
             this.ClearButton.TabIndex = 12;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
             // 
-            // N
-            // 
-            this.N.Location = new System.Drawing.Point(612, 19);
-            this.N.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.N.Name = "N";
-            this.N.Size = new System.Drawing.Size(76, 20);
-            this.N.TabIndex = 13;
-            // 
             // PenWigth
             // 
             this.PenWigth.Location = new System.Drawing.Point(36, 59);
-            this.PenWigth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PenWigth.Margin = new System.Windows.Forms.Padding(2);
             this.PenWigth.Name = "PenWigth";
             this.PenWigth.Size = new System.Drawing.Size(85, 11);
             this.PenWigth.TabIndex = 14;
+            // 
+            // NAngleNumericUpDown
+            // 
+            this.NAngleNumericUpDown.Location = new System.Drawing.Point(692, 20);
+            this.NAngleNumericUpDown.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.NAngleNumericUpDown.Name = "NAngleNumericUpDown";
+            this.NAngleNumericUpDown.Size = new System.Drawing.Size(53, 20);
+            this.NAngleNumericUpDown.TabIndex = 15;
+            this.NAngleNumericUpDown.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.NAngleNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleNumericUpDown_ValueChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 524);
+            this.Controls.Add(this.NAngleNumericUpDown);
             this.Controls.Add(this.PenWigth);
-            this.Controls.Add(this.N);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.RightNAngleButton);
             this.Controls.Add(this.NAngleButton);
@@ -208,13 +220,13 @@
             this.Controls.Add(this.LineButton);
             this.Controls.Add(this.PenButton);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -232,8 +244,8 @@
         private System.Windows.Forms.Button NAngleButton;
         private System.Windows.Forms.Button RightNAngleButton;
         private System.Windows.Forms.Button ClearButton;
-        private System.Windows.Forms.TextBox N;
         private System.Windows.Forms.ProgressBar PenWigth;
+        private System.Windows.Forms.NumericUpDown NAngleNumericUpDown;
     }
 }
 

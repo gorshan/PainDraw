@@ -150,5 +150,18 @@ namespace Draw
         {
             figure = new SquareFigure();
         }
+
+        private void RightNAngleButton_Click(object sender, EventArgs e)
+        {
+            figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
+        }
+
+        private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if(figure is NAngleFigure)
+            {
+                figure = new NAngleFigure(Convert.ToInt32(NAngleNumericUpDown.Value));
+            }
+        }
     }
 }
