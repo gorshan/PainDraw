@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    public class Square : IFigure
+    public class RightTriangleFigure : IFigure
     {
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {

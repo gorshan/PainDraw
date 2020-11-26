@@ -94,12 +94,7 @@ namespace Draw
                 //graphics.DrawPolygon(pen, points);
                 //pictureBox1.Image = mainBitmap;
 
-                //прямоугольный треугольник
-                //graphics.Clear(Color.White);
                 
-                //graphics.DrawPolygon(pen, points);
-                //pictureBox1.Image = mainBitmap;
-
                 //прямоугольник
                 tmpBitmap = (Bitmap)mainBitmap.Clone();
                 graphics = Graphics.FromImage(tmpBitmap);                
@@ -148,6 +143,21 @@ namespace Draw
         {
             mainBitmap = tmpBitmap;
             mouseDown = false;
+        }
+
+        private void RightTriangleButton_Click(object sender, EventArgs e)
+        {
+            figure = new RightTriangleFigure();
+        }
+
+        private void RectangleButton_Click(object sender, EventArgs e)
+        {
+            figure = new RectangleFigure();
+        }
+
+        private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
+        {
+            figure = new IsoscelesTriangleFigure();
         }
     }
 }
