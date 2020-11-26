@@ -52,17 +52,6 @@ namespace Draw
 
             if (mouseDown)
             {
-                //эллипс
-                //graphics.Clear(Color.White);
-                //graphics.DrawEllipse(pen, point.X, point.Y, e.X - point.X, e.Y-point.Y );
-                //pictureBox1.Image = mainBitmap;
-
-                //окружность
-                //graphics.Clear(Color.White);
-                //graphics.DrawEllipse(pen, point.X, point.Y, e.Y-point.Y, e.Y - point.Y);
-                //pictureBox1.Image = mainBitmap;
-
-
                 tmpBitmap = (Bitmap)mainBitmap.Clone();
                 graphics = Graphics.FromImage(tmpBitmap);
                 figure.DrawFigure(graphics, pen, point, e.Location);                
@@ -138,13 +127,18 @@ namespace Draw
         {
             if(figure is NAngleFigure)
             {
-                figure = new NAngleFigure(Convert.ToInt32(NAngleNumericUpDown.Value));
+                ((NAngleFigure)figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
             }
         }
 
         private void EllipsButton_Click(object sender, EventArgs e)
         {
             figure = new EllipseFigure();
+        }
+
+        private void CircleButton_Click(object sender, EventArgs e)
+        {
+            figure = new CircleFigure();
         }
     }
 }

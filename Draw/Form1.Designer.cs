@@ -111,6 +111,7 @@
             this.CircleButton.TabIndex = 5;
             this.CircleButton.Text = "Circle";
             this.CircleButton.UseVisualStyleBackColor = true;
+            this.CircleButton.Click += new System.EventHandler(this.CircleButton_Click);
             // 
             // EllipsButton
             // 
