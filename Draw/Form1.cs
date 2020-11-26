@@ -58,6 +58,15 @@ namespace Draw
                 pictureBox1.Image = tmpBitmap;
                 GC.Collect();
 
+                //окружность
+                graphics.Clear(Color.White);
+                int r = (int)Math.Sqrt(Math.Pow(((double)e.Y - point.Y), 2.0) + Math.Pow(((double)e.X - point.X), 2.0));
+                int x;
+                int y;
+                x = point.X - r;
+                y = point.Y - r;
+                graphics.DrawEllipse(pen, x, y, r * 2, r * 2);
+                pictureBox1.Image = mainBitmap;
                 
 
                 //Brush
