@@ -10,7 +10,12 @@ namespace Draw.Figures
 {
     public class RectangleFigure : IFigure
     {
-        public Point[] GetPoints(Point startPoint, Point endPoint)
+
+        public void DrawFigure(Graphics graphics, Pen pen, Point startPoint, Point endPoint)
+        {
+            graphics.DrawPolygon(pen, GetPoints(startPoint, endPoint));
+        }
+        private Point[] GetPoints(Point startPoint, Point endPoint)
         {
             Point[] points = new Point[4];
             points[0] = startPoint;

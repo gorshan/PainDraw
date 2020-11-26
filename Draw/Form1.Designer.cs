@@ -121,6 +121,7 @@
             this.EllipsButton.TabIndex = 6;
             this.EllipsButton.Text = "Ellips";
             this.EllipsButton.UseVisualStyleBackColor = true;
+            this.EllipsButton.Click += new System.EventHandler(this.EllipsButton_Click);
             // 
             // IsoscelesTriangleButton
             // 

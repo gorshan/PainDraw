@@ -9,6 +9,6 @@ namespace Draw.Figures
 {
     public interface IFigure
     {
-        Point[] GetPoints(Point startPoint, Point endPoint);
+        void DrawFigure(Graphics graphics, Pen pen, Point startPoint, Point endPoint);
     }
 }
