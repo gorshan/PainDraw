@@ -49,13 +49,18 @@ namespace Draw
             {
                 //эллипс
                 //graphics.Clear(Color.White);
-                //graphics.DrawEllipse(pen, point.X, point.Y, e.X - point.X, e.Y-point.Y );
+                //graphics.DrawEllipse(pen, point.X, point.Y, e.X - point.X, e.Y - point.Y);
                 //pictureBox1.Image = mainBitmap;
 
                 //окружность
-                //graphics.Clear(Color.White);
-                //graphics.DrawEllipse(pen, point.X, point.Y, e.Y-point.Y, e.Y - point.Y);
-                //pictureBox1.Image = mainBitmap;
+                graphics.Clear(Color.White);
+                int r = (int)Math.Sqrt(Math.Pow(((double)e.Y - point.Y), 2.0) + Math.Pow(((double)e.X - point.X), 2.0));
+                int x;
+                int y;
+                x = point.X - r;
+                y = point.Y - r;
+                graphics.DrawEllipse(pen, x, y, r * 2, r * 2);
+                pictureBox1.Image = mainBitmap;
 
                 // n-угольник
                 //double r;
@@ -109,28 +114,28 @@ namespace Draw
                 //pictureBox1.Image = mainBitmap;
 
                 // квадрат, но только 2 и 4 четверти
-                graphics.Clear(Color.White);
-                int a = e.Y - point.Y;
-                PointF[] points = new PointF[4];
-                points[0] = point;
-                points[1] = new Point(point.X, e.Y);
-                if ((e.X - point.X > 0) && (e.Y - point.Y < 0))
-                {
-                    points[2] = new Point(point.X - a, e.Y);
-                    points[3] = new Point(point.X - a, point.Y);
-                }
-                else if ((e.X - point.X < 0) && (e.Y - point.Y > 0))
-                {
-                    points[1] = new Point(point.X-a, point.Y);
-                    points[2] = new Point(point.X - a, e.Y);
-                    points[3] = new Point(point.X, e.Y);
-                }
-                else { 
-                points[2] = new Point(point.X + a, e.Y);
-                points[3] = new Point(point.X + a, point.Y);
-            }
-                graphics.DrawPolygon(pen, points);
-                pictureBox1.Image = mainBitmap;
+                //    graphics.Clear(Color.White);
+                //    int a = e.Y - point.Y;
+                //    PointF[] points = new PointF[4];
+                //    points[0] = point;
+                //    points[1] = new Point(point.X, e.Y);
+                //    if ((e.X - point.X > 0) && (e.Y - point.Y < 0))
+                //    {
+                //        points[2] = new Point(point.X - a, e.Y);
+                //        points[3] = new Point(point.X - a, point.Y);
+                //    }
+                //    else if ((e.X - point.X < 0) && (e.Y - point.Y > 0))
+                //    {
+                //        points[1] = new Point(point.X-a, point.Y);
+                //        points[2] = new Point(point.X - a, e.Y);
+                //        points[3] = new Point(point.X, e.Y);
+                //    }
+                //    else { 
+                //    points[2] = new Point(point.X + a, e.Y);
+                //    points[3] = new Point(point.X + a, point.Y);
+                //}
+                //    graphics.DrawPolygon(pen, points);
+                //    pictureBox1.Image = mainBitmap;
 
                 //Brush
                 //graphics.DrawLine(pen, point, e.Location);
