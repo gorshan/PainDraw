@@ -30,7 +30,7 @@ namespace Draw
             mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             //mainBitmap.SetPixel(10, 10, Color.Black);
             graphics = Graphics.FromImage(mainBitmap);
-            pen = new Pen(Color.Black, 1);
+            pen = new Pen(Color.Black, 8);
             
             //Point point1 = new Point(0, 0);
             //Point point2 = new Point(300, 300);
@@ -109,14 +109,15 @@ namespace Draw
                 //pictureBox1.Image = mainBitmap;
 
                 // квадрат, но только 2 и 4 четверти
-                //graphics.Clear(Color.White);
-                //PointF[] points = new PointF[4];
-                //points[0] = point;
-                //points[1] = new Point(point.X, e.Y);
-                //points[2] = new Point(point.X + e.Y - point.Y, e.Y);
-                //points[3] = new Point(point.X + e.Y - point.Y, point.Y);
-                //graphics.DrawPolygon(pen, points);
-                //pictureBox1.Image = mainBitmap;
+                graphics.Clear(Color.White);
+                int a = Math.Abs(e.Y - point.Y);
+                PointF[] points = new PointF[4];
+                points[0] = point;
+                points[1] = new Point(point.X, e.Y);
+                points[2] = new Point(point.X + a, e.Y);
+                points[3] = new Point(point.X + a, point.Y);
+                graphics.DrawPolygon(pen, points);
+                pictureBox1.Image = mainBitmap;
 
                 //Brush
                 //graphics.DrawLine(pen, point, e.Location);
@@ -142,7 +143,7 @@ namespace Draw
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             point = e.Location;
-            point.X=+3;
+            
             mouseDown = true;
         }
 

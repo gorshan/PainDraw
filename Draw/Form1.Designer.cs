@@ -40,9 +40,10 @@
             this.NAngleButton = new System.Windows.Forms.Button();
             this.RightNAngleButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
-            this.N = new System.Windows.Forms.TextBox();
             this.PenWigth = new System.Windows.Forms.ProgressBar();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -156,13 +157,6 @@
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
             // 
-            // N
-            // 
-            this.N.Location = new System.Drawing.Point(816, 23);
-            this.N.Name = "N";
-            this.N.Size = new System.Drawing.Size(100, 22);
-            this.N.TabIndex = 13;
-            // 
             // PenWigth
             // 
             this.PenWigth.Location = new System.Drawing.Point(48, 73);
@@ -170,13 +164,20 @@
             this.PenWigth.Size = new System.Drawing.Size(113, 13);
             this.PenWigth.TabIndex = 14;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(803, 24);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 645);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.PenWigth);
-            this.Controls.Add(this.N);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.RightNAngleButton);
             this.Controls.Add(this.NAngleButton);
@@ -193,8 +194,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -212,8 +213,8 @@
         private System.Windows.Forms.Button NAngleButton;
         private System.Windows.Forms.Button RightNAngleButton;
         private System.Windows.Forms.Button ClearButton;
-        private System.Windows.Forms.TextBox N;
         private System.Windows.Forms.ProgressBar PenWigth;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 
