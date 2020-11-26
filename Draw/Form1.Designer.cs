@@ -40,8 +40,9 @@
             this.NAngleButton = new System.Windows.Forms.Button();
             this.RightNAngleButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
-            this.PenWigth = new System.Windows.Forms.ProgressBar();
             this.NAngleNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.WigthScrollBar = new System.Windows.Forms.HScrollBar();
+            this.widthText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             this.PenButton.Text = "Pen";
             this.PenButton.UseVisualStyleBackColor = true;
             this.PenButton.Click += new System.EventHandler(this.PenButton_Click);
+            this.PenButton.Leave += new System.EventHandler(this.PenButton_Leave);
             // 
             // LineButton
             // 
@@ -179,18 +181,10 @@
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
-            // PenWigth
-            // 
-            this.PenWigth.Location = new System.Drawing.Point(48, 73);
-            this.PenWigth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PenWigth.Name = "PenWigth";
-            this.PenWigth.Size = new System.Drawing.Size(113, 14);
-            this.PenWigth.TabIndex = 14;
-            // 
             // NAngleNumericUpDown
             // 
             this.NAngleNumericUpDown.Location = new System.Drawing.Point(923, 25);
-            this.NAngleNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NAngleNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.NAngleNumericUpDown.Minimum = new decimal(new int[] {
             3,
             0,
@@ -206,13 +200,32 @@
             0});
             this.NAngleNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleNumericUpDown_ValueChanged);
             // 
+            // WigthScrollBar
+            // 
+            this.WigthScrollBar.Location = new System.Drawing.Point(30, 50);
+            this.WigthScrollBar.Maximum = 50;
+            this.WigthScrollBar.Minimum = 1;
+            this.WigthScrollBar.Name = "WigthScrollBar";
+            this.WigthScrollBar.Size = new System.Drawing.Size(139, 21);
+            this.WigthScrollBar.TabIndex = 16;
+            this.WigthScrollBar.Value = 1;
+            this.WigthScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.WigthScrollBar_Scroll);
+            // 
+            // widthText
+            // 
+            this.widthText.Location = new System.Drawing.Point(85, 74);
+            this.widthText.Name = "widthText";
+            this.widthText.Size = new System.Drawing.Size(39, 22);
+            this.widthText.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 645);
+            this.Controls.Add(this.widthText);
+            this.Controls.Add(this.WigthScrollBar);
             this.Controls.Add(this.NAngleNumericUpDown);
-            this.Controls.Add(this.PenWigth);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.RightNAngleButton);
             this.Controls.Add(this.NAngleButton);
@@ -232,6 +245,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -249,10 +263,10 @@
         private System.Windows.Forms.Button NAngleButton;
         private System.Windows.Forms.Button RightNAngleButton;
         private System.Windows.Forms.Button ClearButton;
-        private System.Windows.Forms.ProgressBar PenWigth;
 
         private System.Windows.Forms.NumericUpDown NAngleNumericUpDown;
-
+        private System.Windows.Forms.HScrollBar WigthScrollBar;
+        private System.Windows.Forms.TextBox widthText;
     }
 }
 

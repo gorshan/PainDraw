@@ -22,6 +22,7 @@ namespace Draw
         Pen pen;
         Point point;
         bool mouseDown;
+        bool penButton;
         IFigure figure;
 
         public Form1()
@@ -35,7 +36,7 @@ namespace Draw
             mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             //mainBitmap.SetPixel(10, 10, Color.Black);
             graphics = Graphics.FromImage(mainBitmap);
-            pen = new Pen(Color.Black, 5);
+            pen = new Pen(Color.Black, WigthScrollBar.Value);
             figure = new RectangleFigure();
             
             //Point point1 = new Point(0, 0);
@@ -45,6 +46,8 @@ namespace Draw
             pictureBox1.Image = mainBitmap;
             point = new Point(0, 0);
             mouseDown = false;
+            penButton = true;
+            widthText.Text = WigthScrollBar.Value + "";
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -53,14 +56,27 @@ namespace Draw
 
             if (mouseDown)
             {
-                //tmpBitmap = (Bitmap)mainBitmap.Clone();
-                //graphics = Graphics.FromImage(tmpBitmap);
+                if (penButton == false)
+                {
+                    tmpBitmap = (Bitmap)mainBitmap.Clone();
+                    graphics = Graphics.FromImage(tmpBitmap);
 
-                //figure.DrawFigure(graphics, pen, point, e.Location);
-                //pictureBox1.Image = tmpBitmap;
-                //GC.Collect();
+                    figure.DrawFigure(graphics, pen, point, e.Location);
+                    pictureBox1.Image = tmpBitmap;
+                    GC.Collect();
+                }
+                if (penButton == true)
+                {
+                    tmpBitmap = (Bitmap)mainBitmap.Clone();
+                    pen.StartCap = LineCap.Round;
+                    pen.EndCap = LineCap.Round;
+                    graphics.DrawLine(pen, point, e.Location);
+                    pictureBox1.Image = mainBitmap;
+                    point = e.Location;
+                }
+                
 
-                //окружность
+                //окружность, теперь из центра
                 //graphics.Clear(Color.White);
                 //int r = (int)Math.Sqrt(Math.Pow(((double)e.Y - point.Y), 2.0) + Math.Pow(((double)e.X - point.X), 2.0));
                 //int x;
@@ -72,11 +88,7 @@ namespace Draw
 
 
                 //Brush
-                pen.StartCap = LineCap.Round;
-                pen.EndCap = LineCap.Round;
-                graphics.DrawLine(pen, point, e.Location);
-                pictureBox1.Image = mainBitmap;
-                point = e.Location;
+                
 
 
                 //if (MouseDown == true)
@@ -117,7 +129,6 @@ namespace Draw
         }
 
 
-
         private void RectangleButton_Click(object sender, EventArgs e)
 
         {
@@ -125,7 +136,6 @@ namespace Draw
             figure = new RectangleFigure();
 
         }
-
 
 
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
@@ -137,7 +147,6 @@ namespace Draw
         }
 
 
-
         private void LineButton_Click(object sender, EventArgs e)
 
         {
@@ -145,7 +154,6 @@ namespace Draw
             figure = new LineFigure();
 
         }
-
 
 
         private void SquareButton_Click(object sender, EventArgs e)
@@ -157,7 +165,6 @@ namespace Draw
         }
 
 
-
         private void RightNAngleButton_Click(object sender, EventArgs e)
 
         {
@@ -165,7 +172,6 @@ namespace Draw
             figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
 
         }
-
 
 
         private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -183,7 +189,6 @@ namespace Draw
         }
 
 
-
         private void EllipsButton_Click(object sender, EventArgs e)
 
         {
@@ -191,7 +196,6 @@ namespace Draw
             figure = new EllipseFigure();
 
         }
-
 
 
         private void CircleButton_Click(object sender, EventArgs e)
@@ -202,15 +206,31 @@ namespace Draw
 
         }
 
-        private void PenButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
             mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = mainBitmap;
+            //penButton = true;
         }
+
+        private void PenButton_Leave(object sender, EventArgs e)
+        {
+            penButton = false;
+        }
+
+        private void PenButton_Click(object sender, EventArgs e)
+        {
+            penButton = true;
+        }
+
+        private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            pen.Width = WigthScrollBar.Value;
+            widthText.Text = WigthScrollBar.Value + "";
+        }
+
+       
     }
 }
