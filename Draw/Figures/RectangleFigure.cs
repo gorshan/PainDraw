@@ -4,10 +4,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Draw.Figures;
 
-namespace Draw.Figure
+namespace Draw.Figures
 {
-    public class RectangleFigure
+    public class RectangleFigure : IFigure
     {
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {

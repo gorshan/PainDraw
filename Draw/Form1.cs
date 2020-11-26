@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Draw.Figures;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -101,12 +102,8 @@ namespace Draw
 
                 //прямоугольник
                 graphics.Clear(Color.White);
-                PointF[] points = new PointF[4];
-                points[0] = point;
-                points[1] = new Point(point.X, e.Y);
-                points[2] = e.Location;
-                points[3] = new Point(e.X, point.Y);
-                graphics.DrawPolygon(pen, points);
+                IFigure figure = new RectangleFigure();
+                graphics.DrawPolygon(pen, figure.GetPoints(point,e.Location));
                 pictureBox1.Image = mainBitmap;
 
                 // квадрат, но только 2 и 4 четверти
