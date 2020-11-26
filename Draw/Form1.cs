@@ -53,7 +53,7 @@ namespace Draw
             if (mouseDown)
             {
                 tmpBitmap = (Bitmap)mainBitmap.Clone();
-                graphics = Graphics.FromImage(tmpBitmap);
+                graphics = Graphics.FromImage(tmpBitmap);
                 figure.DrawFigure(graphics, pen, point, e.Location);                
                 pictureBox1.Image = tmpBitmap;
                 GC.Collect();
@@ -91,54 +91,54 @@ namespace Draw
         {
             mainBitmap = tmpBitmap;
             mouseDown = false;
-        }
-
-        private void RightTriangleButton_Click(object sender, EventArgs e)
-        {
-            figure = new RightTriangleFigure();
-        }
-
-        private void RectangleButton_Click(object sender, EventArgs e)
-        {
-            figure = new RectangleFigure();
-        }
-
-        private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
-        {
-            figure = new IsoscelesTriangleFigure();
-        }
-
-        private void LineButton_Click(object sender, EventArgs e)
-        {
-            figure = new LineFigure();
-        }
-
-        private void SquareButton_Click(object sender, EventArgs e)
-        {
-            figure = new SquareFigure();
-        }
-
-        private void RightNAngleButton_Click(object sender, EventArgs e)
-        {
-            figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
-        }
-
-        private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            if(figure is NAngleFigure)
-            {
-                ((NAngleFigure)figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
-            }
-        }
-
-        private void EllipsButton_Click(object sender, EventArgs e)
-        {
-            figure = new EllipseFigure();
-        }
-
-        private void CircleButton_Click(object sender, EventArgs e)
-        {
-            figure = new CircleFigure();
-        }
+        }
+
+        private void RightTriangleButton_Click(object sender, EventArgs e)
+        {
+            figure = new RightTriangleFigure();
+        }
+
+        private void RectangleButton_Click(object sender, EventArgs e)
+        {
+            figure = new RectangleFigure();
+        }
+
+        private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
+        {
+            figure = new IsoscelesTriangleFigure();
+        }
+
+        private void LineButton_Click(object sender, EventArgs e)
+        {
+            figure = new LineFigure();
+        }
+
+        private void SquareButton_Click(object sender, EventArgs e)
+        {
+            figure = new SquareFigure();
+        }
+
+        private void RightNAngleButton_Click(object sender, EventArgs e)
+        {
+            figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
+        }
+
+        private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if(figure is NAngleFigure)
+            {
+                ((NAngleFigure)figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
+            }
+        }
+
+        private void EllipsButton_Click(object sender, EventArgs e)
+        {
+            figure = new EllipseFigure();
+        }
+
+        private void CircleButton_Click(object sender, EventArgs e)
+        {
+            figure = new CircleFigure();
+        }
     }
 }
