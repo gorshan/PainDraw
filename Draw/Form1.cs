@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace Draw
             mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             //mainBitmap.SetPixel(10, 10, Color.Black);
             graphics = Graphics.FromImage(mainBitmap);
-            pen = new Pen(Color.Black, 1);
+            pen = new Pen(Color.Black, 5);
             figure = new RectangleFigure();
             
             //Point point1 = new Point(0, 0);
@@ -52,27 +53,30 @@ namespace Draw
 
             if (mouseDown)
             {
-                tmpBitmap = (Bitmap)mainBitmap.Clone();
-                graphics = Graphics.FromImage(tmpBitmap);
-                figure.DrawFigure(graphics, pen, point, e.Location);                
-                pictureBox1.Image = tmpBitmap;
-                GC.Collect();
+                //tmpBitmap = (Bitmap)mainBitmap.Clone();
+                //graphics = Graphics.FromImage(tmpBitmap);
+
+                //figure.DrawFigure(graphics, pen, point, e.Location);
+                //pictureBox1.Image = tmpBitmap;
+                //GC.Collect();
 
                 //окружность
-                graphics.Clear(Color.White);
-                int r = (int)Math.Sqrt(Math.Pow(((double)e.Y - point.Y), 2.0) + Math.Pow(((double)e.X - point.X), 2.0));
-                int x;
-                int y;
-                x = point.X - r;
-                y = point.Y - r;
-                graphics.DrawEllipse(pen, x, y, r * 2, r * 2);
-                pictureBox1.Image = mainBitmap;
-                
+                //graphics.Clear(Color.White);
+                //int r = (int)Math.Sqrt(Math.Pow(((double)e.Y - point.Y), 2.0) + Math.Pow(((double)e.X - point.X), 2.0));
+                //int x;
+                //int y;
+                //x = point.X - r;
+                //y = point.Y - r;
+                //graphics.DrawEllipse(pen, x, y, r * 2, r * 2);
+                //pictureBox1.Image = mainBitmap;
+
 
                 //Brush
-                //graphics.DrawLine(pen, point, e.Location);
-                //pictureBox1.Image = mainBitmap;
-                //point = e.Location;
+                pen.StartCap = LineCap.Round;
+                pen.EndCap = LineCap.Round;
+                graphics.DrawLine(pen, point, e.Location);
+                pictureBox1.Image = mainBitmap;
+                point = e.Location;
 
 
                 //if (MouseDown == true)
@@ -100,54 +104,113 @@ namespace Draw
         {
             mainBitmap = tmpBitmap;
             mouseDown = false;
-        }
-
-        private void RightTriangleButton_Click(object sender, EventArgs e)
-        {
-            figure = new RightTriangleFigure();
-        }
-
-        private void RectangleButton_Click(object sender, EventArgs e)
-        {
-            figure = new RectangleFigure();
-        }
-
-        private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
-        {
-            figure = new IsoscelesTriangleFigure();
-        }
-
-        private void LineButton_Click(object sender, EventArgs e)
-        {
-            figure = new LineFigure();
-        }
-
-        private void SquareButton_Click(object sender, EventArgs e)
-        {
-            figure = new SquareFigure();
-        }
-
-        private void RightNAngleButton_Click(object sender, EventArgs e)
-        {
-            figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
-        }
-
-        private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            if(figure is NAngleFigure)
-            {
-                ((NAngleFigure)figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
-            }
-        }
-
-        private void EllipsButton_Click(object sender, EventArgs e)
-        {
-            figure = new EllipseFigure();
-        }
-
-        private void CircleButton_Click(object sender, EventArgs e)
-        {
-            figure = new CircleFigure();
-        }
+        }
+
+
+
+        private void RightTriangleButton_Click(object sender, EventArgs e)
+
+        {
+
+            figure = new RightTriangleFigure();
+
+        }
+
+
+
+        private void RectangleButton_Click(object sender, EventArgs e)
+
+        {
+
+            figure = new RectangleFigure();
+
+        }
+
+
+
+        private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
+
+        {
+
+            figure = new IsoscelesTriangleFigure();
+
+        }
+
+
+
+        private void LineButton_Click(object sender, EventArgs e)
+
+        {
+
+            figure = new LineFigure();
+
+        }
+
+
+
+        private void SquareButton_Click(object sender, EventArgs e)
+
+        {
+
+            figure = new SquareFigure();
+
+        }
+
+
+
+        private void RightNAngleButton_Click(object sender, EventArgs e)
+
+        {
+
+            figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
+
+        }
+
+
+
+        private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
+
+        {
+
+            if(figure is NAngleFigure)
+
+            {
+
+                ((NAngleFigure)figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
+
+            }
+
+        }
+
+
+
+        private void EllipsButton_Click(object sender, EventArgs e)
+
+        {
+
+            figure = new EllipseFigure();
+
+        }
+
+
+
+        private void CircleButton_Click(object sender, EventArgs e)
+
+        {
+
+            figure = new CircleFigure();
+
+        }
+
+        private void PenButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.Image = mainBitmap;
+        }
     }
 }
