@@ -77,14 +77,7 @@ namespace Draw
                 //graphics.DrawPolygon(pen, points);
                 //pictureBox1.Image = mainBitmap;
 
-                //равнобедренный треугольник
-                //graphics.Clear(Color.White);
-                //PointF[] points = new PointF[3];
-                //points[0] = point;
-                //points[1] = new Point(2*point.X-e.X, e.Y);
-                //points[2] = e.Location;
-                //graphics.DrawPolygon(pen, points);
-                //pictureBox1.Image = mainBitmap;
+                
 
                 //прямая
                 //graphics.Clear(Color.White);
@@ -158,6 +151,11 @@ namespace Draw
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
         {
             figure = new IsoscelesTriangleFigure();
+        }
+
+        private void LineButton_Click(object sender, EventArgs e)
+        {
+            figure = new LineFigure();
         }
     }
 }
