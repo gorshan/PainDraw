@@ -37,7 +37,7 @@ namespace Draw
             //mainBitmap.SetPixel(10, 10, Color.Black);
             graphics = Graphics.FromImage(mainBitmap);
             pen = new Pen(Color.Black, WigthScrollBar.Value);
-            figure = new RectangleFigure();
+            figure = new PenFigure();
             
             //Point point1 = new Point(0, 0);
             //Point point2 = new Point(300, 300);
@@ -46,7 +46,7 @@ namespace Draw
             pictureBox1.Image = mainBitmap;
             point = new Point(0, 0);
             mouseDown = false;
-            penButton = true;
+            //penButton = false;
             widthText.Text = WigthScrollBar.Value + "";
         }
 
@@ -215,14 +215,11 @@ namespace Draw
             //penButton = true;
         }
 
-        private void PenButton_Leave(object sender, EventArgs e)
-        {
-            penButton = false;
-        }
+        
 
         private void PenButton_Click(object sender, EventArgs e)
         {
-            penButton = true;
+            figure = new PenFigure();
         }
 
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)

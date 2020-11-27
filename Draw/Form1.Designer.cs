@@ -70,7 +70,6 @@
             this.PenButton.Text = "Pen";
             this.PenButton.UseVisualStyleBackColor = true;
             this.PenButton.Click += new System.EventHandler(this.PenButton_Click);
-            this.PenButton.Leave += new System.EventHandler(this.PenButton_Leave);
             // 
             // LineButton
             // 
