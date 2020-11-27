@@ -187,7 +187,9 @@ namespace Draw
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            
+            graphics = Graphics.FromImage(mainBitmap);
+            graphics.Clear(Color.White);
+            pictureBox1.Image = mainBitmap;
         }
 
         
