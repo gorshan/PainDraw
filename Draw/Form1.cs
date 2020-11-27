@@ -34,14 +34,9 @@ namespace Draw
         private void Form1_Load(object sender, EventArgs e)
         {
             mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            //mainBitmap.SetPixel(10, 10, Color.Black);
             graphics = Graphics.FromImage(mainBitmap);
-            pen = new Pen(Color.Black, WigthScrollBar.Value);
-            figure = new PenFigure();
-            
-            //Point point1 = new Point(0, 0);
-            //Point point2 = new Point(300, 300);
-            //graphics.DrawLine(pen, point1, point2);
+            pen = new Pen(Color.Black, 1);
+            figure = new RectangleFigure();
 
             pictureBox1.Image = mainBitmap;
             point = new Point(0, 0);
@@ -61,29 +56,19 @@ namespace Draw
                     tmpBitmap = (Bitmap)mainBitmap.Clone();
                     graphics = Graphics.FromImage(tmpBitmap);
 
-                    figure.DrawFigure(graphics, pen, point, e.Location);
-                    pictureBox1.Image = tmpBitmap;
-                    GC.Collect();
-                }
-                if (penButton == true)
-                {
-                    tmpBitmap = (Bitmap)mainBitmap.Clone();
-                    pen.StartCap = LineCap.Round;
-                    pen.EndCap = LineCap.Round;
-                    graphics.DrawLine(pen, point, e.Location);
-                    pictureBox1.Image = mainBitmap;
-                    point = e.Location;
-                }
+                //окружность
+                graphics.Clear(Color.White);
+                int r = (int)Math.Sqrt(Math.Pow(((double)e.Y - point.Y), 2.0) + Math.Pow(((double)e.X - point.X), 2.0));
+                int x;
+                int y;
+                x = point.X - r;
+                y = point.Y - r;
+                graphics.DrawEllipse(pen, x, y, r * 2, r * 2);
+                pictureBox1.Image = mainBitmap;
                 
 
-                //окружность, теперь из центра
-                //graphics.Clear(Color.White);
-                //int r = (int)Math.Sqrt(Math.Pow(((double)e.Y - point.Y), 2.0) + Math.Pow(((double)e.X - point.X), 2.0));
-                //int x;
-                //int y;
-                //x = point.X - r;
-                //y = point.Y - r;
-                //graphics.DrawEllipse(pen, x, y, r * 2, r * 2);
+                //Brush
+                //graphics.DrawLine(pen, point, e.Location);
                 //pictureBox1.Image = mainBitmap;
 
 
