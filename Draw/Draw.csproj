@@ -62,6 +62,7 @@
     <Compile Include="Figures\RectangleFigure.cs" />
     <Compile Include="Figures\RightTriangleFigure.cs" />
     <Compile Include="Figures\SquareFigure.cs" />
+    <Compile Include="Figures\Triangle.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
