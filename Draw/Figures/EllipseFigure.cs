@@ -9,11 +9,7 @@ namespace Draw.Figures
 {
     public class EllipseFigure : IFigure
     {
-        public void DrawFigure(Graphics graphics, Pen pen, Point startPoint, Point endPoint)
-        {
-            graphics.DrawEllipse(pen, startPoint.X, startPoint.Y, endPoint.X - startPoint.X, endPoint.Y - startPoint.Y);
-        }
-
+        
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {
             Point[] points = new Point[4];

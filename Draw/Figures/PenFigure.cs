@@ -16,23 +16,7 @@ namespace Draw.Figures
         {
             points = new LinkedList<Point>();
         }
-        public void DrawFigure(Graphics graphics, Pen pen, Point startPoint, Point endPoint)
-        {
-            if (point != null)
-            {
-                pen.StartCap = LineCap.Round;
-                pen.EndCap = LineCap.Round;
-                graphics.DrawLine(pen, point, endPoint);
-            }
-            else
-            {
-                pen.StartCap = LineCap.Round;
-                pen.EndCap = LineCap.Round;
-                graphics.DrawLine(pen, startPoint, endPoint);                
-            }
-            
-            point = endPoint;
-        }
+       
 
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {

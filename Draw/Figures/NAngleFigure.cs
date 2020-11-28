@@ -28,9 +28,5 @@ namespace Draw.Figures
             return points;
         }
 
-        public void DrawFigure(Graphics graphics, Pen pen, Point startPoint, Point endPoint)
-        {
-            graphics.DrawPolygon(pen, GetPoints(startPoint, endPoint));
-        }
     }
 }

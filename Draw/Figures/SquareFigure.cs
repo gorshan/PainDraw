@@ -9,11 +9,7 @@ namespace Draw.Figures
 {
     public class SquareFigure : IFigure
     {
-        public void DrawFigure(Graphics graphics, Pen pen, Point startPoint, Point endPoint)
-        {
-            graphics.DrawPolygon(pen, GetPoints(startPoint, endPoint));
-        }
-
+       
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {
             int a = endPoint.Y - startPoint.Y;
