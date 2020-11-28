@@ -53,16 +53,6 @@ namespace Draw
                 canvas.DrawFigure(figure.GetPoints(point, e.Location));
                 pictureBox1.Image = canvas.GetTmpImage();
 
-
-                //Brush
-                //graphics.DrawLine(pen, point, e.Location);
-                //pictureBox1.Image = mainBitmap;
-
-
-                //Brush
-
-
-
                 //if (MouseDown == true)
                 //{
                 //    tmpBitmap = (Bitmap)mainBitmap.Clone();
