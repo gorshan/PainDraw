@@ -14,7 +14,7 @@ namespace Draw.Figures
             graphics.DrawPolygon(pen, GetPoints(startPoint, endPoint));
         }
 
-        private Point[] GetPoints(Point startPoint, Point endPoint)
+        public Point[] GetPoints(Point startPoint, Point endPoint)
         {
             Point[] points = new Point[3];
             points[0] = startPoint;

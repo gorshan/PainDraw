@@ -47,6 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Canvases\Canvas.cs" />
+    <Compile Include="Canvases\AngleFiguresDrawer.cs" />
+    <Compile Include="Canvases\EllipseDrawer.cs" />
+    <Compile Include="Canvases\IDrawer.cs" />
+    <Compile Include="Canvases\PenDrawer.cs" />
     <Compile Include="Figures\CircleFigure.cs" />
     <Compile Include="Figures\EllipseFigure.cs" />
     <Compile Include="Figures\IFigure.cs" />

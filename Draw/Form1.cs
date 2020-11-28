@@ -1,4 +1,5 @@
-﻿using Draw.Figures;
+﻿using Draw.Canvases;
+using Draw.Figures;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ namespace Draw
         Point point;
         bool mouseDown;
         bool penButton;
+        Canvas canvas; 
         IFigure figure;
 
         public Form1()
@@ -33,15 +35,12 @@ namespace Draw
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            graphics = Graphics.FromImage(mainBitmap);
-            pen = new Pen(Color.Black, 1);
+            canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
             figure = new RectangleFigure();
 
-            pictureBox1.Image = mainBitmap;
+            pictureBox1.Image = canvas.GetImage();
             point = new Point(0, 0);
             mouseDown = false;
-            //penButton = false;
             widthText.Text = WigthScrollBar.Value + "";
         }
 
@@ -51,12 +50,8 @@ namespace Draw
 
             if (mouseDown)
             {
-
-                tmpBitmap = (Bitmap)mainBitmap.Clone();
-                graphics = Graphics.FromImage(tmpBitmap);
-                figure.DrawFigure(graphics, pen, point, e.Location);
-                pictureBox1.Image = tmpBitmap;
-                GC.Collect();
+                canvas.DrawFigure(figure.GetPoints(point, e.Location));
+                pictureBox1.Image = canvas.GetTmpImage();
 
 
                 //Brush
@@ -86,12 +81,13 @@ namespace Draw
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             point = e.Location;
+            canvas.StartDraw(figure);
             mouseDown = true;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            mainBitmap = tmpBitmap;
+            canvas.EndDraw(figure);
             mouseDown = false;
         }
 
@@ -187,9 +183,8 @@ namespace Draw
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            graphics = Graphics.FromImage(mainBitmap);
-            graphics.Clear(Color.White);
-            pictureBox1.Image = mainBitmap;
+            canvas.Clear();            
+            pictureBox1.Image = canvas.GetImage();
         }
 
         
@@ -201,7 +196,7 @@ namespace Draw
 
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            pen.Width = WigthScrollBar.Value;
+            canvas.Pen.Width = WigthScrollBar.Value;
             widthText.Text = WigthScrollBar.Value + "";
         }
 

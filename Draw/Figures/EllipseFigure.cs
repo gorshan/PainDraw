@@ -13,5 +13,15 @@ namespace Draw.Figures
         {
             graphics.DrawEllipse(pen, startPoint.X, startPoint.Y, endPoint.X - startPoint.X, endPoint.Y - startPoint.Y);
         }
+
+        public Point[] GetPoints(Point startPoint, Point endPoint)
+        {
+            Point[] points = new Point[4];
+            points[0] = new Point(startPoint.X);
+            points[1] = new Point(startPoint.Y);
+            points[2] = new Point(endPoint.X - startPoint.X);
+            points[3] = new Point(endPoint.Y - startPoint.Y);
+            return points;
+        }
     }
 }

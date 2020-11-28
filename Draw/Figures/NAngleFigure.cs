@@ -15,7 +15,7 @@ namespace Draw.Figures
         {
             N = n;
         }
-        private Point[] GetPoints(Point startPoint, Point endPoint)
+        public Point[] GetPoints(Point startPoint, Point endPoint)
         {
             double r;
             r = Math.Sqrt(Math.Pow(endPoint.Y - startPoint.Y, 2) + Math.Pow(endPoint.X - startPoint.X, 2));
