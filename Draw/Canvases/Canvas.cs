@@ -21,7 +21,7 @@ namespace Draw.Canvases
             _mainBitmap = new Bitmap(width, height);
             _graphics = Graphics.FromImage(_mainBitmap);
             Pen = new Pen(Color.Black, 1);
-            Drawer = new AngleFiguresDrawer();
+            Drawer = new PenDrawer();
         }
 
         public void StartDraw(IFigure figure)
@@ -66,7 +66,7 @@ namespace Draw.Canvases
             _mainBitmap = _tmpBitmap;
         }
 
-        internal void Clear()
+        public void Clear()
         {
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);

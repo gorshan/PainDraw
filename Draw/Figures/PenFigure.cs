@@ -10,7 +10,6 @@ namespace Draw.Figures
 {
     public class PenFigure : IFigure
     {
-        private Point point;
         private LinkedList<Point> points;
         public PenFigure()
         {

@@ -30,7 +30,7 @@ namespace Draw
         private void Form1_Load(object sender, EventArgs e)
         {
             Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
-            Figure = new RectangleFigure();
+            Figure = new PenFigure();
 
             pictureBox1.Image = Canvas.GetImage();
             _lastPoint = new Point(0, 0);
