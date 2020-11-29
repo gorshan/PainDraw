@@ -196,5 +196,9 @@ namespace Draw
 
         }
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            //тут надо переопределить размеры, не пересоздавая холст
+        }
     }
 }
