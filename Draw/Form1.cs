@@ -18,7 +18,7 @@ namespace Draw
     {
         private Point _lastPoint;
         private bool _mouseDown;
-        Point point1;
+        private Point _joinPoint;
         public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
         
@@ -61,8 +61,7 @@ namespace Draw
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             Canvas.EndDraw(Figure);
-            point1 = e.Location;
-
+            _joinPoint = e.Location;
             _mouseDown = false;
         }
 
