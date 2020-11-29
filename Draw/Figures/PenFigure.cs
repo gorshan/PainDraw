@@ -19,6 +19,22 @@ namespace Draw.Figures
 
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {
+            //if (point != null)
+            //{
+            //    pen.StartCap = LineCap.Round;
+            //    pen.EndCap = LineCap.Round;
+            //    graphics.DrawLine(pen, point, endPoint);
+            //}
+            //else
+            //{
+            //    pen.StartCap = LineCap.Round;
+            //    pen.EndCap = LineCap.Round;
+            //    graphics.DrawLine(pen, startPoint, endPoint);
+            //}
+
+            //point = endPoint;
+
+
             if (!(points.Contains(startPoint)))
             {
                 points.AddLast(startPoint);
