@@ -18,6 +18,7 @@ namespace Draw
     {
         private Point _lastPoint;
         private bool _mouseDown;
+        Point point1;
         public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
         
@@ -60,6 +61,7 @@ namespace Draw
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             Canvas.EndDraw(Figure);
+            point1 = e.Location;
 
             _mouseDown = false;
         }
@@ -206,12 +208,12 @@ namespace Draw
 
         private void NAngleByPointsNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void PolyLine_Click(object sender, EventArgs e)
         {
-          // figureByPoints = new PolylineByPointsFigure();
+            Figure = new PolylineByPointsFigure();
         }
 
         private void ClearPoints(int count, List<Point> points)

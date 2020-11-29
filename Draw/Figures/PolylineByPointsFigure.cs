@@ -7,22 +7,20 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    class PolylineByPointsFigure : FigureByPoints
+   public class PolylineByPointsFigure : IFigure
     {
-        public override void DrawFigure(Graphics graphics, Pen pen,List<Point> points)
-        {
-            Point[] point = GetPoints(points);
-            graphics.DrawLine(pen, point[0].X, point[0].Y, point[1].X, point[1].Y);
-        }
-
-        private Point[] GetPoints(List<Point> points)
+        public Point[] GetPoints(Point startpoint, Point endpoint)
         {
             Point[] point = new Point[2];
-            //point[0] = ;
-            //point[1] = endPoint;
-            if (point[1].X == 0 && point[1].Y == 0)
+           if (endpoint.X == 0 && endpoint.Y == 0)
             {
+                point[0] = startpoint;
                 point[1] = point[0];
+            }
+           else
+            {
+                point[0] = startpoint;
+                point[1] = endpoint;
             }
             return point;
         }
