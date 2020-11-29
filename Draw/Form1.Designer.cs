@@ -45,6 +45,7 @@
             this.widthText = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.colorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -111,7 +112,7 @@
             this.CircleButton.Location = new System.Drawing.Point(395, 23);
             this.CircleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CircleButton.Name = "CircleButton";
-            this.CircleButton.Size = new System.Drawing.Size(75, 23);
+            this.CircleButton.Size = new System.Drawing.Size(75, 22);
             this.CircleButton.TabIndex = 5;
             this.CircleButton.Text = "Circle";
             this.CircleButton.UseVisualStyleBackColor = true;
@@ -221,7 +222,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(150, 72);
+            this.button1.Location = new System.Drawing.Point(187, 53);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
@@ -229,11 +230,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // colorLabel
+            // 
+            this.colorLabel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.colorLabel.Location = new System.Drawing.Point(187, 76);
+            this.colorLabel.Name = "colorLabel";
+            this.colorLabel.Size = new System.Drawing.Size(75, 10);
+            this.colorLabel.TabIndex = 19;
+            this.colorLabel.Text = "    ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 645);
+            this.Controls.Add(this.colorLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.widthText);
             this.Controls.Add(this.WigthScrollBar);
@@ -281,6 +292,7 @@
         private System.Windows.Forms.TextBox widthText;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label colorLabel;
     }
 }
 

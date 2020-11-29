@@ -18,15 +18,16 @@ namespace Draw
     {
         private Point _lastPoint;
         private bool _mouseDown;
-        public Canvas Canvas { get; private set; } 
+        public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
+        
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
@@ -127,7 +128,7 @@ namespace Draw
 
         {
 
-            Figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
+            Figure = new NAngleFigure(Convert.ToInt32(NAngleNumericUpDown.Value));
 
         }
 
@@ -136,7 +137,7 @@ namespace Draw
 
         {
 
-            if(Figure is NAngleFigure)
+            if (Figure is NAngleFigure)
 
             {
 
@@ -164,21 +165,20 @@ namespace Draw
 
         }
 
-        
+
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            Canvas.Clear();            
+            Canvas.Clear();
             pictureBox1.Image = Canvas.GetImage();
         }
 
-        
+
 
         private void PenButton_Click(object sender, EventArgs e)
         {
             Figure = new PenFigure();
         }
-
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             Canvas.Pen.Width = WigthScrollBar.Value;
@@ -190,9 +190,11 @@ namespace Draw
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
 
-                button1.BackColor = colorDialog1.Color;
-                Canvas.Pen.Color = colorDialog1.Color;
+            //button1.BackColor = colorDialog1.Color;
+            Canvas.Pen.Color = colorDialog1.Color;
+            colorLabel.BackColor = colorDialog1.Color;
 
         }
+
     }
 }
