@@ -40,6 +40,242 @@
             this.NAngleButton = new System.Windows.Forms.Button();
             this.RightNAngleButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
+            this.PenWigth = new System.Windows.Forms.ProgressBar();
+            this.NAngleNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.TriangleByPoints = new System.Windows.Forms.Button();
+            this.NAngleByPointsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PolyLine = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.pictureBox1.Location = new System.Drawing.Point(14, 140);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1148, 651);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            // 
+            // PenButton
+            // 
+            this.PenButton.Location = new System.Drawing.Point(78, 29);
+            this.PenButton.Name = "PenButton";
+            this.PenButton.Size = new System.Drawing.Size(84, 29);
+            this.PenButton.TabIndex = 1;
+            this.PenButton.Text = "Pen";
+            this.PenButton.UseVisualStyleBackColor = true;
+            // 
+            // LineButton
+            // 
+            this.LineButton.Location = new System.Drawing.Point(170, 29);
+            this.LineButton.Name = "LineButton";
+            this.LineButton.Size = new System.Drawing.Size(84, 29);
+            this.LineButton.TabIndex = 2;
+            this.LineButton.Text = "Line";
+            this.LineButton.UseVisualStyleBackColor = true;
+            this.LineButton.Click += new System.EventHandler(this.LineButton_Click);
+            // 
+            // RectangleButton
+            // 
+            this.RectangleButton.Location = new System.Drawing.Point(261, 28);
+            this.RectangleButton.Name = "RectangleButton";
+            this.RectangleButton.Size = new System.Drawing.Size(84, 29);
+            this.RectangleButton.TabIndex = 3;
+            this.RectangleButton.Text = "Rectangle";
+            this.RectangleButton.UseVisualStyleBackColor = true;
+            this.RectangleButton.Click += new System.EventHandler(this.RectangleButton_Click);
+            // 
+            // SquareButton
+            // 
+            this.SquareButton.Location = new System.Drawing.Point(352, 28);
+            this.SquareButton.Name = "SquareButton";
+            this.SquareButton.Size = new System.Drawing.Size(84, 29);
+            this.SquareButton.TabIndex = 4;
+            this.SquareButton.Text = "Square";
+            this.SquareButton.UseVisualStyleBackColor = true;
+            this.SquareButton.Click += new System.EventHandler(this.SquareButton_Click);
+            // 
+            // CircleButton
+            // 
+            this.CircleButton.Location = new System.Drawing.Point(444, 29);
+            this.CircleButton.Name = "CircleButton";
+            this.CircleButton.Size = new System.Drawing.Size(84, 29);
+            this.CircleButton.TabIndex = 5;
+            this.CircleButton.Text = "Circle";
+            this.CircleButton.UseVisualStyleBackColor = true;
+            this.CircleButton.Click += new System.EventHandler(this.CircleButton_Click);
+            // 
+            // EllipsButton
+            // 
+            this.EllipsButton.Location = new System.Drawing.Point(536, 29);
+            this.EllipsButton.Name = "EllipsButton";
+            this.EllipsButton.Size = new System.Drawing.Size(84, 29);
+            this.EllipsButton.TabIndex = 6;
+            this.EllipsButton.Text = "Ellips";
+            this.EllipsButton.UseVisualStyleBackColor = true;
+            this.EllipsButton.Click += new System.EventHandler(this.EllipsButton_Click);
+            // 
+            // IsoscelesTriangleButton
+            // 
+            this.IsoscelesTriangleButton.Location = new System.Drawing.Point(627, 29);
+            this.IsoscelesTriangleButton.Name = "IsoscelesTriangleButton";
+            this.IsoscelesTriangleButton.Size = new System.Drawing.Size(87, 78);
+            this.IsoscelesTriangleButton.TabIndex = 7;
+            this.IsoscelesTriangleButton.Text = "IsoscelesTriangle";
+            this.IsoscelesTriangleButton.UseVisualStyleBackColor = true;
+            this.IsoscelesTriangleButton.Click += new System.EventHandler(this.IsoscelesTriangleButton_Click);
+            // 
+            // RightTriangleButton
+            // 
+            this.RightTriangleButton.Location = new System.Drawing.Point(720, 29);
+            this.RightTriangleButton.Name = "RightTriangleButton";
+            this.RightTriangleButton.Size = new System.Drawing.Size(84, 29);
+            this.RightTriangleButton.TabIndex = 8;
+            this.RightTriangleButton.Text = "RightTriangle";
+            this.RightTriangleButton.UseVisualStyleBackColor = true;
+            this.RightTriangleButton.Click += new System.EventHandler(this.RightTriangleButton_Click);
+            // 
+            // NAngleButton
+            // 
+            this.NAngleButton.Location = new System.Drawing.Point(813, 29);
+            this.NAngleButton.Name = "NAngleButton";
+            this.NAngleButton.Size = new System.Drawing.Size(108, 60);
+            this.NAngleButton.TabIndex = 9;
+            this.NAngleButton.Text = "N-angle";
+            this.NAngleButton.UseVisualStyleBackColor = true;
+            this.NAngleButton.Click += new System.EventHandler(this.NAngleButton_Click);
+            // 
+            // RightNAngleButton
+            // 
+            this.RightNAngleButton.Location = new System.Drawing.Point(942, 29);
+            this.RightNAngleButton.Name = "RightNAngleButton";
+            this.RightNAngleButton.Size = new System.Drawing.Size(88, 60);
+            this.RightNAngleButton.TabIndex = 10;
+            this.RightNAngleButton.Text = "Right N-angle";
+            this.RightNAngleButton.UseVisualStyleBackColor = true;
+            this.RightNAngleButton.Click += new System.EventHandler(this.RightNAngleButton_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(14, 3);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(58, 55);
+            this.ClearButton.TabIndex = 12;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            // 
+            // PenWigth
+            // 
+            this.PenWigth.Location = new System.Drawing.Point(54, 91);
+            this.PenWigth.Name = "PenWigth";
+            this.PenWigth.Size = new System.Drawing.Size(128, 17);
+            this.PenWigth.TabIndex = 14;
+            // 
+            // NAngleNumericUpDown
+            // 
+            this.NAngleNumericUpDown.Location = new System.Drawing.Point(1038, 31);
+            this.NAngleNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NAngleNumericUpDown.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.NAngleNumericUpDown.Name = "NAngleNumericUpDown";
+            this.NAngleNumericUpDown.Size = new System.Drawing.Size(80, 26);
+            this.NAngleNumericUpDown.TabIndex = 15;
+            this.NAngleNumericUpDown.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.NAngleNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleNumericUpDown_ValueChanged);
+            // 
+            // TriangleByPoints
+            // 
+            this.TriangleByPoints.Location = new System.Drawing.Point(720, 64);
+            this.TriangleByPoints.Name = "TriangleByPoints";
+            this.TriangleByPoints.Size = new System.Drawing.Size(84, 36);
+            this.TriangleByPoints.TabIndex = 16;
+            this.TriangleByPoints.Text = "TriangleByPoints";
+            this.TriangleByPoints.UseVisualStyleBackColor = true;
+            this.TriangleByPoints.Click += new System.EventHandler(this.TriangleByPoints_Click);
+            // 
+            // NAngleByPointsNumericUpDown
+            // 
+            this.NAngleByPointsNumericUpDown.Location = new System.Drawing.Point(813, 96);
+            this.NAngleByPointsNumericUpDown.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.NAngleByPointsNumericUpDown.Name = "NAngleByPointsNumericUpDown";
+            this.NAngleByPointsNumericUpDown.Size = new System.Drawing.Size(108, 26);
+            this.NAngleByPointsNumericUpDown.TabIndex = 17;
+            this.NAngleByPointsNumericUpDown.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.NAngleByPointsNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleByPointsNumericUpDown_ValueChanged);
+            // 
+            // PolyLine
+            // 
+            this.PolyLine.Location = new System.Drawing.Point(537, 67);
+            this.PolyLine.Name = "PolyLine";
+            this.PolyLine.Size = new System.Drawing.Size(84, 41);
+            this.PolyLine.TabIndex = 18;
+            this.PolyLine.Text = "PolyLine";
+            this.PolyLine.UseVisualStyleBackColor = true;
+            this.PolyLine.Click += new System.EventHandler(this.PolyLine_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1210, 806);
+            this.Controls.Add(this.PolyLine);
+            this.Controls.Add(this.NAngleByPointsNumericUpDown);
+            this.Controls.Add(this.TriangleByPoints);
+            this.Controls.Add(this.NAngleNumericUpDown);
+            this.Controls.Add(this.PenWigth);
+            this.Controls.Add(this.ClearButton);
+            this.Controls.Add(this.RightNAngleButton);
+            this.Controls.Add(this.NAngleButton);
+            this.Controls.Add(this.RightTriangleButton);
+            this.Controls.Add(this.IsoscelesTriangleButton);
+            this.Controls.Add(this.EllipsButton);
+            this.Controls.Add(this.CircleButton);
+            this.Controls.Add(this.SquareButton);
+            this.Controls.Add(this.RectangleButton);
+            this.Controls.Add(this.LineButton);
+            this.Controls.Add(this.PenButton);
+            this.Controls.Add(this.pictureBox1);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).EndInit();
+            this.ResumeLayout(false);
+
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PenButton = new System.Windows.Forms.Button();
+            this.LineButton = new System.Windows.Forms.Button();
+            this.RectangleButton = new System.Windows.Forms.Button();
+            this.SquareButton = new System.Windows.Forms.Button();
+            this.CircleButton = new System.Windows.Forms.Button();
+            this.EllipsButton = new System.Windows.Forms.Button();
+            this.IsoscelesTriangleButton = new System.Windows.Forms.Button();
+            this.RightTriangleButton = new System.Windows.Forms.Button();
+            this.NAngleButton = new System.Windows.Forms.Button();
+            this.RightNAngleButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
             this.NAngleNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.WigthScrollBar = new System.Windows.Forms.HScrollBar();
             this.widthText = new System.Windows.Forms.TextBox();
@@ -298,6 +534,9 @@
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label colorLabel;
         protected System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button TriangleByPoints;
+        private System.Windows.Forms.NumericUpDown NAngleByPointsNumericUpDown;
+        private System.Windows.Forms.Button PolyLine;
     }
 }
 

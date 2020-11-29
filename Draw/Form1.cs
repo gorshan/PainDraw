@@ -42,7 +42,6 @@ namespace Draw
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            List<Point> points1 = new List<Point>();
 
             if (_mouseDown)
             {
@@ -61,6 +60,7 @@ namespace Draw
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             Canvas.EndDraw(Figure);
+
             _mouseDown = false;
         }
 
@@ -187,6 +187,37 @@ namespace Draw
         {
             Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = Canvas.GetImage();
+        }
+
+        private void TriangleByPoints_Click(object sender, EventArgs e)
+        {
+            //figureByPoints = new TriangleByPointsFigure();
+            //n = 3;
+
+        }
+
+     
+
+        private void NAngleButton_Click(object sender, EventArgs e)
+        {
+           // figureByPoints = new NAngleByPointsFigure(Convert.ToInt32(NAngleByPointsNumericUpDown.Value));
+           //  n = Convert.ToInt32(NAngleByPointsNumericUpDown.Value);
+        }
+
+        private void NAngleByPointsNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PolyLine_Click(object sender, EventArgs e)
+        {
+          // figureByPoints = new PolylineByPointsFigure();
+        }
+
+        private void ClearPoints(int count, List<Point> points)
+        {
+            count = 0;
+            points.Clear();
         }
     }
 }
