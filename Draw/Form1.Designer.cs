@@ -45,6 +45,8 @@
             this.TriangleByPoints = new System.Windows.Forms.Button();
             this.NAngleByPointsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PolyLine = new System.Windows.Forms.Button();
+            this.WigthScrollBar = new System.Windows.Forms.HScrollBar();
+            this.widthText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
@@ -64,12 +66,14 @@
             // 
             // PenButton
             // 
-            this.PenButton.Location = new System.Drawing.Point(78, 29);
+            this.PenButton.Location = new System.Drawing.Point(69, 23);
+            this.PenButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PenButton.Name = "PenButton";
-            this.PenButton.Size = new System.Drawing.Size(84, 29);
+            this.PenButton.Size = new System.Drawing.Size(75, 23);
             this.PenButton.TabIndex = 1;
             this.PenButton.Text = "Pen";
             this.PenButton.UseVisualStyleBackColor = true;
+            this.PenButton.Click += new System.EventHandler(this.PenButton_Click);
             // 
             // LineButton
             // 
@@ -160,15 +164,7 @@
             this.RightNAngleButton.Text = "Right N-angle";
             this.RightNAngleButton.UseVisualStyleBackColor = true;
             this.RightNAngleButton.Click += new System.EventHandler(this.RightNAngleButton_Click);
-            // 
-            // ClearButton
-            // 
-            this.ClearButton.Location = new System.Drawing.Point(14, 3);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(58, 55);
-            this.ClearButton.TabIndex = 12;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
+           
             // 
             // PenWigth
             // 
@@ -233,36 +229,6 @@
             this.PolyLine.Text = "PolyLine";
             this.PolyLine.UseVisualStyleBackColor = true;
             this.PolyLine.Click += new System.EventHandler(this.PolyLine_Click);
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1210, 806);
-            this.Controls.Add(this.PolyLine);
-            this.Controls.Add(this.NAngleByPointsNumericUpDown);
-            this.Controls.Add(this.TriangleByPoints);
-            this.Controls.Add(this.NAngleNumericUpDown);
-            this.Controls.Add(this.PenWigth);
-            this.Controls.Add(this.ClearButton);
-            this.Controls.Add(this.RightNAngleButton);
-            this.Controls.Add(this.NAngleButton);
-            this.Controls.Add(this.RightTriangleButton);
-            this.Controls.Add(this.IsoscelesTriangleButton);
-            this.Controls.Add(this.EllipsButton);
-            this.Controls.Add(this.CircleButton);
-            this.Controls.Add(this.SquareButton);
-            this.Controls.Add(this.RectangleButton);
-            this.Controls.Add(this.LineButton);
-            this.Controls.Add(this.PenButton);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).EndInit();
-            this.ResumeLayout(false);
 
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PenButton = new System.Windows.Forms.Button();
@@ -421,6 +387,7 @@
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+
             // 
             // NAngleNumericUpDown
             // 
@@ -484,12 +451,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1210, 806);
+            this.Controls.Add(this.PolyLine);
+            this.Controls.Add(this.NAngleByPointsNumericUpDown);
+            this.Controls.Add(this.TriangleByPoints);
             this.ClientSize = new System.Drawing.Size(807, 524);
             this.Controls.Add(this.colorLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.widthText);
             this.Controls.Add(this.WigthScrollBar);
             this.Controls.Add(this.NAngleNumericUpDown);
+            this.Controls.Add(this.PenWigth);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.RightNAngleButton);
             this.Controls.Add(this.NAngleButton);
@@ -501,7 +473,9 @@
             this.Controls.Add(this.RectangleButton);
             this.Controls.Add(this.LineButton);
             this.Controls.Add(this.PenButton);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.widthText);
+            this.Controls.Add(this.pictureBox1);            
+            this.Controls.Add(this.WigthScrollBar);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -509,8 +483,10 @@
             this.SizeChanged += new System.EventHandler(this.Form1_ChangeSize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
+           
+           
 
         }
 
