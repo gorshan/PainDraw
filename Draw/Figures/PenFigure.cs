@@ -10,23 +10,42 @@ namespace Draw.Figures
 {
     public class PenFigure : IFigure
     {
-        private Point point;
-        public void DrawFigure(Graphics graphics, Pen pen, Point startPoint, Point endPoint)
+        private LinkedList<Point> points;
+        public PenFigure()
         {
-            if (point != null)
+            points = new LinkedList<Point>();
+        }
+       
+
+        public Point[] GetPoints(Point startPoint, Point endPoint)
+        {
+            //if (point != null)
+            //{
+            //    pen.StartCap = LineCap.Round;
+            //    pen.EndCap = LineCap.Round;
+            //    graphics.DrawLine(pen, point, endPoint);
+            //}
+            //else
+            //{
+            //    pen.StartCap = LineCap.Round;
+            //    pen.EndCap = LineCap.Round;
+            //    graphics.DrawLine(pen, startPoint, endPoint);
+            //}
+
+            //point = endPoint;
+
+
+            if (!(points.Contains(startPoint)))
             {
-                pen.StartCap = LineCap.Round;
-                pen.EndCap = LineCap.Round;
-                graphics.DrawLine(pen, point, endPoint);
+                points.AddLast(startPoint);
             }
-            else
-            {
-                pen.StartCap = LineCap.Round;
-                pen.EndCap = LineCap.Round;
-                graphics.DrawLine(pen, startPoint, endPoint);
-            }
-            
-            point = endPoint;
+            points.AddLast(endPoint);
+            return points.ToArray();
+        }
+
+        public void ClearPoints()
+        {
+            points.Clear();
         }
     }
 }

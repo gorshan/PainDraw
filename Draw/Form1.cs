@@ -1,4 +1,5 @@
-﻿using Draw.Figures;
+﻿using Draw.Canvases;
+using Draw.Figures;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,15 +16,10 @@ namespace Draw
 {
     public partial class Form1 : Form
     {
-
-        Bitmap mainBitmap;
-        Bitmap tmpBitmap;
-        Graphics graphics;
-        Pen pen;
-        Point point;
-        bool mouseDown;
-        bool penButton;
-        IFigure figure;
+        private Point _lastPoint;
+        private bool _mouseDown;
+        public Canvas Canvas { get; private set; } 
+        public IFigure Figure { get; private set; }
 
         public Form1()
         {
@@ -33,15 +29,12 @@ namespace Draw
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            graphics = Graphics.FromImage(mainBitmap);
-            pen = new Pen(Color.Black, 1);
-            figure = new RectangleFigure();
+            Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
+            Figure = new PenFigure();
 
-            pictureBox1.Image = mainBitmap;
-            point = new Point(0, 0);
-            mouseDown = false;
-            //penButton = false;
+            pictureBox1.Image = Canvas.GetImage();
+            _lastPoint = new Point(0, 0);
+            _mouseDown = false;
             widthText.Text = WigthScrollBar.Value + "";
         }
 
@@ -49,24 +42,10 @@ namespace Draw
         {
             List<Point> points1 = new List<Point>();
 
-            if (mouseDown)
+            if (_mouseDown)
             {
-
-                tmpBitmap = (Bitmap)mainBitmap.Clone();
-                graphics = Graphics.FromImage(tmpBitmap);
-                figure.DrawFigure(graphics, pen, point, e.Location);
-                pictureBox1.Image = tmpBitmap;
-                GC.Collect();
-
-
-                //Brush
-                //graphics.DrawLine(pen, point, e.Location);
-                //pictureBox1.Image = mainBitmap;
-
-
-                //Brush
-
-
+                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                pictureBox1.Image = Canvas.GetTmpImage();
 
                 //if (MouseDown == true)
                 //{
@@ -85,14 +64,15 @@ namespace Draw
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            point = e.Location;
-            mouseDown = true;
+            _lastPoint = e.Location;
+            Canvas.StartDraw(Figure);
+            _mouseDown = true;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            mainBitmap = tmpBitmap;
-            mouseDown = false;
+            Canvas.EndDraw(Figure);
+            _mouseDown = false;
         }
 
 
@@ -101,7 +81,7 @@ namespace Draw
 
         {
 
-            figure = new RightTriangleFigure();
+            Figure = new RightTriangleFigure();
 
         }
 
@@ -110,7 +90,7 @@ namespace Draw
 
         {
 
-            figure = new RectangleFigure();
+            Figure = new RectangleFigure();
 
         }
 
@@ -119,7 +99,7 @@ namespace Draw
 
         {
 
-            figure = new IsoscelesTriangleFigure();
+            Figure = new IsoscelesTriangleFigure();
 
         }
 
@@ -128,7 +108,7 @@ namespace Draw
 
         {
 
-            figure = new LineFigure();
+            Figure = new LineFigure();
 
         }
 
@@ -137,7 +117,7 @@ namespace Draw
 
         {
 
-            figure = new SquareFigure();
+            Figure = new SquareFigure();
 
         }
 
@@ -146,7 +126,7 @@ namespace Draw
 
         {
 
-            figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
+            Figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
 
         }
 
@@ -155,11 +135,11 @@ namespace Draw
 
         {
 
-            if(figure is NAngleFigure)
+            if(Figure is NAngleFigure)
 
             {
 
-                ((NAngleFigure)figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
+                ((NAngleFigure)Figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
 
             }
 
@@ -170,7 +150,7 @@ namespace Draw
 
         {
 
-            figure = new EllipseFigure();
+            Figure = new EllipseFigure();
 
         }
 
@@ -179,7 +159,7 @@ namespace Draw
 
         {
 
-            figure = new CircleFigure();
+            Figure = new CircleFigure();
 
         }
 
@@ -187,21 +167,20 @@ namespace Draw
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            graphics = Graphics.FromImage(mainBitmap);
-            graphics.Clear(Color.White);
-            pictureBox1.Image = mainBitmap;
+            Canvas.Clear();            
+            pictureBox1.Image = Canvas.GetImage();
         }
 
         
 
         private void PenButton_Click(object sender, EventArgs e)
         {
-            figure = new PenFigure();
+            Figure = new PenFigure();
         }
 
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            pen.Width = WigthScrollBar.Value;
+            Canvas.Pen.Width = WigthScrollBar.Value;
             widthText.Text = WigthScrollBar.Value + "";
         }
 

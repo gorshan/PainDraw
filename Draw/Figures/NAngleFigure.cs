@@ -15,7 +15,7 @@ namespace Draw.Figures
         {
             N = n;
         }
-        private Point[] GetPoints(Point startPoint, Point endPoint)
+        public Point[] GetPoints(Point startPoint, Point endPoint)
         {
             double r;
             r = Math.Sqrt(Math.Pow(endPoint.Y - startPoint.Y, 2) + Math.Pow(endPoint.X - startPoint.X, 2));
@@ -28,9 +28,5 @@ namespace Draw.Figures
             return points;
         }
 
-        public void DrawFigure(Graphics graphics, Pen pen, Point startPoint, Point endPoint)
-        {
-            graphics.DrawPolygon(pen, GetPoints(startPoint, endPoint));
-        }
     }
 }
