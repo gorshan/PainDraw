@@ -38,6 +38,7 @@ namespace Draw
             widthText.Text = WigthScrollBar.Value + "";
         }
 
+
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             List<Point> points1 = new List<Point>();
@@ -184,6 +185,14 @@ namespace Draw
             widthText.Text = WigthScrollBar.Value + "";
         }
 
-       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+
+                button1.BackColor = colorDialog1.Color;
+                Canvas.Pen.Color = colorDialog1.Color;
+
+        }
     }
 }

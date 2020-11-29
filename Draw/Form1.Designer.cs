@@ -43,6 +43,8 @@
             this.NAngleNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.WigthScrollBar = new System.Windows.Forms.HScrollBar();
             this.widthText = new System.Windows.Forms.TextBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -50,10 +52,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 112);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 113);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1020, 521);
+            this.pictureBox1.Size = new System.Drawing.Size(1020, 520);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -217,11 +219,22 @@
             this.widthText.Size = new System.Drawing.Size(39, 22);
             this.widthText.TabIndex = 17;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(150, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "color";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 645);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.widthText);
             this.Controls.Add(this.WigthScrollBar);
             this.Controls.Add(this.NAngleNumericUpDown);
@@ -266,6 +279,8 @@
         private System.Windows.Forms.NumericUpDown NAngleNumericUpDown;
         private System.Windows.Forms.HScrollBar WigthScrollBar;
         private System.Windows.Forms.TextBox widthText;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
