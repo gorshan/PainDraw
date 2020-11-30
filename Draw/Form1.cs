@@ -49,18 +49,7 @@ namespace Draw
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            //if (Figure is PolylineByPointsFigure)
-            //{
-            //    ((PolylineByPointsFigure)Figure).Points.AddLast(((MouseEventArgs)e).Location);
-            //    Canvas.DrawFigure(Figure.GetPoints(_lastPoint, ((MouseEventArgs)e).Location));
-            //}
-            //_lastPoint = ((MouseEventArgs)e).Location;
-            //Canvas.StartDraw(Figure);
-            //_mouseDown = true;
-        }
-
+        
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
 
