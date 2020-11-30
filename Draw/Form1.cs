@@ -49,6 +49,14 @@ namespace Draw
                 Canvas.DrawFigure(Figure);
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
+            if (_pipetteClick)
+            {
+                _lastPoint2 = e.Location;
+                Bitmap _tmpbitmap = Canvas.GetImage();
+                Color pixelColor = Canvas.Pen.Color;
+                pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
+                colorLabel2.BackColor = pixelColor;
+            }
         }
         
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
