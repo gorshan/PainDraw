@@ -18,15 +18,16 @@ namespace Draw
     {
         private Point _lastPoint;
         private bool _mouseDown;
-        public Canvas Canvas { get; private set; } 
+        public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
+        
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
@@ -38,6 +39,7 @@ namespace Draw
             widthText.Text = WigthScrollBar.Value + "";
         }
 
+
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             List<Point> points1 = new List<Point>();
@@ -46,19 +48,6 @@ namespace Draw
             {
                 Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
                 pictureBox1.Image = Canvas.GetTmpImage();
-
-                //if (MouseDown == true)
-                //{
-                //    tmpBitmap = (Bitmap)mainBitmap.Clone();
-                //    graphics = Graphics.FromImage(tmpBitmap);
-                // Point pointLine = new POint();
-                //    pictureBox1.Image = tmpBitmap;
-                //    pointLine = e.Location;
-                //    graphics.DrawLine(pen, pointLine.X, pointLine.Y, point[1].X, point[1].Y);
-                //    pointLine = e.Location;
-                //    GC.Collect();
-                //}
-
             }
         }
 
@@ -126,7 +115,7 @@ namespace Draw
 
         {
 
-            Figure = new NAngleFigure(Convert.ToInt32( NAngleNumericUpDown.Value));
+            Figure = new NAngleFigure(Convert.ToInt32(NAngleNumericUpDown.Value));
 
         }
 
@@ -135,7 +124,7 @@ namespace Draw
 
         {
 
-            if(Figure is NAngleFigure)
+            if (Figure is NAngleFigure)
 
             {
 
@@ -163,27 +152,41 @@ namespace Draw
 
         }
 
-        
+
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            Canvas.Clear();            
+            Canvas.Clear();
             pictureBox1.Image = Canvas.GetImage();
         }
 
-        
+
 
         private void PenButton_Click(object sender, EventArgs e)
         {
             Figure = new PenFigure();
         }
-
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             Canvas.Pen.Width = WigthScrollBar.Value;
             widthText.Text = WigthScrollBar.Value + "";
         }
 
-       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+
+            //button1.BackColor = colorDialog1.Color;
+            Canvas.Pen.Color = colorDialog1.Color;
+            colorLabel.BackColor = colorDialog1.Color;
+
+        }
+
+        private void Form1_ChangeSize(object sender, EventArgs e)
+        {
+            Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.Image = Canvas.GetImage();
+        }
     }
 }

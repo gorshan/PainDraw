@@ -71,5 +71,13 @@ namespace Draw.Canvases
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
         }
+
+        public void Resize(int width, int height)
+        {
+            Bitmap tmp = _mainBitmap;
+            _mainBitmap = new Bitmap(width,height);
+            Graphics.FromImage(_mainBitmap).DrawImage(tmp,new Point(0,0));
+            tmp.Dispose();
+        }
     }
 }
