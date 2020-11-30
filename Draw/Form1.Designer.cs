@@ -243,7 +243,6 @@
             this.PolyLine.Text = "PolyLine";
             this.PolyLine.UseVisualStyleBackColor = true;
             this.PolyLine.Click += new System.EventHandler(this.PolyLine_Click);
-<<<<<<< main
 
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PenButton = new System.Windows.Forms.Button();
@@ -403,8 +402,6 @@
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
 
-=======
->>>>>>> Fixed PolyLine
             // 
             // NAngleNumericUpDown
             // 
@@ -426,45 +423,38 @@
             // 
             // WigthScrollBar
             // 
-<<<<<<< main
-<<<<<<< main
+
             this.WigthScrollBar.Location = new System.Drawing.Point(22, 41);
             this.WigthScrollBar.Maximum = 50;
             this.WigthScrollBar.Minimum = 1;
             this.WigthScrollBar.Name = "WigthScrollBar";
             this.WigthScrollBar.Size = new System.Drawing.Size(104, 21);
-=======
+
             this.WigthScrollBar.Location = new System.Drawing.Point(20, 32);
-=======
-            this.WigthScrollBar.Location = new System.Drawing.Point(23, 40);
->>>>>>> Remove smt
+
             this.WigthScrollBar.Maximum = 50;
             this.WigthScrollBar.Minimum = 1;
             this.WigthScrollBar.Name = "WigthScrollBar";
             this.WigthScrollBar.Size = new System.Drawing.Size(93, 21);
->>>>>>> Fixed PolyLine
+
             this.WigthScrollBar.TabIndex = 16;
             this.WigthScrollBar.Value = 1;
             this.WigthScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.WigthScrollBar_Scroll);
             // 
             // widthText
             // 
-<<<<<<< main
-<<<<<<< main
+
             this.widthText.Location = new System.Drawing.Point(64, 60);
             this.widthText.Margin = new System.Windows.Forms.Padding(2);
             this.widthText.Name = "widthText";
             this.widthText.Size = new System.Drawing.Size(30, 20);
-=======
+
             this.widthText.Location = new System.Drawing.Point(57, 48);
             this.widthText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-=======
-            this.widthText.Location = new System.Drawing.Point(57, 61);
-            this.widthText.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> Remove smt
+
             this.widthText.Name = "widthText";
             this.widthText.Size = new System.Drawing.Size(27, 20);
->>>>>>> Fixed PolyLine
+
             this.widthText.TabIndex = 17;
             // 
             // button1
@@ -514,19 +504,13 @@
             this.Controls.Add(this.LineButton);
             this.Controls.Add(this.PenButton);
             this.Controls.Add(this.widthText);
-<<<<<<< main
-            this.Controls.Add(this.pictureBox1);            
-            this.Controls.Add(this.WigthScrollBar);
-            this.Margin = new System.Windows.Forms.Padding(2);
-=======
+
+
             this.Controls.Add(this.WigthScrollBar);
             this.Controls.Add(this.pictureBox1);
-<<<<<<< main
+
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
->>>>>>> Fixed PolyLine
-=======
-            this.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> Remove smt
+
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -555,14 +539,12 @@
         private System.Windows.Forms.NumericUpDown NAngleNumericUpDown;
         private System.Windows.Forms.HScrollBar WigthScrollBar;
         private System.Windows.Forms.TextBox widthText;
-<<<<<<< main
+
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label colorLabel;
         protected System.Windows.Forms.PictureBox pictureBox1;
-=======
 
->>>>>>> Remove smt
         private System.Windows.Forms.Button TriangleByPoints;
         private System.Windows.Forms.NumericUpDown NAngleByPointsNumericUpDown;
         private System.Windows.Forms.Button PolyLine;
