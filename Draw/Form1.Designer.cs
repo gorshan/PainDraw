@@ -270,7 +270,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.SizeChanged += new System.EventHandler(this.Form1_ResizeEnd);
+            this.SizeChanged += new System.EventHandler(this.Form1_ChangeSize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).EndInit();
             this.ResumeLayout(false);

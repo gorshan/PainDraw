@@ -183,7 +183,7 @@ namespace Draw
 
         }
 
-        private void Form1_ResizeEnd(object sender, EventArgs e)
+        private void Form1_ChangeSize(object sender, EventArgs e)
         {
             Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = Canvas.GetImage();
