@@ -9,9 +9,9 @@ namespace Draw.Canvases
         {
             pen.StartCap = LineCap.Round;
             pen.EndCap = LineCap.Round;
-            for(int i = 0; i < figurePoints.Length-1; i++)
+            for (int i = 0; i < figurePoints.Length - 1; i++)
             {
-            graphics.DrawLine(pen, figurePoints[i], figurePoints[i+1]);
+                graphics.DrawLine(pen, figurePoints[i], figurePoints[i + 1]);
 
             }
         }
