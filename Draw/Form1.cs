@@ -48,19 +48,6 @@ namespace Draw
             {
                 Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
                 pictureBox1.Image = Canvas.GetTmpImage();
-
-                //if (MouseDown == true)
-                //{
-                //    tmpBitmap = (Bitmap)mainBitmap.Clone();
-                //    graphics = Graphics.FromImage(tmpBitmap);
-                // Point pointLine = new POint();
-                //    pictureBox1.Image = tmpBitmap;
-                //    pointLine = e.Location;
-                //    graphics.DrawLine(pen, pointLine.X, pointLine.Y, point[1].X, point[1].Y);
-                //    pointLine = e.Location;
-                //    GC.Collect();
-                //}
-
             }
         }
 
@@ -196,9 +183,10 @@ namespace Draw
 
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
+        private void Form1_ResizeEnd(object sender, EventArgs e)
         {
-            //тут надо переопределить размеры, не пересоздавая холст
+            Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.Image = Canvas.GetImage();
         }
     }
 }
