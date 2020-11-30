@@ -165,6 +165,7 @@ namespace Draw
             //button1.BackColor = colorDialog1.Color;
             Canvas.Pen.Color = colorDialog1.Color;
             colorLabel.BackColor = colorDialog1.Color;
+
         }
 
         private void Form1_ChangeSize(object sender, EventArgs e)
