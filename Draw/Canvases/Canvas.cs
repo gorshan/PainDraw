@@ -26,6 +26,10 @@ namespace Draw.Canvases
 
         public void StartDraw(IFigure figure)
         {
+            if (figure is TriangleByPointsFigure)
+            {
+                Drawer = new AnglePointsDrawer();
+            }
             if (figure is EllipseFigure || figure is CircleFigure)
             {
                 if (!(Drawer is EllipseDrawer))
@@ -34,6 +38,10 @@ namespace Draw.Canvases
             {
                 if (!(Drawer is PenDrawer))
                     Drawer = new PenDrawer();
+            }
+            else if (figure is PolylineByPointsFigure)
+            {
+                Drawer = new PenDrawer();
             }
             else if (!(Drawer is AngleFiguresDrawer))
             {
@@ -63,6 +71,10 @@ namespace Draw.Canvases
         {
             if (figure is PenFigure)
                 ((PenFigure)figure).ClearPoints();
+            if (figure is TriangleByPointsFigure)
+            {
+                ((TriangleByPointsFigure)figure).Clear();
+            }
             _mainBitmap = _tmpBitmap;
         }
 
