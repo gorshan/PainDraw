@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Canvases\AngleByPointsDrawer.cs" />
+    <Compile Include="Canvases\AnglePointsDrawer.cs" />
+    <Compile Include="Canvases\PolyLineDrawer.cs" />
     <Compile Include="Canvases\Canvas.cs" />
     <Compile Include="Canvases\AngleFiguresDrawer.cs" />
     <Compile Include="Canvases\EllipseDrawer.cs" />

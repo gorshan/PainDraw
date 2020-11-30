@@ -4,15 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Draw.Figures;
 
 namespace Draw.Canvases
 {
-    public class PolyLineDrawer : IDrawer
+   public class AnglePointsDrawer :IDrawer
     {
+       
         public void DrawFigure(Graphics graphics, Pen pen, Point [] points)
         {
-            points[0] = points[1];
-            graphics.DrawLine(pen, points[0], points[1]);                   
+            if ((TriangleByPointsFigure)figure.GetLength == 3)
+
+            {
+                graphics.DrawLines(pen, points);
+
+            }
         }
     }
 }

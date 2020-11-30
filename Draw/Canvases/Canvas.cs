@@ -63,6 +63,10 @@ namespace Draw.Canvases
         {
             if (figure is PenFigure)
                 ((PenFigure)figure).ClearPoints();
+            if (figure is TriangleByPointsFigure)
+            {
+                ((TriangleByPointsFigure)figure).Clear();
+            }
             _mainBitmap = _tmpBitmap;
         }
 

@@ -12,15 +12,12 @@ namespace Draw.Figures
         public Point[] GetPoints(Point startpoint, Point endpoint)
         {
             Point[] point = new Point[2];
-           if (startpoint.X == 0 && startpoint.Y == 0)
+           if (endpoint.X == 0 && endpoint.Y == 0)
             {
-                //point[0] = startpoint;
-                //point[1] = point[0];
-              
-                point[1] = endpoint;
-                point[0] = point[1];
+                point[0] = startpoint;
+                point[1] = point[0];
             }
-           else
+            else
             {
                 point[0] = startpoint;
                 point[1] = endpoint;

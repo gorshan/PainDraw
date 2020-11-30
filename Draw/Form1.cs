@@ -62,6 +62,11 @@ namespace Draw
         {
             Canvas.EndDraw(Figure);
             _joinPoint = e.Location;
+            if (Figure is TriangleByPointsFigure || Figure is NAngleByPointsFigure)
+            {
+                (NAngleByPointsFigure).AddPoint(e.Location);
+                (TriangleByPointsFigure).AddPoint(e.Location);
+            }
             _mouseDown = false;
         }
 
@@ -192,8 +197,8 @@ namespace Draw
 
         private void TriangleByPoints_Click(object sender, EventArgs e)
         {
-            //figureByPoints = new TriangleByPointsFigure();
-            //n = 3;
+            Figure = new TriangleByPointsFigure();
+            
 
         }
 
@@ -201,7 +206,7 @@ namespace Draw
 
         private void NAngleButton_Click(object sender, EventArgs e)
         {
-           // figureByPoints = new NAngleByPointsFigure(Convert.ToInt32(NAngleByPointsNumericUpDown.Value));
+           Figure = new NAngleByPointsFigure(Convert.ToInt32(NAngleByPointsNumericUpDown.Value));
            //  n = Convert.ToInt32(NAngleByPointsNumericUpDown.Value);
         }
 
@@ -215,10 +220,6 @@ namespace Draw
             Figure = new PolylineByPointsFigure();
         }
 
-        private void ClearPoints(int count, List<Point> points)
-        {
-            count = 0;
-            points.Clear();
-        }
+     
     }
 }

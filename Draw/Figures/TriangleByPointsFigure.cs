@@ -9,22 +9,33 @@ using Draw.Figures;
 
 namespace Draw.Figures
 {
-    class TriangleByPointsFigure : FigureByPoints
+    public class TriangleByPointsFigure : IFigure
     {
-        public override void DrawFigure(Graphics graphics, Pen pen, List<Point> points)
+
+        public List<Point> Points { get; set; };
+        public N {get; set };
+        public Point[] GetPoints(List<Point> points)
         {
-                graphics.DrawLines(pen, GetPoints(points));
-            
-        }
-  
-        private Point [] GetPoints(List<Point> points)
-        {
-            Point[] pointsArray = new Point[4];
-            points.CopyTo(0, pointsArray, 0, 3);
-            pointsArray[3] = pointsArray[0];
-            return pointsArray;
+                Point[] pointsArray = new Point[4];
+                points.CopyTo(0, pointsArray, 0, N);
+                pointsArray[3] = pointsArray[0];
+                return pointsArray;
         }
 
+        public void AddPoint(Point point)
+        {
+            Points.Add(point);
+        }
+
+        public int GetLength(List<Point> points)
+        {
+        return points.Count;
+        }
+
+        public void Clear(List<Point> points)
+        {
+            points.Clear();
+        }
     }
 
 }
