@@ -12,8 +12,8 @@ namespace Draw.Figures
     public class TriangleByPointsFigure : IFigure
     {
 
-        public List<Point> Points { get; set; };
-        public N {get; set };
+        public List<Point> Points { get; set; }
+        public int N {get; set; }
         public Point[] GetPoints(List<Point> points)
         {
                 Point[] pointsArray = new Point[4];
@@ -27,14 +27,19 @@ namespace Draw.Figures
             Points.Add(point);
         }
 
-        public int GetLength(List<Point> points)
+        public int GetLength()
         {
-        return points.Count;
+        return Points.Count;
         }
 
-        public void Clear(List<Point> points)
+        public void Clear()
         {
-            points.Clear();
+            Points.Clear();
+        }
+
+        public Point[] GetPoints(Point startPoint, Point endPoint)
+        {
+            throw new NotImplementedException();
         }
     }
 

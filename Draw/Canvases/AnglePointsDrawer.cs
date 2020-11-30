@@ -13,12 +13,8 @@ namespace Draw.Canvases
        
         public void DrawFigure(Graphics graphics, Pen pen, Point [] points)
         {
-            if ((TriangleByPointsFigure)figure.GetLength == 3)
-
-            {
                 graphics.DrawLines(pen, points);
 
-            }
         }
     }
 }

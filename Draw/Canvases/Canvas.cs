@@ -35,6 +35,10 @@ namespace Draw.Canvases
                 if (!(Drawer is PenDrawer))
                     Drawer = new PenDrawer();
             }
+            else if (figure is PolylineByPointsFigure)
+            {
+                Drawer = new PenDrawer();
+            }
             else if (!(Drawer is AngleFiguresDrawer))
             {
                 Drawer = new AngleFiguresDrawer();

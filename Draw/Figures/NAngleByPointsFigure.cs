@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    class NAngleByPointsFigure : FigureByPoints
+    class NAngleByPointsFigure : IFigure
     {
         public int N { get; set; }
 
@@ -16,11 +16,6 @@ namespace Draw.Figures
             N = n;
         }
 
-        public override void DrawFigure(Graphics graphics, Pen pen, List<Point> points)
-        {
-            graphics.DrawLines(pen, GetPoints(points));
-
-        }
 
         private Point[] GetPoints(List<Point> points)
         {
@@ -29,6 +24,10 @@ namespace Draw.Figures
             pointsArray[N] = pointsArray[0];
             return pointsArray;
         }
-    
+
+        public Point[] GetPoints(Point startPoint, Point endPoint)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

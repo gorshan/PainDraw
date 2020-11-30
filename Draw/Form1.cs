@@ -18,7 +18,6 @@ namespace Draw
     {
         private Point _lastPoint;
         private bool _mouseDown;
-        private Point _joinPoint;
         public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
         
@@ -50,23 +49,45 @@ namespace Draw
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
         }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //if (Figure is PolylineByPointsFigure)
+            //{
+            //    ((PolylineByPointsFigure)Figure).Points.AddLast(((MouseEventArgs)e).Location);
+            //    Canvas.DrawFigure(Figure.GetPoints(_lastPoint, ((MouseEventArgs)e).Location));
+            //}
+            //_lastPoint = ((MouseEventArgs)e).Location;
+            //Canvas.StartDraw(Figure);
+            //_mouseDown = true;
+        }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            _lastPoint = e.Location;
-            Canvas.StartDraw(Figure);
+
             _mouseDown = true;
+            _lastPoint = e.Location;
+            if (Figure is PolylineByPointsFigure)
+            {
+                ((PolylineByPointsFigure)Figure).Points.AddLast(e.Location); 
+                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                pictureBox1.Image = Canvas.GetTmpImage();
+            }
+            Canvas.StartDraw(Figure);
         }
+
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            Canvas.EndDraw(Figure);
-            _joinPoint = e.Location;
-            if (Figure is TriangleByPointsFigure || Figure is NAngleByPointsFigure)
+            
+            if ( Figure is NAngleByPointsFigure)
             {
-                (NAngleByPointsFigure).AddPoint(e.Location);
-                (TriangleByPointsFigure).AddPoint(e.Location);
+                //((NAngleByPointsFigure)Figure).AddPoint(e.Location);                
             }
+            if (Figure is TriangleByPointsFigure)
+            {
+                ((TriangleByPointsFigure)Figure).AddPoint(e.Location);
+            }
+            Canvas.EndDraw(Figure);
             _mouseDown = false;
         }
 
@@ -164,6 +185,10 @@ namespace Draw
         {
             Canvas.Clear();
             pictureBox1.Image = Canvas.GetImage();
+            if(Figure is PolylineByPointsFigure)
+            {
+                ((PolylineByPointsFigure)Figure).Clesr();
+            }
         }
 
 
@@ -220,6 +245,5 @@ namespace Draw
             Figure = new PolylineByPointsFigure();
         }
 
-     
     }
 }
