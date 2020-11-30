@@ -26,6 +26,10 @@ namespace Draw.Canvases
 
         public void StartDraw(IFigure figure)
         {
+            if (figure is TriangleByPointsFigure)
+            {
+                Drawer = new AnglePointsDrawer();
+            }
             if (figure is EllipseFigure || figure is CircleFigure)
             {
                 if (!(Drawer is EllipseDrawer))

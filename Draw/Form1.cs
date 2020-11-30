@@ -61,6 +61,13 @@ namespace Draw
                 Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
+           else if (Figure is TriangleByPointsFigure)
+            {
+                ((TriangleByPointsFigure)Figure).Points.Add(e.Location);
+                Canvas.StartDraw(Figure);
+                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                pictureBox1.Image = Canvas.GetTmpImage();
+            }
             Canvas.StartDraw(Figure);
         }
 
@@ -68,14 +75,14 @@ namespace Draw
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             
-            if ( Figure is NAngleByPointsFigure)
-            {
-                //((NAngleByPointsFigure)Figure).AddPoint(e.Location);                
-            }
-            if (Figure is TriangleByPointsFigure)
-            {
-                ((TriangleByPointsFigure)Figure).AddPoint(e.Location);
-            }
+            //if ( Figure is NAngleByPointsFigure)
+            //{
+            //    //((NAngleByPointsFigure)Figure).AddPoint(e.Location);                
+            //}
+            //if (Figure is TriangleByPointsFigure)
+            //{
+            //    ((TriangleByPointsFigure)Figure).AddPoint(e.Location);
+            //}
             Canvas.EndDraw(Figure);
             _mouseDown = false;
         }

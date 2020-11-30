@@ -13,13 +13,27 @@ namespace Draw.Figures
     {
 
         public List<Point> Points { get; set; }
-        public int N {get; set; }
-        public Point[] GetPoints(List<Point> points)
+
+        public TriangleByPointsFigure()
         {
-                Point[] pointsArray = new Point[4];
-                points.CopyTo(0, pointsArray, 0, N);
-                pointsArray[3] = pointsArray[0];
-                return pointsArray;
+            Points = new List<Point>();
+        }
+
+        //public Point[] GetPoints(Point startpoint, Point endpoint)
+        //{
+        //        Point[] pointsArray = new Point[4];
+        //        Points.CopyTo(0, pointsArray, 0, 3);
+        //        pointsArray[3] = pointsArray[0];
+        //        return pointsArray;
+        //}
+
+        public Point[] GetPoints(Point startpoint, Point endpoint)
+        {
+
+            Point[] pointsArray = new Point[Points.Count + 2];
+            Points.CopyTo(pointsArray, 0);
+            pointsArray[pointsArray.Length - 1] = endpoint;
+            return Points.ToArray();
         }
 
         public void AddPoint(Point point)
@@ -37,10 +51,6 @@ namespace Draw.Figures
             Points.Clear();
         }
 
-        public Point[] GetPoints(Point startPoint, Point endPoint)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }
