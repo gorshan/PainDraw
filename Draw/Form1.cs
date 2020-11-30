@@ -17,10 +17,13 @@ namespace Draw
     public partial class Form1 : Form
     {
         private Point _lastPoint;
+        private Point _lastPoint2;
         private bool _mouseDown;
+
         public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
         
+
         public Form1()
         {
             InitializeComponent();
@@ -80,6 +83,9 @@ namespace Draw
         {           
             Canvas.EndDraw(Figure);
             _mouseDown = false;
+
+            _lastPoint2 = e.Location;
+
         }
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -165,8 +171,17 @@ namespace Draw
             //button1.BackColor = colorDialog1.Color;
             Canvas.Pen.Color = colorDialog1.Color;
             colorLabel.BackColor = colorDialog1.Color;
-
         }
+
+        private void pipette_button_Click(object sender, EventArgs e)
+        {   
+            Bitmap _tmpbitmap = Canvas.GetImage();
+            Color pixelColor= Canvas.Pen.Color;
+            pixelColor = _tmpbitmap.GetPixel(_lastPoint2.X, _lastPoint2.Y);
+            colorLabel2.BackColor = pixelColor;
+            Canvas.Pen.Color = pixelColor;
+        }
+
 
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
