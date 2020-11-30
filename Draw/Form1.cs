@@ -19,6 +19,7 @@ namespace Draw
         private Point _lastPoint;
         private Point _lastPoint2;
         private bool _mouseDown;
+        private bool _pipetteClick=false;
 
         public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
@@ -174,12 +175,8 @@ namespace Draw
         }
 
         private void pipette_button_Click(object sender, EventArgs e)
-        {   
-            //Bitmap _tmpbitmap = Canvas.GetImage();
-            //Color pixelColor= Canvas.Pen.Color;
-            //pixelColor = _tmpbitmap.GetPixel(_lastPoint2.X, _lastPoint2.Y);
-            //colorLabel2.BackColor = pixelColor;
-            //Canvas.Pen.Color = pixelColor;
+        {
+            _pipetteClick = true;
         }
 
 

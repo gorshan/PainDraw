@@ -297,7 +297,7 @@
             this.pipette_button.TabIndex = 20;
             this.pipette_button.Text = "pipette";
             this.pipette_button.UseVisualStyleBackColor = true;
-            this.pipette_button.Click += new System.EventHandler(this.pictureBox1_MouseDoubleClick);
+            this.pipette_button.Click += new System.EventHandler(this.pipette_button_Click);
             // 
             // colorLabel2
             // 
