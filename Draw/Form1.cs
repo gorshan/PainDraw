@@ -84,7 +84,7 @@ namespace Draw
             Canvas.EndDraw(Figure);
             _mouseDown = false;
 
-            _lastPoint2 = e.Location;
+            //_lastPoint2 = e.Location;
 
         }
 
@@ -175,11 +175,11 @@ namespace Draw
 
         private void pipette_button_Click(object sender, EventArgs e)
         {   
-            Bitmap _tmpbitmap = Canvas.GetImage();
-            Color pixelColor= Canvas.Pen.Color;
-            pixelColor = _tmpbitmap.GetPixel(_lastPoint2.X, _lastPoint2.Y);
-            colorLabel2.BackColor = pixelColor;
-            Canvas.Pen.Color = pixelColor;
+            //Bitmap _tmpbitmap = Canvas.GetImage();
+            //Color pixelColor= Canvas.Pen.Color;
+            //pixelColor = _tmpbitmap.GetPixel(_lastPoint2.X, _lastPoint2.Y);
+            //colorLabel2.BackColor = pixelColor;
+            //Canvas.Pen.Color = pixelColor;
         }
 
 
