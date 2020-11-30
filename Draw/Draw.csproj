@@ -56,7 +56,6 @@
     <Compile Include="Canvases\PenDrawer.cs" />
     <Compile Include="Figures\CircleFigure.cs" />
     <Compile Include="Figures\EllipseFigure.cs" />
-    <Compile Include="Figures\FigureByPoints.cs" />
     <Compile Include="Figures\IFigure.cs" />
     <Compile Include="Figures\IsoscelesTriangleFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
