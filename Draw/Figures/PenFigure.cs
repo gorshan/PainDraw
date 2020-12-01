@@ -19,6 +19,7 @@ namespace Draw.Figures
         public PenFigure()
         {
             Drawer = new PenDrawer();
+            points = new LinkedList<Point>();
         }
 
         private Point _startPoint;
@@ -28,7 +29,7 @@ namespace Draw.Figures
         //{
         //    points = new LinkedList<Point>();
         //}
-       
+
 
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {
