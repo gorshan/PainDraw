@@ -198,6 +198,10 @@ namespace Draw
         {
             Figure = new PolylineByPointsFigure();
         }
-  
+
+        private void CancelLast_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Canvas.CancelLastAction();
+        }
     }
 }

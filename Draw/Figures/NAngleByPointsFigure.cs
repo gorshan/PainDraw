@@ -39,7 +39,6 @@ namespace Draw.Figures
             Point[] pointsArray = new Point[Points.Count + 1];
             Points.CopyTo(pointsArray, 0);
             pointsArray[pointsArray.Length - 1] = endpoint;
-            Debug.WriteLine(string.Join("   ", Points.Select(x => $"{x.X};{x.Y}")));
             return Points.ToArray();
         }
 

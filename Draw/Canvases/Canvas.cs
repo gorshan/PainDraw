@@ -12,6 +12,7 @@ namespace Draw.Canvases
     {
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
+        private Bitmap _lastImageBitmap;
         private Graphics _graphics;
         public IDrawer Drawer { get; set; }
         public Pen Pen { get; set; }
@@ -26,26 +27,21 @@ namespace Draw.Canvases
 
         public void StartDraw(IFigure figure)
         {
-            if (figure is TriangleByPointsFigure)
+            if (figure is TriangleByPointsFigure || figure is NAngleByPointsFigure)
             {
-                Drawer = new AnglePointsDrawer(((TriangleByPointsFigure)figure).N);
+                if (figure is TriangleByPointsFigure)
+                    Drawer = new AnglePointsDrawer(((TriangleByPointsFigure)figure).N);
+                else
+                    Drawer = new AnglePointsDrawer(((NAngleByPointsFigure)figure).N);
             }
-           else if (figure is NAngleByPointsFigure)
-            {
-                Drawer = new AnglePointsDrawer(((NAngleByPointsFigure)figure).N);
-            }            
             else if (figure is EllipseFigure || figure is CircleFigure)
             {
                 if (!(Drawer is EllipseDrawer))
                     Drawer = new EllipseDrawer();
-            }else if(figure is PenFigure)
+            }else if(figure is PenFigure || figure is PolylineByPointsFigure)
             {
                 if (!(Drawer is PenDrawer))
                     Drawer = new PenDrawer();
-            }
-            else if (figure is PolylineByPointsFigure)
-            {
-                Drawer = new PenDrawer();
             }
             else if (!(Drawer is AngleFiguresDrawer))
             {
@@ -56,6 +52,7 @@ namespace Draw.Canvases
         public void DrawFigure(Point[] figurePoints)
         {
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _lastImageBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
             Drawer.DrawFigure(_graphics,Pen,figurePoints);
             GC.Collect();
@@ -90,6 +87,12 @@ namespace Draw.Canvases
             _mainBitmap = new Bitmap(width,height);
             Graphics.FromImage(_mainBitmap).DrawImage(tmp,new Point(0,0));
             tmp.Dispose();
+        }
+
+        public Bitmap CancelLastAction()
+        {
+            _mainBitmap = _lastImageBitmap;
+            return _mainBitmap;
         }
     }
 }

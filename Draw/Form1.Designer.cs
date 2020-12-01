@@ -49,6 +49,7 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.colorLabel = new System.Windows.Forms.Label();
+            this.CancelLast = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
@@ -276,11 +277,22 @@
             this.colorLabel.TabIndex = 19;
             this.colorLabel.Text = "    ";
             // 
+            // CancelLast
+            // 
+            this.CancelLast.Location = new System.Drawing.Point(352, 71);
+            this.CancelLast.Name = "CancelLast";
+            this.CancelLast.Size = new System.Drawing.Size(75, 39);
+            this.CancelLast.TabIndex = 20;
+            this.CancelLast.Text = "CancelLast";
+            this.CancelLast.UseVisualStyleBackColor = true;
+            this.CancelLast.Click += new System.EventHandler(this.CancelLast_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 806);
+            this.Controls.Add(this.CancelLast);
             this.Controls.Add(this.PolyLine);
             this.Controls.Add(this.NAngleByPointsNumericUpDown);
             this.Controls.Add(this.TriangleByPoints);
@@ -338,6 +350,7 @@
         private System.Windows.Forms.Button TriangleByPoints;
         private System.Windows.Forms.NumericUpDown NAngleByPointsNumericUpDown;
         private System.Windows.Forms.Button PolyLine;
+        private System.Windows.Forms.Button CancelLast;
     }
 }
 
