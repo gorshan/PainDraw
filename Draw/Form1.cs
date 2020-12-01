@@ -56,35 +56,26 @@ namespace Draw
 
             _mouseDown = true;
             _lastPoint = e.Location;
-
-           // if (Figure is PolylineByPointsFigure)
-           // {
-           //     ((PolylineByPointsFigure)Figure).Points.AddLast(e.Location); 
-           //     Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
-           //     pictureBox1.Image = Canvas.GetTmpImage();
-           // }
-           //else if (Figure is TriangleByPointsFigure)
-           // {
-           //     ((TriangleByPointsFigure)Figure).Points.Add(e.Location);
-           //     Canvas.StartDraw(Figure);
-           //     Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
-           //     pictureBox1.Image = Canvas.GetTmpImage();
-           // }
-            //Canvas.StartDraw(Figure);
+            if (Figure is PolylineByPointsFigure)
+            {
+                ((PolylineByPointsFigure)Figure).Points.AddLast(e.Location); 
+                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                pictureBox1.Image = Canvas.GetTmpImage();
+            }
+            if (Figure is TriangleByPointsFigure)
+            {
+                ((TriangleByPointsFigure)Figure).Points.Add(e.Location);
+                //Canvas.StartDraw(Figure);
+                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                pictureBox1.Image = Canvas.GetTmpImage();
+            }
+            Canvas.StartDraw(Figure);
         }
 
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             
-            //if ( Figure is NAngleByPointsFigure)
-            //{
-            //    //((NAngleByPointsFigure)Figure).AddPoint(e.Location);                
-            //}
-            //if (Figure is TriangleByPointsFigure)
-            //{
-            //    ((TriangleByPointsFigure)Figure).AddPoint(e.Location);
-            //}
             Canvas.EndDraw(Figure);
             _mouseDown = false;
         }
@@ -185,7 +176,7 @@ namespace Draw
             pictureBox1.Image = Canvas.GetImage();
             if(Figure is PolylineByPointsFigure)
             {
-                ((PolylineByPointsFigure)Figure).Clesr();
+                ((PolylineByPointsFigure)Figure).Clear();
             }
         }
 

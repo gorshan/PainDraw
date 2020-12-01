@@ -42,7 +42,7 @@ namespace Draw.Figures
         public Point[] GetPoints(Point startpoint, Point endpoint)
         {
 
-            Point[] pointsArray = new Point[Points.Count + 2];
+            Point[] pointsArray = new Point[Points.Count + 1];
             Points.CopyTo(pointsArray, 0);
             pointsArray[pointsArray.Length - 1] = endpoint;
             return Points.ToArray();
