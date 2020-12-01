@@ -1,4 +1,5 @@
-﻿using Draw.Drawer;
+﻿using Draw.Canvases;
+using Draw.Drawer;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,7 +13,15 @@ namespace Draw.Figures
     {
         public int N { get; set; }
 
-        public IDrawer Drawer => throw new NotImplementedException();
+        public IDrawer Drawer { get; set; }
+
+        public NAngleByPointsFigure()
+        {
+            Drawer = new AngleFiguresDrawer();
+        }
+
+        private Point _startPoint;
+        private Point _endPoint;
 
         public NAngleByPointsFigure(int n)
         {
@@ -33,14 +42,16 @@ namespace Draw.Figures
             throw new NotImplementedException();
         }
 
-        public void SetPoints(Point startPoint, Point endPoint)
-        {
-            throw new NotImplementedException();
-        }
 
         public Point[] GetPoints()
         {
-            throw new NotImplementedException();
+            return GetPoints(_startPoint, _endPoint);
+        }
+
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            _startPoint = startPoint;
+            _endPoint = endPoint;
         }
     }
 }
