@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Draw.Drawer;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace Draw.Figures
    public class PolylineByPointsFigure : IFigure
     {
         public LinkedList<Point> Points { get; set; }
+
+        public IDrawer Drawer => throw new NotImplementedException();
 
         public PolylineByPointsFigure()
         {
@@ -28,6 +31,16 @@ namespace Draw.Figures
         internal void Clesr()
         {
             Points.Clear();
+        }
+
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Point[] GetPoints()
+        {
+            throw new NotImplementedException();
         }
     }
 }

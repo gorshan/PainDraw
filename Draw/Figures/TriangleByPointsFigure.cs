@@ -5,7 +5,7 @@ using System.Text;
 using System.Drawing;
 using System.Threading.Tasks;
 using Draw.Figures;
-
+using Draw.Drawer;
 
 namespace Draw.Figures
 {
@@ -13,6 +13,8 @@ namespace Draw.Figures
     {
 
         public List<Point> Points { get; set; }
+
+        public IDrawer Drawer => throw new NotImplementedException();
 
         public TriangleByPointsFigure()
         {
@@ -51,6 +53,15 @@ namespace Draw.Figures
             Points.Clear();
         }
 
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Point[] GetPoints()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

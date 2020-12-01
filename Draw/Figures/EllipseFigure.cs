@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Draw.Drawer;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace Draw.Figures
 {
     public class EllipseFigure : IFigure
     {
-        
+        public IDrawer Drawer => throw new NotImplementedException();
+
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {
             Point[] points = new Point[4];
@@ -18,6 +20,16 @@ namespace Draw.Figures
             points[2] = new Point(endPoint.X - startPoint.X);
             points[3] = new Point(endPoint.Y - startPoint.Y);
             return points;
+        }
+
+        public Point[] GetPoints()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            throw new NotImplementedException();
         }
     }
 }

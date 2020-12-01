@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Draw.Drawer;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace Draw.Figures
     class NAngleByPointsFigure : IFigure
     {
         public int N { get; set; }
+
+        public IDrawer Drawer => throw new NotImplementedException();
 
         public NAngleByPointsFigure(int n)
         {
@@ -26,6 +29,16 @@ namespace Draw.Figures
         }
 
         public Point[] GetPoints(Point startPoint, Point endPoint)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Point[] GetPoints()
         {
             throw new NotImplementedException();
         }

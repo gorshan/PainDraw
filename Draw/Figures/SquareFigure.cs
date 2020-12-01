@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Draw.Drawer;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace Draw.Figures
 {
     public class SquareFigure : IFigure
     {
-       
+        public IDrawer Drawer => throw new NotImplementedException();
+
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {
             int a = endPoint.Y - startPoint.Y;
@@ -33,6 +35,16 @@ namespace Draw.Figures
                 points[3] = new Point(startPoint.X + a, startPoint.Y);
             }
             return points;
+        }
+
+        public Point[] GetPoints()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            throw new NotImplementedException();
         }
     }
 }
