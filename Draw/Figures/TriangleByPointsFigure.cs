@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using Draw.Figures;
 using Draw.Drawer;
+using Draw.Canvases;
 
 namespace Draw.Figures
 {
@@ -14,12 +15,21 @@ namespace Draw.Figures
 
         public List<Point> Points { get; set; }
 
-        public IDrawer Drawer => throw new NotImplementedException();
+        public IDrawer Drawer { get; set; }
 
         public TriangleByPointsFigure()
         {
+            Drawer = new AngleFiguresDrawer();
             Points = new List<Point>();
         }
+
+        private Point _startPoint;
+        private Point _endPoint;
+
+        //public TriangleByPointsFigure()
+        //{
+        //    Points = new List<Point>();
+        //}
 
         //public Point[] GetPoints(Point startpoint, Point endpoint)
         //{
@@ -53,14 +63,15 @@ namespace Draw.Figures
             Points.Clear();
         }
 
-        public void SetPoints(Point startPoint, Point endPoint)
-        {
-            throw new NotImplementedException();
-        }
-
         public Point[] GetPoints()
         {
-            throw new NotImplementedException();
+            return GetPoints(_startPoint, _endPoint);
+        }
+
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            _startPoint = startPoint;
+            _endPoint = endPoint;
         }
     }
 
