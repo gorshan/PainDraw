@@ -117,6 +117,62 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="PenButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAS5JREFUOE+9kj1KBEEQhdsVf0A8ggzosF1V3dXJ3MDE1AsYmsiCgSAYGCwmGhjo
+        DVwD8QcENRYxMBJMBCNBT6Kvl3IxmJ0x8oOGetVV06+rx/0LZVnOkPKLV/mgyO9VVU3ZVjMiMu2DPHDk
+        1awpUi9/aLjZQgenXZDQumknSZbR/GxyPGg87WrYNulCCisU5TWlNGepeljlBBb3TDoOvOajPHrv5y1V
+        DykNYO3YJBzwJgZ1kwdnqXp85DMUHyKcyJo19NF4hbCT9TjycK458b5p1w10BBfnJuspimKWVO4xjNEd
+        KdEBcs2NYBI239C4YxpvKbtmtZmlEBZQPCr0SbZg/w5h4x2HoHCAUy5zTBo2oJ9ap/oD7vWVF6x/YvVb
+        3/E3aLhV1cX8D1vqDzj3DduKPzyPsUv/AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="LineButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAaSURBVDhPYxgFQwn8A+L/ZGLKNI8C+gAGBgCuCh3h67DZ
+        tgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="RectangleButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAEBJREFUKFNjAAJdfn7+VFIwDw9PKlCfAoOiomLxfxLB69ev/wM1B45qJhIMAs0c
+        HBzW7u7uLaRgR0fHFgYGBi0Aq6a/Zo/D5twAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="SquareButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAFBJREFUOE9jAAJFIC4kA1sBMYP3kiVL/t+/f59ofPXq1f9AfS1gzbt37/5PCvj8
+        +fOoZlLAqGZKNM+ePfv/5cuXicYnT56Ea5YF4hTSMYMJAHYHoALutXBNAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="CircleButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAWNJREFUOE9jwAJEgDhNVFR0to6OzmphYeFZQH4KEAuBJHEBFh4envrCwsKvly5d
+        +v/v37//IACiL1y48D83N/cLFxdXNVAdM0Q5ArCpqqpuPnPmDFgDLnDixIn/ioqK64DqWSDagADotP7L
+        ly9DleAH586d+8/Pz98B1cqg3tra+gcqRxSor6//BdSnxMDJydnx9u1bqDBx4MWLF/9ZWVkbGZydnQ9B
+        xUgC1tbWexgiIiJuQPkkgaCgoEsMPj4++IMYB3B1dT3KICYmNufnz59QIeLAt2/f/gsKCk4FhbbL8uXL
+        ocLEgQULFvwH6rMFaWYAJsO9Hz58gErhB+/evfuvoaGxDawRCqS9vLwefvr0CaoEOwBZ4ObmdheoXgKi
+        DQFkDQwMDm/atOn/379/ocohAMRfv379fz09vQNAdVIQ5ZiAEYgD1NTU1sTGxj7IzMz8GBMT8wCY7lcB
+        xX2h8lDAwAAAFnRavjP8UqoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="EllipsButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAMCAYAAABr5z2BAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAShJREFUOE9jwALk2NnZs+3s7OZFR0dvi4yM3GZrazuXhYUlCygnA1GCHUhZWFgs
+        nzNnzp937979Rwdv3rz5P2vWrD9mZmZLgGolIFoQwKCoqOjljx8/oMpxg+/fv//Pz89/DtSjC9HKwMCf
+        np7+GCpPFPj379//5OTk+0C9PAy8vLwlL1++hEoRD54+ffqfk5Mzn8HHx2czVIxk4OHhsZYhICBgK5RP
+        MvDy8lrPICQkVI0t1AmB169f/+fh4SkDBaJIcXHxK6g40QAaE4IgA0DAprm5+eOfP3+g0rgBSE1dXd17
+        oB4LiFYEUHV3d9+5bt26/9jSAyj+V69e/d/FxWU7UK0yRAt2oCcmJlYXEhKyITMz8yQQnwgKCtogIiJS
+        C5TTgSiBAQYGAOO0+oUkBbepAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
