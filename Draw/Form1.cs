@@ -18,7 +18,6 @@ namespace Draw
     {
         private Point _lastPoint;
         private bool _mouseDown;
-        public List<Point> Points;
         public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
         

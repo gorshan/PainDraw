@@ -1,6 +1,7 @@
 ﻿using Draw.Figures;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Draw.Canvases
     {
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
-        private Bitmap _lastImageBitmap;
+        private Stack<Bitmap> _allbitmaps = new Stack<Bitmap>();
         private Graphics _graphics;
         public IDrawer Drawer { get; set; }
         public Pen Pen { get; set; }
@@ -52,7 +53,6 @@ namespace Draw.Canvases
         public void DrawFigure(Point[] figurePoints)
         {
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-            _lastImageBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
             Drawer.DrawFigure(_graphics,Pen,figurePoints);
             GC.Collect();
@@ -73,6 +73,7 @@ namespace Draw.Canvases
             if (figure is PenFigure)
                 ((PenFigure)figure).ClearPoints();
             _mainBitmap = _tmpBitmap;
+            _allbitmaps.Push((Bitmap)_mainBitmap.Clone());
         }
 
         public void Clear()
@@ -91,7 +92,10 @@ namespace Draw.Canvases
 
         public Bitmap CancelLastAction()
         {
-            _mainBitmap = _lastImageBitmap;
+            if (_allbitmaps.Count == 0)
+                return _mainBitmap;
+            _mainBitmap = _allbitmaps.Pop();
+            Debug.WriteLine(_allbitmaps.Count);
             return _mainBitmap;
         }
     }
