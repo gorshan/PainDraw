@@ -19,8 +19,7 @@ namespace Draw.Canvases
         }
 
         public void DrawFigure(Graphics graphics, Pen pen, Point[] figurePoints)
-        {
-            
+        {           
             pen.StartCap = LineCap.Round;
             pen.EndCap = LineCap.Round;
             for (int i = 0; i < figurePoints.Length - 1; i++)
@@ -31,11 +30,8 @@ namespace Draw.Canvases
 
                     break;
                 }
-                graphics.DrawLine(pen, figurePoints[i], figurePoints[i + 1]);
-               
-                
-            }
-            
+                graphics.DrawLine(pen, figurePoints[i], figurePoints[i + 1]);                              
+            }      
             return;
         }
     }

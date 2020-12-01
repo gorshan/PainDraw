@@ -171,7 +171,11 @@ namespace Draw
 
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
-            Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
+           if (Canvas == null)
+            {
+                return;
+            }
+                Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = Canvas.GetImage();
         }
 
