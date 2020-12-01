@@ -22,6 +22,7 @@ namespace Draw.Canvases
         {
             _mainBitmap = new Bitmap(width, height);
             _graphics = Graphics.FromImage(_mainBitmap);
+            _allbitmaps.Push((Bitmap)_mainBitmap.Clone());
             Pen = new Pen(Color.Black, 1);
             Drawer = new PenDrawer();
         }
@@ -85,7 +86,7 @@ namespace Draw.Canvases
         public void Resize(int width, int height)
         {
             Bitmap tmp = _mainBitmap;
-            _mainBitmap = new Bitmap(width,height);
+            _mainBitmap = new Bitmap(width,height);            
             Graphics.FromImage(_mainBitmap).DrawImage(tmp,new Point(0,0));
             tmp.Dispose();
         }
@@ -93,7 +94,9 @@ namespace Draw.Canvases
         public Bitmap CancelLastAction()
         {
             if (_allbitmaps.Count == 0)
-                return _mainBitmap;
+            {  
+                return _mainBitmap; 
+            }
             _mainBitmap = _allbitmaps.Pop();
             Debug.WriteLine(_allbitmaps.Count);
             return _mainBitmap;
