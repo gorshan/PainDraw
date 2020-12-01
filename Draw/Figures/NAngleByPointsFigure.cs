@@ -1,7 +1,6 @@
-﻿using Draw.Canvases;
-using Draw.Drawer;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,16 +11,15 @@ namespace Draw.Figures
     class NAngleByPointsFigure : IFigure
     {
         public int N { get; set; }
-
-        public IDrawer Drawer { get; set; }
-
-        public NAngleByPointsFigure()
+        public List<Point> Points { get; set; }
+        public NAngleByPointsFigure(int n)
         {
-            Drawer = new AngleFiguresDrawer();
+            N = n;
+            Points = new List<Point>();
         }
 
-        private Point _startPoint;
-        private Point _endPoint;
+        public Point[] GetPoints(Point startpoint, Point endpoint)
+        {
 
         public NAngleByPointsFigure(int n)
         {
@@ -38,9 +36,28 @@ namespace Draw.Figures
         }
 
         public Point[] GetPoints(Point startPoint, Point endPoint)
+            Point[] pointsArray = new Point[Points.Count + 1];
+            Points.CopyTo(pointsArray, 0);
+            pointsArray[pointsArray.Length - 1] = endpoint;
+            Debug.WriteLine(string.Join("   ", Points.Select(x => $"{x.X};{x.Y}")));
+            return Points.ToArray();
+        }
+
+        public void AddPoint(Point point)
         {
             throw new NotImplementedException();
         }
+            Points.Add(point);
+        }
+
+        public void Clear()
+        {
+            if (Points.Count > N)
+            Points.Clear();
+        }
+
+    }
+}
 
 
         public Point[] GetPoints()

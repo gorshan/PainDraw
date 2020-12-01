@@ -28,9 +28,13 @@ namespace Draw.Canvases
         {
             if (figure is TriangleByPointsFigure)
             {
-                Drawer = new AnglePointsDrawer();
+                Drawer = new AnglePointsDrawer(((TriangleByPointsFigure)figure).N);
             }
-            if (figure is EllipseFigure || figure is CircleFigure)
+           else if (figure is NAngleByPointsFigure)
+            {
+                Drawer = new AnglePointsDrawer(((NAngleByPointsFigure)figure).N);
+            }            
+            else if (figure is EllipseFigure || figure is CircleFigure)
             {
                 if (!(Drawer is EllipseDrawer))
                     Drawer = new EllipseDrawer();

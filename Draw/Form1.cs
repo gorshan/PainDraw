@@ -18,6 +18,7 @@ namespace Draw
     {
         private Point _lastPoint;
         private bool _mouseDown;
+        public List<Point> Points;
         public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
         
@@ -65,8 +66,15 @@ namespace Draw
             if (Figure is TriangleByPointsFigure)
             {
                 ((TriangleByPointsFigure)Figure).Points.Add(e.Location);
-                //Canvas.StartDraw(Figure);
                 Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                  ((TriangleByPointsFigure)Figure).Clear();        
+                pictureBox1.Image = Canvas.GetTmpImage();
+            }
+            if (Figure is NAngleByPointsFigure)
+            {
+                ((NAngleByPointsFigure)Figure).AddPoint(e.Location);
+                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                ((NAngleByPointsFigure)Figure).Clear();
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
             Canvas.StartDraw(Figure);
