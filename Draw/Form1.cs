@@ -234,5 +234,9 @@ namespace Draw
         {
             pictureBox1.Image = Canvas.CancelLastAction();
         }
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            Canvas.SaveBitmap();
+        }
     }
 }

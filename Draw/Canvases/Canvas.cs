@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Windows.Forms;
+//using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,5 +103,19 @@ namespace Draw.Canvases
             Debug.WriteLine(_allbitmaps.Count);
             return _mainBitmap;
         }
+
+
+        public void SaveBitmap()
+        {
+            var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg;*.jpe;*.jfif|BMP|*.bmp|GIF|*.gif";
+            saveFileDialog.FileName = "figure2.jpg";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                _mainBitmap.Save(saveFileDialog.FileName);
+            }
+        }
+                
     }
 }
