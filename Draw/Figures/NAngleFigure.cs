@@ -26,6 +26,7 @@ namespace Draw.Figures
         public NAngleFigure(int n)
         {
             N = n;
+            Drawer = new AngleFiguresDrawer();
         }
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {
