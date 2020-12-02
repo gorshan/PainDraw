@@ -15,7 +15,8 @@ namespace Draw.Figures
 
         public IDrawer Drawer { get; set; }
         public List<Point> Points { get; set; }
-
+        public Color Color { get; set; }
+        public int Width { get; set; }
         public NAngleFigure()
         {
             Drawer = new AngleFiguresDrawer();

@@ -15,7 +15,8 @@ namespace Draw.Figures
 
         public List<Point> Points { get; set; }
         public int N;
-
+        public Color Color { get; set; }
+        public int Width { get; set; }
         public IDrawer Drawer { get; set; }
 
         public TriangleByPointsFigure()

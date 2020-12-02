@@ -18,5 +18,8 @@ namespace Draw.Figures
 
         List<Point> Points { get; set; }
 
+        Color Color { get; set; }
+        int Width { get; set; }
+
     }
 }

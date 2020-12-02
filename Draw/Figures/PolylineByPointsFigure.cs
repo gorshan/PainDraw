@@ -15,7 +15,8 @@ namespace Draw.Figures
 
         public IDrawer Drawer { get; set; }
         List<Point> IFigure.Points { get; set; }
-
+        public Color Color { get; set; }
+        public int Width { get; set; }
         public PolylineByPointsFigure()
         {
             Drawer = new PenDrawer();

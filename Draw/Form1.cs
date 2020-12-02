@@ -64,10 +64,10 @@ namespace Draw
         }
         
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
+        {            
             _mouseDown = true;
             _lastPoint = e.Location;
-            bool isNeededNewFigure = true;
+            bool isNeededNewFigure = true;            
             
             if (Figure is PolylineByPointsFigure)
             {
@@ -106,6 +106,8 @@ namespace Draw
         private void renewFigure()
         {
             Figure = fabric.CreateFigure();
+            Figure.Color = Canvas.Pen.Color;
+            Figure.Width = (int)Canvas.Pen.Width;
 
             if (Figure is NAngleByPointsFigure)
             {
