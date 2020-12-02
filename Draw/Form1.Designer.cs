@@ -50,6 +50,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.colorLabel = new System.Windows.Forms.Label();
             this.CancelLast = new System.Windows.Forms.Button();
+            this.pipette_button = new System.Windows.Forms.Button();
+            this.colorLabel2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
@@ -66,7 +68,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(1148, 649);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
@@ -232,9 +234,10 @@
             // 
             // PolyLine
             // 
-            this.PolyLine.Location = new System.Drawing.Point(537, 68);
+            this.PolyLine.Location = new System.Drawing.Point(358, 44);
+            this.PolyLine.Margin = new System.Windows.Forms.Padding(2);
             this.PolyLine.Name = "PolyLine";
-            this.PolyLine.Size = new System.Drawing.Size(84, 42);
+            this.PolyLine.Size = new System.Drawing.Size(56, 27);
             this.PolyLine.TabIndex = 18;
             this.PolyLine.Text = "PolyLine";
             this.PolyLine.UseVisualStyleBackColor = true;
@@ -242,20 +245,21 @@
             // 
             // WigthScrollBar
             // 
-            this.WigthScrollBar.Location = new System.Drawing.Point(30, 49);
+            this.WigthScrollBar.Location = new System.Drawing.Point(20, 32);
             this.WigthScrollBar.Maximum = 50;
             this.WigthScrollBar.Minimum = 1;
             this.WigthScrollBar.Name = "WigthScrollBar";
-            this.WigthScrollBar.Size = new System.Drawing.Size(140, 21);
+            this.WigthScrollBar.Size = new System.Drawing.Size(93, 21);
             this.WigthScrollBar.TabIndex = 16;
             this.WigthScrollBar.Value = 1;
             this.WigthScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.WigthScrollBar_Scroll);
             // 
             // widthText
             // 
-            this.widthText.Location = new System.Drawing.Point(86, 74);
+            this.widthText.Location = new System.Drawing.Point(57, 48);
+            this.widthText.Margin = new System.Windows.Forms.Padding(2);
             this.widthText.Name = "widthText";
-            this.widthText.Size = new System.Drawing.Size(38, 26);
+            this.widthText.Size = new System.Drawing.Size(27, 20);
             this.widthText.TabIndex = 17;
             // 
             // button1
@@ -278,6 +282,7 @@
             this.colorLabel.Text = "    ";
             // 
             // CancelLast
+            // pipette_button
             // 
             this.CancelLast.Location = new System.Drawing.Point(352, 71);
             this.CancelLast.Name = "CancelLast";
@@ -286,12 +291,31 @@
             this.CancelLast.Text = "CancelLast";
             this.CancelLast.UseVisualStyleBackColor = true;
             this.CancelLast.Click += new System.EventHandler(this.CancelLast_Click);
+            this.pipette_button.Location = new System.Drawing.Point(217, 42);
+            this.pipette_button.Name = "pipette_button";
+            this.pipette_button.Size = new System.Drawing.Size(48, 22);
+            this.pipette_button.TabIndex = 20;
+            this.pipette_button.Text = "pipette";
+            this.pipette_button.UseVisualStyleBackColor = true;
+            this.pipette_button.Click += new System.EventHandler(this.pipette_button_Click);
+            // 
+            // colorLabel2
+            // 
+            this.colorLabel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.colorLabel2.Location = new System.Drawing.Point(214, 64);
+            this.colorLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.colorLabel2.Name = "colorLabel2";
+            this.colorLabel2.Size = new System.Drawing.Size(56, 8);
+            this.colorLabel2.TabIndex = 21;
+            this.colorLabel2.Text = "    ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1210, 806);
+            this.ClientSize = new System.Drawing.Size(807, 524);
+            this.Controls.Add(this.colorLabel2);
+            this.Controls.Add(this.pipette_button);
             this.Controls.Add(this.CancelLast);
             this.Controls.Add(this.PolyLine);
             this.Controls.Add(this.NAngleByPointsNumericUpDown);
@@ -313,6 +337,7 @@
             this.Controls.Add(this.LineButton);
             this.Controls.Add(this.PenButton);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -350,6 +375,8 @@
         private System.Windows.Forms.Button TriangleByPoints;
         private System.Windows.Forms.NumericUpDown NAngleByPointsNumericUpDown;
         private System.Windows.Forms.Button PolyLine;
+        private System.Windows.Forms.Button pipette_button;
+        public System.Windows.Forms.Label colorLabel2;
         private System.Windows.Forms.Button CancelLast;
     }
 }

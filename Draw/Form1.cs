@@ -17,10 +17,14 @@ namespace Draw
     public partial class Form1 : Form
     {
         private Point _lastPoint;
+        private Point _lastPoint2;
         private bool _mouseDown;
+        private bool _pipetteClick=false;
+
         public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
         
+
         public Form1()
         {
             InitializeComponent();
@@ -44,6 +48,14 @@ namespace Draw
                 Figure.SetPoints(_lastPoint, e.Location);
                 Canvas.DrawFigure(Figure);
                 pictureBox1.Image = Canvas.GetTmpImage();
+            }
+            if (_pipetteClick)
+            {
+                _lastPoint2 = e.Location;
+                Bitmap _tmpbitmap = Canvas.GetImage();
+                Color pixelColor = Canvas.Pen.Color;
+                pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
+                colorLabel2.BackColor = pixelColor;
             }
         }
         
@@ -80,8 +92,23 @@ namespace Draw
         {           
             Canvas.EndDraw(Figure);
             _mouseDown = false;
-        }
 
+            //_lastPoint2 = e.Location;
+
+        }
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_pipetteClick)
+            {
+                Bitmap _tmpbitmap = Canvas.GetImage();
+                Color pixelColor = Canvas.Pen.Color;
+                pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
+                colorLabel2.BackColor = pixelColor;
+                colorLabel.BackColor = pixelColor;
+                Canvas.Pen.Color = pixelColor;
+            }
+            _pipetteClick = false;
+        }
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (Figure is PolylineByPointsFigure)
@@ -167,6 +194,12 @@ namespace Draw
             colorLabel.BackColor = colorDialog1.Color;
         }
 
+        private void pipette_button_Click(object sender, EventArgs e)
+        {
+            _pipetteClick = true;
+        }
+
+        
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
            if (Canvas == null)
