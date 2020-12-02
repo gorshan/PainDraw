@@ -27,14 +27,6 @@ namespace Draw.Figures
 
         private Point _startPoint;
         private Point _endPoint;
-        public Point[] GetPoints(Point startpoint, Point endpoint)
-        {
-
-            Point[] pointsArray = new Point[Points.Count + 1];
-            Points.CopyTo(pointsArray, 0);
-            pointsArray[pointsArray.Length - 1] = endpoint;
-            return Points.ToArray();
-        }
 
         public void AddPoint(Point point)
         {
@@ -49,13 +41,22 @@ namespace Draw.Figures
 
         public Point[] GetPoints()
         {
-            return GetPoints(_startPoint, _endPoint);
+            return Points.ToArray();
         }
 
         public void SetPoints(Point startPoint, Point endPoint)
         {
             _startPoint = startPoint;
             _endPoint = endPoint;
+        }
+
+        public void Update(Point startPoint, Point endPoint)
+        {
+            Points=new List<Point> { 
+            }
+            Point[] pointsArray = new Point[Points.Count + 1];
+            Points.CopyTo(pointsArray, 0);
+            pointsArray[pointsArray.Length - 1] = endPoint;
         }
     }
 

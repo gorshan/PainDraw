@@ -12,6 +12,7 @@ namespace Draw.Figures
     public class CircleFigure : IFigure
     {
         public IDrawer Drawer { get; set; }
+        public List<Point> Points { get; set; }
 
         public CircleFigure()
         {
@@ -21,28 +22,30 @@ namespace Draw.Figures
         private Point _startPoint;
         private Point _endPoint;
 
-        public Point[] GetPoints(Point startPoint, Point endPoint)
-        {
-            int r = (int)Math.Sqrt(Math.Pow(((double)endPoint.Y - startPoint.Y), 2.0) + Math.Pow(((double)endPoint.X - startPoint.X), 2.0));            
-            int x = startPoint.X - r;
-            int y = startPoint.Y - r;
-            Point[] points = new Point[4];
-            points[0] = new Point(x);
-            points[1] = new Point(y);
-            points[2] = new Point(r*2);
-            points[3] = new Point(r*2);
-            return points;
-        }
-
         public Point[] GetPoints()
         {
-            return GetPoints(_startPoint, _endPoint);
+            return Points.ToArray();
         }
 
         public void SetPoints(Point startPoint, Point endPoint)
         {
             _startPoint = startPoint;
             _endPoint = endPoint;
+        }
+
+        public void Update(Point startPoint, Point endPoint)
+        {
+            int r = (int)Math.Sqrt(Math.Pow(((double)endPoint.Y - startPoint.Y), 2.0) + Math.Pow(((double)endPoint.X - startPoint.X), 2.0));
+            int x = startPoint.X - r;
+            int y = startPoint.Y - r;
+
+            Points = new List<Point>
+            {
+                new Point(x),
+                new Point(y),
+                new Point(r * 2),
+                new Point(r * 2)
+            };
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Draw.Figures
     public class SquareFigure : IFigure
     {
         public IDrawer Drawer { get; set; }
+        public List<Point> Points { get; set; }
 
         public SquareFigure()
         {
@@ -21,40 +22,42 @@ namespace Draw.Figures
         private Point _startPoint;
         private Point _endPoint;
 
-        public Point[] GetPoints(Point startPoint, Point endPoint)
-        {
-            int a = endPoint.Y - startPoint.Y;
-            Point[] points = new Point[4];
-            points[0] = startPoint;
-            points[1] = new Point(startPoint.X, endPoint.Y);
-            if ((endPoint.X - startPoint.X > 0) && (endPoint.Y - startPoint.Y < 0))
-            {
-                points[2] = new Point(startPoint.X - a, endPoint.Y);
-                points[3] = new Point(startPoint.X - a, startPoint.Y);
-            }
-            else if ((endPoint.X - startPoint.X < 0) && (endPoint.Y - startPoint.Y > 0))
-            {
-                points[1] = new Point(startPoint.X - a, startPoint.Y);
-                points[2] = new Point(startPoint.X - a, endPoint.Y);
-                points[3] = new Point(startPoint.X, endPoint.Y);
-            }
-            else
-            {
-                points[2] = new Point(startPoint.X + a, endPoint.Y);
-                points[3] = new Point(startPoint.X + a, startPoint.Y);
-            }
-            return points;
-        }
-
         public Point[] GetPoints()
         {
-            return GetPoints(_startPoint, _endPoint);
+            return Points.ToArray();
         }
 
         public void SetPoints(Point startPoint, Point endPoint)
         {
             _startPoint = startPoint;
             _endPoint = endPoint;
+        }
+
+        public void Update(Point startPoint, Point endPoint)
+        {
+            int a = endPoint.Y - startPoint.Y;
+            Points = new List<Point>
+            {
+                startPoint                
+            };
+            if ((endPoint.X - startPoint.X > 0) && (endPoint.Y - startPoint.Y < 0))
+            {
+                Points.Add(new Point(startPoint.X, endPoint.Y));
+                Points.Add(new Point(startPoint.X - a, endPoint.Y));
+                Points.Add(new Point(startPoint.X - a, startPoint.Y));
+            }
+            else if ((endPoint.X - startPoint.X < 0) && (endPoint.Y - startPoint.Y > 0))
+            {
+                Points.Add(new Point(startPoint.X - a, startPoint.Y));
+                Points.Add(new Point(startPoint.X - a, endPoint.Y));
+                Points.Add(new Point(startPoint.X, endPoint.Y));
+            }
+            else
+            {
+                Points.Add(new Point(startPoint.X, endPoint.Y));
+                Points.Add(new Point(startPoint.X + a, endPoint.Y));
+                Points.Add(new Point(startPoint.X + a, startPoint.Y));
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Draw.Figures
         public int N { get; set; }
 
         public IDrawer Drawer { get; set; }
+        public List<Point> Points { get; set; }
 
         public NAngleFigure()
         {
@@ -28,28 +29,28 @@ namespace Draw.Figures
             N = n;
             Drawer = new AngleFiguresDrawer();
         }
-        public Point[] GetPoints(Point startPoint, Point endPoint)
-        {
-            double r;
-            r = Math.Sqrt(Math.Pow(endPoint.Y - startPoint.Y, 2) + Math.Pow(endPoint.X - startPoint.X, 2));
-            Point[] points = new Point[N];
-            for (int i = 0; i < N; i++)
-            {
-                points[i] = new Point(Convert.ToInt32(startPoint.X + r * Math.Cos((2 * Math.PI * i) / N)),
-                                      Convert.ToInt32(startPoint.Y + r * Math.Sin((2 * Math.PI * i) / N)));
-            }
-            return points;
-        }
 
         public Point[] GetPoints()
         {
-            return GetPoints(_startPoint, _endPoint);
+            return Points.ToArray();
         }
 
         public void SetPoints(Point startPoint, Point endPoint)
         {
             _startPoint = startPoint;
             _endPoint = endPoint;
+        }
+
+        public void Update(Point startPoint, Point endPoint)
+        {
+            Points = new List<Point>();
+            double r;
+            r = Math.Sqrt(Math.Pow(endPoint.Y - startPoint.Y, 2) + Math.Pow(endPoint.X - startPoint.X, 2));
+            for (int i = 0; i < N; i++)
+            {
+                Points.Add(new Point(Convert.ToInt32(startPoint.X + r * Math.Cos((2 * Math.PI * i) / N)),
+                                      Convert.ToInt32(startPoint.Y + r * Math.Sin((2 * Math.PI * i) / N))));
+            }
         }
     }
 }

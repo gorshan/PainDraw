@@ -1,4 +1,5 @@
 ﻿using Draw.Canvases;
+using Draw.Fabrics;
 using Draw.Figures;
 using System;
 using System.Collections.Generic;
@@ -20,10 +21,12 @@ namespace Draw
         private Point _lastPoint2;
         private bool _mouseDown;
         private bool _pipetteClick=false;
+        IFabric fabric;
 
         public Canvas Canvas { get; private set; }
         public IFigure Figure { get; private set; }
-        
+
+        List<IFigure> figures;
 
         public Form1()
         {
@@ -39,13 +42,14 @@ namespace Draw
             _lastPoint = new Point(0, 0);
             _mouseDown = false;
             widthText.Text = WigthScrollBar.Value + "";
+            figures = new List<IFigure>();
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (_mouseDown)
             {
-                Figure.SetPoints(_lastPoint, e.Location);
+                Figure.Update(_lastPoint, e.Location);
                 Canvas.DrawFigure(Figure);
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
@@ -63,6 +67,7 @@ namespace Draw
         {
             _mouseDown = true;
             _lastPoint = e.Location;
+            
             if (Figure is PolylineByPointsFigure)
             {
                 ((PolylineByPointsFigure)Figure).Points.AddLast(e.Location);
@@ -86,14 +91,14 @@ namespace Draw
                 ((NAngleByPointsFigure)Figure).Clear();
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
+            Figure = fabric.CreateFigure();
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {           
             Canvas.EndDraw(Figure);
             _mouseDown = false;
-
-            //_lastPoint2 = e.Location;
+            figures.Add(Figure);
 
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -119,27 +124,27 @@ namespace Draw
 
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
-            Figure = new RightTriangleFigure();
+            fabric = new RightTriangleFabric();
         }
 
         private void RectangleButton_Click(object sender, EventArgs e)
         {
-            Figure = new RectangleFigure();
+            fabric = new RectangleFabric();
         }
 
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
         {
-            Figure = new IsoscelesTriangleFigure();
+            fabric = new IsoscelesTriangleFabric();
         }
 
         private void LineButton_Click(object sender, EventArgs e)
         {
-            Figure = new LineFigure();
+            fabric = new LineFabric();
         }
 
         private void SquareButton_Click(object sender, EventArgs e)
         {
-            Figure = new SquareFigure();
+            fabric = new SquareFabric();
         }
 
         private void RightNAngleButton_Click(object sender, EventArgs e)
@@ -157,12 +162,12 @@ namespace Draw
 
         private void EllipsButton_Click(object sender, EventArgs e)
         {
-            Figure = new EllipseFigure();
+            fabric = new EllipseFabric();
         }
 
         private void CircleButton_Click(object sender, EventArgs e)
         {
-            Figure = new CircleFigure();
+            fabric = new CircleFabric();
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -177,7 +182,7 @@ namespace Draw
 
         private void PenButton_Click(object sender, EventArgs e)
         {
-            Figure = new PenFigure();
+            fabric = new PenFabric();
         }
 
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
@@ -212,12 +217,13 @@ namespace Draw
 
         private void TriangleByPoints_Click(object sender, EventArgs e)
         {
-            Figure = new TriangleByPointsFigure();
+            fabric = new TriangleByPointsFabric();
         }
 
         private void NAngleButton_Click(object sender, EventArgs e)
         {
-           Figure = new NAngleByPointsFigure(Convert.ToInt32(NAngleByPointsNumericUpDown.Value));
+            int n = Convert.ToInt32(NAngleByPointsNumericUpDown.Value);
+            Figure = new NAngleByPointsFigure(n);
         }
 
         private void NAngleByPointsNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -227,7 +233,7 @@ namespace Draw
 
         private void PolyLine_Click(object sender, EventArgs e)
         {
-            Figure = new PolylineByPointsFigure();
+            fabric = new PolylineByPointsFabric();
         }
 
         private void CancelLast_Click(object sender, EventArgs e)

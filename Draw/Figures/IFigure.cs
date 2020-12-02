@@ -14,7 +14,11 @@ namespace Draw.Figures
 
         void SetPoints(Point startPoint, Point endPoint);
 
+        void Update(Point startPoint, Point endPoint);
+
         Point[] GetPoints();
-        Point[] GetPoints(Point startPoint, Point endPoint);
+
+        List<Point> Points { get; set; }
+
     }
 }
