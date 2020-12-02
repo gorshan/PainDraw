@@ -1,7 +1,9 @@
 ﻿using Draw.Figures;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Windows.Forms;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ namespace Draw.Canvases
     {
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
+        private Stack<Bitmap> _allbitmaps = new Stack<Bitmap>();
         private Graphics _graphics;
         public IDrawer Drawer { get; set; }
         public Pen Pen { get; set; }
@@ -20,28 +23,28 @@ namespace Draw.Canvases
         {
             _mainBitmap = new Bitmap(width, height);
             _graphics = Graphics.FromImage(_mainBitmap);
+            _allbitmaps.Push((Bitmap)_mainBitmap.Clone());
             Pen = new Pen(Color.Black, 1);
             Drawer = new PenDrawer();
         }
 
         public void StartDraw(IFigure figure)
         {
-            if (figure is TriangleByPointsFigure)
+            if (figure is TriangleByPointsFigure || figure is NAngleByPointsFigure)
             {
-                Drawer = new AnglePointsDrawer();
+                if (figure is TriangleByPointsFigure)
+                    Drawer = new AnglePointsDrawer(((TriangleByPointsFigure)figure).N);
+                else
+                    Drawer = new AnglePointsDrawer(((NAngleByPointsFigure)figure).N);
             }
-            if (figure is EllipseFigure || figure is CircleFigure)
+            else if (figure is EllipseFigure || figure is CircleFigure)
             {
                 if (!(Drawer is EllipseDrawer))
                     Drawer = new EllipseDrawer();
-            }else if(figure is PenFigure)
+            }else if(figure is PenFigure || figure is PolylineByPointsFigure)
             {
                 if (!(Drawer is PenDrawer))
                     Drawer = new PenDrawer();
-            }
-            else if (figure is PolylineByPointsFigure)
-            {
-                Drawer = new PenDrawer();
             }
             else if (!(Drawer is AngleFiguresDrawer))
             {
@@ -71,11 +74,8 @@ namespace Draw.Canvases
         {
             if (figure is PenFigure)
                 ((PenFigure)figure).ClearPoints();
-            if (figure is TriangleByPointsFigure)
-            {
-                ((TriangleByPointsFigure)figure).Clear();
-            }
             _mainBitmap = _tmpBitmap;
+            _allbitmaps.Push((Bitmap)_mainBitmap.Clone());
         }
 
         public void Clear()
@@ -87,9 +87,34 @@ namespace Draw.Canvases
         public void Resize(int width, int height)
         {
             Bitmap tmp = _mainBitmap;
-            _mainBitmap = new Bitmap(width,height);
+            _mainBitmap = new Bitmap(width,height);            
             Graphics.FromImage(_mainBitmap).DrawImage(tmp,new Point(0,0));
             tmp.Dispose();
         }
+
+        public Bitmap CancelLastAction()
+        {
+            if (_allbitmaps.Count == 0)
+            {  
+                return _mainBitmap; 
+            }
+            _mainBitmap = _allbitmaps.Pop();
+            Debug.WriteLine(_allbitmaps.Count);
+            return _mainBitmap;
+        }
+
+
+        public void SaveBitmap()
+        {
+            var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg;*.jpe;*.jfif|BMP|*.bmp|GIF|*.gif";
+            saveFileDialog.FileName = "figure";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                _mainBitmap.Save(saveFileDialog.FileName);
+            }
+        }
+                
     }
 }

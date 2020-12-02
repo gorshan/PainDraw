@@ -8,5 +8,6 @@ namespace Draw.Canvases
         {
             graphics.DrawPolygon(pen, figurePoints);
         }
+
     }
 }

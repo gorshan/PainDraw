@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Draw.Canvases;
+using Draw.Drawer;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -11,10 +13,21 @@ namespace Draw.Figures
     {
         public LinkedList<Point> Points { get; set; }
 
+        public IDrawer Drawer { get; set; }
+
         public PolylineByPointsFigure()
         {
+            Drawer = new PenDrawer();
             Points = new LinkedList<Point>();
         }
+
+        private Point _startPoint;
+        private Point _endPoint;
+
+        //public PolylineByPointsFigure()
+        //{
+        //    Points = new LinkedList<Point>();
+        //}
 
         public Point[] GetPoints(Point startpoint, Point endpoint)
         {
@@ -25,9 +38,20 @@ namespace Draw.Figures
             return Points.ToArray();
         }
 
-        internal void Clesr()
+        internal void Clear()
         {
             Points.Clear();
+        }
+
+        public Point[] GetPoints()
+        {
+            return GetPoints(_startPoint, _endPoint);
+        }
+
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            _startPoint = startPoint;
+            _endPoint = endPoint;
         }
     }
 }
