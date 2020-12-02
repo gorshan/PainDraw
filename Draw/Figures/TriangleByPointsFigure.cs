@@ -20,9 +20,9 @@ namespace Draw.Figures
 
         public TriangleByPointsFigure()
         {
-            Drawer = new AngleFiguresDrawer();
-            Points = new List<Point>();
             N = 3;
+            Drawer = new AnglePointsDrawer(N);
+            Points = new List<Point>();
         }
 
         private Point _startPoint;

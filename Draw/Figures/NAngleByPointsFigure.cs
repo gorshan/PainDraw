@@ -25,7 +25,7 @@ namespace Draw.Figures
         {
             N = n;
             Points = new List<Point>();
-            Drawer = new AnglePointsDrawer();
+            Drawer = new AnglePointsDrawer(N);
         }
 
 
