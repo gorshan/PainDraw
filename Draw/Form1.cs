@@ -54,27 +54,26 @@ namespace Draw
             if (Figure is PolylineByPointsFigure)
             {
                 ((PolylineByPointsFigure)Figure).Points.AddLast(e.Location);
-                Canvas.StartDraw(Figure);
-                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                Figure.SetPoints(_lastPoint, e.Location);
+                Canvas.DrawFigure(Figure);
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
             if (Figure is TriangleByPointsFigure)
             {
                 ((TriangleByPointsFigure)Figure).Points.Add(e.Location);
-                Canvas.StartDraw(Figure);
-                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
-                  ((TriangleByPointsFigure)Figure).Clear();        
+                Figure.SetPoints(_lastPoint, e.Location);
+                Canvas.DrawFigure(Figure);
+                ((TriangleByPointsFigure)Figure).Clear();        
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
             if (Figure is NAngleByPointsFigure)
             {
                 ((NAngleByPointsFigure)Figure).AddPoint(e.Location);
-                Canvas.StartDraw(Figure);
-                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                Figure.SetPoints(_lastPoint, e.Location);
+                Canvas.DrawFigure(Figure);
                 ((NAngleByPointsFigure)Figure).Clear();
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
-            Canvas.StartDraw(Figure);
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
