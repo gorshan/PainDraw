@@ -25,21 +25,17 @@ namespace Draw.Figures
         private Point _startPoint;
         private Point _endPoint;
 
-        //public PolylineByPointsFigure()
-        //{
-        //    Points = new LinkedList<Point>();
-        //}
-
-        
         internal void Clear()
         {
             Points.Clear();
         }
 
+        
         public Point[] GetPoints()
         {
             return Points.ToArray();
         }
+
 
         public void SetPoints(Point startPoint, Point endPoint)
         {
@@ -48,10 +44,9 @@ namespace Draw.Figures
         }
 
         public void Update(Point startPoint, Point endPoint)
+
         {
-            Point[] pointsArray = new Point[Points.Count + 2];
-            Points.CopyTo(pointsArray, 0);
-            pointsArray[pointsArray.Length - 1] = endPoint;
+            Points.Add(endPoint);                
         }
     }
 }

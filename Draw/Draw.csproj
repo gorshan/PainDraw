@@ -60,6 +60,7 @@
     <Compile Include="Fabrics\IsoscelesTriangleFabric.cs" />
     <Compile Include="Fabrics\LineFabric.cs" />
     <Compile Include="Fabrics\NAngleByPointsFabric.cs" />
+    <Compile Include="Fabrics\NAngleFabric.cs" />
     <Compile Include="Fabrics\PenFabric.cs" />
     <Compile Include="Fabrics\PolylineByPointsFabric.cs" />
     <Compile Include="Fabrics\RectangleFabric.cs" />

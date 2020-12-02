@@ -43,10 +43,10 @@ namespace Draw.Figures
 
         public void Update(Point startPoint, Point endPoint)
         {
-            Points = new List<Point>();
+            //Points = new List<Point>();
             double r;
             r = Math.Sqrt(Math.Pow(endPoint.Y - startPoint.Y, 2) + Math.Pow(endPoint.X - startPoint.X, 2));
-            for (int i = 0; i < N; i++)
+            for (int i = 0; i <= N; i++)
             {
                 Points.Add(new Point(Convert.ToInt32(startPoint.X + r * Math.Cos((2 * Math.PI * i) / N)),
                                       Convert.ToInt32(startPoint.Y + r * Math.Sin((2 * Math.PI * i) / N))));

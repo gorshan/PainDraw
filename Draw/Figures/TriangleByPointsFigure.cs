@@ -50,14 +50,29 @@ namespace Draw.Figures
             _endPoint = endPoint;
         }
 
+        public bool IsFool()
+        {
+            if (Points.Count > 3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        
         public void Update(Point startPoint, Point endPoint)
         {
-            Points = new List<Point>
+            if (Points.Count < 3)
             {
-            };
-            Point[] pointsArray = new Point[Points.Count + 1];
-            Points.CopyTo(pointsArray, 0);
-            pointsArray[pointsArray.Length - 1] = endPoint;
+                Points.Add(endPoint);
+                if (Points.Count == 3)
+                {
+                    Points.Add(Points[0]);
+                }
+            }
         }
     }
 

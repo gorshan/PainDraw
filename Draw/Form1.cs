@@ -71,18 +71,20 @@ namespace Draw
             
             if (Figure is PolylineByPointsFigure)
             {
-                ((PolylineByPointsFigure)Figure).Points.AddLast(e.Location);
-                Figure.SetPoints(_lastPoint, e.Location);
+                Figure.Update(_lastPoint, e.Location);
                 Canvas.DrawFigure(Figure);
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
-            if (Figure is TriangleByPointsFigure)
+            if (fabric is TriangleByPointsFabric)
             {
-                ((TriangleByPointsFigure)Figure).Points.Add(e.Location);
-                Figure.SetPoints(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);
-                ((TriangleByPointsFigure)Figure).Clear();        
+                if (!((TriangleByPointsFigure)Figure).IsFool())
+                {
+                    isNeededNewFigure = false;
+                }
+                Figure.Update(_lastPoint, e.Location);
+                Canvas.DrawFigure(Figure);       
                 pictureBox1.Image = Canvas.GetTmpImage();
+                _mouseDown = false;
             }
             if (fabric is NAngleByPointsFabric)
             {
@@ -166,12 +168,12 @@ namespace Draw
 
         private void RightNAngleButton_Click(object sender, EventArgs e)
         {
-            Figure = new NAngleFigure(Convert.ToInt32(NAngleNumericUpDown.Value));
+            fabric = new NAngleFabric();
         }
 
         private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (Figure is NAngleFigure)
+            if (fabric is NAngleFabric)
             {
                 ((NAngleFigure)Figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
             }
@@ -221,20 +223,20 @@ namespace Draw
             _pipetteClick = true;
         }
 
-        
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
            if (Canvas == null)
             {
                 return;
             }
-                Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
+            Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = Canvas.GetImage();
         }
 
         private void TriangleByPoints_Click(object sender, EventArgs e)
         {
             fabric = new TriangleByPointsFabric();
+            Figure = fabric.CreateFigure();
         }
 
         private void NAngleButton_Click(object sender, EventArgs e)
