@@ -46,7 +46,7 @@ namespace Draw.Figures
         public void Update(Point startPoint, Point endPoint)
 
         {
-            Points.Add(endPoint);                
+            //Points.Add(endPoint);                
         }
     }
 }

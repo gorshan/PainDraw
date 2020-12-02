@@ -36,7 +36,7 @@ namespace Draw
         private void Form1_Load(object sender, EventArgs e)
         {
             Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
-            Figure = new PenFigure();
+            fabric = new PenFabric();
 
             pictureBox1.Image = Canvas.GetImage();
             _lastPoint = new Point(0, 0);
@@ -110,6 +110,10 @@ namespace Draw
             if (Figure is NAngleByPointsFigure)
             {
                 ((NAngleByPointsFigure)Figure).N = Convert.ToInt32(NAngleByPointsNumericUpDown.Value);
+            }
+            if (Figure is NAngleFigure)
+            {
+                ((NAngleFigure)Figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
             }
         }
 
@@ -253,6 +257,7 @@ namespace Draw
         private void PolyLine_Click(object sender, EventArgs e)
         {
             fabric = new PolylineByPointsFabric();
+            Figure = fabric.CreateFigure();
         }
 
         private void CancelLast_Click(object sender, EventArgs e)
