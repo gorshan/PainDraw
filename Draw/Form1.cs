@@ -67,6 +67,7 @@ namespace Draw
         {
             _mouseDown = true;
             _lastPoint = e.Location;
+            bool isNeededNewFigure = true;
             
             if (Figure is PolylineByPointsFigure)
             {
@@ -83,15 +84,31 @@ namespace Draw
                 ((TriangleByPointsFigure)Figure).Clear();        
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
+            if (fabric is NAngleByPointsFabric)
+            {
+                if (!((NAngleByPointsFigure)Figure).IsFool())
+                {
+                    isNeededNewFigure = false;
+                }                
+                Figure.Update(_lastPoint, e.Location);
+                Canvas.DrawFigure(Figure);
+                pictureBox1.Image = Canvas.GetTmpImage();
+                _mouseDown = false;
+            }
+            if (isNeededNewFigure)
+            {
+                renewFigure();
+            }
+        }
+
+        private void renewFigure()
+        {
+            Figure = fabric.CreateFigure();
+
             if (Figure is NAngleByPointsFigure)
             {
-                ((NAngleByPointsFigure)Figure).AddPoint(e.Location);
-                Figure.SetPoints(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);
-                ((NAngleByPointsFigure)Figure).Clear();
-                pictureBox1.Image = Canvas.GetTmpImage();
+                ((NAngleByPointsFigure)Figure).N = Convert.ToInt32(NAngleByPointsNumericUpDown.Value);
             }
-            Figure = fabric.CreateFigure();
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -222,8 +239,8 @@ namespace Draw
 
         private void NAngleButton_Click(object sender, EventArgs e)
         {
-            int n = Convert.ToInt32(NAngleByPointsNumericUpDown.Value);
-            Figure = new NAngleByPointsFigure(n);
+            fabric = new NAngleByPointsFabric();
+            Figure = fabric.CreateFigure();
         }
 
         private void NAngleByPointsNumericUpDown_ValueChanged(object sender, EventArgs e)

@@ -28,6 +28,12 @@ namespace Draw.Figures
             Drawer = new AnglePointsDrawer(N);
         }
 
+        public NAngleByPointsFigure()
+        {
+            Points = new List<Point>();
+            Drawer = new AnglePointsDrawer(N);
+        }
+
         public void AddPoint(Point point)
         {
             Points.Add(point);
@@ -50,11 +56,28 @@ namespace Draw.Figures
             _endPoint = endPoint;
         }
 
+        public bool IsFool()
+        {
+            if (Points.Count > N)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void Update(Point startPoint, Point endPoint)
         {
-            Point[] pointsArray = new Point[Points.Count + 1];
-            Points.CopyTo(pointsArray, 0);
-            pointsArray[pointsArray.Length - 1] = endPoint;
+            if (Points.Count <= N)
+            {
+                Points.Add(endPoint);
+                if (Points.Count == N)
+                {
+                    Points.Add(Points[0]);
+                }
+            }
         }
     }
 }

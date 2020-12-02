@@ -52,8 +52,9 @@ namespace Draw.Figures
 
         public void Update(Point startPoint, Point endPoint)
         {
-            Points=new List<Point> { 
-            }
+            Points = new List<Point>
+            {
+            };
             Point[] pointsArray = new Point[Points.Count + 1];
             Points.CopyTo(pointsArray, 0);
             pointsArray[pointsArray.Length - 1] = endPoint;

@@ -59,6 +59,7 @@
     <Compile Include="Fabrics\IFabric.cs" />
     <Compile Include="Fabrics\IsoscelesTriangleFabric.cs" />
     <Compile Include="Fabrics\LineFabric.cs" />
+    <Compile Include="Fabrics\NAngleByPointsFabric.cs" />
     <Compile Include="Fabrics\PenFabric.cs" />
     <Compile Include="Fabrics\PolylineByPointsFabric.cs" />
     <Compile Include="Fabrics\RectangleFabric.cs" />
