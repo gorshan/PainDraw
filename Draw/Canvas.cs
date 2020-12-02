@@ -14,6 +14,7 @@ namespace Draw.Canvases
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
         private Graphics _graphics;
+        private Stack <Bitmap> _allbitmaps;
         //public IDrawer Drawer { get; set; }
         public Pen Pen { get; set; }
 
@@ -22,6 +23,8 @@ namespace Draw.Canvases
             _mainBitmap = new Bitmap(width, height);
             _graphics = Graphics.FromImage(_mainBitmap);
             Pen = new Pen(Color.Black, 1);
+            _allbitmaps = new Stack<Bitmap>();
+            _allbitmaps.Push((Bitmap)_mainBitmap.Clone());
             //Drawer = new PenDrawer();
         }
 
@@ -76,6 +79,7 @@ namespace Draw.Canvases
             {
                 ((TriangleByPointsFigure)figure).Clear();
             }
+            _allbitmaps.Push((Bitmap)_tmpBitmap.Clone());
             _mainBitmap = _tmpBitmap;
         }
 
@@ -91,6 +95,16 @@ namespace Draw.Canvases
             _mainBitmap = new Bitmap(width,height);
             Graphics.FromImage(_mainBitmap).DrawImage(tmp,new Point(0,0));
             tmp.Dispose();
+        }
+
+        public Bitmap CancelLastAction()
+        {
+            if (_allbitmaps.Count == 0)
+            {
+                return _mainBitmap;
+            }
+            _mainBitmap = _allbitmaps.Pop();
+            return _mainBitmap;
         }
     }
 }

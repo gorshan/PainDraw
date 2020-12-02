@@ -38,7 +38,7 @@ namespace Draw.Figures
             return Points.ToArray();
         }
 
-        internal void Clesr()
+        internal void Clear()
         {
             Points.Clear();
         }
