@@ -52,6 +52,7 @@
             this.CancelLast = new System.Windows.Forms.Button();
             this.pipette_button = new System.Windows.Forms.Button();
             this.colorLabel2 = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
@@ -281,9 +282,17 @@
             this.colorLabel.TabIndex = 19;
             this.colorLabel.Text = "    ";
             // 
+            // saveButton
             // CancelLast
             // pipette_button
             // 
+            this.saveButton.Location = new System.Drawing.Point(699, 54);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(74, 27);
+            this.saveButton.TabIndex = 20;
+            this.saveButton.Text = "SAVE";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             this.CancelLast.Location = new System.Drawing.Point(352, 71);
             this.CancelLast.Name = "CancelLast";
             this.CancelLast.Size = new System.Drawing.Size(75, 39);
@@ -317,6 +326,7 @@
             this.Controls.Add(this.colorLabel2);
             this.Controls.Add(this.pipette_button);
             this.Controls.Add(this.CancelLast);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.PolyLine);
             this.Controls.Add(this.NAngleByPointsNumericUpDown);
             this.Controls.Add(this.TriangleByPoints);
@@ -378,6 +388,7 @@
         private System.Windows.Forms.Button pipette_button;
         public System.Windows.Forms.Label colorLabel2;
         private System.Windows.Forms.Button CancelLast;
+        private System.Windows.Forms.Button saveButton;
     }
 }
 
