@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using Draw.Figures;
+using Draw.Drawer;
 
 namespace Draw.Canvases
 {

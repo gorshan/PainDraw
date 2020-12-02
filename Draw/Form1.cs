@@ -45,7 +45,8 @@ namespace Draw
 
             if (_mouseDown)
             {
-                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+                Figure.SetPoints(_lastPoint, e.Location);
+                Canvas.DrawFigure(Figure);
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
         }
@@ -55,20 +56,21 @@ namespace Draw
 
             _mouseDown = true;
             _lastPoint = e.Location;
-            if (Figure is PolylineByPointsFigure)
-            {
-                ((PolylineByPointsFigure)Figure).Points.AddLast(e.Location); 
-                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
-                pictureBox1.Image = Canvas.GetTmpImage();
-            }
-           else if (Figure is TriangleByPointsFigure)
-            {
-                ((TriangleByPointsFigure)Figure).Points.Add(e.Location);
-                Canvas.StartDraw(Figure);
-                Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
-                pictureBox1.Image = Canvas.GetTmpImage();
-            }
-            Canvas.StartDraw(Figure);
+
+           // if (Figure is PolylineByPointsFigure)
+           // {
+           //     ((PolylineByPointsFigure)Figure).Points.AddLast(e.Location); 
+           //     Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+           //     pictureBox1.Image = Canvas.GetTmpImage();
+           // }
+           //else if (Figure is TriangleByPointsFigure)
+           // {
+           //     ((TriangleByPointsFigure)Figure).Points.Add(e.Location);
+           //     Canvas.StartDraw(Figure);
+           //     Canvas.DrawFigure(Figure.GetPoints(_lastPoint, e.Location));
+           //     pictureBox1.Image = Canvas.GetTmpImage();
+           // }
+            //Canvas.StartDraw(Figure);
         }
 
 

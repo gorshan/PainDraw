@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Draw.Canvases;
+using Draw.Drawer;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,7 +11,16 @@ namespace Draw.Figures
 {
     public class EllipseFigure : IFigure
     {
-        
+        public IDrawer Drawer { get; set; }
+
+        public EllipseFigure()
+        {
+            Drawer = new EllipseDrawer();
+        }
+
+        private Point _startPoint;
+        private Point _endPoint;
+
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {
             Point[] points = new Point[4];
@@ -18,6 +29,17 @@ namespace Draw.Figures
             points[2] = new Point(endPoint.X - startPoint.X);
             points[3] = new Point(endPoint.Y - startPoint.Y);
             return points;
+        }
+
+        public Point[] GetPoints()
+        {
+            return GetPoints(_startPoint, _endPoint);
+        }
+
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            _startPoint = startPoint;
+            _endPoint = endPoint;
         }
     }
 }

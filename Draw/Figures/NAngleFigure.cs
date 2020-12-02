@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Draw.Canvases;
+using Draw.Drawer;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -11,9 +13,20 @@ namespace Draw.Figures
     {
         public int N { get; set; }
 
+        public IDrawer Drawer { get; set; }
+
+        public NAngleFigure()
+        {
+            Drawer = new AngleFiguresDrawer();
+        }
+
+        private Point _startPoint;
+        private Point _endPoint;
+
         public NAngleFigure(int n)
         {
             N = n;
+            Drawer = new AngleFiguresDrawer();
         }
         public Point[] GetPoints(Point startPoint, Point endPoint)
         {
@@ -28,5 +41,15 @@ namespace Draw.Figures
             return points;
         }
 
+        public Point[] GetPoints()
+        {
+            return GetPoints(_startPoint, _endPoint);
+        }
+
+        public void SetPoints(Point startPoint, Point endPoint)
+        {
+            _startPoint = startPoint;
+            _endPoint = endPoint;
+        }
     }
 }

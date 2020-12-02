@@ -47,13 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Canvases\AnglePointsDrawer.cs" />
-    <Compile Include="Canvases\PolyLineDrawer.cs" />
-    <Compile Include="Canvases\Canvas.cs" />
-    <Compile Include="Canvases\AngleFiguresDrawer.cs" />
-    <Compile Include="Canvases\EllipseDrawer.cs" />
-    <Compile Include="Canvases\IDrawer.cs" />
-    <Compile Include="Canvases\PenDrawer.cs" />
+    <Compile Include="Drawer\AnglePointsDrawer.cs" />
+    <Compile Include="Drawer\PolyLineDrawer.cs" />
+    <Compile Include="Canvas.cs" />
+    <Compile Include="Drawer\AngleFiguresDrawer.cs" />
+    <Compile Include="Drawer\EllipseDrawer.cs" />
+    <Compile Include="Drawer\IDrawer.cs" />
+    <Compile Include="Drawer\PenDrawer.cs" />
     <Compile Include="Figures\CircleFigure.cs" />
     <Compile Include="Figures\EllipseFigure.cs" />
     <Compile Include="Figures\IFigure.cs" />
