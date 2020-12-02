@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Draw.Fabrics
 {
-    class PolylineByPointsFabric : IFabric
+    public  class PolylineByPointsFabric : IFabric
     {
         public IFigure CreateFigure()
         {

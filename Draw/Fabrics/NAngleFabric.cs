@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Draw.Fabrics
 {
-    class NAngleFabric : IFabric
+    public class NAngleFabric : IFabric
     {
         public IFigure CreateFigure()
         {
