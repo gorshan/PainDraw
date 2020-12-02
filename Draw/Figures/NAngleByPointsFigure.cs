@@ -16,9 +16,6 @@ namespace Draw.Figures
     {
         public int N { get; set; }
         public List<Point> Points { get; set; }
-        private Point _startPoint;
-        private Point _endPoint;
-
         public IDrawer Drawer { get; set; }
 
         public NAngleByPointsFigure(int n)
@@ -48,12 +45,6 @@ namespace Draw.Figures
         public Point[] GetPoints()
         {
             return Points.ToArray();
-        }
-
-        public void SetPoints(Point startPoint, Point endPoint)
-        {
-            _startPoint = startPoint;
-            _endPoint = endPoint;
         }
 
         public bool IsFool()

@@ -12,8 +12,6 @@ namespace Draw.Figures
     {
         IDrawer Drawer{ get; }
 
-        void SetPoints(Point startPoint, Point endPoint);
-
         void Update(Point startPoint, Point endPoint);
 
         Point[] GetPoints();

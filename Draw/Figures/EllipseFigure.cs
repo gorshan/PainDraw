@@ -19,19 +19,11 @@ namespace Draw.Figures
             Drawer = new EllipseDrawer();
         }
 
-        private Point _startPoint;
-        private Point _endPoint;
-
         public Point[] GetPoints()
         {
             return Points.ToArray();
         }
 
-        public void SetPoints(Point startPoint, Point endPoint)
-        {
-            _startPoint = startPoint;
-            _endPoint = endPoint;
-        }
 
         public void Update(Point startPoint, Point endPoint)
         {

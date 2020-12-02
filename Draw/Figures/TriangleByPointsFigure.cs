@@ -25,9 +25,6 @@ namespace Draw.Figures
             Points = new List<Point>();
         }
 
-        private Point _startPoint;
-        private Point _endPoint;
-
         public void AddPoint(Point point)
         {
             Points.Add(point);
@@ -42,12 +39,6 @@ namespace Draw.Figures
         public Point[] GetPoints()
         {
             return Points.ToArray();
-        }
-
-        public void SetPoints(Point startPoint, Point endPoint)
-        {
-            _startPoint = startPoint;
-            _endPoint = endPoint;
         }
 
         public bool IsFool()
