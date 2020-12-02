@@ -96,7 +96,19 @@ namespace Draw
             //_lastPoint2 = e.Location;
 
         }
-
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_pipetteClick)
+            {
+                Bitmap _tmpbitmap = Canvas.GetImage();
+                Color pixelColor = Canvas.Pen.Color;
+                pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
+                colorLabel2.BackColor = pixelColor;
+                colorLabel.BackColor = pixelColor;
+                Canvas.Pen.Color = pixelColor;
+            }
+            _pipetteClick = false;
+        }
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (Figure is PolylineByPointsFigure)
@@ -187,7 +199,7 @@ namespace Draw
             _pipetteClick = true;
         }
 
-
+        
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
            if (Canvas == null)
