@@ -27,6 +27,7 @@ namespace Draw
         public IFigure Figure { get; private set; }
 
         List<IFigure> figures;
+        string mode;
 
         public Form1()
         {
@@ -37,7 +38,7 @@ namespace Draw
         {
             Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
             fabric = new PenFabric();
-
+            mode = "Paint";
             pictureBox1.Image = Canvas.GetImage();
             _lastPoint = new Point(0, 0);
             _mouseDown = false;
@@ -49,9 +50,14 @@ namespace Draw
         {
             if (_mouseDown)
             {
-                Figure.Update(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);
-                pictureBox1.Image = Canvas.GetTmpImage();
+                switch (mode)
+                {
+                    case "Paint":
+                        Figure.Update(_lastPoint, e.Location);
+                        Canvas.DrawFigure(Figure);
+                        pictureBox1.Image = Canvas.GetTmpImage();
+                    break;
+                }
             }
             if (_pipetteClick)
             {

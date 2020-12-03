@@ -37,5 +37,13 @@ namespace Draw.Figures
                 new Point(endPoint.X, startPoint.Y)
             };
         }
+
+        public void Move(Point delta)
+        {
+            for (int i=0; i<Points.Count(); i++)
+            {
+                Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
+            }
+        }
     }
 }
