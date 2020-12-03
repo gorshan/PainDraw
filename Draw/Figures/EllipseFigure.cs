@@ -12,34 +12,29 @@ namespace Draw.Figures
     public class EllipseFigure : IFigure
     {
         public IDrawer Drawer { get; set; }
-
+        public List<Point> Points { get; set; }
+        public Color Color { get; set; }
+        public int Width { get; set; }
         public EllipseFigure()
         {
             Drawer = new EllipseDrawer();
         }
 
-        private Point _startPoint;
-        private Point _endPoint;
-
-        public Point[] GetPoints(Point startPoint, Point endPoint)
-        {
-            Point[] points = new Point[4];
-            points[0] = new Point(startPoint.X);
-            points[1] = new Point(startPoint.Y);
-            points[2] = new Point(endPoint.X - startPoint.X);
-            points[3] = new Point(endPoint.Y - startPoint.Y);
-            return points;
-        }
-
         public Point[] GetPoints()
         {
-            return GetPoints(_startPoint, _endPoint);
+            return Points.ToArray();
         }
 
-        public void SetPoints(Point startPoint, Point endPoint)
+
+        public void Update(Point startPoint, Point endPoint)
         {
-            _startPoint = startPoint;
-            _endPoint = endPoint;
+            Points = new List<Point>
+            {
+                new Point(startPoint.X),
+                new Point(startPoint.Y),
+                new Point(endPoint.X - startPoint.X),
+                new Point(endPoint.Y - startPoint.Y)
+            };
         }
     }
 }

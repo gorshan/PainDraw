@@ -15,7 +15,8 @@ namespace Draw.Figures
 
         public List<Point> Points { get; set; }
         public int N;
-
+        public Color Color { get; set; }
+        public int Width { get; set; }
         public IDrawer Drawer { get; set; }
 
         public TriangleByPointsFigure()
@@ -23,17 +24,6 @@ namespace Draw.Figures
             N = 3;
             Drawer = new AnglePointsDrawer(N);
             Points = new List<Point>();
-        }
-
-        private Point _startPoint;
-        private Point _endPoint;
-        public Point[] GetPoints(Point startpoint, Point endpoint)
-        {
-
-            Point[] pointsArray = new Point[Points.Count + 1];
-            Points.CopyTo(pointsArray, 0);
-            pointsArray[pointsArray.Length - 1] = endpoint;
-            return Points.ToArray();
         }
 
         public void AddPoint(Point point)
@@ -49,13 +39,32 @@ namespace Draw.Figures
 
         public Point[] GetPoints()
         {
-            return GetPoints(_startPoint, _endPoint);
+            return Points.ToArray();
         }
 
-        public void SetPoints(Point startPoint, Point endPoint)
+        public bool IsFool()
         {
-            _startPoint = startPoint;
-            _endPoint = endPoint;
+            if (Points.Count > 3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        
+        public void Update(Point startPoint, Point endPoint)
+        {
+            if (Points.Count < 3)
+            {
+                Points.Add(endPoint);
+                if (Points.Count == 3)
+                {
+                    Points.Add(Points[0]);
+                }
+            }
         }
     }
 

@@ -14,35 +14,28 @@ namespace Draw.Figures
     {
 
         public IDrawer Drawer { get; set; }
-
+        public List<Point> Points { get; set; }
+        public Color Color { get; set; }
+        public int Width { get; set; }
         public RectangleFigure()
         {
             Drawer = new AngleFiguresDrawer();
         }
 
-        private Point _startPoint;
-        private Point _endPoint;
-
-        public Point[] GetPoints(Point startPoint, Point endPoint)
-        {
-            Point[] points = new Point[4];
-            points[0] = startPoint;
-            points[1] = new Point(startPoint.X, endPoint.Y);
-            points[2] = endPoint;
-            points[3] = new Point(endPoint.X, startPoint.Y);
-
-            return points;
-        }
-
         public Point[] GetPoints()
         {
-            return GetPoints(_startPoint, _endPoint);
+            return Points.ToArray();
         }
 
-        public void SetPoints(Point startPoint, Point endPoint)
+        public void Update(Point startPoint, Point endPoint)
         {
-            _startPoint = startPoint;
-            _endPoint = endPoint;
+            Points = new List<Point>
+            {
+                startPoint,
+                new Point(startPoint.X, endPoint.Y),
+                endPoint,
+                new Point(endPoint.X, startPoint.Y)
+            };
         }
     }
 }

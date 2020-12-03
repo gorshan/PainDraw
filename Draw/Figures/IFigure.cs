@@ -12,9 +12,14 @@ namespace Draw.Figures
     {
         IDrawer Drawer{ get; }
 
-        void SetPoints(Point startPoint, Point endPoint);
+        void Update(Point startPoint, Point endPoint);
 
         Point[] GetPoints();
-        Point[] GetPoints(Point startPoint, Point endPoint);
+
+        List<Point> Points { get; set; }
+
+        Color Color { get; set; }
+        int Width { get; set; }
+
     }
 }
