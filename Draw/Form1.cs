@@ -58,7 +58,6 @@ namespace Draw
                 Bitmap _tmpbitmap = Canvas.GetImage();
                 Color pixelColor = Canvas.Pen.Color;
                 pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
-                colorLabel2.BackColor = pixelColor;
             }
         }
         
@@ -106,7 +105,6 @@ namespace Draw
                 Bitmap _tmpbitmap = Canvas.GetImage();
                 Color pixelColor = Canvas.Pen.Color;
                 pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
-                colorLabel2.BackColor = pixelColor;
                 ColorButton.BackColor = pixelColor;
                 Canvas.Pen.Color = pixelColor;
             }

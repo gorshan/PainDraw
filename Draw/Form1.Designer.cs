@@ -41,7 +41,6 @@ namespace Draw
             this.widthText = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.ColorButton = new System.Windows.Forms.Button();
-            this.colorLabel2 = new System.Windows.Forms.Label();
             this.ToolLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.PenButton = new System.Windows.Forms.Button();
             this.CircleButton = new System.Windows.Forms.Button();
@@ -95,7 +94,7 @@ namespace Draw
             // 
             // NAngleNumericUpDown
             // 
-            this.NAngleNumericUpDown.Location = new System.Drawing.Point(8, 395);
+            this.NAngleNumericUpDown.Location = new System.Drawing.Point(8, 379);
             this.NAngleNumericUpDown.Minimum = new decimal(new int[] {
             3,
             0,
@@ -127,7 +126,7 @@ namespace Draw
             // 
             // NAngleByPointsNumericUpDown
             // 
-            this.NAngleByPointsNumericUpDown.Location = new System.Drawing.Point(8, 394);
+            this.NAngleByPointsNumericUpDown.Location = new System.Drawing.Point(9, 378);
             this.NAngleByPointsNumericUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.NAngleByPointsNumericUpDown.Minimum = new decimal(new int[] {
             3,
@@ -160,23 +159,25 @@ namespace Draw
             // 
             // WigthScrollBar
             // 
+            this.WigthScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.WigthScrollBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.WigthScrollBar.LargeChange = 1;
-            this.WigthScrollBar.Location = new System.Drawing.Point(362, 9);
+            this.WigthScrollBar.Location = new System.Drawing.Point(319, 4);
             this.WigthScrollBar.Maximum = 50;
             this.WigthScrollBar.Minimum = 1;
             this.WigthScrollBar.Name = "WigthScrollBar";
-            this.WigthScrollBar.Size = new System.Drawing.Size(133, 21);
+            this.WigthScrollBar.Size = new System.Drawing.Size(133, 16);
             this.WigthScrollBar.TabIndex = 16;
             this.WigthScrollBar.Value = 1;
             this.WigthScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.WigthScrollBar_Scroll);
             // 
             // widthText
             // 
-            this.widthText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(44)))));
+            this.widthText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(9)))), ((int)(((byte)(25)))));
             this.widthText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.widthText.Enabled = false;
             this.widthText.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.widthText.Location = new System.Drawing.Point(422, 34);
+            this.widthText.Location = new System.Drawing.Point(375, 22);
             this.widthText.Margin = new System.Windows.Forms.Padding(1);
             this.widthText.Name = "widthText";
             this.widthText.Size = new System.Drawing.Size(16, 13);
@@ -192,19 +193,9 @@ namespace Draw
             this.ColorButton.UseVisualStyleBackColor = true;
             this.ColorButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // colorLabel2
-            // 
-            this.colorLabel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.colorLabel2.Location = new System.Drawing.Point(153, 12);
-            this.colorLabel2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.colorLabel2.Name = "colorLabel2";
-            this.colorLabel2.Size = new System.Drawing.Size(10, 5);
-            this.colorLabel2.TabIndex = 21;
-            this.colorLabel2.Text = "    ";
-            // 
             // ToolLayoutPanel
             // 
-            this.ToolLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(55)))));
+            this.ToolLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
             this.ToolLayoutPanel.Controls.Add(this.PenButton);
             this.ToolLayoutPanel.Controls.Add(this.CircleButton);
             this.ToolLayoutPanel.Controls.Add(this.EllipsButton);
@@ -218,7 +209,7 @@ namespace Draw
             this.ToolLayoutPanel.Controls.Add(this.NAngleButton);
             this.ToolLayoutPanel.Controls.Add(this.PolyLine);
             this.ToolLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ToolLayoutPanel.Location = new System.Drawing.Point(8, 54);
+            this.ToolLayoutPanel.Location = new System.Drawing.Point(8, 38);
             this.ToolLayoutPanel.Name = "ToolLayoutPanel";
             this.ToolLayoutPanel.Size = new System.Drawing.Size(103, 335);
             this.ToolLayoutPanel.TabIndex = 22;
@@ -226,7 +217,7 @@ namespace Draw
             // 
             // PenButton
             // 
-            this.PenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.PenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(174)))), ((int)(((byte)(190)))));
             this.PenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PenButton.Image = ((System.Drawing.Image)(resources.GetObject("PenButton.Image")));
             this.PenButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -351,7 +342,7 @@ namespace Draw
             // 
             this.SizeLabel.AutoSize = true;
             this.SizeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SizeLabel.Location = new System.Drawing.Point(35, 419);
+            this.SizeLabel.Location = new System.Drawing.Point(37, 403);
             this.SizeLabel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.SizeLabel.Name = "SizeLabel";
             this.SizeLabel.Size = new System.Drawing.Size(35, 13);
@@ -360,13 +351,13 @@ namespace Draw
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(55)))));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
             this.flowLayoutPanel1.Controls.Add(this.ColorButton);
             this.flowLayoutPanel1.Controls.Add(this.pipette_button);
             this.flowLayoutPanel1.Controls.Add(this.CancelLast);
             this.flowLayoutPanel1.Controls.Add(this.saveButton);
             this.flowLayoutPanel1.Controls.Add(this.ClearButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(116, 20);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(116, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 29);
             this.flowLayoutPanel1.TabIndex = 24;
@@ -429,10 +420,10 @@ namespace Draw
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pictureBox1.Location = new System.Drawing.Point(116, 54);
+            this.pictureBox1.Location = new System.Drawing.Point(116, 38);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(879, 447);
+            this.pictureBox1.Size = new System.Drawing.Size(879, 463);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
@@ -444,12 +435,11 @@ namespace Draw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(44)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(9)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(1006, 512);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.SizeLabel);
             this.Controls.Add(this.ToolLayoutPanel);
-            this.Controls.Add(this.colorLabel2);
             this.Controls.Add(this.widthText);
             this.Controls.Add(this.NAngleByPointsNumericUpDown);
             this.Controls.Add(this.NAngleNumericUpDown);
@@ -499,7 +489,6 @@ namespace Draw
         private System.Windows.Forms.NumericUpDown NAngleByPointsNumericUpDown;
         private System.Windows.Forms.Button PolyLine;
         private System.Windows.Forms.Button pipette_button;
-        public System.Windows.Forms.Label colorLabel2;
         private System.Windows.Forms.Button CancelLast;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.FlowLayoutPanel ToolLayoutPanel;
