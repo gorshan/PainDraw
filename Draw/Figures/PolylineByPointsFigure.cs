@@ -45,6 +45,11 @@ namespace Draw.Figures
             throw new NotImplementedException();
         }
 
+        public bool IsThisFigure(Point point)
+        {
+            throw new NotImplementedException();
+        }
+
         //public class PolylineByPointsFigure : IFigure
         //{
         //    public LinkedList<Point> Points { get; set; }

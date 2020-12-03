@@ -23,5 +23,7 @@ namespace Draw.Figures
 
         void Move(Point delta);
 
+        bool IsThisFigure(Point point);
+
     }
 }

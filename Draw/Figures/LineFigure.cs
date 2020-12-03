@@ -38,5 +38,10 @@ namespace Draw.Figures
         {
             throw new NotImplementedException();
         }
+
+        public bool IsThisFigure(Point point)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

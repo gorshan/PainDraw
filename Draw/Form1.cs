@@ -56,9 +56,12 @@ namespace Draw
                         Figure.Update(_lastPoint, e.Location);
                     break;
                     case "Figure":
-                        Point d = new Point(e.X - _lastPoint.X, e.Y - _lastPoint.Y);
-                        _lastPoint = e.Location;
-                        Figure.Move(d);
+                        if (Figure != null)
+                        {
+                            Point d = new Point(e.X - _lastPoint.X, e.Y - _lastPoint.Y);
+                            _lastPoint = e.Location;
+                            Figure.Move(d);
+                        }
                         break;
                 }
                 Canvas.DrawFigure(Figure);
@@ -116,7 +119,17 @@ namespace Draw
                     }
                     break;
                 case "Figure":
-                    
+                    Figure = null;
+                    foreach (IFigure figure in figures)
+                    {
+                        if (figure.IsThisFigure(e.Location))
+                        {
+                            Figure = figure;
+                            figures.Remove(Figure);
+                            DrawAll();
+                            break;
+                        }
+                    }
                     break;
             }
         }
@@ -141,15 +154,10 @@ namespace Draw
         {           
             Canvas.EndDraw(Figure);
             _mouseDown = false;
-            switch (mode)
+            if (Figure != null)
             {
-                case "Paint":
-                    figures.Add(Figure);
-                    break;
-                case "Figure":
-                    break;
+                figures.Add(Figure);
             }
-
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -175,31 +183,37 @@ namespace Draw
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
             fabric = new RightTriangleFabric();
+            mode = "Paint";
         }
 
         private void RectangleButton_Click(object sender, EventArgs e)
         {
             fabric = new RectangleFabric();
+            mode = "Paint";
         }
 
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
         {
             fabric = new IsoscelesTriangleFabric();
+            mode = "Paint";
         }
 
         private void LineButton_Click(object sender, EventArgs e)
         {
             fabric = new LineFabric();
+            mode = "Paint";
         }
 
         private void SquareButton_Click(object sender, EventArgs e)
         {
             fabric = new SquareFabric();
+            mode = "Paint";
         }
 
         private void RightNAngleButton_Click(object sender, EventArgs e)
         {
             fabric = new NAngleFabric();
+            mode = "Paint";
         }
 
         private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -208,16 +222,19 @@ namespace Draw
             {
                 ((NAngleFigure)Figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
             }
+            mode = "Paint";
         }
 
         private void EllipsButton_Click(object sender, EventArgs e)
         {
             fabric = new EllipseFabric();
+            mode = "Paint";
         }
 
         private void CircleButton_Click(object sender, EventArgs e)
         {
             fabric = new CircleFabric();
+            mode = "Paint";
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -233,6 +250,7 @@ namespace Draw
         private void PenButton_Click(object sender, EventArgs e)
         {
             fabric = new PenFabric();
+            mode = "Paint";
         }
 
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
@@ -299,6 +317,19 @@ namespace Draw
         private void workWithFigureButton_Click(object sender, EventArgs e)
         {
             mode = "Figure";
+        }
+
+        private void DrawAll()
+        {
+            Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.Image = Canvas.GetTmpImage();
+            foreach (IFigure figure in figures)
+            {
+                Canvas.Pen.Color = figure.Color;
+                Canvas.Pen.Width = figure.Width;
+                Canvas.DrawFigure(Figure);
+            }
+
         }
     }
 }
