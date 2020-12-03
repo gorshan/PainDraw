@@ -31,12 +31,8 @@ namespace Draw
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.NAngleButton = new System.Windows.Forms.Button();
-            this.RightNAngleButton = new System.Windows.Forms.Button();
             this.NAngleNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.TriangleByPoints = new System.Windows.Forms.Button();
             this.NAngleByPointsNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.PolyLine = new System.Windows.Forms.Button();
             this.WigthScrollBar = new System.Windows.Forms.HScrollBar();
             this.widthText = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -56,7 +52,11 @@ namespace Draw
             this.RectangleButton = new System.Windows.Forms.Button();
             this.LineButton = new System.Windows.Forms.Button();
             this.IsoscelesTriangleButton = new System.Windows.Forms.Button();
+            this.TriangleByPoints = new System.Windows.Forms.Button();
             this.RightTriangleButton = new System.Windows.Forms.Button();
+            this.RightNAngleButton = new System.Windows.Forms.Button();
+            this.NAngleButton = new System.Windows.Forms.Button();
+            this.PolyLine = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
@@ -65,34 +65,6 @@ namespace Draw
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // NAngleButton
-            // 
-            this.NAngleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.NAngleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NAngleButton.Location = new System.Drawing.Point(2, 280);
-            this.NAngleButton.Margin = new System.Windows.Forms.Padding(2);
-            this.NAngleButton.Name = "NAngleButton";
-            this.NAngleButton.Size = new System.Drawing.Size(101, 25);
-            this.NAngleButton.TabIndex = 9;
-            this.NAngleButton.Text = "N-angle";
-            this.NAngleButton.UseVisualStyleBackColor = false;
-            this.NAngleButton.Click += new System.EventHandler(this.NAngleButton_Click);
-            // 
-            // RightNAngleButton
-            // 
-            this.RightNAngleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.RightNAngleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToolLayoutPanel.SetFlowBreak(this.RightNAngleButton, true);
-            this.RightNAngleButton.Location = new System.Drawing.Point(2, 251);
-            this.RightNAngleButton.Margin = new System.Windows.Forms.Padding(2);
-            this.RightNAngleButton.Name = "RightNAngleButton";
-            this.RightNAngleButton.Size = new System.Drawing.Size(101, 25);
-            this.RightNAngleButton.TabIndex = 10;
-            this.RightNAngleButton.Text = "Right N-angle";
-            this.RightNAngleButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RightNAngleButton.UseVisualStyleBackColor = false;
-            this.RightNAngleButton.Click += new System.EventHandler(this.RightNAngleButton_Click);
             // 
             // NAngleNumericUpDown
             // 
@@ -113,19 +85,6 @@ namespace Draw
             this.NAngleNumericUpDown.Visible = false;
             this.NAngleNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleNumericUpDown_ValueChanged);
             // 
-            // TriangleByPoints
-            // 
-            this.TriangleByPoints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.TriangleByPoints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TriangleByPoints.Location = new System.Drawing.Point(2, 193);
-            this.TriangleByPoints.Margin = new System.Windows.Forms.Padding(2);
-            this.TriangleByPoints.Name = "TriangleByPoints";
-            this.TriangleByPoints.Size = new System.Drawing.Size(101, 25);
-            this.TriangleByPoints.TabIndex = 16;
-            this.TriangleByPoints.Text = "Triangle";
-            this.TriangleByPoints.UseVisualStyleBackColor = false;
-            this.TriangleByPoints.Click += new System.EventHandler(this.TriangleByPoints_Click);
-            // 
             // NAngleByPointsNumericUpDown
             // 
             this.NAngleByPointsNumericUpDown.Location = new System.Drawing.Point(9, 378);
@@ -145,19 +104,6 @@ namespace Draw
             0});
             this.NAngleByPointsNumericUpDown.Visible = false;
             this.NAngleByPointsNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleByPointsNumericUpDown_ValueChanged);
-            // 
-            // PolyLine
-            // 
-            this.PolyLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.PolyLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PolyLine.Location = new System.Drawing.Point(1, 308);
-            this.PolyLine.Margin = new System.Windows.Forms.Padding(1);
-            this.PolyLine.Name = "PolyLine";
-            this.PolyLine.Size = new System.Drawing.Size(101, 25);
-            this.PolyLine.TabIndex = 18;
-            this.PolyLine.Text = "PolyLine";
-            this.PolyLine.UseVisualStyleBackColor = false;
-            this.PolyLine.Click += new System.EventHandler(this.PolyLine_Click);
             // 
             // WigthScrollBar
             // 
@@ -243,7 +189,7 @@ namespace Draw
             // 
             // logoPictureBox
             // 
-            this.logoPictureBox.Image = new Bitmap( global::Draw.Properties.Resources.logo1,103,31);
+            this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
             this.logoPictureBox.Location = new System.Drawing.Point(8, 4);
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(103, 31);
@@ -304,8 +250,9 @@ namespace Draw
             // 
             // PenButton
             // 
-            this.PenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(174)))), ((int)(((byte)(190)))));
-            this.PenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.PenButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PenButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.PenButton.Image = ((System.Drawing.Image)(resources.GetObject("PenButton.Image")));
             this.PenButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PenButton.Location = new System.Drawing.Point(1, 1);
@@ -320,8 +267,9 @@ namespace Draw
             // 
             // CircleButton
             // 
-            this.CircleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.CircleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CircleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.CircleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CircleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.CircleButton.Image = ((System.Drawing.Image)(resources.GetObject("CircleButton.Image")));
             this.CircleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CircleButton.Location = new System.Drawing.Point(1, 28);
@@ -335,8 +283,10 @@ namespace Draw
             // 
             // EllipsButton
             // 
-            this.EllipsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.EllipsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EllipsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.EllipsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.EllipsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.EllipsButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.EllipsButton.Image = ((System.Drawing.Image)(resources.GetObject("EllipsButton.Image")));
             this.EllipsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.EllipsButton.Location = new System.Drawing.Point(1, 55);
@@ -350,8 +300,9 @@ namespace Draw
             // 
             // SquareButton
             // 
-            this.SquareButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.SquareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SquareButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.SquareButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SquareButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.SquareButton.Image = ((System.Drawing.Image)(resources.GetObject("SquareButton.Image")));
             this.SquareButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SquareButton.Location = new System.Drawing.Point(1, 82);
@@ -365,8 +316,9 @@ namespace Draw
             // 
             // RectangleButton
             // 
-            this.RectangleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.RectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RectangleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.RectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RectangleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.RectangleButton.Image = ((System.Drawing.Image)(resources.GetObject("RectangleButton.Image")));
             this.RectangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RectangleButton.Location = new System.Drawing.Point(1, 109);
@@ -380,8 +332,9 @@ namespace Draw
             // 
             // LineButton
             // 
-            this.LineButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.LineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LineButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.LineButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LineButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.LineButton.Image = ((System.Drawing.Image)(resources.GetObject("LineButton.Image")));
             this.LineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LineButton.Location = new System.Drawing.Point(1, 136);
@@ -395,8 +348,9 @@ namespace Draw
             // 
             // IsoscelesTriangleButton
             // 
-            this.IsoscelesTriangleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.IsoscelesTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IsoscelesTriangleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.IsoscelesTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.IsoscelesTriangleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.IsoscelesTriangleButton.Image = ((System.Drawing.Image)(resources.GetObject("IsoscelesTriangleButton.Image")));
             this.IsoscelesTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.IsoscelesTriangleButton.Location = new System.Drawing.Point(2, 164);
@@ -409,10 +363,27 @@ namespace Draw
             this.IsoscelesTriangleButton.UseVisualStyleBackColor = false;
             this.IsoscelesTriangleButton.Click += new System.EventHandler(this.IsoscelesTriangleButton_Click);
             // 
+            // TriangleByPoints
+            // 
+            this.TriangleByPoints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.TriangleByPoints.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.TriangleByPoints.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.TriangleByPoints.Image = ((System.Drawing.Image)(resources.GetObject("TriangleByPoints.Image")));
+            this.TriangleByPoints.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TriangleByPoints.Location = new System.Drawing.Point(2, 193);
+            this.TriangleByPoints.Margin = new System.Windows.Forms.Padding(2);
+            this.TriangleByPoints.Name = "TriangleByPoints";
+            this.TriangleByPoints.Size = new System.Drawing.Size(101, 25);
+            this.TriangleByPoints.TabIndex = 16;
+            this.TriangleByPoints.Text = "Triangle";
+            this.TriangleByPoints.UseVisualStyleBackColor = false;
+            this.TriangleByPoints.Click += new System.EventHandler(this.TriangleByPoints_Click);
+            // 
             // RightTriangleButton
             // 
-            this.RightTriangleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.RightTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RightTriangleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.RightTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RightTriangleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.RightTriangleButton.Image = ((System.Drawing.Image)(resources.GetObject("RightTriangleButton.Image")));
             this.RightTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RightTriangleButton.Location = new System.Drawing.Point(2, 222);
@@ -424,6 +395,56 @@ namespace Draw
             this.RightTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RightTriangleButton.UseVisualStyleBackColor = false;
             this.RightTriangleButton.Click += new System.EventHandler(this.RightTriangleButton_Click);
+            // 
+            // RightNAngleButton
+            // 
+            this.RightNAngleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.RightNAngleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ToolLayoutPanel.SetFlowBreak(this.RightNAngleButton, true);
+            this.RightNAngleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.RightNAngleButton.Image = ((System.Drawing.Image)(resources.GetObject("RightNAngleButton.Image")));
+            this.RightNAngleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RightNAngleButton.Location = new System.Drawing.Point(2, 251);
+            this.RightNAngleButton.Margin = new System.Windows.Forms.Padding(2);
+            this.RightNAngleButton.Name = "RightNAngleButton";
+            this.RightNAngleButton.Size = new System.Drawing.Size(101, 25);
+            this.RightNAngleButton.TabIndex = 10;
+            this.RightNAngleButton.Text = "Right N-angle";
+            this.RightNAngleButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RightNAngleButton.UseVisualStyleBackColor = false;
+            this.RightNAngleButton.Click += new System.EventHandler(this.RightNAngleButton_Click);
+            // 
+            // NAngleButton
+            // 
+            this.NAngleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.NAngleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.NAngleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.NAngleButton.Image = ((System.Drawing.Image)(resources.GetObject("NAngleButton.Image")));
+            this.NAngleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NAngleButton.Location = new System.Drawing.Point(2, 280);
+            this.NAngleButton.Margin = new System.Windows.Forms.Padding(2);
+            this.NAngleButton.Name = "NAngleButton";
+            this.NAngleButton.Size = new System.Drawing.Size(101, 25);
+            this.NAngleButton.TabIndex = 9;
+            this.NAngleButton.Text = "N-angle";
+            this.NAngleButton.UseVisualStyleBackColor = false;
+            this.NAngleButton.Click += new System.EventHandler(this.NAngleButton_Click);
+            // 
+            // PolyLine
+            // 
+            this.PolyLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.PolyLine.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PolyLine.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.PolyLine.Image = new Bitmap( global::Draw.Properties.Resources.PL,20,18);
+            this.PolyLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PolyLine.Location = new System.Drawing.Point(1, 308);
+            this.PolyLine.Margin = new System.Windows.Forms.Padding(1);
+            this.PolyLine.Name = "PolyLine";
+            this.PolyLine.Size = new System.Drawing.Size(101, 25);
+            this.PolyLine.TabIndex = 18;
+            this.PolyLine.Text = "PolyLine";
+            this.PolyLine.UseVisualStyleBackColor = false;
+            this.PolyLine.Click += new System.EventHandler(this.PolyLine_Click);
             // 
             // pictureBox1
             // 
@@ -446,7 +467,7 @@ namespace Draw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(9)))), ((int)(((byte)(25)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1006, 512);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.flowLayoutPanel1);

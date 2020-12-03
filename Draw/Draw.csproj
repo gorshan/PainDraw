@@ -149,5 +149,35 @@
   <ItemGroup>
     <None Include="Resources\logo1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IsoTriangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IsoTriangle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NAngle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PolyLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NAnglePoints.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trian.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\104-1047497_free-isosceles-triangle-theorem-triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PL.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
