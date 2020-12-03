@@ -38,13 +38,6 @@ namespace Draw
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.ColorButton = new System.Windows.Forms.Button();
             this.ToolLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.SizeLabel = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.pipette_button = new System.Windows.Forms.Button();
-            this.CancelLast = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.ClearButton = new System.Windows.Forms.Button();
             this.PenButton = new System.Windows.Forms.Button();
             this.CircleButton = new System.Windows.Forms.Button();
             this.EllipsButton = new System.Windows.Forms.Button();
@@ -57,6 +50,13 @@ namespace Draw
             this.RightNAngleButton = new System.Windows.Forms.Button();
             this.NAngleButton = new System.Windows.Forms.Button();
             this.PolyLine = new System.Windows.Forms.Button();
+            this.SizeLabel = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pipette_button = new System.Windows.Forms.Button();
+            this.CancelLast = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
@@ -121,7 +121,7 @@ namespace Draw
             // 
             // widthText
             // 
-            this.widthText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(9)))), ((int)(((byte)(25)))));
+            this.widthText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
             this.widthText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.widthText.Enabled = false;
             this.widthText.ForeColor = System.Drawing.SystemColors.HighlightText;
@@ -162,91 +162,6 @@ namespace Draw
             this.ToolLayoutPanel.Size = new System.Drawing.Size(103, 335);
             this.ToolLayoutPanel.TabIndex = 22;
             this.ToolLayoutPanel.WrapContents = false;
-            // 
-            // SizeLabel
-            // 
-            this.SizeLabel.AutoSize = true;
-            this.SizeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SizeLabel.Location = new System.Drawing.Point(37, 403);
-            this.SizeLabel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.SizeLabel.Name = "SizeLabel";
-            this.SizeLabel.Size = new System.Drawing.Size(35, 13);
-            this.SizeLabel.TabIndex = 23;
-            this.SizeLabel.Text = "label1";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
-            this.flowLayoutPanel1.Controls.Add(this.ColorButton);
-            this.flowLayoutPanel1.Controls.Add(this.pipette_button);
-            this.flowLayoutPanel1.Controls.Add(this.CancelLast);
-            this.flowLayoutPanel1.Controls.Add(this.saveButton);
-            this.flowLayoutPanel1.Controls.Add(this.ClearButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(116, 4);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 29);
-            this.flowLayoutPanel1.TabIndex = 24;
-            // 
-            // logoPictureBox
-            // 
-            this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
-            this.logoPictureBox.Location = new System.Drawing.Point(8, 4);
-            this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(103, 31);
-            this.logoPictureBox.TabIndex = 25;
-            this.logoPictureBox.TabStop = false;
-            // 
-            // pipette_button
-            // 
-            this.pipette_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.pipette_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pipette_button.Image = ((System.Drawing.Image)(resources.GetObject("pipette_button.Image")));
-            this.pipette_button.Location = new System.Drawing.Point(31, 2);
-            this.pipette_button.Margin = new System.Windows.Forms.Padding(2);
-            this.pipette_button.Name = "pipette_button";
-            this.pipette_button.Size = new System.Drawing.Size(25, 25);
-            this.pipette_button.TabIndex = 20;
-            this.pipette_button.UseVisualStyleBackColor = false;
-            this.pipette_button.Click += new System.EventHandler(this.pipette_button_Click);
-            // 
-            // CancelLast
-            // 
-            this.CancelLast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.CancelLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelLast.Image = ((System.Drawing.Image)(resources.GetObject("CancelLast.Image")));
-            this.CancelLast.Location = new System.Drawing.Point(60, 2);
-            this.CancelLast.Margin = new System.Windows.Forms.Padding(2);
-            this.CancelLast.Name = "CancelLast";
-            this.CancelLast.Size = new System.Drawing.Size(25, 25);
-            this.CancelLast.TabIndex = 20;
-            this.CancelLast.UseVisualStyleBackColor = false;
-            this.CancelLast.Click += new System.EventHandler(this.CancelLast_Click);
-            // 
-            // saveButton
-            // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.Location = new System.Drawing.Point(89, 2);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(25, 25);
-            this.saveButton.TabIndex = 20;
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // ClearButton
-            // 
-            this.ClearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClearButton.Image = ((System.Drawing.Image)(resources.GetObject("ClearButton.Image")));
-            this.ClearButton.Location = new System.Drawing.Point(118, 2);
-            this.ClearButton.Margin = new System.Windows.Forms.Padding(2);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(25, 25);
-            this.ClearButton.TabIndex = 12;
-            this.ClearButton.UseVisualStyleBackColor = false;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // PenButton
             // 
@@ -335,7 +250,7 @@ namespace Draw
             this.LineButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
             this.LineButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LineButton.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.LineButton.Image = ((System.Drawing.Image)(resources.GetObject("LineButton.Image")));
+            this.LineButton.Image = new Bitmap( global::Draw.Properties.Resources.whiteLine,15,3);
             this.LineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LineButton.Location = new System.Drawing.Point(1, 136);
             this.LineButton.Margin = new System.Windows.Forms.Padding(1);
@@ -435,7 +350,7 @@ namespace Draw
             this.PolyLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
             this.PolyLine.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.PolyLine.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.PolyLine.Image = new Bitmap( global::Draw.Properties.Resources.PL,20,18);
+            this.PolyLine.Image = ((System.Drawing.Image)(resources.GetObject("PolyLine.Image")));
             this.PolyLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PolyLine.Location = new System.Drawing.Point(1, 308);
             this.PolyLine.Margin = new System.Windows.Forms.Padding(1);
@@ -445,6 +360,91 @@ namespace Draw
             this.PolyLine.Text = "PolyLine";
             this.PolyLine.UseVisualStyleBackColor = false;
             this.PolyLine.Click += new System.EventHandler(this.PolyLine_Click);
+            // 
+            // SizeLabel
+            // 
+            this.SizeLabel.AutoSize = true;
+            this.SizeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SizeLabel.Location = new System.Drawing.Point(37, 403);
+            this.SizeLabel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.SizeLabel.Name = "SizeLabel";
+            this.SizeLabel.Size = new System.Drawing.Size(35, 13);
+            this.SizeLabel.TabIndex = 23;
+            this.SizeLabel.Text = "label1";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.flowLayoutPanel1.Controls.Add(this.ColorButton);
+            this.flowLayoutPanel1.Controls.Add(this.pipette_button);
+            this.flowLayoutPanel1.Controls.Add(this.CancelLast);
+            this.flowLayoutPanel1.Controls.Add(this.saveButton);
+            this.flowLayoutPanel1.Controls.Add(this.ClearButton);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(116, 4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 29);
+            this.flowLayoutPanel1.TabIndex = 24;
+            // 
+            // pipette_button
+            // 
+            this.pipette_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.pipette_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pipette_button.Image = ((System.Drawing.Image)(resources.GetObject("pipette_button.Image")));
+            this.pipette_button.Location = new System.Drawing.Point(31, 2);
+            this.pipette_button.Margin = new System.Windows.Forms.Padding(2);
+            this.pipette_button.Name = "pipette_button";
+            this.pipette_button.Size = new System.Drawing.Size(25, 25);
+            this.pipette_button.TabIndex = 20;
+            this.pipette_button.UseVisualStyleBackColor = false;
+            this.pipette_button.Click += new System.EventHandler(this.pipette_button_Click);
+            // 
+            // CancelLast
+            // 
+            this.CancelLast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.CancelLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelLast.Image = ((System.Drawing.Image)(resources.GetObject("CancelLast.Image")));
+            this.CancelLast.Location = new System.Drawing.Point(60, 2);
+            this.CancelLast.Margin = new System.Windows.Forms.Padding(2);
+            this.CancelLast.Name = "CancelLast";
+            this.CancelLast.Size = new System.Drawing.Size(25, 25);
+            this.CancelLast.TabIndex = 20;
+            this.CancelLast.UseVisualStyleBackColor = false;
+            this.CancelLast.Click += new System.EventHandler(this.CancelLast_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.Location = new System.Drawing.Point(89, 2);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(25, 25);
+            this.saveButton.TabIndex = 20;
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClearButton.Image = ((System.Drawing.Image)(resources.GetObject("ClearButton.Image")));
+            this.ClearButton.Location = new System.Drawing.Point(118, 2);
+            this.ClearButton.Margin = new System.Windows.Forms.Padding(2);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(25, 25);
+            this.ClearButton.TabIndex = 12;
+            this.ClearButton.UseVisualStyleBackColor = false;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // logoPictureBox
+            // 
+            this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
+            this.logoPictureBox.Location = new System.Drawing.Point(8, 4);
+            this.logoPictureBox.Name = "logoPictureBox";
+            this.logoPictureBox.Size = new System.Drawing.Size(103, 31);
+            this.logoPictureBox.TabIndex = 25;
+            this.logoPictureBox.TabStop = false;
             // 
             // pictureBox1
             // 

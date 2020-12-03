@@ -153,6 +153,16 @@ namespace Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Line1 {
+            get {
+                object obj = ResourceManager.GetObject("Line1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
@@ -186,6 +196,16 @@ namespace Draw.Properties {
         internal static System.Drawing.Bitmap NAnglePoints {
             get {
                 object obj = ResourceManager.GetObject("NAnglePoints", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap penci {
+            get {
+                object obj = ResourceManager.GetObject("penci", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -306,6 +326,16 @@ namespace Draw.Properties {
         internal static System.Drawing.Bitmap white_pen {
             get {
                 object obj = ResourceManager.GetObject("white pen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap whiteLine {
+            get {
+                object obj = ResourceManager.GetObject("whiteLine", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
