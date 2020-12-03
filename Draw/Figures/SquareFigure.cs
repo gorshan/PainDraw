@@ -58,7 +58,9 @@ namespace Draw.Figures
             {
                 p2 = p;
                 if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
-                    <= Math.Abs(10 * ((p2.Y - p1.Y) + (p2.X - p1.X))))
+                    <= Math.Abs(20 * ((p2.Y - p1.Y) + (p2.X - p1.X))) 
+                    && (((p1.X <= point.X) && (point.X <= p2.X)) || ((p1.X >= point.X) && (point.X >= p2.X)))
+                    && (((p1.Y <= point.Y) && (point.Y <= p2.Y)) || ((p1.Y >= point.Y) && (point.Y >= p2.Y))) )
                 {
                     return true;
                 }
