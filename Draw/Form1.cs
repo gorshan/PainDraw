@@ -18,7 +18,7 @@ namespace Draw
     public partial class Form1 : Form
     {
         private Point _lastPoint;
-        private Point _lastPoint2;
+        //private Point _lastPoint2;
         private bool _mouseDown;
         private bool _pipetteClick=false;
         IFabric fabric;
@@ -55,7 +55,7 @@ namespace Draw
             }
             if (_pipetteClick)
             {
-                _lastPoint2 = e.Location;
+                //_lastPoint2 = e.Location;
                 Bitmap _tmpbitmap = Canvas.GetImage();
                 Color pixelColor = Canvas.Pen.Color;
                 pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
