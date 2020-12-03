@@ -34,5 +34,10 @@ namespace Draw.Figures
                 endPoint
             };
         }
+
+        public void Move(Point delta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

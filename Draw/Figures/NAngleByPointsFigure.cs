@@ -71,5 +71,10 @@ namespace Draw.Figures
                 }
             }
         }
+
+        public void Move(Point delta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

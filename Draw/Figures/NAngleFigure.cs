@@ -44,5 +44,10 @@ namespace Draw.Figures
                                       Convert.ToInt32(startPoint.Y + r * Math.Sin((2 * Math.PI * i) / N))));
             }
         }
+
+        public void Move(Point delta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

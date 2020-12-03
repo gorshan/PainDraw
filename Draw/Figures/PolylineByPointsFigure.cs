@@ -40,6 +40,11 @@ namespace Draw.Figures
             //Points.Add(endPoint);                
         }
 
+        public void Move(Point delta)
+        {
+            throw new NotImplementedException();
+        }
+
         //public class PolylineByPointsFigure : IFigure
         //{
         //    public LinkedList<Point> Points { get; set; }
@@ -79,5 +84,5 @@ namespace Draw.Figures
         //        _startPoint = startPoint;
         //        _endPoint = endPoint;
         //    }
-        }
+    }
 }

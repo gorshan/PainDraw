@@ -58,5 +58,10 @@ namespace Draw.Figures
         {
             AddPoint(startPoint, endPoint);
         }
+
+        public void Move(Point delta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -54,10 +54,15 @@ namespace Draw
                 {
                     case "Paint":
                         Figure.Update(_lastPoint, e.Location);
-                        Canvas.DrawFigure(Figure);
-                        pictureBox1.Image = Canvas.GetTmpImage();
                     break;
+                    case "Figure":
+                        Point d = new Point(e.X - _lastPoint.X, e.Y - _lastPoint.Y);
+                        _lastPoint = e.Location;
+                        Figure.Move(d);
+                        break;
                 }
+                Canvas.DrawFigure(Figure);
+                pictureBox1.Image = Canvas.GetTmpImage();
             }
             if (_pipetteClick)
             {
@@ -73,39 +78,46 @@ namespace Draw
         {            
             _mouseDown = true;
             _lastPoint = e.Location;
-            bool isNeededNewFigure = true;            
-            
-            if (Figure is PolylineByPointsFigure)
+            bool isNeededNewFigure = true;
+            switch (mode)
             {
-                Figure.Update(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);
-                pictureBox1.Image = Canvas.GetTmpImage();
-            }
-            if (fabric is TriangleByPointsFabric)
-            {
-                if (!((TriangleByPointsFigure)Figure).IsFool())
-                {
-                    isNeededNewFigure = false;
-                }
-                Figure.Update(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);       
-                pictureBox1.Image = Canvas.GetTmpImage();
-                _mouseDown = false;
-            }
-            if (fabric is NAngleByPointsFabric)
-            {
-                if (!((NAngleByPointsFigure)Figure).IsFool())
-                {
-                    isNeededNewFigure = false;
-                }                
-                Figure.Update(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);
-                pictureBox1.Image = Canvas.GetTmpImage();
-                _mouseDown = false;
-            }
-            if (isNeededNewFigure)
-            {
-                renewFigure();
+                case "Paint":
+                    if (fabric is PolylineByPointsFabric)
+                    {
+                        Figure.Update(_lastPoint, e.Location);
+                        Canvas.DrawFigure(Figure);
+                        pictureBox1.Image = Canvas.GetTmpImage();
+                    }
+                    if (fabric is TriangleByPointsFabric)
+                    {
+                        if (!((TriangleByPointsFigure)Figure).IsFool())
+                        {
+                            isNeededNewFigure = false;
+                        }
+                        Figure.Update(_lastPoint, e.Location);
+                        Canvas.DrawFigure(Figure);
+                        pictureBox1.Image = Canvas.GetTmpImage();
+                        _mouseDown = false;
+                    }
+                    if (fabric is NAngleByPointsFabric)
+                    {
+                        if (!((NAngleByPointsFigure)Figure).IsFool())
+                        {
+                            isNeededNewFigure = false;
+                        }
+                        Figure.Update(_lastPoint, e.Location);
+                        Canvas.DrawFigure(Figure);
+                        pictureBox1.Image = Canvas.GetTmpImage();
+                        _mouseDown = false;
+                    }
+                    if (isNeededNewFigure)
+                    {
+                        renewFigure();
+                    }
+                    break;
+                case "Figure":
+                    
+                    break;
             }
         }
 
@@ -129,7 +141,14 @@ namespace Draw
         {           
             Canvas.EndDraw(Figure);
             _mouseDown = false;
-            figures.Add(Figure);
+            switch (mode)
+            {
+                case "Paint":
+                    figures.Add(Figure);
+                    break;
+                case "Figure":
+                    break;
+            }
 
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -275,6 +294,11 @@ namespace Draw
         private void saveButton_Click(object sender, EventArgs e)
         {
             Canvas.SaveBitmap();
+        }
+
+        private void workWithFigureButton_Click(object sender, EventArgs e)
+        {
+            mode = "Figure";
         }
     }
 }
