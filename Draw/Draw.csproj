@@ -122,5 +122,26 @@
   <ItemGroup>
     <None Include="Resources\Line.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IssoTriangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rightTriangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rightTriangle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pipette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
