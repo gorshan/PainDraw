@@ -145,17 +145,17 @@ namespace Draw
             // 
             this.ToolLayoutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
             this.ToolLayoutPanel.Controls.Add(this.PenButton);
-            this.ToolLayoutPanel.Controls.Add(this.CircleButton);
-            this.ToolLayoutPanel.Controls.Add(this.EllipsButton);
+            this.ToolLayoutPanel.Controls.Add(this.LineButton);
+            this.ToolLayoutPanel.Controls.Add(this.PolyLine);
             this.ToolLayoutPanel.Controls.Add(this.SquareButton);
             this.ToolLayoutPanel.Controls.Add(this.RectangleButton);
-            this.ToolLayoutPanel.Controls.Add(this.LineButton);
+            this.ToolLayoutPanel.Controls.Add(this.CircleButton);
+            this.ToolLayoutPanel.Controls.Add(this.EllipsButton);
             this.ToolLayoutPanel.Controls.Add(this.IsoscelesTriangleButton);
             this.ToolLayoutPanel.Controls.Add(this.TriangleByPoints);
             this.ToolLayoutPanel.Controls.Add(this.RightTriangleButton);
             this.ToolLayoutPanel.Controls.Add(this.RightNAngleButton);
             this.ToolLayoutPanel.Controls.Add(this.NAngleButton);
-            this.ToolLayoutPanel.Controls.Add(this.PolyLine);
             this.ToolLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.ToolLayoutPanel.Location = new System.Drawing.Point(8, 38);
             this.ToolLayoutPanel.Name = "ToolLayoutPanel";
@@ -187,7 +187,7 @@ namespace Draw
             this.CircleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.CircleButton.Image = ((System.Drawing.Image)(resources.GetObject("CircleButton.Image")));
             this.CircleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CircleButton.Location = new System.Drawing.Point(1, 28);
+            this.CircleButton.Location = new System.Drawing.Point(1, 136);
             this.CircleButton.Margin = new System.Windows.Forms.Padding(1);
             this.CircleButton.Name = "CircleButton";
             this.CircleButton.Size = new System.Drawing.Size(102, 25);
@@ -204,7 +204,7 @@ namespace Draw
             this.EllipsButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.EllipsButton.Image = ((System.Drawing.Image)(resources.GetObject("EllipsButton.Image")));
             this.EllipsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EllipsButton.Location = new System.Drawing.Point(1, 55);
+            this.EllipsButton.Location = new System.Drawing.Point(1, 163);
             this.EllipsButton.Margin = new System.Windows.Forms.Padding(1);
             this.EllipsButton.Name = "EllipsButton";
             this.EllipsButton.Size = new System.Drawing.Size(102, 25);
@@ -250,9 +250,9 @@ namespace Draw
             this.LineButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
             this.LineButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LineButton.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.LineButton.Image = new Bitmap( global::Draw.Properties.Resources.whiteLine,15,3);
+            this.LineButton.Image = ((System.Drawing.Image)(resources.GetObject("LineButton.Image")));
             this.LineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LineButton.Location = new System.Drawing.Point(1, 136);
+            this.LineButton.Location = new System.Drawing.Point(1, 28);
             this.LineButton.Margin = new System.Windows.Forms.Padding(1);
             this.LineButton.Name = "LineButton";
             this.LineButton.Size = new System.Drawing.Size(102, 25);
@@ -268,7 +268,7 @@ namespace Draw
             this.IsoscelesTriangleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.IsoscelesTriangleButton.Image = ((System.Drawing.Image)(resources.GetObject("IsoscelesTriangleButton.Image")));
             this.IsoscelesTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IsoscelesTriangleButton.Location = new System.Drawing.Point(2, 164);
+            this.IsoscelesTriangleButton.Location = new System.Drawing.Point(2, 191);
             this.IsoscelesTriangleButton.Margin = new System.Windows.Forms.Padding(2);
             this.IsoscelesTriangleButton.Name = "IsoscelesTriangleButton";
             this.IsoscelesTriangleButton.Size = new System.Drawing.Size(101, 25);
@@ -285,7 +285,7 @@ namespace Draw
             this.TriangleByPoints.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.TriangleByPoints.Image = ((System.Drawing.Image)(resources.GetObject("TriangleByPoints.Image")));
             this.TriangleByPoints.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TriangleByPoints.Location = new System.Drawing.Point(2, 193);
+            this.TriangleByPoints.Location = new System.Drawing.Point(2, 220);
             this.TriangleByPoints.Margin = new System.Windows.Forms.Padding(2);
             this.TriangleByPoints.Name = "TriangleByPoints";
             this.TriangleByPoints.Size = new System.Drawing.Size(101, 25);
@@ -301,7 +301,7 @@ namespace Draw
             this.RightTriangleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.RightTriangleButton.Image = ((System.Drawing.Image)(resources.GetObject("RightTriangleButton.Image")));
             this.RightTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RightTriangleButton.Location = new System.Drawing.Point(2, 222);
+            this.RightTriangleButton.Location = new System.Drawing.Point(2, 249);
             this.RightTriangleButton.Margin = new System.Windows.Forms.Padding(2);
             this.RightTriangleButton.Name = "RightTriangleButton";
             this.RightTriangleButton.Size = new System.Drawing.Size(101, 25);
@@ -319,7 +319,7 @@ namespace Draw
             this.RightNAngleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.RightNAngleButton.Image = ((System.Drawing.Image)(resources.GetObject("RightNAngleButton.Image")));
             this.RightNAngleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RightNAngleButton.Location = new System.Drawing.Point(2, 251);
+            this.RightNAngleButton.Location = new System.Drawing.Point(2, 278);
             this.RightNAngleButton.Margin = new System.Windows.Forms.Padding(2);
             this.RightNAngleButton.Name = "RightNAngleButton";
             this.RightNAngleButton.Size = new System.Drawing.Size(101, 25);
@@ -336,7 +336,7 @@ namespace Draw
             this.NAngleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.NAngleButton.Image = ((System.Drawing.Image)(resources.GetObject("NAngleButton.Image")));
             this.NAngleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NAngleButton.Location = new System.Drawing.Point(2, 280);
+            this.NAngleButton.Location = new System.Drawing.Point(2, 307);
             this.NAngleButton.Margin = new System.Windows.Forms.Padding(2);
             this.NAngleButton.Name = "NAngleButton";
             this.NAngleButton.Size = new System.Drawing.Size(101, 25);
@@ -352,7 +352,7 @@ namespace Draw
             this.PolyLine.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.PolyLine.Image = ((System.Drawing.Image)(resources.GetObject("PolyLine.Image")));
             this.PolyLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PolyLine.Location = new System.Drawing.Point(1, 308);
+            this.PolyLine.Location = new System.Drawing.Point(1, 55);
             this.PolyLine.Margin = new System.Windows.Forms.Padding(1);
             this.PolyLine.Name = "PolyLine";
             this.PolyLine.Size = new System.Drawing.Size(101, 25);

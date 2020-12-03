@@ -133,6 +133,36 @@
         m+W4a4IgZqA1HFmWdXxyizzPz0H0BxD6Aap5ulx2er44AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="LineButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAADCAYAAABMFFUxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAjSURBVBhXY/jz58//f//+kYxB+hj+/v37nxwA0keBzX/+
+        AwDsyrLPfEaTZAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="PolyLine.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAK5JREFUOE9jGAWDHPz//5/x379/3VAu5QBoYADQwDdA2gAqBAdAcSkokzgANIQJ
+        qOksyDAgvRJIs0ClQIY5A/FVIPaCChEGQMWRQDwZxAYa5gBkl0PFTYEYZAEHkF4GxHogcbwA5BqgwlNA
+        LAoVAhnUDxQHBcFGIM0FFeMF4k1AviBYES4AVOQFVFQB5YIBUIwPiDejawaKSYPkoFzsAKjADKiRA8od
+        BaMAL2BgAABJqYr37JvQBgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="SquareButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAFBJREFUOE9jAAJFIC4kA1sBMYP3kiVL/t+/f59ofPXq1f9AfS1gzbt37/5PCvj8
+        +fOoZlLAqGZKNM+ePfv/5cuXicYnT56Ea5YF4hTSMYMJAHYHoALutXBNAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="RectangleButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAEBJREFUKFNjAAJdfn7+VFIwDw9PKlCfAoOiomLxfxLB69ev/wM1B45qJhIMAs0c
+        HBzW7u7uLaRgR0fHFgYGBi0Aq6a/Zo/D5twAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="CircleButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -154,20 +184,6 @@
         MvDy8lrPICQkVI0t1AmB169f/+fh4SkDBaJIcXHxK6g40QAaE4IgA0DAprm5+eOfP3+g0rgBSE1dXd17
         oB4LiFYEUHV3d9+5bt26/9jSAyj+V69e/d/FxWU7UK0yRAt2oCcmJlYXEhKyITMz8yQQnwgKCtogIiJS
         C5TTgSiBAQYGAOO0+oUkBbepAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="SquareButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAFBJREFUOE9jAAJFIC4kA1sBMYP3kiVL/t+/f59ofPXq1f9AfS1gzbt37/5PCvj8
-        +fOoZlLAqGZKNM+ePfv/5cuXicYnT56Ea5YF4hTSMYMJAHYHoALutXBNAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="RectangleButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAYAAABrGwT5AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAEBJREFUKFNjAAJdfn7+VFIwDw9PKlCfAoOiomLxfxLB69ev/wM1B45qJhIMAs0c
-        HBzW7u7uLaRgR0fHFgYGBi0Aq6a/Zo/D5twAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="IsoscelesTriangleButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -220,15 +236,6 @@
         QkB/f3/C27dvCYbB9+/f/0dERJhAtSFAY2Oj57Nnzz5D1WEFp0+fPg9Vjgny8vJM79279xKqFgPMnj07
         B6oUOwgJCVEB5q7rwIB5CMwwRw4ePLh869atXQsXLswVFBTkZ2BgYAAAQIB9zVEf4+wAAAAASUVORK5C
         YII=
-</value>
-  </data>
-  <data name="PolyLine.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAK5JREFUOE9jGAWDHPz//5/x379/3VAu5QBoYADQwDdA2gAqBAdAcSkokzgANIQJ
-        qOksyDAgvRJIs0ClQIY5A/FVIPaCChEGQMWRQDwZxAYa5gBkl0PFTYEYZAEHkF4GxHogcbwA5BqgwlNA
-        LAoVAhnUDxQHBcFGIM0FFeMF4k1AviBYES4AVOQFVFQB5YIBUIwPiDejawaKSYPkoFzsAKjADKiRA8od
-        BaMAL2BgAABJqYr37JvQBgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="pipette_button.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
