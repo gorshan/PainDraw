@@ -166,7 +166,7 @@ namespace Draw
                 figures.Add(Figure);
             }
             DrawAll();
-            pictureBox1.Image = Canvas.GetImage();
+            //pictureBox1.Image = Canvas.GetImage();
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
