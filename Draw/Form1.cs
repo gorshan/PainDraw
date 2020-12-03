@@ -54,18 +54,25 @@ namespace Draw
                 {
                     case "Paint":
                         Figure.Update(_lastPoint, e.Location);
-                    break;
+                        Canvas.DrawFigure(Figure);
+                        pictureBox1.Image = Canvas.GetTmpImage();
+                        break;
                     case "Figure":
                         if (Figure != null)
                         {
                             Point d = new Point(e.X - _lastPoint.X, e.Y - _lastPoint.Y);
                             _lastPoint = e.Location;
                             Figure.Move(d);
+                            //DrawAll();
+                            Canvas.DrawFigure(Figure);
+                            
+                            pictureBox1.Image = Canvas.GetTmpImage();
+                            
                         }
                         break;
                 }
-                Canvas.DrawFigure(Figure);
-                pictureBox1.Image = Canvas.GetTmpImage();
+                
+                
             }
             if (_pipetteClick)
             {
@@ -126,7 +133,7 @@ namespace Draw
                         {
                             Figure = figure;
                             figures.Remove(Figure);
-                            DrawAll();
+                    DrawAll();
                             break;
                         }
                     }
@@ -158,6 +165,8 @@ namespace Draw
             {
                 figures.Add(Figure);
             }
+            DrawAll();
+            pictureBox1.Image = Canvas.GetImage();
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -171,13 +180,6 @@ namespace Draw
                 Canvas.Pen.Color = pixelColor;
             }
             _pipetteClick = false;
-        }
-        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (Figure is PolylineByPointsFigure)
-            {
-                ((PolylineByPointsFigure)Figure).Clear();
-            }
         }
 
         private void RightTriangleButton_Click(object sender, EventArgs e)
@@ -322,14 +324,23 @@ namespace Draw
         private void DrawAll()
         {
             Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
-            pictureBox1.Image = Canvas.GetTmpImage();
             foreach (IFigure figure in figures)
             {
                 Canvas.Pen.Color = figure.Color;
                 Canvas.Pen.Width = figure.Width;
-                Canvas.DrawFigure(Figure);
+                Canvas.DrawFigure(figure);
+                Canvas.Save();
             }
 
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (Figure is PolylineByPointsFigure)
+            {
+                ((PolylineByPointsFigure)Figure).Clear();
+            }
+            
         }
     }
 }
