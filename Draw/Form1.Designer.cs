@@ -55,6 +55,8 @@ namespace Draw
             this.pipette_button = new System.Windows.Forms.Button();
             this.CancelLast = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.workWithFigureButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ClearButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -84,6 +86,7 @@ namespace Draw
             0});
             this.NAngleNumericUpDown.Visible = false;
             this.NAngleNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleNumericUpDown_ValueChanged);
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // NAngleByPointsNumericUpDown
             // 
@@ -463,6 +466,16 @@ namespace Draw
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
+            // 
+            // workWithFigureButton
+            // 
+            this.workWithFigureButton.Location = new System.Drawing.Point(1001, 22);
+            this.workWithFigureButton.Name = "workWithFigureButton";
+            this.workWithFigureButton.Size = new System.Drawing.Size(82, 23);
+            this.workWithFigureButton.TabIndex = 22;
+            this.workWithFigureButton.Text = "Figure";
+            this.workWithFigureButton.Click += new System.EventHandler(this.workWithFigureButton_Click);
+            this.workWithFigureButton.UseVisualStyleBackColor = true;
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -474,6 +487,7 @@ namespace Draw
             this.Controls.Add(this.SizeLabel);
             this.Controls.Add(this.ToolLayoutPanel);
             this.Controls.Add(this.widthText);
+            this.Controls.Add(this.workWithFigureButton);
             this.Controls.Add(this.NAngleByPointsNumericUpDown);
             this.Controls.Add(this.NAngleNumericUpDown);
             this.Controls.Add(this.WigthScrollBar);

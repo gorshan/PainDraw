@@ -1,11 +1,7 @@
-﻿using Draw.Drawer;
-using Draw.Figures;
+﻿using Draw.Figures;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Draw.Canvases
@@ -80,10 +76,14 @@ namespace Draw.Canvases
             {
                 ((TriangleByPointsFigure)figure).Clear();
             }
-            _allbitmaps.Push((Bitmap)_tmpBitmap.Clone());
+            //_allbitmaps.Push((Bitmap)_tmpBitmap.Clone());
             _mainBitmap = _tmpBitmap;
         }
 
+        public void Save()
+        {
+            _mainBitmap = _tmpBitmap;
+        }
         public void Clear()
         {
             _graphics = Graphics.FromImage(_mainBitmap);

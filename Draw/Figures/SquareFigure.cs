@@ -12,49 +12,61 @@ namespace Draw.Figures
     public class SquareFigure : IFigure
     {
         public IDrawer Drawer { get; set; }
-
+        public List<Point> Points { get; set; }
+        public Color Color { get; set; }
+        public int Width { get; set; }
         public SquareFigure()
         {
             Drawer = new AngleFiguresDrawer();
         }
 
-        private Point _startPoint;
-        private Point _endPoint;
-
-        public Point[] GetPoints(Point startPoint, Point endPoint)
-        {
-            int a = endPoint.Y - startPoint.Y;
-            Point[] points = new Point[4];
-            points[0] = startPoint;
-            points[1] = new Point(startPoint.X, endPoint.Y);
-            if ((endPoint.X - startPoint.X > 0) && (endPoint.Y - startPoint.Y < 0))
-            {
-                points[2] = new Point(startPoint.X - a, endPoint.Y);
-                points[3] = new Point(startPoint.X - a, startPoint.Y);
-            }
-            else if ((endPoint.X - startPoint.X < 0) && (endPoint.Y - startPoint.Y > 0))
-            {
-                points[1] = new Point(startPoint.X - a, startPoint.Y);
-                points[2] = new Point(startPoint.X - a, endPoint.Y);
-                points[3] = new Point(startPoint.X, endPoint.Y);
-            }
-            else
-            {
-                points[2] = new Point(startPoint.X + a, endPoint.Y);
-                points[3] = new Point(startPoint.X + a, startPoint.Y);
-            }
-            return points;
-        }
-
         public Point[] GetPoints()
         {
-            return GetPoints(_startPoint, _endPoint);
+            return Points.ToArray();
         }
 
-        public void SetPoints(Point startPoint, Point endPoint)
+        public void Update(Point startPoint, Point endPoint)
         {
-            _startPoint = startPoint;
-            _endPoint = endPoint;
+            int a = Math.Abs(endPoint.Y - startPoint.Y);
+            Points = new List<Point>
+            {
+                startPoint                
+            };
+
+            if (startPoint.X > endPoint.X)
+            {
+                a = -a;
+            }
+            Points.Add(new Point(startPoint.X, endPoint.Y));
+            Points.Add(new Point(startPoint.X + a, endPoint.Y));
+            Points.Add(new Point(startPoint.X + a, startPoint.Y));
+        }
+
+        public void Move(Point delta)
+        {
+            for (int i = 0; i < Points.Count(); i++)
+            {
+                Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
+            }
+        }
+
+        public bool IsThisFigure(Point point)
+        {
+            Point p1 = Points[3];
+            Point p2;
+            foreach (Point p in Points)
+            {
+                p2 = p;
+                if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
+                    <= Math.Abs(20 * ((p2.Y - p1.Y) + (p2.X - p1.X))) 
+                    && (((p1.X <= point.X) && (point.X <= p2.X)) || ((p1.X >= point.X) && (point.X >= p2.X)))
+                    && (((p1.Y <= point.Y) && (point.Y <= p2.Y)) || ((p1.Y >= point.Y) && (point.Y >= p2.Y))) )
+                {
+                    return true;
+                }
+                p1 = p2;
+            }
+            return false;
         }
     }
 }
