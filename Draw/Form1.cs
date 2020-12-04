@@ -43,8 +43,11 @@ namespace Draw
             _lastPoint = new Point(0, 0);
             _mouseDown = false;
             widthText.Text = WigthScrollBar.Value + "";
+            ColorButton.BackColor = Canvas.Pen.Color;
+            SetSizeLabel();
             figures = new List<IFigure>();
         }
+
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -80,7 +83,6 @@ namespace Draw
                 Bitmap _tmpbitmap = Canvas.GetImage();
                 Color pixelColor = Canvas.Pen.Color;
                 pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
-                colorLabel2.BackColor = pixelColor;
             }
         }
         
@@ -175,8 +177,7 @@ namespace Draw
                 Bitmap _tmpbitmap = Canvas.GetImage();
                 Color pixelColor = Canvas.Pen.Color;
                 pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
-                colorLabel2.BackColor = pixelColor;
-                colorLabel.BackColor = pixelColor;
+                ColorButton.BackColor = pixelColor;
                 Canvas.Pen.Color = pixelColor;
             }
             _pipetteClick = false;
@@ -186,36 +187,42 @@ namespace Draw
         {
             fabric = new RightTriangleFabric();
             mode = "Paint";
+            SettingsForm(sender);
         }
 
         private void RectangleButton_Click(object sender, EventArgs e)
         {
             fabric = new RectangleFabric();
             mode = "Paint";
+            SettingsForm(sender);
         }
 
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
         {
             fabric = new IsoscelesTriangleFabric();
             mode = "Paint";
+            SettingsForm(sender);
         }
 
         private void LineButton_Click(object sender, EventArgs e)
         {
             fabric = new LineFabric();
             mode = "Paint";
+            SettingsForm(sender);
         }
 
         private void SquareButton_Click(object sender, EventArgs e)
         {
             fabric = new SquareFabric();
             mode = "Paint";
+            SettingsForm(sender);
         }
 
         private void RightNAngleButton_Click(object sender, EventArgs e)
         {
             fabric = new NAngleFabric();
             mode = "Paint";
+            SettingsForm(sender);
         }
 
         private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -231,12 +238,14 @@ namespace Draw
         {
             fabric = new EllipseFabric();
             mode = "Paint";
+            SettingsForm(sender);
         }
 
         private void CircleButton_Click(object sender, EventArgs e)
         {
             fabric = new CircleFabric();
             mode = "Paint";
+            SettingsForm(sender);
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -253,6 +262,7 @@ namespace Draw
         {
             fabric = new PenFabric();
             mode = "Paint";
+            SettingsForm(sender);
         }
 
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
@@ -266,36 +276,43 @@ namespace Draw
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             //button1.BackColor = colorDialog1.Color;
             Canvas.Pen.Color = colorDialog1.Color;
-            colorLabel.BackColor = colorDialog1.Color;
+            ColorButton.BackColor = colorDialog1.Color;
+
         }
 
         private void pipette_button_Click(object sender, EventArgs e)
         {
             _pipetteClick = true;
+            SettingsForm(sender);
         }
 
+        
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
-           if (Canvas == null)
+            if (Canvas == null || pictureBox1.Width <=0 || pictureBox1.Height <= 0)
             {
                 return;
             }
             Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = Canvas.GetImage();
+            SetSizeLabel();
         }
 
         private void TriangleByPoints_Click(object sender, EventArgs e)
         {
             fabric = new TriangleByPointsFabric();
             Figure = fabric.CreateFigure();
+            SettingsForm(sender);
         }
 
         private void NAngleButton_Click(object sender, EventArgs e)
         {
             fabric = new NAngleByPointsFabric();
             Figure = fabric.CreateFigure();
+            SettingsForm(sender);
         }
 
+        
         private void NAngleByPointsNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             
@@ -305,6 +322,7 @@ namespace Draw
         {
             fabric = new PolylineByPointsFabric();
             Figure = fabric.CreateFigure();
+            SettingsForm(sender);
         }
 
         private void CancelLast_Click(object sender, EventArgs e)
@@ -341,6 +359,30 @@ namespace Draw
                 ((PolylineByPointsFigure)Figure).Clear();
             }
             
+        }
+
+        private void SetSizeLabel()
+        {
+            SizeLabel.Text = $"{pictureBox1.Width} x {pictureBox1.Width}";
+        }
+
+        private void SettingsForm(object sender)
+        {
+            if (sender == NAngleButton)
+            {
+                NAngleByPointsNumericUpDown.Visible = true;
+                NAngleNumericUpDown.Visible = false;
+            }
+            else if (sender == RightNAngleButton)
+            {
+                NAngleNumericUpDown.Visible = true;
+                NAngleByPointsNumericUpDown.Visible = false;
+            }
+            else
+            {
+                NAngleNumericUpDown.Visible = false;
+                NAngleByPointsNumericUpDown.Visible = false;
+            }
         }
     }
 }

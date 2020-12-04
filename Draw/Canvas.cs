@@ -22,6 +22,7 @@ namespace Draw.Canvases
             Pen = new Pen(Color.Black, 1);
             _allbitmaps = new Stack<Bitmap>();
             _allbitmaps.Push((Bitmap)_mainBitmap.Clone());
+           
             //Drawer = new PenDrawer();
         }
 
@@ -86,8 +87,7 @@ namespace Draw.Canvases
         }
         public void Clear()
         {
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.Clear(Color.White);
+            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
         }
 
         public void Resize(int width, int height)

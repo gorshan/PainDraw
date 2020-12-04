@@ -117,5 +117,92 @@
   <ItemGroup>
     <None Include="Resources\Снимок.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ellipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IssoTriangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rightTriangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rightTriangle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pipette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IsoTriangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IsoTriangle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NAngle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PolyLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NAnglePoints.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trian.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\104-1047497_free-isosceles-triangle-theorem-triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\penci.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whiteLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
