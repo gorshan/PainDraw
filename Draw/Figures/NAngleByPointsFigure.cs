@@ -82,7 +82,7 @@ namespace Draw.Figures
 
         public bool IsThisFigure(Point point)
         {
-            Point p1 = Points[N];
+            Point p1 = Points[N-1];
             Point p2;
             foreach (Point p in Points)
             {

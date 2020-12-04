@@ -66,7 +66,7 @@ namespace Draw
                             Point d = new Point(e.X - _lastPoint.X, e.Y - _lastPoint.Y);
                             _lastPoint = e.Location;
                             Figure.Move(d);
-                            //DrawAll();
+                            DrawAll();
                             Canvas.DrawFigure(Figure);
                             
                             pictureBox1.Image = Canvas.GetTmpImage();
@@ -139,7 +139,7 @@ namespace Draw
                         {
                             Figure = figure;
                             figures.Remove(Figure);
-                    DrawAll();
+                            DrawAll();
                             break;
                         }
                     }
