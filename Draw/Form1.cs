@@ -52,35 +52,14 @@ namespace Draw
         {
             _mouseDown = true;
             _lastPoint = e.Location;
-            //bool isNeededNewFigure = true;
             switch (mode)
             {
-                case "Paint":
-                    //if (fabric is PolylineByPointsFabric)
-                    //{
-                    //    //isNeededNewFigure = false;
-                    //    Figure.Update(_lastPoint, e.Location);
-                    //    Canvas.Cur.DrawFigure(Figure);
-                    //    pictureBox1.Image = Canvas.Cur.GetTmpImage();
-                    //    _mouseDown = false;
-
-                    //}
+                case "Paint":                    
                     if (Figure is NPointsFigure)
                     {
-                        //isNeededNewFigure = false;
-                        //if (((NAngleByPointsFigure)Figure).IsFull())
-                        //{
-                        //    renewFigure();
-                        //}
-                        Figure.Update(_lastPoint, e.Location);
-                        Canvas.Cur.DrawFigure(Figure);
-                        pictureBox1.Image = Canvas.Cur.GetTmpImage();
+                        pictureBox1_MouseMove(sender,e);
                         _mouseDown = false;
                     }
-                    //if (isNeededNewFigure)
-                    //{
-                    //    renewFigure();
-                    //}
                     break;
                 case "Figure":
                     Figure = null;
@@ -115,7 +94,6 @@ namespace Draw
                             Point d = new Point(e.X - _lastPoint.X, e.Y - _lastPoint.Y);
                             _lastPoint = e.Location;
                             Figure.Move(d);
-                            //DrawAll();
                             Canvas.Cur.DrawFigure(Figure);
                             
                             pictureBox1.Image = Canvas.Cur.GetTmpImage();
@@ -128,7 +106,6 @@ namespace Draw
             }
             if (_pipetteClick)
             {
-                //_lastPoint2 = e.Location;
                 Bitmap _tmpbitmap = Canvas.Cur.GetImage();
                 Color pixelColor = Canvas.Cur.Pen.Color;
                 pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
@@ -145,10 +122,6 @@ namespace Draw
             {
                 figures.Add(Figure);
             }
-            //if ((Figure is NAngleByPointsFigure) &&
-            //    ((NAngleByPointsFigure)Figure).IsFull()||
-            //    !(Figure is PolylineByPointsFigure) &&
-            //    !(Figure is NAngleByPointsFigure))
             if (!(Figure is NPointsFigure) ||
                 ((NPointsFigure)Figure).IsFull())
             {
@@ -217,11 +190,7 @@ namespace Draw
             SettingsForm(sender);
         }
 
-        private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            renewFigure();
-            mode = "Paint";
-        }
+        
 
         private void EllipsButton_Click(object sender, EventArgs e)
         {
@@ -276,6 +245,11 @@ namespace Draw
         private void workWithFigureButton_Click(object sender, EventArgs e)
         {
             mode = "Figure";
+        }
+        private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            renewFigure();
+            mode = "Paint";
         }
 
         private void renewFigure()
