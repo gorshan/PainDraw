@@ -38,7 +38,7 @@ namespace Draw.Canvases
         {
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
-            figure.Drawer.DrawFigure(_graphics, Pen, figure.GetPoints());
+            figure.Drawer.DrawFigure(_graphics, new Pen(figure.Color, figure.Width), figure.GetPoints());
             GC.Collect();
         }
 

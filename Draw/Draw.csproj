@@ -200,8 +200,6 @@
   <ItemGroup>
     <None Include="Resources\Move.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MouseMovers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

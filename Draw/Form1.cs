@@ -37,13 +37,13 @@ namespace Draw
         {
             Canvas.Create(pictureBox1.Width, pictureBox1.Height);
             fabric = new PenFabric();
-            renewFigure();
             mode = "Paint";
             pictureBox1.Image = Canvas.Cur.GetImage();
             _lastPoint = new Point(0, 0);
             _mouseDown = false;
             widthText.Text = WigthScrollBar.Value + "";
             ColorButton.BackColor = Canvas.Cur.Pen.Color;
+            renewFigure();
             SetSizeLabel();
             figures = new List<AbstractFigure>();
         }
@@ -106,9 +106,8 @@ namespace Draw
             }
             if (_pipetteClick)
             {
-                Bitmap _tmpbitmap = Canvas.Cur.GetImage();
                 Color pixelColor = Canvas.Cur.Pen.Color;
-                pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
+                pixelColor = Canvas.Cur.GetImage().GetPixel(e.X, e.Y);
             }
         }
         
@@ -133,11 +132,11 @@ namespace Draw
         {
             if (_pipetteClick)
             {
-                Bitmap _tmpbitmap = Canvas.Cur.GetImage();
                 Color pixelColor = Canvas.Cur.Pen.Color;
-                pixelColor = _tmpbitmap.GetPixel(e.X, e.Y);
+                pixelColor = Canvas.Cur.GetImage().GetPixel(e.X, e.Y);
                 ColorButton.BackColor = pixelColor;
                 Canvas.Cur.Pen.Color = pixelColor;
+                Figure.Color = pixelColor;
             }
             _pipetteClick = false;
         }
@@ -279,6 +278,7 @@ namespace Draw
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             Canvas.Cur.Pen.Width = WigthScrollBar.Value;
+            Figure.Width = WigthScrollBar.Value;
             widthText.Text = WigthScrollBar.Value + "";
         }
         private void CancelLast_Click(object sender, EventArgs e)
@@ -297,8 +297,11 @@ namespace Draw
         private void colorButton_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
                 //button1.BackColor = colorDialog1.Color;
+                Figure.Color = colorDialog1.Color;
                 Canvas.Cur.Pen.Color = colorDialog1.Color;
+            }
             ColorButton.BackColor = colorDialog1.Color;
 
         }
