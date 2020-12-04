@@ -15,6 +15,7 @@ namespace Draw.Figures
         public List<Point> Points { get; set; }
         public Color Color { get; set; }
         public int Width { get; set; }
+        int r; 
 
         public CircleFigure()
         {
@@ -43,12 +44,31 @@ namespace Draw.Figures
 
         public void Move(Point delta)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < Points.Count(); i++)
+            {
+                Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
+            }
         }
 
         public bool IsThisFigure(Point point)
         {
-            throw new NotImplementedException();
+            if (Math.Pow((point.X - int(Points[0]) + r), 2) + Math.Pow((point.Y - Points[1] + r), 2) == )
+
+            Point p1 = Points[3];
+            Point p2;
+            foreach (Point p in Points)
+            {
+                p2 = p;
+                if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
+                    <= Math.Abs(10 * ((p2.Y - p1.Y) + (p2.X - p1.X)))
+                    && (((p1.X <= point.X) && (point.X <= p2.X)) || ((p1.X >= point.X) && (point.X >= p2.X)))
+                    && (((p1.Y <= point.Y) && (point.Y <= p2.Y)) || ((p1.Y >= point.Y) && (point.Y >= p2.Y))))
+                {
+                    return true;
+                }
+                p1 = p2;
+            }
+            return false;
         }
     }
 }
