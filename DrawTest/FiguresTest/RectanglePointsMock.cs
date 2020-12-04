@@ -12,10 +12,10 @@ namespace NUnitTestProject1.FiguresTest
         public IEnumerator GetEnumerator()
         {
 
-            yield return new object[] { new RectangleFigure(), new Point(0, 0), new Point(666, 666), new Point[4] { new Point(0, 0), new Point(0, 666), new Point(666, 666), new Point(666, 0) } };
-            yield return new object[] { new RectangleFigure(), new Point(139, 216), new Point(555, 32), new Point[4] { new Point(139, 216), new Point(139, 32), new Point(323, 32), new Point(323, 216) } };
-            yield return new object[] { new RectangleFigure(), new Point(28, 111), new Point(69, 218), new Point[4] { new Point(28, 111), new Point(28, 218), new Point(135, 218), new Point(135, 111) } };
-            yield return new object[] { new RectangleFigure(), new Point(35, 35), new Point(100, 100), new Point[4] { new Point(35, 35), new Point(35, 100), new Point(100, 100), new Point(100, 35) } };
+            yield return new object[] { new RectangleFigure(), new Point(315, 147), new Point(335, 157), new Point[4] { new Point(315, 147), new Point(315, 157), new Point(335, 157), new Point(335, 147) } };
+            yield return new object[] { new RectangleFigure(), new Point(666, 66), new Point(646, 76), new Point[4] { new Point(666, 66), new Point(666, 76), new Point(646, 76), new Point(646, 66) } };
+            yield return new object[] { new RectangleFigure(), new Point(218, 111), new Point(238, 101), new Point[4] { new Point(218, 111), new Point(218, 101), new Point(238, 101), new Point(238, 111) } };
+            yield return new object[] { new RectangleFigure(), new Point(32, 48), new Point(12, 38), new Point[4] { new Point(32, 48), new Point(32, 38), new Point(12, 38), new Point(12, 48) } };
         }
     }
 }
