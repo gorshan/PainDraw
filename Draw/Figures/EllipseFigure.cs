@@ -9,24 +9,14 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    public class EllipseFigure : IFigure
+    public class EllipseFigure : AbstractFigure
     {
-        public IDrawer Drawer { get; set; }
-        public List<Point> Points { get; set; }
-        public Color Color { get; set; }
-        public int Width { get; set; }
         public EllipseFigure()
         {
             Drawer = new EllipseDrawer();
         }
 
-        public Point[] GetPoints()
-        {
-            return Points.ToArray();
-        }
-
-
-        public void Update(Point startPoint, Point endPoint)
+        public override void Update(Point startPoint, Point endPoint)
         {
             Points = new List<Point>
             {
@@ -37,12 +27,12 @@ namespace Draw.Figures
             };
         }
 
-        public void Move(Point delta)
+        public override void Move(Point delta)
         {
             throw new NotImplementedException();
         }
 
-        public bool IsThisFigure(Point point)
+        public override bool IsThisFigure(Point point)
         {
             throw new NotImplementedException();
         }

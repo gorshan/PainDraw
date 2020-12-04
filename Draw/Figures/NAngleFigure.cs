@@ -9,14 +9,10 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    public class NAngleFigure : IFigure
+    public class NAngleFigure : AbstractFigure
     {
         public int N { get; set; }
 
-        public IDrawer Drawer { get; set; }
-        public List<Point> Points { get; set; }
-        public Color Color { get; set; }
-        public int Width { get; set; }
         public NAngleFigure()
         {
             Drawer = new AngleFiguresDrawer();
@@ -28,12 +24,7 @@ namespace Draw.Figures
             Drawer = new AngleFiguresDrawer();
         }
 
-        public Point[] GetPoints()
-        {
-            return Points.ToArray();
-        }
-
-        public void Update(Point startPoint, Point endPoint)
+        public override void Update(Point startPoint, Point endPoint)
         {
             Points = new List<Point>();
             double r;
@@ -45,7 +36,7 @@ namespace Draw.Figures
             }
         }
 
-        public void Move(Point delta)
+        public override void Move(Point delta)
         {
             for (int i = 0; i < Points.Count(); i++)
             {
@@ -53,7 +44,7 @@ namespace Draw.Figures
             }
         }
 
-        public bool IsThisFigure(Point point)
+        public override bool IsThisFigure(Point point)
         {
             Point p1 = Points[N-1];
             Point p2;

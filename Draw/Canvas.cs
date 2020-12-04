@@ -11,8 +11,7 @@ namespace Draw.Canvases
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
         private Graphics _graphics;
-        private Stack <Bitmap> _allbitmaps;
-        //public IDrawer Drawer { get; set; }
+        private Stack <Bitmap> _previousBitmaps;
         public Pen Pen { get; set; }
 
         public Canvas(int width, int height)
@@ -20,14 +19,14 @@ namespace Draw.Canvases
             _mainBitmap = new Bitmap(width, height);
             _graphics = Graphics.FromImage(_mainBitmap);
             Pen = new Pen(Color.Black, 1);
-            _allbitmaps = new Stack<Bitmap>();
-            _allbitmaps.Push((Bitmap)_mainBitmap.Clone());
+            _previousBitmaps = new Stack<Bitmap>();
+            _previousBitmaps.Push(_mainBitmap);
            
             //Drawer = new PenDrawer();
         }
 
 
-        public void DrawFigure(IFigure figure)
+        public void DrawFigure(AbstractFigure figure)
         {
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
@@ -45,9 +44,9 @@ namespace Draw.Canvases
             return _mainBitmap;
         }
 
-        public void EndDraw(IFigure figure)
+        public void EndDraw()
         {            
-            //_allbitmaps.Push((Bitmap)_tmpBitmap.Clone());
+            _previousBitmaps.Push(_mainBitmap);
             _mainBitmap = _tmpBitmap;
         }
 
@@ -70,11 +69,11 @@ namespace Draw.Canvases
 
         public Bitmap CancelLastAction()
         {
-            if (_allbitmaps.Count == 0)
+            if (_previousBitmaps.Count == 0)
             {
                 return _mainBitmap;
             }
-            _mainBitmap = _allbitmaps.Pop();
+            _mainBitmap = _previousBitmaps.Pop();
             return _mainBitmap;
         }
 

@@ -9,7 +9,7 @@ namespace Draw.Fabrics
 {
     public class EllipseFabric : IFabric
     {
-        public IFigure CreateFigure()
+        public AbstractFigure CreateFigure()
         {
             return new EllipseFigure();
         }

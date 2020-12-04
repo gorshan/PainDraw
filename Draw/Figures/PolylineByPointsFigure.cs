@@ -12,14 +12,10 @@ using System.Drawing.Drawing2D;
 
 namespace Draw.Figures
 {
-   public class PolylineByPointsFigure : IFigure
+   public class PolylineByPointsFigure : AbstractFigure
     {
        
-        public IDrawer Drawer { get; set; }
-        //List<Point> Points { get; set; }
-        public Color Color { get; set; }
-        public int Width { get; set; }
-        public List<Point> Points { get ; set ; }
+       
 
         public PolylineByPointsFigure()
         {
@@ -27,71 +23,23 @@ namespace Draw.Figures
             Points = new List<Point>();
         }
 
-        internal void Clear()
-        {
-            Points.Clear();
-        }
-
         
-        public Point[] GetPoints()
-        {
-            return Points.ToArray();
-        }
-
-        public void Update(Point startPoint, Point endPoint)
+        public override void Update(Point startPoint, Point endPoint)
 
         {
             Points.Add(endPoint);                
         }
 
-        public void Move(Point delta)
+        public override void Move(Point delta)
         {
             throw new NotImplementedException();
         }
 
-        public bool IsThisFigure(Point point)
+        public override bool IsThisFigure(Point point)
         {
             throw new NotImplementedException();
         }
 
-        //public class PolylineByPointsFigure : IFigure
-        //{
-        //    public LinkedList<Point> Points { get; set; }
-
-        //    public IDrawer Drawer { get; set; }
-
-        //    public PolylineByPointsFigure()
-        //    {
-        //        Drawer = new PenDrawer();
-        //        Points = new LinkedList<Point>();
-        //    }
-
-        //    private Point _startPoint;
-        //    private Point _endPoint;
-
-        //    public Point[] GetPoints(Point startpoint, Point endpoint)
-        //    {
-
-        //        Point[] pointsArray = new Point[Points.Count + 2];
-        //        Points.CopyTo(pointsArray, 0);
-        //        pointsArray[pointsArray.Length - 1] = endpoint;
-        //        return Points.ToArray();
-        //    }
-
-        //    internal void Clear()
-        //    {
-        //        Points.Clear();
-        //    }
-
-        //    public Point[] GetPoints()
-        //    {
-        //        return GetPoints(_startPoint, _endPoint);
-        //    }
-
-        //    public void SetPoints(Point startPoint, Point endPoint)
-        //    {
-        //        _startPoint = startPoint;
-        //        _endPoint = endPoint;
-        //    }
+        
     }
 }

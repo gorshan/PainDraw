@@ -9,23 +9,15 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    public class SquareFigure : IFigure
+    public class SquareFigure : AbstractFigure
     {
-        public IDrawer Drawer { get; set; }
-        public List<Point> Points { get; set; }
-        public Color Color { get; set; }
-        public int Width { get; set; }
         public SquareFigure()
         {
             Drawer = new AngleFiguresDrawer();
         }
 
-        public Point[] GetPoints()
-        {
-            return Points.ToArray();
-        }
 
-        public void Update(Point startPoint, Point endPoint)
+        public override void Update(Point startPoint, Point endPoint)
         {
             int a = Math.Abs(endPoint.Y - startPoint.Y);
             Points = new List<Point>
@@ -42,7 +34,7 @@ namespace Draw.Figures
             Points.Add(new Point(startPoint.X + a, startPoint.Y));
         }
 
-        public void Move(Point delta)
+        public override void Move(Point delta)
         {
             for (int i = 0; i < Points.Count(); i++)
             {
@@ -50,7 +42,7 @@ namespace Draw.Figures
             }
         }
 
-        public bool IsThisFigure(Point point)
+        public override bool IsThisFigure(Point point)
         {
             Point p1 = Points[3];
             Point p2;

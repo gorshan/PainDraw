@@ -9,7 +9,7 @@ namespace Draw.Fabrics
 {
     public  class PolylineByPointsFabric : IFabric
     {
-        public IFigure CreateFigure()
+        public AbstractFigure CreateFigure()
         {
             return new PolylineByPointsFigure();
             //throw new NotImplementedException();

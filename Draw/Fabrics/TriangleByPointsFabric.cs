@@ -9,9 +9,9 @@ namespace Draw.Fabrics
 {
     public class TriangleByPointsFabric : IFabric
     {
-        public IFigure CreateFigure()
+        public AbstractFigure CreateFigure()
         {
-            return new TriangleByPointsFigure();
+            return new NAngleByPointsFigure(3);
         }
     }
 }

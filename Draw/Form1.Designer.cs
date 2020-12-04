@@ -32,7 +32,6 @@ namespace Draw
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.NAngleNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.NAngleByPointsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.WigthScrollBar = new System.Windows.Forms.HScrollBar();
             this.widthText = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -61,7 +60,6 @@ namespace Draw
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -87,26 +85,6 @@ namespace Draw
             0});
             this.NAngleNumericUpDown.Visible = false;
             this.NAngleNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleNumericUpDown_ValueChanged);
-            // 
-            // NAngleByPointsNumericUpDown
-            // 
-            this.NAngleByPointsNumericUpDown.Location = new System.Drawing.Point(9, 378);
-            this.NAngleByPointsNumericUpDown.Margin = new System.Windows.Forms.Padding(2);
-            this.NAngleByPointsNumericUpDown.Minimum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.NAngleByPointsNumericUpDown.Name = "NAngleByPointsNumericUpDown";
-            this.NAngleByPointsNumericUpDown.Size = new System.Drawing.Size(102, 20);
-            this.NAngleByPointsNumericUpDown.TabIndex = 17;
-            this.NAngleByPointsNumericUpDown.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.NAngleByPointsNumericUpDown.Visible = false;
-            this.NAngleByPointsNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleByPointsNumericUpDown_ValueChanged);
             // 
             // WigthScrollBar
             // 
@@ -142,7 +120,7 @@ namespace Draw
             this.ColorButton.Size = new System.Drawing.Size(25, 25);
             this.ColorButton.TabIndex = 18;
             this.ColorButton.UseVisualStyleBackColor = true;
-            this.ColorButton.Click += new System.EventHandler(this.button1_Click);
+            this.ColorButton.Click += new System.EventHandler(this.colorButton_Click);
             // 
             // ToolLayoutPanel
             // 
@@ -499,7 +477,6 @@ namespace Draw
             this.Controls.Add(this.SizeLabel);
             this.Controls.Add(this.ToolLayoutPanel);
             this.Controls.Add(this.widthText);
-            this.Controls.Add(this.NAngleByPointsNumericUpDown);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.NAngleNumericUpDown);
             this.Controls.Add(this.WigthScrollBar);
@@ -511,7 +488,6 @@ namespace Draw
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.Form1_ChangeSize);
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).EndInit();
             this.ToolLayoutPanel.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -546,7 +522,6 @@ namespace Draw
         protected System.Windows.Forms.PictureBox pictureBox1;
 
         private System.Windows.Forms.Button TriangleByPoints;
-        private System.Windows.Forms.NumericUpDown NAngleByPointsNumericUpDown;
         private System.Windows.Forms.Button PolyLine;
         private System.Windows.Forms.Button pipette_button;
         private System.Windows.Forms.Button CancelLast;

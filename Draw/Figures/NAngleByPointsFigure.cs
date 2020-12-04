@@ -12,13 +12,10 @@ using System.Threading.Tasks;
 namespace Draw.Figures
 {
    
-      public class NAngleByPointsFigure : IFigure
+      public class NAngleByPointsFigure : AbstractFigure
     {
         public int N { get; set; }
-        public List<Point> Points { get; set; }
-        public IDrawer Drawer { get; set; }
-        public Color Color { get; set; }
-        public int Width { get; set; }
+        
         public NAngleByPointsFigure(int n)
         {
             N = n;
@@ -37,18 +34,7 @@ namespace Draw.Figures
             Points.Add(point);
         }
 
-        public void Clear()
-        {
-            if (Points.Count > N)
-            Points.Clear();
-        }
-
-        public Point[] GetPoints()
-        {
-            return Points.ToArray();
-        }
-
-        public bool IsFool()
+        public bool IsFull()
         {
             if (Points.Count >= N)
             {
@@ -60,7 +46,7 @@ namespace Draw.Figures
             }
         }
 
-        public void Update(Point startPoint, Point endPoint)
+        public override void Update(Point startPoint, Point endPoint)
         {
             if (Points.Count < N)
             {
@@ -72,7 +58,7 @@ namespace Draw.Figures
             }
         }
 
-        public void Move(Point delta)
+        public override void Move(Point delta)
         {
             for (int i = 0; i < Points.Count(); i++)
             {
@@ -80,9 +66,9 @@ namespace Draw.Figures
             }
         }
 
-        public bool IsThisFigure(Point point)
+        public override bool IsThisFigure(Point point)
         {
-            Point p1 = Points[N];
+            Point p1 = Points[Points.Count-1];
             Point p2;
             foreach (Point p in Points)
             {
