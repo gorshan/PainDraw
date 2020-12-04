@@ -319,7 +319,8 @@ namespace Draw
         
         private void NAngleByPointsNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            
+            ((NAngleByPointsFigure)Figure).N = Convert.ToInt32(NAngleByPointsNumericUpDown.Value);
+
         }
 
         private void PolyLine_Click(object sender, EventArgs e)
