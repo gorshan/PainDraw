@@ -26,30 +26,6 @@ namespace Draw.Canvases
             //Drawer = new PenDrawer();
         }
 
-        //public void StartDraw(IFigure figure)
-        //{
-        //    if (figure is TriangleByPointsFigure)
-        //    {
-        //        Drawer = new AnglePointsDrawer();
-        //    }
-        //    if (figure is EllipseFigure || figure is CircleFigure)
-        //    {
-        //        if (!(Drawer is EllipseDrawer))
-        //            Drawer = new EllipseDrawer();
-        //    }else if(figure is PenFigure)
-        //    {
-        //        if (!(Drawer is PenDrawer))
-        //            Drawer = new PenDrawer();
-        //    }
-        //    else if (figure is PolylineByPointsFigure)
-        //    {
-        //        Drawer = new PenDrawer();
-        //    }
-        //    else if (!(Drawer is AngleFiguresDrawer))
-        //    {
-        //        Drawer = new AngleFiguresDrawer();
-        //    }
-        //}
 
         public void DrawFigure(IFigure figure)
         {
@@ -70,13 +46,7 @@ namespace Draw.Canvases
         }
 
         public void EndDraw(IFigure figure)
-        {
-            if (figure is PenFigure)
-                ((PenFigure)figure).ClearPoints();
-            if (figure is TriangleByPointsFigure)
-            {
-                ((TriangleByPointsFigure)figure).Clear();
-            }
+        {            
             //_allbitmaps.Push((Bitmap)_tmpBitmap.Clone());
             _mainBitmap = _tmpBitmap;
         }
