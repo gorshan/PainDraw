@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Drawer\AnglePointsDrawer.cs" />
     <Compile Include="Drawer\PolyLineDrawer.cs" />
     <Compile Include="Canvas.cs" />
     <Compile Include="Drawer\AngleFiguresDrawer.cs" />
@@ -202,6 +201,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MouseMovers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

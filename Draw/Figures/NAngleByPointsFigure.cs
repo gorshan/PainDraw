@@ -20,18 +20,13 @@ namespace Draw.Figures
         {
             N = n;
             Points = new List<Point>();
-            Drawer = new AnglePointsDrawer(N);
+            Drawer = new PenDrawer();
         }
 
         public NAngleByPointsFigure()
         {
             Points = new List<Point>();
-            Drawer = new AnglePointsDrawer(N);
-        }
-
-        public void AddPoint(Point point)
-        {
-            Points.Add(point);
+            Drawer = new PenDrawer();
         }
 
         public bool IsFull()

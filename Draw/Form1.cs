@@ -22,6 +22,7 @@ namespace Draw
         private bool _pipetteClick=false;
         IFabric fabric;
 
+
         public AbstractFigure Figure { get; private set; }
 
         List<AbstractFigure> figures;
@@ -36,6 +37,7 @@ namespace Draw
         {
             Canvas.Create(pictureBox1.Width, pictureBox1.Height);
             fabric = new PenFabric();
+            renewFigure();
             mode = "Paint";
             pictureBox1.Image = Canvas.Cur.GetImage();
             _lastPoint = new Point(0, 0);
@@ -50,35 +52,35 @@ namespace Draw
         {
             _mouseDown = true;
             _lastPoint = e.Location;
-            bool isNeededNewFigure = true;
+            //bool isNeededNewFigure = true;
             switch (mode)
             {
                 case "Paint":
-                    if (fabric is PolylineByPointsFabric)
-                    {
-                        isNeededNewFigure = false;
-                        Figure.Update(_lastPoint, e.Location);
-                        Canvas.Cur.DrawFigure(Figure);
-                        pictureBox1.Image = Canvas.Cur.GetTmpImage();
-                        _mouseDown = false;
+                    //if (fabric is PolylineByPointsFabric)
+                    //{
+                    //    //isNeededNewFigure = false;
+                    //    Figure.Update(_lastPoint, e.Location);
+                    //    Canvas.Cur.DrawFigure(Figure);
+                    //    pictureBox1.Image = Canvas.Cur.GetTmpImage();
+                    //    _mouseDown = false;
 
-                    }
-                    if (fabric is NAngleByPointsFabric || fabric is TriangleByPointsFabric)
+                    //}
+                    if (Figure is NAngleByPointsFigure)
                     {
-                        isNeededNewFigure = false;
-                        if (((NAngleByPointsFigure)Figure).IsFull())
-                        {
-                            renewFigure();
-                        }
+                        //isNeededNewFigure = false;
+                        //if (((NAngleByPointsFigure)Figure).IsFull())
+                        //{
+                        //    renewFigure();
+                        //}
                         Figure.Update(_lastPoint, e.Location);
                         Canvas.Cur.DrawFigure(Figure);
                         pictureBox1.Image = Canvas.Cur.GetTmpImage();
                         _mouseDown = false;
                     }
-                    if (isNeededNewFigure)
-                    {
-                        renewFigure();
-                    }
+                    //if (isNeededNewFigure)
+                    //{
+                    //    renewFigure();
+                    //}
                     break;
                 case "Figure":
                     Figure = null;
@@ -143,6 +145,15 @@ namespace Draw
             {
                 figures.Add(Figure);
             }
+            //if ((Figure is NAngleByPointsFigure) &&
+            //    ((NAngleByPointsFigure)Figure).IsFull()||
+            //    !(Figure is PolylineByPointsFigure) &&
+            //    !(Figure is NAngleByPointsFigure))
+            if (!(Figure is NAngleByPointsFigure) ||
+                ((NAngleByPointsFigure)Figure).IsFull())
+            {
+                renewFigure();
+            }
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -161,6 +172,7 @@ namespace Draw
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
             fabric = new RightTriangleFabric();
+            renewFigure();
             mode = "Paint";
             SettingsForm(sender);
         }
@@ -168,6 +180,7 @@ namespace Draw
         private void RectangleButton_Click(object sender, EventArgs e)
         {
             fabric = new RectangleFabric();
+            renewFigure();
             mode = "Paint";
             SettingsForm(sender);
         }
@@ -175,6 +188,7 @@ namespace Draw
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
         {
             fabric = new IsoscelesTriangleFabric();
+            renewFigure();
             mode = "Paint";
             SettingsForm(sender);
         }
@@ -182,6 +196,7 @@ namespace Draw
         private void LineButton_Click(object sender, EventArgs e)
         {
             fabric = new LineFabric();
+            renewFigure();
             mode = "Paint";
             SettingsForm(sender);
         }
@@ -189,6 +204,7 @@ namespace Draw
         private void SquareButton_Click(object sender, EventArgs e)
         {
             fabric = new SquareFabric();
+            renewFigure();
             mode = "Paint";
             SettingsForm(sender);
         }
@@ -196,6 +212,7 @@ namespace Draw
         private void RightNAngleButton_Click(object sender, EventArgs e)
         {
             fabric = new NAngleFabric();
+            renewFigure();
             mode = "Paint";
             SettingsForm(sender);
         }
@@ -209,6 +226,7 @@ namespace Draw
         private void EllipsButton_Click(object sender, EventArgs e)
         {
             fabric = new EllipseFabric();
+            renewFigure();
             mode = "Paint";
             SettingsForm(sender);
         }
@@ -216,6 +234,7 @@ namespace Draw
         private void CircleButton_Click(object sender, EventArgs e)
         {
             fabric = new CircleFabric();
+            renewFigure();
             mode = "Paint";
             SettingsForm(sender);
         }
@@ -224,6 +243,7 @@ namespace Draw
         private void PenButton_Click(object sender, EventArgs e)
         {
             fabric = new PenFabric();
+            renewFigure();
             mode = "Paint";
             SettingsForm(sender);
         }      
@@ -264,7 +284,7 @@ namespace Draw
             Figure.Color = Canvas.Cur.Pen.Color;
             Figure.Width = (int)Canvas.Cur.Pen.Width;
 
-            if (Figure is NAngleByPointsFigure)
+            if (fabric is NAngleByPointsFabric)
             {
                 ((NAngleByPointsFigure)Figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
             }

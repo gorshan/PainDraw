@@ -11,7 +11,7 @@ namespace Draw.Fabrics
     {
         public AbstractFigure CreateFigure()
         {
-            return new PolylineByPointsFigure();
+            return new NAngleByPointsFigure(int.MaxValue);
             //throw new NotImplementedException();
         }
     }
