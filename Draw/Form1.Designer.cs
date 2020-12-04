@@ -56,10 +56,10 @@ namespace Draw
             this.CancelLast = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.workWithFigureButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ClearButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
@@ -524,6 +524,7 @@ namespace Draw
         private System.Windows.Forms.Button NAngleButton;
         private System.Windows.Forms.Button RightNAngleButton;
         private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.Button workWithFigureButton;
 
         private System.Windows.Forms.NumericUpDown NAngleNumericUpDown;
         private System.Windows.Forms.HScrollBar WigthScrollBar;
