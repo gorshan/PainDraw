@@ -50,7 +50,7 @@ namespace Draw.Figures
 
         public bool IsFool()
         {
-            if (Points.Count > N)
+            if (Points.Count >= N)
             {
                 return true;
             }
@@ -62,12 +62,12 @@ namespace Draw.Figures
 
         public void Update(Point startPoint, Point endPoint)
         {
-            if (Points.Count <= N)
+            if (Points.Count < N)
             {
                 Points.Add(endPoint);
                 if (Points.Count == N)
                 {
-                    Points.Add(Points[0]);
+                    Drawer = new AngleFiguresDrawer();
                 }
             }
         }
