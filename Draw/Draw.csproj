@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Drawer\PolyLineDrawer.cs" />
     <Compile Include="Canvas.cs" />
     <Compile Include="Drawer\AngleFiguresDrawer.cs" />
     <Compile Include="Drawer\EllipseDrawer.cs" />
@@ -71,9 +70,8 @@
     <Compile Include="Figures\AbstractFigure.cs" />
     <Compile Include="Figures\IsoscelesTriangleFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
-    <Compile Include="Figures\NAngleByPointsFigure.cs" />
+    <Compile Include="Figures\NPointsFigure.cs" />
     <Compile Include="Figures\NAngleFigure.cs" />
-    <Compile Include="Figures\PolylineByPointsFigure.cs" />
     <Compile Include="Figures\PenFigure.cs" />
     <Compile Include="Figures\RectangleFigure.cs" />
     <Compile Include="Figures\RightTriangleFigure.cs" />

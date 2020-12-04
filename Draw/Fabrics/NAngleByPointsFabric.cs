@@ -11,7 +11,7 @@ namespace Draw.Fabrics
     {
         public AbstractFigure CreateFigure()
         {
-            return new NAngleByPointsFigure();
+            return new NPointsFigure();
         }
     }
 }

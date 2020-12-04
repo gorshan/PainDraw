@@ -12,18 +12,18 @@ using System.Threading.Tasks;
 namespace Draw.Figures
 {
    
-      public class NAngleByPointsFigure : AbstractFigure
+      public class NPointsFigure : AbstractFigure
     {
         public int N { get; set; }
         
-        public NAngleByPointsFigure(int n)
+        public NPointsFigure(int n)
         {
             N = n;
             Points = new List<Point>();
             Drawer = new PenDrawer();
         }
 
-        public NAngleByPointsFigure()
+        public NPointsFigure()
         {
             Points = new List<Point>();
             Drawer = new PenDrawer();

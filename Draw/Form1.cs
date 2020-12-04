@@ -65,7 +65,7 @@ namespace Draw
                     //    _mouseDown = false;
 
                     //}
-                    if (Figure is NAngleByPointsFigure)
+                    if (Figure is NPointsFigure)
                     {
                         //isNeededNewFigure = false;
                         //if (((NAngleByPointsFigure)Figure).IsFull())
@@ -149,8 +149,8 @@ namespace Draw
             //    ((NAngleByPointsFigure)Figure).IsFull()||
             //    !(Figure is PolylineByPointsFigure) &&
             //    !(Figure is NAngleByPointsFigure))
-            if (!(Figure is NAngleByPointsFigure) ||
-                ((NAngleByPointsFigure)Figure).IsFull())
+            if (!(Figure is NPointsFigure) ||
+                ((NPointsFigure)Figure).IsFull())
             {
                 renewFigure();
             }
@@ -286,7 +286,7 @@ namespace Draw
 
             if (fabric is NAngleByPointsFabric)
             {
-                ((NAngleByPointsFigure)Figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
+                ((NPointsFigure)Figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
             }
             if (Figure is NAngleFigure)
             {
@@ -350,9 +350,9 @@ namespace Draw
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            if (Figure is PolylineByPointsFigure)
+            if (fabric is PolylineByPointsFabric)
             {
-                ((PolylineByPointsFigure)Figure).Clear();
+                renewFigure();
             }
             
         }
