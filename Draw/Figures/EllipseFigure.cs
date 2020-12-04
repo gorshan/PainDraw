@@ -46,11 +46,11 @@ namespace Draw.Figures
 
         public bool IsThisFigure(Point point)
         {
-            int x0 = Points[0].X;
-            int y0 = Points[1].X;
+            int x0 = (Points[0].X + Points[2].X )/ 2;
+            int y0 = (Points[1].X + Points[3].X) / 2; 
             int rx = Points[2].X / 2;
             int ry = Points[3].X / 2;
-            if ((Math.Pow((point.X - x0), 2) / rx / rx) + (Math.Pow((point.Y - y0), 2) / ry / rx) - 1 <= 1)
+            if (Math.Abs((Math.Pow((point.X - x0), 2) / (rx * rx)) + (Math.Pow((point.Y - y0), 2) / (ry * ry)) - 1) <= 3)
             {
                 return true;
             }
