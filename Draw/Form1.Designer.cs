@@ -39,31 +39,32 @@ namespace Draw
             this.ColorButton = new System.Windows.Forms.Button();
             this.ToolLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.PenButton = new System.Windows.Forms.Button();
-            this.CircleButton = new System.Windows.Forms.Button();
-            this.EllipsButton = new System.Windows.Forms.Button();
+            this.LineButton = new System.Windows.Forms.Button();
+            this.PolyLine = new System.Windows.Forms.Button();
             this.SquareButton = new System.Windows.Forms.Button();
             this.RectangleButton = new System.Windows.Forms.Button();
-            this.LineButton = new System.Windows.Forms.Button();
+            this.CircleButton = new System.Windows.Forms.Button();
+            this.EllipsButton = new System.Windows.Forms.Button();
             this.IsoscelesTriangleButton = new System.Windows.Forms.Button();
             this.TriangleByPoints = new System.Windows.Forms.Button();
             this.RightTriangleButton = new System.Windows.Forms.Button();
             this.RightNAngleButton = new System.Windows.Forms.Button();
             this.NAngleButton = new System.Windows.Forms.Button();
-            this.PolyLine = new System.Windows.Forms.Button();
             this.SizeLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pipette_button = new System.Windows.Forms.Button();
             this.CancelLast = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.workWithFigureButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.workWithFigureButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +87,6 @@ namespace Draw
             0});
             this.NAngleNumericUpDown.Visible = false;
             this.NAngleNumericUpDown.ValueChanged += new System.EventHandler(this.NAngleNumericUpDown_ValueChanged);
-            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // NAngleByPointsNumericUpDown
             // 
@@ -183,38 +183,37 @@ namespace Draw
             this.PenButton.UseVisualStyleBackColor = false;
             this.PenButton.Click += new System.EventHandler(this.PenButton_Click);
             // 
-            // CircleButton
+            // LineButton
             // 
-            this.CircleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
-            this.CircleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.CircleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.CircleButton.Image = ((System.Drawing.Image)(resources.GetObject("CircleButton.Image")));
-            this.CircleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CircleButton.Location = new System.Drawing.Point(1, 136);
-            this.CircleButton.Margin = new System.Windows.Forms.Padding(1);
-            this.CircleButton.Name = "CircleButton";
-            this.CircleButton.Size = new System.Drawing.Size(102, 25);
-            this.CircleButton.TabIndex = 5;
-            this.CircleButton.Text = "Circle";
-            this.CircleButton.UseVisualStyleBackColor = false;
-            this.CircleButton.Click += new System.EventHandler(this.CircleButton_Click);
+            this.LineButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.LineButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LineButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.LineButton.Image = ((System.Drawing.Image)(resources.GetObject("LineButton.Image")));
+            this.LineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LineButton.Location = new System.Drawing.Point(1, 28);
+            this.LineButton.Margin = new System.Windows.Forms.Padding(1);
+            this.LineButton.Name = "LineButton";
+            this.LineButton.Size = new System.Drawing.Size(102, 25);
+            this.LineButton.TabIndex = 2;
+            this.LineButton.Text = "Line";
+            this.LineButton.UseVisualStyleBackColor = false;
+            this.LineButton.Click += new System.EventHandler(this.LineButton_Click);
             // 
-            // EllipsButton
+            // PolyLine
             // 
-            this.EllipsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
-            this.EllipsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.EllipsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.EllipsButton.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.EllipsButton.Image = ((System.Drawing.Image)(resources.GetObject("EllipsButton.Image")));
-            this.EllipsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EllipsButton.Location = new System.Drawing.Point(1, 163);
-            this.EllipsButton.Margin = new System.Windows.Forms.Padding(1);
-            this.EllipsButton.Name = "EllipsButton";
-            this.EllipsButton.Size = new System.Drawing.Size(102, 25);
-            this.EllipsButton.TabIndex = 6;
-            this.EllipsButton.Text = "Ellipse";
-            this.EllipsButton.UseVisualStyleBackColor = false;
-            this.EllipsButton.Click += new System.EventHandler(this.EllipsButton_Click);
+            this.PolyLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.PolyLine.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PolyLine.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.PolyLine.Image = ((System.Drawing.Image)(resources.GetObject("PolyLine.Image")));
+            this.PolyLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PolyLine.Location = new System.Drawing.Point(1, 55);
+            this.PolyLine.Margin = new System.Windows.Forms.Padding(1);
+            this.PolyLine.Name = "PolyLine";
+            this.PolyLine.Size = new System.Drawing.Size(101, 25);
+            this.PolyLine.TabIndex = 18;
+            this.PolyLine.Text = "PolyLine";
+            this.PolyLine.UseVisualStyleBackColor = false;
+            this.PolyLine.Click += new System.EventHandler(this.PolyLine_Click);
             // 
             // SquareButton
             // 
@@ -248,21 +247,38 @@ namespace Draw
             this.RectangleButton.UseVisualStyleBackColor = false;
             this.RectangleButton.Click += new System.EventHandler(this.RectangleButton_Click);
             // 
-            // LineButton
+            // CircleButton
             // 
-            this.LineButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
-            this.LineButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LineButton.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.LineButton.Image = ((System.Drawing.Image)(resources.GetObject("LineButton.Image")));
-            this.LineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LineButton.Location = new System.Drawing.Point(1, 28);
-            this.LineButton.Margin = new System.Windows.Forms.Padding(1);
-            this.LineButton.Name = "LineButton";
-            this.LineButton.Size = new System.Drawing.Size(102, 25);
-            this.LineButton.TabIndex = 2;
-            this.LineButton.Text = "Line";
-            this.LineButton.UseVisualStyleBackColor = false;
-            this.LineButton.Click += new System.EventHandler(this.LineButton_Click);
+            this.CircleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.CircleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CircleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.CircleButton.Image = ((System.Drawing.Image)(resources.GetObject("CircleButton.Image")));
+            this.CircleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CircleButton.Location = new System.Drawing.Point(1, 136);
+            this.CircleButton.Margin = new System.Windows.Forms.Padding(1);
+            this.CircleButton.Name = "CircleButton";
+            this.CircleButton.Size = new System.Drawing.Size(102, 25);
+            this.CircleButton.TabIndex = 5;
+            this.CircleButton.Text = "Circle";
+            this.CircleButton.UseVisualStyleBackColor = false;
+            this.CircleButton.Click += new System.EventHandler(this.CircleButton_Click);
+            // 
+            // EllipsButton
+            // 
+            this.EllipsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.EllipsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.EllipsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.EllipsButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.EllipsButton.Image = ((System.Drawing.Image)(resources.GetObject("EllipsButton.Image")));
+            this.EllipsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EllipsButton.Location = new System.Drawing.Point(1, 163);
+            this.EllipsButton.Margin = new System.Windows.Forms.Padding(1);
+            this.EllipsButton.Name = "EllipsButton";
+            this.EllipsButton.Size = new System.Drawing.Size(102, 25);
+            this.EllipsButton.TabIndex = 6;
+            this.EllipsButton.Text = "Ellipse";
+            this.EllipsButton.UseVisualStyleBackColor = false;
+            this.EllipsButton.Click += new System.EventHandler(this.EllipsButton_Click);
             // 
             // IsoscelesTriangleButton
             // 
@@ -348,22 +364,6 @@ namespace Draw
             this.NAngleButton.UseVisualStyleBackColor = false;
             this.NAngleButton.Click += new System.EventHandler(this.NAngleButton_Click);
             // 
-            // PolyLine
-            // 
-            this.PolyLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
-            this.PolyLine.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PolyLine.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.PolyLine.Image = ((System.Drawing.Image)(resources.GetObject("PolyLine.Image")));
-            this.PolyLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PolyLine.Location = new System.Drawing.Point(1, 55);
-            this.PolyLine.Margin = new System.Windows.Forms.Padding(1);
-            this.PolyLine.Name = "PolyLine";
-            this.PolyLine.Size = new System.Drawing.Size(101, 25);
-            this.PolyLine.TabIndex = 18;
-            this.PolyLine.Text = "PolyLine";
-            this.PolyLine.UseVisualStyleBackColor = false;
-            this.PolyLine.Click += new System.EventHandler(this.PolyLine_Click);
-            // 
             // SizeLabel
             // 
             this.SizeLabel.AutoSize = true;
@@ -440,6 +440,27 @@ namespace Draw
             this.ClearButton.UseVisualStyleBackColor = false;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
+            this.flowLayoutPanel2.Controls.Add(this.workWithFigureButton);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(455, 4);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 29);
+            this.flowLayoutPanel2.TabIndex = 25;
+            // 
+            // workWithFigureButton
+            // 
+            this.workWithFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.workWithFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.workWithFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("workWithFigureButton.Image")));
+            this.workWithFigureButton.Location = new System.Drawing.Point(3, 3);
+            this.workWithFigureButton.Name = "workWithFigureButton";
+            this.workWithFigureButton.Size = new System.Drawing.Size(25, 25);
+            this.workWithFigureButton.TabIndex = 22;
+            this.workWithFigureButton.UseVisualStyleBackColor = false;
+            this.workWithFigureButton.Click += new System.EventHandler(this.workWithFigureButton_Click);
+            // 
             // logoPictureBox
             // 
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
@@ -461,21 +482,12 @@ namespace Draw
             this.pictureBox1.Size = new System.Drawing.Size(879, 463);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // 
-            // workWithFigureButton
-            // 
-            this.workWithFigureButton.Location = new System.Drawing.Point(1001, 22);
-            this.workWithFigureButton.Name = "workWithFigureButton";
-            this.workWithFigureButton.Size = new System.Drawing.Size(82, 23);
-            this.workWithFigureButton.TabIndex = 22;
-            this.workWithFigureButton.Text = "Figure";
-            this.workWithFigureButton.Click += new System.EventHandler(this.workWithFigureButton_Click);
-            this.workWithFigureButton.UseVisualStyleBackColor = true;
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,8 +499,8 @@ namespace Draw
             this.Controls.Add(this.SizeLabel);
             this.Controls.Add(this.ToolLayoutPanel);
             this.Controls.Add(this.widthText);
-            this.Controls.Add(this.workWithFigureButton);
             this.Controls.Add(this.NAngleByPointsNumericUpDown);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.NAngleNumericUpDown);
             this.Controls.Add(this.WigthScrollBar);
             this.Controls.Add(this.pictureBox1);
@@ -496,13 +508,13 @@ namespace Draw
             this.Margin = new System.Windows.Forms.Padding(1);
             this.MinimumSize = new System.Drawing.Size(520, 485);
             this.Name = "Form1";
-            this.Text = "Pain Draw";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.Form1_ChangeSize);
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleByPointsNumericUpDown)).EndInit();
             this.ToolLayoutPanel.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -524,7 +536,6 @@ namespace Draw
         private System.Windows.Forms.Button NAngleButton;
         private System.Windows.Forms.Button RightNAngleButton;
         private System.Windows.Forms.Button ClearButton;
-        private System.Windows.Forms.Button workWithFigureButton;
 
         private System.Windows.Forms.NumericUpDown NAngleNumericUpDown;
         private System.Windows.Forms.HScrollBar WigthScrollBar;
@@ -544,6 +555,8 @@ namespace Draw
         private System.Windows.Forms.Label SizeLabel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.PictureBox logoPictureBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button workWithFigureButton;
     }
 }
 

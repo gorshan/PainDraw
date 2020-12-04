@@ -135,9 +135,9 @@
   </data>
   <data name="LineButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAADCAYAAABMFFUxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAjSURBVBhXY/jz58//f//+kYxB+hj+/v37nxwA0keBzX/+
-        AwDsyrLPfEaTZAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAA8AAAADCAYAAABMFFUxAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAACNJREFUGFdj+PPnz/9///6RjEH6GP7+/fufHADSR4HNf/4DAOzKss98RpNkAAAA
+        AElFTkSuQmCC
 </value>
   </data>
   <data name="PolyLine.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -275,6 +275,15 @@
         bK21hQ0n+Kijjw3ZHBRXznn3IHL4tL0oDu7HBDE4LOgADu6Xo6eCgMMDduAnSHHafAJUARgDqt77oGU6
         ATkB8N/6fVIAxHf6AqQh/noETP8JA3QiVg9yv30RFlA58HkREDaY4AEVfNQfIKUbxndiT5LPV1kAAAAA
         SUVORK5CYII=
+</value>
+  </data>
+  <data name="workWithFigureButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC0SURBVChTlVFLCgIxDB3S35TSW7l0Rlz424grETcOuHLO
+        4BVceQCv6IsTQamB8cGjL21eSNIqhHDNOTfOuSX0PsbYIm5xzhAfcc5TSpvqE5wgUkWRg0qNSBV1Xa9E
+        DkALO5EqvPc38MwkogtX2cqbCmttJ3LQY2YqTGNm+mVaSKyiMGERB4lVFCZ83JpbxGxTY8wdGzqBHZMT
+        mLifiOerwAu8UpEqChPW/78JH9e/W9JIRI8nr3YcjNX0qq4AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="logoPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
