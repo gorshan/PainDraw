@@ -13,7 +13,6 @@ namespace Draw.Figures
     public class PenFigure : IFigure
     {
         private Point _lastPoint;
-        private LinkedList<Point> _points;
 
         public IDrawer Drawer { get; set; }
         public List<Point> Points { get; set; }
@@ -21,7 +20,7 @@ namespace Draw.Figures
         public int Width { get; set; }
         public PenFigure()
         {
-            _points = new LinkedList<Point>();
+            Points = new List<Point>();
             Drawer = new PenDrawer();
         }
 
@@ -39,19 +38,19 @@ namespace Draw.Figures
             }
             if (Math.Abs(endPoint.X - _lastPoint.X) > 4 || Math.Abs(endPoint.Y - _lastPoint.Y) > 4)
             {
-                _points.AddLast(endPoint);
+                Points.Add(endPoint);
                 _lastPoint = endPoint;
             }
         }
 
         public void ClearPoints()
         {
-            _points.Clear();
+            Points.Clear();
         }
 
         public Point[] GetPoints()
         {
-            return _points.ToArray();
+            return Points.ToArray();
         }
 
         public void Update(Point startPoint, Point endPoint)
@@ -69,8 +68,10 @@ namespace Draw.Figures
 
         public bool IsThisFigure(Point point)
         {
-            Point p1 = Points[3];
+            Point p1;
             Point p2;
+            
+                p1 = Points[0];
             foreach (Point p in Points)
             {
                 p2 = p;

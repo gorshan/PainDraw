@@ -96,9 +96,12 @@ namespace Draw
                 case "Paint":
                     if (fabric is PolylineByPointsFabric)
                     {
+                        isNeededNewFigure = false;
                         Figure.Update(_lastPoint, e.Location);
                         Canvas.DrawFigure(Figure);
                         pictureBox1.Image = Canvas.GetTmpImage();
+                        _mouseDown = false;
+
                     }
                     if (fabric is TriangleByPointsFabric)
                     {
@@ -113,9 +116,10 @@ namespace Draw
                     }
                     if (fabric is NAngleByPointsFabric)
                     {
-                        if (!((NAngleByPointsFigure)Figure).IsFool())
+                        isNeededNewFigure = false;
+                        if (((NAngleByPointsFigure)Figure).IsFool())
                         {
-                            isNeededNewFigure = false;
+                            renewFigure();
                         }
                         Figure.Update(_lastPoint, e.Location);
                         Canvas.DrawFigure(Figure);
@@ -301,14 +305,14 @@ namespace Draw
         private void TriangleByPoints_Click(object sender, EventArgs e)
         {
             fabric = new TriangleByPointsFabric();
-            Figure = fabric.CreateFigure();
+            renewFigure();
             SettingsForm(sender);
         }
 
         private void NAngleButton_Click(object sender, EventArgs e)
         {
             fabric = new NAngleByPointsFabric();
-            Figure = fabric.CreateFigure();
+            renewFigure();
             SettingsForm(sender);
         }
 
@@ -321,7 +325,7 @@ namespace Draw
         private void PolyLine_Click(object sender, EventArgs e)
         {
             fabric = new PolylineByPointsFabric();
-            Figure = fabric.CreateFigure();
+            renewFigure();
             SettingsForm(sender);
         }
 

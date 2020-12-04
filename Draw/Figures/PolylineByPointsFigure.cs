@@ -6,21 +6,25 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Draw.Figures;
+using System.Drawing.Drawing2D;
+
 
 namespace Draw.Figures
 {
    public class PolylineByPointsFigure : IFigure
     {
-        public LinkedList<Point> Points { get; set; }
-
+       
         public IDrawer Drawer { get; set; }
-        List<Point> IFigure.Points { get; set; }
+        //List<Point> Points { get; set; }
         public Color Color { get; set; }
         public int Width { get; set; }
+        public List<Point> Points { get ; set ; }
+
         public PolylineByPointsFigure()
         {
             Drawer = new PenDrawer();
-            Points = new LinkedList<Point>();
+            Points = new List<Point>();
         }
 
         internal void Clear()
@@ -37,7 +41,7 @@ namespace Draw.Figures
         public void Update(Point startPoint, Point endPoint)
 
         {
-            //Points.Add(endPoint);                
+            Points.Add(endPoint);                
         }
 
         public void Move(Point delta)
