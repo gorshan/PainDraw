@@ -53,7 +53,7 @@ namespace Draw.Figures
 
         public bool IsThisFigure(Point point)
         {
-            if (Math.Abs((Math.Pow((point.X - Points[0].X + r), 2) + Math.Pow((point.Y - Points[1].X + r), 2)) - r * r) <= 10)
+            //if (Math.Abs((Math.Pow((point.X - Points[0].X + r), 2) + Math.Pow((point.Y - Points[1].X + r), 2)) - r * r) <= 10)
             {
                 return true;
             }
