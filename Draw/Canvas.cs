@@ -11,8 +11,16 @@ namespace Draw.Canvases
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
         private Graphics _graphics;
-        private Stack <Bitmap> _previousBitmaps;
+        private Stack<Bitmap> _previousBitmaps;
         public Pen Pen { get; set; }
+
+        public static Canvas Cur { get { return _obj; } }
+        private static Canvas _obj;
+
+        public static void Create(int width, int height)
+        {
+            _obj = new Canvas(width, height);
+        }
 
         public Canvas(int width, int height)
         {
@@ -50,10 +58,6 @@ namespace Draw.Canvases
             _mainBitmap = _tmpBitmap;
         }
 
-        public void Save()
-        {
-            _mainBitmap = _tmpBitmap;
-        }
         public void Clear()
         {
             _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
