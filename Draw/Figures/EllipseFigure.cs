@@ -36,5 +36,15 @@ namespace Draw.Figures
                 new Point(endPoint.Y - startPoint.Y)
             };
         }
+
+        public void Move(Point delta)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsThisFigure(Point point)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

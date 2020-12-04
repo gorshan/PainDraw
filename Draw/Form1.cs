@@ -27,6 +27,7 @@ namespace Draw
         public IFigure Figure { get; private set; }
 
         List<IFigure> figures;
+        string mode;
 
         public Form1()
         {
@@ -37,7 +38,7 @@ namespace Draw
         {
             Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
             fabric = new PenFabric();
-
+            mode = "Paint";
             pictureBox1.Image = Canvas.GetImage();
             _lastPoint = new Point(0, 0);
             _mouseDown = false;
@@ -49,9 +50,29 @@ namespace Draw
         {
             if (_mouseDown)
             {
-                Figure.Update(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);
-                pictureBox1.Image = Canvas.GetTmpImage();
+                switch (mode)
+                {
+                    case "Paint":
+                        Figure.Update(_lastPoint, e.Location);
+                        Canvas.DrawFigure(Figure);
+                        pictureBox1.Image = Canvas.GetTmpImage();
+                        break;
+                    case "Figure":
+                        if (Figure != null)
+                        {
+                            Point d = new Point(e.X - _lastPoint.X, e.Y - _lastPoint.Y);
+                            _lastPoint = e.Location;
+                            Figure.Move(d);
+                            //DrawAll();
+                            Canvas.DrawFigure(Figure);
+                            
+                            pictureBox1.Image = Canvas.GetTmpImage();
+                            
+                        }
+                        break;
+                }
+                
+                
             }
             if (_pipetteClick)
             {
@@ -67,39 +88,56 @@ namespace Draw
         {            
             _mouseDown = true;
             _lastPoint = e.Location;
-            bool isNeededNewFigure = true;            
-            
-            if (Figure is PolylineByPointsFigure)
+            bool isNeededNewFigure = true;
+            switch (mode)
             {
-                Figure.Update(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);
-                pictureBox1.Image = Canvas.GetTmpImage();
-            }
-            if (fabric is TriangleByPointsFabric)
-            {
-                if (!((TriangleByPointsFigure)Figure).IsFool())
-                {
-                    isNeededNewFigure = false;
-                }
-                Figure.Update(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);       
-                pictureBox1.Image = Canvas.GetTmpImage();
-                _mouseDown = false;
-            }
-            if (fabric is NAngleByPointsFabric)
-            {
-                if (!((NAngleByPointsFigure)Figure).IsFool())
-                {
-                    isNeededNewFigure = false;
-                }                
-                Figure.Update(_lastPoint, e.Location);
-                Canvas.DrawFigure(Figure);
-                pictureBox1.Image = Canvas.GetTmpImage();
-                _mouseDown = false;
-            }
-            if (isNeededNewFigure)
-            {
-                renewFigure();
+                case "Paint":
+                    if (fabric is PolylineByPointsFabric)
+                    {
+                        Figure.Update(_lastPoint, e.Location);
+                        Canvas.DrawFigure(Figure);
+                        pictureBox1.Image = Canvas.GetTmpImage();
+                    }
+                    if (fabric is TriangleByPointsFabric)
+                    {
+                        if (!((TriangleByPointsFigure)Figure).IsFool())
+                        {
+                            isNeededNewFigure = false;
+                        }
+                        Figure.Update(_lastPoint, e.Location);
+                        Canvas.DrawFigure(Figure);
+                        pictureBox1.Image = Canvas.GetTmpImage();
+                        _mouseDown = false;
+                    }
+                    if (fabric is NAngleByPointsFabric)
+                    {
+                        if (!((NAngleByPointsFigure)Figure).IsFool())
+                        {
+                            isNeededNewFigure = false;
+                        }
+                        Figure.Update(_lastPoint, e.Location);
+                        Canvas.DrawFigure(Figure);
+                        pictureBox1.Image = Canvas.GetTmpImage();
+                        _mouseDown = false;
+                    }
+                    if (isNeededNewFigure)
+                    {
+                        renewFigure();
+                    }
+                    break;
+                case "Figure":
+                    Figure = null;
+                    foreach (IFigure figure in figures)
+                    {
+                        if (figure.IsThisFigure(e.Location))
+                        {
+                            Figure = figure;
+                            figures.Remove(Figure);
+                    DrawAll();
+                            break;
+                        }
+                    }
+                    break;
             }
         }
 
@@ -123,8 +161,12 @@ namespace Draw
         {           
             Canvas.EndDraw(Figure);
             _mouseDown = false;
-            figures.Add(Figure);
-
+            if (Figure != null)
+            {
+                figures.Add(Figure);
+            }
+           // DrawAll();
+            //pictureBox1.Image = Canvas.GetImage();
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -139,42 +181,41 @@ namespace Draw
             }
             _pipetteClick = false;
         }
-        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (Figure is PolylineByPointsFigure)
-            {
-                ((PolylineByPointsFigure)Figure).Clear();
-            }
-        }
 
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
             fabric = new RightTriangleFabric();
+            mode = "Paint";
         }
 
         private void RectangleButton_Click(object sender, EventArgs e)
         {
             fabric = new RectangleFabric();
+            mode = "Paint";
         }
 
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
         {
             fabric = new IsoscelesTriangleFabric();
+            mode = "Paint";
         }
 
         private void LineButton_Click(object sender, EventArgs e)
         {
             fabric = new LineFabric();
+            mode = "Paint";
         }
 
         private void SquareButton_Click(object sender, EventArgs e)
         {
             fabric = new SquareFabric();
+            mode = "Paint";
         }
 
         private void RightNAngleButton_Click(object sender, EventArgs e)
         {
             fabric = new NAngleFabric();
+            mode = "Paint";
         }
 
         private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -183,16 +224,19 @@ namespace Draw
             {
                 ((NAngleFigure)Figure).N = Convert.ToInt32(NAngleNumericUpDown.Value);
             }
+            mode = "Paint";
         }
 
         private void EllipsButton_Click(object sender, EventArgs e)
         {
             fabric = new EllipseFabric();
+            mode = "Paint";
         }
 
         private void CircleButton_Click(object sender, EventArgs e)
         {
             fabric = new CircleFabric();
+            mode = "Paint";
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -208,6 +252,7 @@ namespace Draw
         private void PenButton_Click(object sender, EventArgs e)
         {
             fabric = new PenFabric();
+            mode = "Paint";
         }
 
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
@@ -269,6 +314,33 @@ namespace Draw
         private void saveButton_Click(object sender, EventArgs e)
         {
             Canvas.SaveBitmap();
+        }
+
+        private void workWithFigureButton_Click(object sender, EventArgs e)
+        {
+            mode = "Figure";
+        }
+
+        private void DrawAll()
+        {
+            Canvas = new Canvas(pictureBox1.Width, pictureBox1.Height);
+            foreach (IFigure figure in figures)
+            {
+                Canvas.Pen.Color = figure.Color;
+                Canvas.Pen.Width = figure.Width;
+                Canvas.DrawFigure(figure);
+                Canvas.Save();
+            }
+
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (Figure is PolylineByPointsFigure)
+            {
+                ((PolylineByPointsFigure)Figure).Clear();
+            }
+            
         }
     }
 }

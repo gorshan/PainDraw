@@ -27,29 +27,46 @@ namespace Draw.Figures
 
         public void Update(Point startPoint, Point endPoint)
         {
-            int a = endPoint.Y - startPoint.Y;
+            int a = Math.Abs(endPoint.Y - startPoint.Y);
             Points = new List<Point>
             {
                 startPoint                
             };
-            if ((endPoint.X - startPoint.X > 0) && (endPoint.Y - startPoint.Y < 0))
+
+            if (startPoint.X > endPoint.X)
             {
-                Points.Add(new Point(startPoint.X, endPoint.Y));
-                Points.Add(new Point(startPoint.X - a, endPoint.Y));
-                Points.Add(new Point(startPoint.X - a, startPoint.Y));
+                a = -a;
             }
-            else if ((endPoint.X - startPoint.X < 0) && (endPoint.Y - startPoint.Y > 0))
+            Points.Add(new Point(startPoint.X, endPoint.Y));
+            Points.Add(new Point(startPoint.X + a, endPoint.Y));
+            Points.Add(new Point(startPoint.X + a, startPoint.Y));
+        }
+
+        public void Move(Point delta)
+        {
+            for (int i = 0; i < Points.Count(); i++)
             {
-                Points.Add(new Point(startPoint.X - a, startPoint.Y));
-                Points.Add(new Point(startPoint.X - a, endPoint.Y));
-                Points.Add(new Point(startPoint.X, endPoint.Y));
+                Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
             }
-            else
+        }
+
+        public bool IsThisFigure(Point point)
+        {
+            Point p1 = Points[3];
+            Point p2;
+            foreach (Point p in Points)
             {
-                Points.Add(new Point(startPoint.X, endPoint.Y));
-                Points.Add(new Point(startPoint.X + a, endPoint.Y));
-                Points.Add(new Point(startPoint.X + a, startPoint.Y));
+                p2 = p;
+                if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
+                    <= Math.Abs(20 * ((p2.Y - p1.Y) + (p2.X - p1.X))) 
+                    && (((p1.X <= point.X) && (point.X <= p2.X)) || ((p1.X >= point.X) && (point.X >= p2.X)))
+                    && (((p1.Y <= point.Y) && (point.Y <= p2.Y)) || ((p1.Y >= point.Y) && (point.Y >= p2.Y))) )
+                {
+                    return true;
+                }
+                p1 = p2;
             }
+            return false;
         }
     }
 }
