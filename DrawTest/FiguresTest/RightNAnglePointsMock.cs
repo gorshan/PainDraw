@@ -11,10 +11,10 @@ namespace NUnitTestProject1.FiguresTest
     {
         public IEnumerator GetEnumerator()
         {
-            yield return new object[] { new NAngleFigure(), new Point(300, 80), new Point(275, 37), new Point[6] { new Point(300, 80), new Point(275, 123), new Point(225, 123), new Point(200, 80), new Point(225, 37), new Point(275, 37) } };
-            yield return new object[] { new NAngleFigure(), new Point(100, 136), new Point(64, 172), new Point[6] { new Point(0, 0), new Point(0, 0), new Point(100, 136), new Point(64, 136), new Point(64, 172), new Point(100, 172) } };
-            yield return new object[] { new NAngleFigure(), new Point(333, 563), new Point(400, 496), new Point[5] { new Point(0, 0), new Point(333, 563), new Point(333, 496), new Point(400, 496), new Point(400, 563) } };
-            yield return new object[] { new NAngleFigure(), new Point(387, 123), new Point(364, 100), new Point[5] { new Point(0, 0), new Point(387, 123), new Point(387, 100), new Point(364, 100), new Point(364, 123) } };
+            yield return new object[] { new NAngleFigure(6), new Point(72, 53), new Point(93, 80), new Point[6] { new Point(106, 53), new Point(89, 83), new Point(55, 83), new Point(38, 53), new Point(55, 23), new Point(89, 23) } };
+            yield return new object[] { new NAngleFigure(6), new Point(203, 80), new Point(228, 138), new Point[6] { new Point(266, 80), new Point(235, 135), new Point(171, 135), new Point(140, 80), new Point(171, 25), new Point(235, 25) } };
+            yield return new object[] { new NAngleFigure(5), new Point(77, 51), new Point(86, 84), new Point[5] { new Point(111, 51), new Point(88, 84), new Point(49, 71), new Point(49, 31), new Point(88, 18) } };
+            yield return new object[] { new NAngleFigure(5), new Point(62, 157), new Point(83, 188), new Point[5] { new Point(99, 157), new Point(74, 193), new Point(32, 179), new Point(32, 135), new Point(74, 121) } };
         }
     }
 }

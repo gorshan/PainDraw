@@ -7,14 +7,14 @@ using System.Text;
 
 namespace NUnitTestProject1.FiguresTest
 {
-   public class CirclePointsMock
+   public class CirclePointsMock : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            yield return new object[] { new SquareFigure(), new Point(0, 0), new Point(666, 666), new Point[4] { new Point(0, 0), new Point(0, 666), new Point(666, 666), new Point(666, 0) } };
-            yield return new object[] { new SquareFigure(), new Point(100, 136), new Point(64, 172), new Point[4] { new Point(100, 136), new Point(64, 136), new Point(64, 172), new Point(100, 172) } };
-            yield return new object[] { new SquareFigure(), new Point(333, 563), new Point(400, 496), new Point[4] { new Point(333, 563), new Point(333, 496), new Point(400, 496), new Point(400, 563) } };
-            yield return new object[] { new SquareFigure(), new Point(387, 123), new Point(364, 100), new Point[4] { new Point(387, 123), new Point(387, 100), new Point(364, 100), new Point(364, 123) } };
+            yield return new object[] { new CircleFigure(), new Point(53, 32), new Point(61, 55), new Point[4] { new Point(29, 0), new Point(8, 0), new Point(48, 0), new Point(48, 0) } };
+            yield return new object[] { new CircleFigure(), new Point(122, 25), new Point(125, 43), new Point[4] { new Point(104, 0), new Point(7, 0), new Point(36, 0), new Point(36, 0) } };
+            yield return new object[] { new CircleFigure(), new Point(115, 106), new Point(126, 145), new Point[4] { new Point(75,0), new Point(66, 0), new Point(80, 0), new Point(80, 0) } };
+            yield return new object[] { new CircleFigure(), new Point(265, 73), new Point(267, 39), new Point[4] { new Point(231, 0), new Point(39, 0), new Point(68, 0), new Point(68, 0) } };
         }
     }
 }
