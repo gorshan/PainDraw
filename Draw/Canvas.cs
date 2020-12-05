@@ -13,15 +13,7 @@ namespace Draw.Canvases
         private Graphics _graphics;
         private LinkedList<Bitmap> _previousBitmaps;
         public Pen Pen { get; set; }
-
-        public static Canvas Cur { get { return _obj; } }
-        private static Canvas _obj;
-
-        public static void Create(int width, int height)
-        {
-            _obj = new Canvas(width, height);
-        }
-
+               
         public Canvas(int width, int height)
         {
             _mainBitmap = new Bitmap(width, height);
