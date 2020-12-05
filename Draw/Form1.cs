@@ -127,6 +127,16 @@ namespace Draw
         }
 
 
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (_fabric is PolylineByPointsFabric)
+            {
+                renewFigure();
+            }
+
+        }
+
+
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
             _fabric = new RightTriangleFabric();
@@ -237,6 +247,12 @@ namespace Draw
             _mode = "Paint";
         }
 
+        private void pipette_button_Click(object sender, EventArgs e)
+        {
+            _mode = "Pipette";
+            SettingsForm(sender);
+        }
+
         private void renewFigure()
         {
             _figure = _fabric.CreateFigure();
@@ -284,7 +300,6 @@ namespace Draw
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                //button1.BackColor = colorDialog1.Color;
                 _figure.Color = colorDialog1.Color;
                 Canvas.Pen.Color = colorDialog1.Color;
             }
@@ -292,11 +307,6 @@ namespace Draw
 
         }
 
-        private void pipette_button_Click(object sender, EventArgs e)
-        {
-            _mode = "Pipette";
-            SettingsForm(sender);
-        }
 
         private void UpdateFigure(Point endPoint)
         {
@@ -328,14 +338,6 @@ namespace Draw
 
         }
 
-        private void pictureBox1_DoubleClick(object sender, EventArgs e)
-        {
-            if (_fabric is PolylineByPointsFabric)
-            {
-                renewFigure();
-            }
-            
-        }
 
         private void SetSizeLabel()
         {
