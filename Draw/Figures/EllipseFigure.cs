@@ -32,13 +32,13 @@ namespace Draw.Figures
             Points[0] = new Point(Points[0].X + delta.X, Points[0].Y);
             Points[1] = new Point(Points[1].X + delta.Y, Points[1].Y);
 
-            center = new Point(center.X + delta.X, center.Y + delta.Y);
+            //center = new Point(center.X + delta.X, center.Y + delta.Y);
         }
 
         public override bool IsThisFigure(Point point)
         {
-            int x0 = center.X;
-            int y0 = center.Y; 
+            int x0 = 0;
+            int y0 = 0;
             double rx = Points[2].X / 2;
             double ry = Points[3].X / 2;
             double res = (((point.X - x0)* (point.X - x0)) / (rx * rx)) + (((point.Y - y0)* (point.Y - y0) )/ (ry * ry)) - 1;

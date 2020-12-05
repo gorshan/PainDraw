@@ -17,10 +17,10 @@ namespace Draw.Figures
             Drawer = new EllipseDrawer();
         }
 
-
+        int r;
         public override void Update(Point startPoint, Point endPoint)
         {
-            r = (int)Math.Sqrt(Math.Pow(((double)endPoint.Y - startPoint.Y), 2.0) + Math.Pow(((double)endPoint.X - startPoint.X), 2.0));
+             r = (int)Math.Sqrt(Math.Pow(((double)endPoint.Y - startPoint.Y), 2.0) + Math.Pow(((double)endPoint.X - startPoint.X), 2.0));
             int x = startPoint.X - r;
             int y = startPoint.Y - r;
 

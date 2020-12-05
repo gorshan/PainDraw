@@ -498,8 +498,7 @@ namespace Draw
         }
 
         #endregion
-        private Color _mainColor;
-
+        
         private System.Windows.Forms.Button PenButton;
         private System.Windows.Forms.Button LineButton;
         private System.Windows.Forms.Button RectangleButton;
