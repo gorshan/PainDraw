@@ -56,7 +56,7 @@ namespace Draw.Figures
             double rx = Points[2].X / 2;
             double ry = Points[3].X / 2;
             double res = (((point.X - x0)* (point.X - x0)) / (rx * rx)) + (((point.Y - y0)* (point.Y - y0) )/ (ry * ry)) - 1;
-            if (res <=0.1&&res>=-0.1)
+            if (res <= 1 && res >= -1)
             {
                 return true;
             }
