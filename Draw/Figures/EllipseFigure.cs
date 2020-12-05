@@ -15,6 +15,8 @@ namespace Draw.Figures
         public List<Point> Points { get; set; }
         public Color Color { get; set; }
         public int Width { get; set; }
+
+        Point center;
         public EllipseFigure()
         {
             Drawer = new EllipseDrawer();
@@ -28,6 +30,7 @@ namespace Draw.Figures
 
         public void Update(Point startPoint, Point endPoint)
         {
+            center = new Point((startPoint.X + endPoint.X) / 2, (startPoint.Y + endPoint.Y) / 2);
             Points = new List<Point>
             {
                 new Point(startPoint.X),
@@ -46,15 +49,34 @@ namespace Draw.Figures
 
         public bool IsThisFigure(Point point)
         {
-            int x0 = (Points[0].X + Points[2].X )/ 2;
-            int y0 = (Points[1].X + Points[3].X) / 2; 
-            int rx = Points[2].X / 2;
-            int ry = Points[3].X / 2;
-            if (Math.Abs((Math.Pow((point.X - x0), 2) / (rx * rx)) + (Math.Pow((point.Y - y0), 2) / (ry * ry)) - 1) <= 3)
+            int x0 = center.X;
+            int y0 = center.Y; 
+            double rx = Points[2].X / 2;
+            double ry = Points[3].X / 2;
+            double res = (((point.X - x0)* (point.X - x0)) / (rx * rx)) + (((point.Y - y0)* (point.Y - y0) )/ (ry * ry)) - 1;
+            if (res <=0.1&&res>=-0.1)
             {
                 return true;
             }
             return false;
+        }
+
+        public Point[] GetPointsInner(int width, int height)
+        {
+            LinkedList<Point> points = new LinkedList<Point>();
+
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    Point point = new Point(i, j);
+                    if (IsThisFigure(point))
+                    {
+                        points.AddLast(point);
+                    }
+                }
+            }
+            return points.ToArray();
         }
     }
 }

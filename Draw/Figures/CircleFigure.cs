@@ -15,7 +15,8 @@ namespace Draw.Figures
         public List<Point> Points { get; set; }
         public Color Color { get; set; }
         public int Width { get; set; }
-        int r; 
+        int r;
+        Point center;
 
         public CircleFigure()
         {
@@ -31,6 +32,7 @@ namespace Draw.Figures
      
         public void Update(Point startPoint, Point endPoint)
         {
+            center = startPoint;
             r = (int)Math.Sqrt(Math.Pow(((double)endPoint.Y - startPoint.Y), 2.0) + Math.Pow(((double)endPoint.X - startPoint.X), 2.0));
             int x = startPoint.X - r;
             int y = startPoint.Y - r;
@@ -49,14 +51,15 @@ namespace Draw.Figures
         {
             Points[0] = new Point(Points[0].X + delta.X, Points[0].Y);
             Points[1] = new Point(Points[1].X + delta.Y, Points[1].Y);
+            center = new Point(center.X + delta.X, center.Y + delta.Y);
         }
 
         public bool IsThisFigure(Point point)
         {
-            int x0 = (Points[0].X + Points[2].X) / 2;
-            int y0 = (Points[1].X + Points[3].X) / 2;
-
-            if (((Math.Pow((point.X - x0), 2) + Math.Pow((point.Y - y0), 2)) - r * r) <= 1)
+            int x0 = center.X;
+            int y0 = center.Y;
+            int res = (((point.X - x0) * (point.X - x0) + (point.Y - y0) * (point.Y - y0)) - (r * r));
+            if (res <= 200*Width && res >=-200*Width)
             {
                 return true;
             }
@@ -77,6 +80,24 @@ namespace Draw.Figures
             //    p1 = p2;
             //}
             //return false;
+        }
+
+        public Point[] GetPointsInner( int width, int height)
+        {
+            LinkedList<Point> points = new LinkedList<Point>();
+            
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    Point point = new Point(i,j);
+                    if (IsThisFigure(point))
+                    {
+                        points.AddLast(point);
+                    }
+                }
+            }
+            return points.ToArray();
         }
     }
 }
