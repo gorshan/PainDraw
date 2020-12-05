@@ -45,6 +45,8 @@ namespace Draw.Figures
         {
             Points[0] = new Point(Points[0].X + delta.X, Points[0].Y);
             Points[1] = new Point(Points[1].X + delta.Y, Points[1].Y);
+
+            center = new Point(center.X + delta.X, center.Y + delta.Y);
         }
 
         public bool IsThisFigure(Point point)

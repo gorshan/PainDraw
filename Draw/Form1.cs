@@ -164,8 +164,25 @@ namespace Draw
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
-        {           
+        {
             Canvas.EndDraw(Figure);
+
+            if (mode == "Paint")
+            {
+                Bitmap bitmap = Canvas.GetImage();
+                Graphics graphics = Graphics.FromImage(bitmap);
+                Point[] points;
+                if (Figure is CircleFigure)
+                    points = ((CircleFigure)Figure).GetPointsInner(bitmap.Width, bitmap.Height);
+                else
+                    points = ((EllipseFigure)Figure).GetPointsInner(bitmap.Width, bitmap.Height);
+                foreach (Point p in points)
+                {
+                    bitmap.SetPixel(p.X, p.Y, Color.Black);
+                }
+                pictureBox1.Image = bitmap;
+            }
+
             _mouseDown = false;
             if (Figure != null)
             {
