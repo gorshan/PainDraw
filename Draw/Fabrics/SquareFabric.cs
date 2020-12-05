@@ -9,7 +9,7 @@ namespace Draw.Fabrics
 {
     public class SquareFabric : IFabric
     {
-        public IFigure CreateFigure()
+        public AbstractFigure CreateFigure()
         {
             return new SquareFigure();
         }

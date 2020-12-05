@@ -9,9 +9,9 @@ namespace Draw.Fabrics
 {
     public  class PolylineByPointsFabric : IFabric
     {
-        public IFigure CreateFigure()
+        public AbstractFigure CreateFigure()
         {
-            return new PolylineByPointsFigure();
+            return new NPointsFigure(int.MaxValue);
             //throw new NotImplementedException();
         }
     }

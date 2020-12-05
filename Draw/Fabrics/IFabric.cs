@@ -9,6 +9,6 @@ namespace Draw.Fabrics
 {
     public interface IFabric
     {
-        IFigure CreateFigure();
+        AbstractFigure CreateFigure();
     }
 }

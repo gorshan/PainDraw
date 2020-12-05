@@ -47,8 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Drawer\AnglePointsDrawer.cs" />
-    <Compile Include="Drawer\PolyLineDrawer.cs" />
     <Compile Include="Canvas.cs" />
     <Compile Include="Drawer\AngleFiguresDrawer.cs" />
     <Compile Include="Drawer\EllipseDrawer.cs" />
@@ -69,17 +67,15 @@
     <Compile Include="Fabrics\TriangleByPointsFabric.cs" />
     <Compile Include="Figures\CircleFigure.cs" />
     <Compile Include="Figures\EllipseFigure.cs" />
-    <Compile Include="Figures\IFigure.cs" />
+    <Compile Include="Figures\AbstractFigure.cs" />
     <Compile Include="Figures\IsoscelesTriangleFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
-    <Compile Include="Figures\NAngleByPointsFigure.cs" />
+    <Compile Include="Figures\NPointsFigure.cs" />
     <Compile Include="Figures\NAngleFigure.cs" />
-    <Compile Include="Figures\PolylineByPointsFigure.cs" />
     <Compile Include="Figures\PenFigure.cs" />
     <Compile Include="Figures\RectangleFigure.cs" />
     <Compile Include="Figures\RightTriangleFigure.cs" />
     <Compile Include="Figures\SquareFigure.cs" />
-    <Compile Include="Figures\TriangleByPointsFigure.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,5 +200,6 @@
   <ItemGroup>
     <None Include="Resources\Move.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

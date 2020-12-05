@@ -11,27 +11,26 @@ namespace Draw.Canvases
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
         private Graphics _graphics;
-        private Stack <Bitmap> _allbitmaps;
-        //public IDrawer Drawer { get; set; }
+        private LinkedList<Bitmap> _previousBitmaps;
         public Pen Pen { get; set; }
-
+               
         public Canvas(int width, int height)
         {
             _mainBitmap = new Bitmap(width, height);
             _graphics = Graphics.FromImage(_mainBitmap);
             Pen = new Pen(Color.Black, 1);
-            _allbitmaps = new Stack<Bitmap>();
-            _allbitmaps.Push((Bitmap)_mainBitmap.Clone());
+            _previousBitmaps = new LinkedList<Bitmap>();
+            _previousBitmaps.AddLast(_mainBitmap);
            
             //Drawer = new PenDrawer();
         }
 
 
-        public void DrawFigure(IFigure figure)
+        public void DrawFigure(AbstractFigure figure)
         {
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
-            figure.Drawer.DrawFigure(_graphics, Pen, figure.GetPoints());
+            figure.Drawer.DrawFigure(_graphics, new Pen(figure.Color, figure.Width), figure.GetPoints());
             GC.Collect();
         }
 
@@ -45,16 +44,16 @@ namespace Draw.Canvases
             return _mainBitmap;
         }
 
-        public void EndDraw(IFigure figure)
-        {            
-            //_allbitmaps.Push((Bitmap)_tmpBitmap.Clone());
+        public void EndDraw()
+        {
+            if (_previousBitmaps.Count >= 5)
+            {
+                _previousBitmaps.RemoveFirst();
+            }
+            _previousBitmaps.AddLast(_mainBitmap);
             _mainBitmap = _tmpBitmap;
         }
 
-        public void Save()
-        {
-            _mainBitmap = _tmpBitmap;
-        }
         public void Clear()
         {
             _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
@@ -70,11 +69,12 @@ namespace Draw.Canvases
 
         public Bitmap CancelLastAction()
         {
-            if (_allbitmaps.Count == 0)
+            if (_previousBitmaps.Count == 0)
             {
                 return _mainBitmap;
             }
-            _mainBitmap = _allbitmaps.Pop();
+            _mainBitmap = _previousBitmaps.Last.Value;
+            _previousBitmaps.RemoveLast();
             return _mainBitmap;
         }
 

@@ -9,28 +9,15 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    public class EllipseFigure : IFigure
+    public class EllipseFigure : AbstractFigure
     {
-        public IDrawer Drawer { get; set; }
-        public List<Point> Points { get; set; }
-        public Color Color { get; set; }
-        public int Width { get; set; }
-
-        Point center;
         public EllipseFigure()
         {
             Drawer = new EllipseDrawer();
         }
 
-        public Point[] GetPoints()
+        public override void Update(Point startPoint, Point endPoint)
         {
-            return Points.ToArray();
-        }
-
-
-        public void Update(Point startPoint, Point endPoint)
-        {
-            center = new Point((startPoint.X + endPoint.X) / 2, (startPoint.Y + endPoint.Y) / 2);
             Points = new List<Point>
             {
                 new Point(startPoint.X),
@@ -40,8 +27,7 @@ namespace Draw.Figures
             };
         }
 
-        public void Move(Point delta)
-
+        public override void Move(Point delta)
         {
             Points[0] = new Point(Points[0].X + delta.X, Points[0].Y);
             Points[1] = new Point(Points[1].X + delta.Y, Points[1].Y);
@@ -49,7 +35,7 @@ namespace Draw.Figures
             center = new Point(center.X + delta.X, center.Y + delta.Y);
         }
 
-        public bool IsThisFigure(Point point)
+        public override bool IsThisFigure(Point point)
         {
             int x0 = center.X;
             int y0 = center.Y; 
