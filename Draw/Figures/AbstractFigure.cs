@@ -12,10 +12,6 @@ namespace Draw.Figures
     {
         public IDrawer Drawer{ get; protected set; }
 
-        public Point[] GetPoints()
-        {
-            return Points.ToArray();
-        }
 
         public List<Point> Points { get; set; }
 
@@ -27,6 +23,10 @@ namespace Draw.Figures
         public abstract void Move(Point delta);
 
         public abstract bool IsThisFigure(Point point);
+        public Point[] GetPoints()
+        {
+            return Points.ToArray();
+        }
 
         public void Clear()
         {
