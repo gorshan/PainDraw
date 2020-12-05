@@ -8,7 +8,7 @@ namespace NUnitTestProject1
     public class FiguresTests
     {
      [Test, TestCaseSource(typeof(SquarePointsMock))]
-        public void SquareGetPointsTest(IFigure figure, Point startPoint, Point endPoint, Point [] expected)
+        public void SquareGetPointsTest(AbstractFigure figure, Point startPoint, Point endPoint, Point [] expected)
         {
             figure.Update(startPoint, endPoint);
             Point[] actual = figure.GetPoints();
@@ -16,7 +16,7 @@ namespace NUnitTestProject1
         }
 
         [Test, TestCaseSource(typeof(RectanglePointsMock))]
-        public void RectangleGetPointsTest(IFigure figure, Point startPoint, Point endPoint, Point [] expected)
+        public void RectangleGetPointsTest(AbstractFigure figure, Point startPoint, Point endPoint, Point [] expected)
         {
             figure.Update(startPoint, endPoint);
             Point[] actual = figure.GetPoints();
@@ -24,7 +24,7 @@ namespace NUnitTestProject1
         }
 
         [Test, TestCaseSource(typeof(RightTrianglePointsMock))]
-        public void RightTriangleGetPointsTest(IFigure figure, Point startPoint, Point endPoint, Point[] expected)
+        public void RightTriangleGetPointsTest(AbstractFigure figure, Point startPoint, Point endPoint, Point[] expected)
         {
             figure.Update(startPoint, endPoint);
             Point[] actual = figure.GetPoints();
@@ -32,7 +32,7 @@ namespace NUnitTestProject1
         }
 
         [Test, TestCaseSource(typeof(RightNAnglePointsMock))]
-        public void RightNAngleGetPointsTest(IFigure figure, Point startPoint, Point endPoint, Point[] expected)
+        public void RightNAngleGetPointsTest(AbstractFigure figure, Point startPoint, Point endPoint, Point[] expected)
         {
             figure.Update(startPoint, endPoint);
             Point[] actual = figure.GetPoints();
@@ -40,7 +40,7 @@ namespace NUnitTestProject1
         }
 
         [Test, TestCaseSource(typeof(IsoscelesTrianglePointsMock))]
-        public void IsoscelesTriangleGetPointsTest(IFigure figure, Point startPoint, Point endPoint, Point[] expected)
+        public void IsoscelesTriangleGetPointsTest(AbstractFigure figure, Point startPoint, Point endPoint, Point[] expected)
         {
             figure.Update(startPoint, endPoint);
             Point[] actual = figure.GetPoints();
@@ -48,7 +48,7 @@ namespace NUnitTestProject1
         }
 
         [Test, TestCaseSource(typeof(EllipsePointsMock))]
-        public void EllipseGetPointsTest(IFigure figure, Point startPoint, Point endPoint, Point[] expected)
+        public void EllipseGetPointsTest(AbstractFigure figure, Point startPoint, Point endPoint, Point[] expected)
         {
             figure.Update(startPoint, endPoint);
             Point[] actual = figure.GetPoints();
@@ -56,7 +56,7 @@ namespace NUnitTestProject1
         }
 
         [Test, TestCaseSource(typeof(CirclePointsMock))]
-        public void CircleGetPointsTest(IFigure figure, Point startPoint, Point endPoint, Point[] expected)
+        public void CircleGetPointsTest(AbstractFigure figure, Point startPoint, Point endPoint, Point[] expected)
         {
             figure.Update(startPoint, endPoint);
             Point[] actual = figure.GetPoints();

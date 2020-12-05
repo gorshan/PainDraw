@@ -9,7 +9,7 @@ namespace Draw.Fabrics
 {
     public class NAngleFabric : IFabric
     {
-        public IFigure CreateFigure()
+        public AbstractFigure CreateFigure()
         {
             return new NAngleFigure();
         }

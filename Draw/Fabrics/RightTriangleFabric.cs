@@ -9,7 +9,7 @@ namespace Draw.Fabrics
 {
     public class RightTriangleFabric : IFabric
     {
-        public IFigure CreateFigure()
+        public AbstractFigure CreateFigure()
         {
             return new RightTriangleFigure();
             throw new NotImplementedException();

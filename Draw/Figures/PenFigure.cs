@@ -10,24 +10,15 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    public class PenFigure : IFigure
+    public class PenFigure : AbstractFigure
     {
         private Point _lastPoint;
 
-        public IDrawer Drawer { get; set; }
-        public List<Point> Points { get; set; }
-        public Color Color { get; set; }
-        public int Width { get; set; }
         public PenFigure()
         {
             Points = new List<Point>();
             Drawer = new PenDrawer();
         }
-
-        //public PenFigure()
-        //{
-        //    points = new LinkedList<Point>();
-        //}
 
 
         private void AddPoint(Point startPoint, Point endPoint)
@@ -48,17 +39,12 @@ namespace Draw.Figures
             Points.Clear();
         }
 
-        public Point[] GetPoints()
-        {
-            return Points.ToArray();
-        }
-
-        public void Update(Point startPoint, Point endPoint)
+        public override void Update(Point startPoint, Point endPoint)
         {
             AddPoint(startPoint, endPoint);
         }
 
-        public void Move(Point delta)
+        public override void Move(Point delta)
         {
             for (int i = 0; i < Points.Count(); i++)
             {
@@ -66,7 +52,7 @@ namespace Draw.Figures
             }
         }
 
-        public bool IsThisFigure(Point point)
+        public override bool IsThisFigure(Point point)
         {
             Point p1;
             Point p2;

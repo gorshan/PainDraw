@@ -9,24 +9,16 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    public class CircleFigure : IFigure
+    public class CircleFigure : AbstractFigure
     {
-        public IDrawer Drawer { get; set; }
-        public List<Point> Points { get; set; }
-        public Color Color { get; set; }
-        public int Width { get; set; }
 
         public CircleFigure()
         {
             Drawer = new EllipseDrawer();
         }
 
-        public Point[] GetPoints()
-        {
-            return Points.ToArray();
-        }
 
-        public void Update(Point startPoint, Point endPoint)
+        public override void Update(Point startPoint, Point endPoint)
         {
             int r = (int)Math.Sqrt(Math.Pow(((double)endPoint.Y - startPoint.Y), 2.0) + Math.Pow(((double)endPoint.X - startPoint.X), 2.0));
             int x = startPoint.X - r;
@@ -41,14 +33,15 @@ namespace Draw.Figures
             };
         }
 
-        public void Move(Point delta)
+        public override void Move(Point delta)
         {
             throw new NotImplementedException();
         }
 
-        public bool IsThisFigure(Point point)
+        public override bool IsThisFigure(Point point)
         {
             throw new NotImplementedException();
         }
+
     }
 }

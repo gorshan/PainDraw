@@ -1,50 +1,37 @@
-﻿using System;
+﻿using Draw.Canvases;
+using Draw.Drawer;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Drawing;
 using System.Threading.Tasks;
-using Draw.Figures;
-using Draw.Drawer;
-using Draw.Canvases;
+
 
 namespace Draw.Figures
 {
-    public class TriangleByPointsFigure : IFigure
+   
+      public class NPointsFigure : AbstractFigure
     {
-
-        public List<Point> Points { get; set; }
-        public int N;
-        public Color Color { get; set; }
-        public int Width { get; set; }
-        public IDrawer Drawer { get; set; }
-
-        public TriangleByPointsFigure()
+        public int N { get; set; }
+        
+        public NPointsFigure(int n)
         {
-            N = 3;
-            Drawer = new AnglePointsDrawer(N);
+            N = n;
             Points = new List<Point>();
+            Drawer = new PenDrawer();
         }
 
-        public void AddPoint(Point point)
+        public NPointsFigure()
         {
-            Points.Add(point);
+            Points = new List<Point>();
+            Drawer = new PenDrawer();
         }
 
-        public  void Clear()
+        public bool IsFull()
         {
-            if(Points.Count > 3) 
-                Points.Clear();
-        }
-
-        public Point[] GetPoints()
-        {
-            return Points.ToArray();
-        }
-
-        public bool IsFool()
-        {
-            if (Points.Count > 3)
+            if (Points.Count >= N)
             {
                 return true;
             }
@@ -54,20 +41,19 @@ namespace Draw.Figures
             }
         }
 
-        
-        public void Update(Point startPoint, Point endPoint)
+        public override void Update(Point startPoint, Point endPoint)
         {
-            if (Points.Count < 3)
+            if (Points.Count < N)
             {
                 Points.Add(endPoint);
-                if (Points.Count == 3)
+                if (Points.Count == N)
                 {
-                    Points.Add(Points[0]);
+                    Drawer = new AngleFiguresDrawer();
                 }
             }
         }
 
-        public void Move(Point delta)
+        public override void Move(Point delta)
         {
             for (int i = 0; i < Points.Count(); i++)
             {
@@ -75,9 +61,9 @@ namespace Draw.Figures
             }
         }
 
-        public bool IsThisFigure(Point point)
+        public override bool IsThisFigure(Point point)
         {
-            Point p1 = Points[2];
+            Point p1 = Points[Points.Count-1];
             Point p2;
             foreach (Point p in Points)
             {
@@ -94,5 +80,4 @@ namespace Draw.Figures
             return false;
         }
     }
-
 }
