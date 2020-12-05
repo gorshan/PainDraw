@@ -32,15 +32,18 @@ namespace Draw
         private void Form1_Load(object sender, EventArgs e)
         {
             Canvas.Create(pictureBox1.Width, pictureBox1.Height);
-            _fabric = new PenFabric();
-            _mode = "Paint";
             pictureBox1.Image = Canvas.Cur.GetImage();
+
             _lastPoint = new Point(0, 0);
             _mouseDown = false;
-            widthText.Text = WigthScrollBar.Value + "";
-            ColorButton.BackColor = Canvas.Cur.Pen.Color;
+
+            _fabric = new PenFabric();
+            _mode = "Paint";
             _figures = new List<AbstractFigure>();
             renewFigure();
+
+            widthText.Text = WigthScrollBar.Value + "";
+            ColorButton.BackColor = Canvas.Cur.Pen.Color;
             SetSizeLabel();
         }
 

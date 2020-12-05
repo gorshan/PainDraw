@@ -11,7 +11,7 @@ namespace Draw.Canvases
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
         private Graphics _graphics;
-        private Stack<Bitmap> _previousBitmaps;
+        private LinkedList<Bitmap> _previousBitmaps;
         public Pen Pen { get; set; }
 
         public static Canvas Cur { get { return _obj; } }
@@ -27,8 +27,8 @@ namespace Draw.Canvases
             _mainBitmap = new Bitmap(width, height);
             _graphics = Graphics.FromImage(_mainBitmap);
             Pen = new Pen(Color.Black, 1);
-            _previousBitmaps = new Stack<Bitmap>();
-            _previousBitmaps.Push(_mainBitmap);
+            _previousBitmaps = new LinkedList<Bitmap>();
+            _previousBitmaps.AddLast(_mainBitmap);
            
             //Drawer = new PenDrawer();
         }
@@ -53,8 +53,12 @@ namespace Draw.Canvases
         }
 
         public void EndDraw()
-        {            
-            _previousBitmaps.Push(_mainBitmap);
+        {
+            if (_previousBitmaps.Count >= 5)
+            {
+                _previousBitmaps.RemoveFirst();
+            }
+            _previousBitmaps.AddLast(_mainBitmap);
             _mainBitmap = _tmpBitmap;
         }
 
@@ -77,7 +81,8 @@ namespace Draw.Canvases
             {
                 return _mainBitmap;
             }
-            _mainBitmap = _previousBitmaps.Pop();
+            _mainBitmap = _previousBitmaps.Last.Value;
+            _previousBitmaps.RemoveLast();
             return _mainBitmap;
         }
 
