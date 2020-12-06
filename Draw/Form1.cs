@@ -115,7 +115,7 @@ namespace Draw
         {
             Canvas.EndDraw();
             _mouseDown = false;
-            if (_figure != null && !_figures.Contains(_figure))
+            if (_figure != null && !_figures.Contains(_figure) && !(_figure.IsEmpty()))
             {
                 _figures.Add(_figure);
             }
@@ -136,14 +136,15 @@ namespace Draw
 
             pictureBox1.Image = Canvas.ChangeBackgroundColor(colorDialog1.Color);
 
-            //foreach (AbstractFigure figure in _figures)
-            //{
-            //   // if ()
-            //    Canvas.Pen.Color = figure.Color;
-            //    Canvas.Pen.Width = figure.Width;
-            //    Canvas.DrawFigure(figure);
-            //    Canvas.EndDraw();
-            //}
+            foreach (AbstractFigure figure in _figures)
+            {
+                // if ()
+                Canvas.Pen.Color = figure.Color;
+                Canvas.Pen.Width = figure.Width;
+                Canvas.DrawFigure(figure);
+                Canvas.EndDraw();
+            }
+            pictureBox1.Image = Canvas.GetImage();
 
         }
 
@@ -338,7 +339,7 @@ namespace Draw
 
         private void DrawAll()
         {
-            Canvas.Clear();
+            Canvas.DeleteAllFigures();
             foreach (AbstractFigure figure in _figures)
             {
                 Canvas.Pen.Color = figure.Color;

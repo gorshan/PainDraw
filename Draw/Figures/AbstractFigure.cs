@@ -33,5 +33,14 @@ namespace Draw.Figures
             Points.Clear();
         }
 
+        public bool IsEmpty()
+        {
+            if (Points == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }

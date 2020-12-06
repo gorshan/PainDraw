@@ -13,6 +13,7 @@ namespace Draw.Canvases
         private Graphics _graphics;
         private LinkedList<Bitmap> _previousBitmaps;
         public Pen Pen { get; set; }
+        public Color Color { get; set; }
                
         public Canvas(int width, int height)
         {
@@ -92,10 +93,16 @@ namespace Draw.Canvases
 
         public Bitmap ChangeBackgroundColor (Color color)
         {
-            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-            _graphics = Graphics.FromImage(_tmpBitmap);
+            _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(color);
-            return _tmpBitmap;
+            Color = color;
+            return _mainBitmap;
+        }
+
+        public void DeleteAllFigures()
+        {
+            Clear();
+            ChangeBackgroundColor(Color);
         }
     }
 }
