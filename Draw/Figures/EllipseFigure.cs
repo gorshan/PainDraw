@@ -68,5 +68,10 @@ namespace Draw.Figures
             }
             return points.ToArray();
         }
+
+        public override void Rotate(double phi)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

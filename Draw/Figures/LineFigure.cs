@@ -51,5 +51,10 @@ namespace Draw.Figures
             }
             return false;
         }
+
+        public override void Rotate(double phi)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

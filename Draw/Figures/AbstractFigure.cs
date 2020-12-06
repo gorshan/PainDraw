@@ -21,6 +21,7 @@ namespace Draw.Figures
         public abstract void Update(Point startPoint, Point endPoint);
 
         public abstract void Move(Point delta);
+        public abstract void Rotate(double phi);
 
         public abstract bool IsThisFigure(Point point);
         public Point[] GetPoints()
