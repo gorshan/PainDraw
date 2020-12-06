@@ -134,6 +134,17 @@ namespace Draw
                 renewFigure();
             }
 
+            pictureBox1.Image = Canvas.ChangeBackgroundColor(colorDialog1.Color);
+
+            //foreach (AbstractFigure figure in _figures)
+            //{
+            //   // if ()
+            //    Canvas.Pen.Color = figure.Color;
+            //    Canvas.Pen.Width = figure.Width;
+            //    Canvas.DrawFigure(figure);
+            //    Canvas.EndDraw();
+            //}
+
         }
 
 

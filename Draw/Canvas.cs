@@ -89,5 +89,13 @@ namespace Draw.Canvases
                 _mainBitmap.Save(saveFileDialog.FileName);
             }
         }
+
+        public Bitmap ChangeBackgroundColor (Color color)
+        {
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _graphics = Graphics.FromImage(_tmpBitmap);
+            _graphics.Clear(color);
+            return _tmpBitmap;
+        }
     }
 }
