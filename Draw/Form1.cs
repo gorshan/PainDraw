@@ -131,23 +131,6 @@ namespace Draw
 
         {
             Canvas.EndDraw();
-
-            if (_mode == "Paint")
-            {
-                Bitmap bitmap = Canvas.GetImage();
-                Graphics graphics = Graphics.FromImage(bitmap);
-                Point[] points;
-                if (_figure is CircleFigure)
-                    points = ((CircleFigure)_figure).GetPointsInner(bitmap.Width, bitmap.Height);
-                else
-                    points = ((EllipseFigure)_figure).GetPointsInner(bitmap.Width, bitmap.Height);
-                foreach (Point p in points)
-                {
-                    bitmap.SetPixel(p.X, p.Y, Color.Black);
-                }
-                pictureBox1.Image = bitmap;
-            }
-
             _mouseDown = false;
             if (_figure != null && !_figures.Contains(_figure))
             {
@@ -159,6 +142,8 @@ namespace Draw
                 renewFigure();
             }
         }
+
+
 
 
 
