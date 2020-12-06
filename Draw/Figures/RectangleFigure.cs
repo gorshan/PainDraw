@@ -78,7 +78,7 @@ namespace Draw.Figures
                 Point points = Points[i];
                 Point delta = new Point(points.X - center.X, points.Y - center.Y);
                 Points[i] = new Point(
-                    (int)(center.X + delta.X * Math.Atan(phi) - delta.Y * Math.Sin(phi)),
+                    (int)(center.X + delta.X * Math.Cos(phi) - delta.Y * Math.Sin(phi)),
                     (int)(center.Y + delta.X * Math.Sin(phi) + delta.Y * Math.Cos(phi))
                     );
             }

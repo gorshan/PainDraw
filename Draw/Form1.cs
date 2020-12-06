@@ -352,6 +352,7 @@ namespace Draw
             double c = Math.Sqrt(Math.Pow(endPoint.X - _lastPoint.X, 2) + Math.Pow(endPoint.Y - _lastPoint.Y, 2));
             if (_figure != null)
             {
+                //double phi = Math.Acos((_lastPoint.X * endPoint.X + _lastPoint.Y * endPoint.Y) / a / b);
                 double phi = Math.Acos((a * a + b * b - c * c) / (2 * a * b));
                 _lastPoint = endPoint;
                 _figure.Rotate(phi);

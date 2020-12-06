@@ -63,9 +63,31 @@ namespace Draw.Figures
             return false;
         }
 
+        public Point FindCenter()
+        {
+            int xCenter = 0;
+            int yCenter = 0;
+            for (int i = 0; i < Points.Count(); i++)
+            {
+                xCenter += Points[i].X;
+                yCenter += Points[i].Y;
+            }
+            Point center = new Point(xCenter / Points.Count(), yCenter / Points.Count());
+            return center;
+        }
+
         public override void Rotate(double phi)
         {
-            throw new NotImplementedException();
+            Point center = FindCenter();
+            for (int i = 0; i < Points.Count(); i++)
+            {
+                Point points = Points[i];
+                Point delta = new Point(points.X - center.X, points.Y - center.Y);
+                Points[i] = new Point(
+                    (int)(center.X + delta.X * Math.Cos(phi) - delta.Y * Math.Sin(phi)),
+                    (int)(center.Y + delta.X * Math.Sin(phi) + delta.Y * Math.Cos(phi))
+                    );
+            }
         }
     }
 }
