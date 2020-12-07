@@ -99,6 +99,9 @@ namespace Draw
                     _mode = "Paint";
                     _mouseDown = false;
                     break;
+                case "Delete":
+                    _figure = null;
+                    break;
             }
         }
 
