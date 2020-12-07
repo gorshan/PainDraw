@@ -30,6 +30,7 @@ namespace Draw.Figures
 
         public void Clear()
         {
+            if (Points != null)
             Points.Clear();
         }
 

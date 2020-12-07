@@ -77,6 +77,19 @@ namespace Draw
                         }
                     }
                     break;
+                case "MoveFace":
+                    _figure = null;
+                    foreach (AbstractFigure figure in _figures)
+                    {
+                        if (((SquareFigure)figure).IsThisFigure(e.Location))
+                        {
+                            _figure = figure;
+                            _figures.Remove(_figure);
+                            DrawAll();
+                            break;
+                        }
+                    }
+                    break;
                 case "Pipette":
                     Color pixelColor = Canvas.Pen.Color;
                     pixelColor = Canvas.GetImage().GetPixel(e.X, e.Y);
@@ -102,6 +115,9 @@ namespace Draw
                     case "Figure":
                         MoveFigure(e.Location);
 
+                        break;
+                    case "MoveFace":
+                        MoveFaceFigure(e.Location);
                         break;
                 }
 
@@ -138,7 +154,6 @@ namespace Draw
 
             foreach (AbstractFigure figure in _figures)
             {
-                // if ()
                 Canvas.Pen.Color = figure.Color;
                 Canvas.Pen.Width = figure.Width;
                 Canvas.DrawFigure(figure);
@@ -337,6 +352,17 @@ namespace Draw
             }
         }
 
+        private void MoveFaceFigure(Point endPoint)
+        {
+            if (_figure != null)
+            {
+                Point d = new Point(endPoint.X - _lastPoint.X, endPoint.Y - _lastPoint.Y);
+                _lastPoint = endPoint;
+               ((SquareFigure)_figure).MoveFace(d);
+                Canvas.DrawFigure(_figure);
+            }
+        }
+
         private void DrawAll()
         {
             Canvas.DeleteAllFigures();
@@ -376,6 +402,11 @@ namespace Draw
             Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = Canvas.GetImage();
             SetSizeLabel();
+        }
+
+        private void MoveFace_Click(object sender, EventArgs e)
+        {
+            _mode = "MoveFace";
         }
     }
 }
