@@ -59,7 +59,7 @@ namespace Draw
         {
             if (Canvas.Current.Fabric is PolylineByPointsFabric)
             {
-                Canvas.Current.renewFigure();
+                Canvas.Current.RenewFigure();
             }
 
             pictureBox1.Image = Canvas.Current.ChangeBackgroundColor(colorDialog1.Color);

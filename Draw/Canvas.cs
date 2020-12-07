@@ -35,7 +35,7 @@ namespace Draw.Drawer
             set
             {
                 _NNumericUpDown = value;
-                renewFigure();
+                RenewFigure();
             }
         }
 
@@ -47,7 +47,7 @@ namespace Draw.Drawer
         }
         public Canvas(int width, int height)
         {
-            _mainBitmap = new Bitmap(width, height);
+            _mainBitmap = new Bitmap(width + 500, height+ 500);
             _graphics = Graphics.FromImage(_mainBitmap);
             Pen = new Pen(Color.Black, 1);
             _previousBitmaps = new LinkedList<Bitmap>();
@@ -56,7 +56,7 @@ namespace Draw.Drawer
 
             Fabric = new PenFabric();
             Figures = new List<AbstractFigure>();
-            renewFigure();
+            RenewFigure();
             //Drawer = new PenDrawer();
         }
 
@@ -105,7 +105,7 @@ namespace Draw.Drawer
         public void Resize(int width, int height)
         {
             Bitmap tmp = _mainBitmap;
-            _mainBitmap = new Bitmap(width, height);
+            _mainBitmap = new Bitmap(width + 500, height+500);
             Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
             _tmpBitmap = _mainBitmap;
             tmp.Dispose();
@@ -154,7 +154,7 @@ namespace Draw.Drawer
             ChangeBackgroundColor(Color);
         }
 
-        public void renewFigure()
+        public void RenewFigure()
         {
             bool isFilled = false;
             if (Figure != null)
@@ -179,7 +179,7 @@ namespace Draw.Drawer
         internal void ChangeFabric(IFabric fabric)
         {
             Fabric = fabric;
-            renewFigure();
+            RenewFigure();
         }
 
         internal void ChangeWidth(int width)

@@ -55,7 +55,7 @@ namespace Draw.MouseHandlers
             if (!(Canvas.Current.Figure is NPointsFigure) ||
                 ((NPointsFigure)Canvas.Current.Figure).IsFull())
             {
-                Canvas.Current.renewFigure();
+                Canvas.Current.RenewFigure();
             }
             return Canvas.Current.GetImage();
         }
