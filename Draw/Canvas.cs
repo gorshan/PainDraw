@@ -1,4 +1,5 @@
-﻿using Draw.Figures;
+﻿using Draw.Fabrics;
+using Draw.Figures;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,6 +16,25 @@ namespace Draw.Drawer
         public Pen Pen { get; set; }
         public Color Color { get; set; }
 
+        public IFabric Fabric { get; set; }
+        public AbstractFigure Figure { get; set; }
+        public List<AbstractFigure> Figures { get; set; }
+        public Point LastPoint { get; set; }
+
+        public static Canvas Current
+        {
+            get { return _obj; }
+            private set { }
+        }
+
+        public int NAngleNumericUpDown { get; set; }
+
+        private static Canvas _obj;
+
+        public static void Create(int width, int height)
+        {
+            _obj = new Canvas(width, height);
+        }
         public Canvas(int width, int height)
         {
             _mainBitmap = new Bitmap(width, height);
@@ -103,6 +123,34 @@ namespace Draw.Drawer
         {
             Clear();
             ChangeBackgroundColor(Color);
+        }
+
+        public void renewFigure()
+        {
+            bool isFilled = false;
+            if (Figure != null)
+            {
+                isFilled = Figure.IsFilled;
+            }
+            Figure = Fabric.CreateFigure();
+            Figure.Color = Canvas.Current.Pen.Color;
+            Figure.Width = (int)Canvas.Current.Pen.Width;
+            Figure.FillFigure(isFilled);
+
+            if (Fabric is NAngleByPointsFabric)
+            {
+                ((NPointsFigure)Figure).N = NAngleNumericUpDown;
+            }
+            if (Figure is NAngleFigure)
+            {
+                ((NAngleFigure)Figure).N = NAngleNumericUpDown;
+            }
+        }
+
+        internal void ChangeFabric(IFabric fabric)
+        {
+            Canvas.Current.Fabric = new IsoscelesTriangleFabric();
+            Canvas.Current.renewFigure();
         }
     }
 }
