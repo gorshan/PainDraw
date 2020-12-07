@@ -27,7 +27,17 @@ namespace Draw.Drawer
             private set { }
         }
 
-        public int NAngleNumericUpDown { get; set; }
+        
+
+        public int NAngleNumericUpDown
+        {
+            get { return NAngleNumericUpDown; }
+            set
+            {
+                NAngleNumericUpDown = value;
+                renewFigure();
+            }
+        }
 
         private static Canvas _obj;
 
@@ -77,6 +87,13 @@ namespace Draw.Drawer
 
         public void Clear()
         {
+            CreateMainBitmap();
+            Figure.Clear();
+            Figures.Clear();
+        }
+
+        private void CreateMainBitmap()
+        {
             _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
         }
 
@@ -96,6 +113,12 @@ namespace Draw.Drawer
             }
             _mainBitmap = _previousBitmaps.Last.Value;
             _previousBitmaps.RemoveLast();
+
+            if (Figures.Count != 0)
+            {
+                Figures.RemoveAt(Figures.Count - 1);
+            }
+
             return _mainBitmap;
         }
 
@@ -121,7 +144,7 @@ namespace Draw.Drawer
 
         public void DeleteAllFigures()
         {
-            Clear();
+            CreateMainBitmap();
             ChangeBackgroundColor(Color);
         }
 
@@ -149,8 +172,30 @@ namespace Draw.Drawer
 
         internal void ChangeFabric(IFabric fabric)
         {
-            Canvas.Current.Fabric = new IsoscelesTriangleFabric();
-            Canvas.Current.renewFigure();
+            Fabric = fabric;
+            renewFigure();
+        }
+
+        internal void ChangeWidth(int width)
+        {
+            Pen.Width = width;
+            Figure.Width = width;
+        }
+
+        internal void ChangeColor(Color color)
+        {
+            Figure.Color = color;
+            Pen.Color = color;
+        }
+        internal Bitmap DrawAll()
+        {
+            DeleteAllFigures();
+            foreach (AbstractFigure figure in Figures)
+            {
+                DrawFigure(figure);
+                EndDraw();
+            }
+            return GetImage();
         }
     }
 }

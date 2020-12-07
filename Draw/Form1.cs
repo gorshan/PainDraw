@@ -172,48 +172,42 @@ namespace Draw
 
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new RightTriangleFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new RightTriangleFabric());            
             _mode = "Paint";
             SettingsForm(sender);
         }
 
         private void RectangleButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new RectangleFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new RectangleFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }
 
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new IsoscelesTriangleFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new IsoscelesTriangleFabric());            
             _mode = "Paint";
             SettingsForm(sender);
         }
 
         private void LineButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new LineFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new LineFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }
 
         private void SquareButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new SquareFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new SquareFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }
 
         private void RightNAngleButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new NAngleFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new NAngleFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }
@@ -222,16 +216,14 @@ namespace Draw
 
         private void EllipsButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new EllipseFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new EllipseFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }
 
         private void CircleButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new CircleFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new CircleFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }
@@ -239,24 +231,21 @@ namespace Draw
 
         private void PenButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new PenFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new PenFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }      
 
         private void TriangleByPoints_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new TriangleByPointsFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new TriangleByPointsFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }
 
         private void NAngleButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new NAngleByPointsFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new NAngleByPointsFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }
@@ -264,8 +253,7 @@ namespace Draw
 
         private void PolyLine_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Fabric = new PolylineByPointsFabric();
-            Canvas.Current.renewFigure();
+            Canvas.Current.ChangeFabric(new PolylineByPointsFabric());
             _mode = "Paint";
             SettingsForm(sender);
         }
@@ -273,11 +261,11 @@ namespace Draw
         private void workWithFigureButton_Click(object sender, EventArgs e)
         {
             _mode = "Figure";
+            SettingsForm(sender);
         }
         private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            Canvas.Current.renewFigure();
-            _mode = "Paint";
+            Canvas.Current.NAngleNumericUpDown = Convert.ToInt32(NAngleNumericUpDown.Value);
         }
 
         private void pipette_button_Click(object sender, EventArgs e)
@@ -286,29 +274,36 @@ namespace Draw
             SettingsForm(sender);
         }
 
-        
+        private void MoveFace_Click(object sender, EventArgs e)
+        {
+            _mode = "MoveFace";
+        }
+
+        private void FillFigureButton_Click(object sender, EventArgs e)
+        {
+            Canvas.Current.Figure.FillFigure();
+        }
+
+        private void DeleteFigureButton_Click(object sender, EventArgs e)
+        {
+            _mode = "Delete";
+        }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.Clear();
-            Canvas.Current.Figure.Clear();
-            Canvas.Current.Figures.Clear();
             pictureBox1.Image = Canvas.Current.GetImage();
         }
 
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            Canvas.Current.Pen.Width = WigthScrollBar.Value;
-            Canvas.Current.Figure.Width = WigthScrollBar.Value;
+            Canvas.Current.ChangeWidth(WigthScrollBar.Value);
             widthText.Text = WigthScrollBar.Value + "";
         }
         private void CancelLast_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = Canvas.Current.CancelLastAction();
-            if (Canvas.Current.Figures.Count != 0)
-            {
-                Canvas.Current.Figures.RemoveAt(Canvas.Current.Figures.Count - 1);
-            }
+            
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -319,8 +314,7 @@ namespace Draw
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                Canvas.Current.Figure.Color = colorDialog1.Color;
-                Canvas.Current.Pen.Color = colorDialog1.Color;
+                Canvas.Current.ChangeColor(colorDialog1.Color);
             }
             ColorButton.BackColor = colorDialog1.Color;
 
@@ -410,19 +404,6 @@ namespace Draw
             SetSizeLabel();
         }
 
-        private void MoveFace_Click(object sender, EventArgs e)
-        {
-            _mode = "MoveFace";
-        }
-
-        private void FillFigureButton_Click(object sender, EventArgs e)
-        {
-            Canvas.Current.Figure.FillFigure();
-        }
-
-        private void DeleteFigureButton_Click(object sender, EventArgs e)
-        {
-            _mode = "Delete";
-        }
+        
     }
 }
