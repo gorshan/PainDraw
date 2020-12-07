@@ -55,9 +55,10 @@ namespace Draw.Figures
 
         public override bool IsThisFigure(Point point)
         {
-            Point p1;
+            Point p1 = new Point(0,0);
             Point p2;
             
+            if(Points.Count != 0)
                 p1 = Points[0];
             foreach (Point p in Points)
             {

@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 
 namespace Draw.MouseHandlers
 {
-    public class MoveFaceHandler : IMouseHandler
+    public class MoveFaceMouseHandler : IMouseHandler
     {
         private bool _mouseDown;
 
-        public void OnMouseDown(Point location)
+        public Bitmap OnMouseDown(Point location)
         {
             _mouseDown = true;
             Canvas.Current.LastPoint = location;
             Canvas.Current.Figure = null;
+            Bitmap bitmapBeforeChange = Canvas.Current.GetImage();
             foreach (AbstractFigure figure in Canvas.Current.Figures)
             {
-                if (((SquareFigure)figure).IsThisFigure(e.Location))
+                if (((SquareFigure)figure).IsThisFigure(location))
                 {
                     Canvas.Current.Figure = figure;
                     Canvas.Current.Figures.Remove(Canvas.Current.Figure);
@@ -28,9 +29,10 @@ namespace Draw.MouseHandlers
                     break;
                 }
             }
+            return bitmapBeforeChange;
         }
 
-        public void OnMouseMove(Point location)
+        public Bitmap OnMouseMove(Point location)
         {
             if (_mouseDown&&Canvas.Current.Figure != null)
             {
@@ -39,9 +41,10 @@ namespace Draw.MouseHandlers
                 ((SquareFigure)Canvas.Current.Figure).MoveFace(d);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
             }
+            return Canvas.Current.GetTmpImage();
         }
 
-        public void OnMouseUp(Point location)
+        public Bitmap OnMouseUp(Point location)
         {
             Canvas.Current.EndDraw();
             _mouseDown = false;
@@ -54,6 +57,7 @@ namespace Draw.MouseHandlers
             {
                 Canvas.Current.renewFigure();
             }
+            return Canvas.Current.GetImage();
         }
     }
 }

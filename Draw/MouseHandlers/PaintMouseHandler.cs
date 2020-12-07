@@ -12,7 +12,7 @@ namespace Draw.MouseHandlers
     public class PaintMouseHandler : IMouseHandler
     {
         private bool _mouseDown;
-        public void OnMouseDown(Point location)
+        public Bitmap OnMouseDown(Point location)
         {
             _mouseDown = true;
             Canvas.Current.LastPoint = location;
@@ -21,18 +21,20 @@ namespace Draw.MouseHandlers
                 OnMouseMove(location);
                 _mouseDown = false;
             }
+            return Canvas.Current.GetImage();
         }
 
-        public void OnMouseMove(Point location)
+        public Bitmap OnMouseMove(Point location)
         {
             if (_mouseDown)
             {
                 Canvas.Current.Figure.Update(Canvas.Current.LastPoint, location);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
             }
+            return Canvas.Current.GetTmpImage();
         }
 
-        public void OnMouseUp(Point location)
+        public Bitmap OnMouseUp(Point location)
         {
             Canvas.Current.EndDraw();
             _mouseDown = false;
@@ -45,6 +47,7 @@ namespace Draw.MouseHandlers
             {
                 Canvas.Current.renewFigure();
             }
+            return Canvas.Current.GetImage();
         }
     }
 }

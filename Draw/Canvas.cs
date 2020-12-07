@@ -27,14 +27,14 @@ namespace Draw.Drawer
             private set { }
         }
 
-        
 
+        private int _NNumericUpDown;
         public int NAngleNumericUpDown
         {
-            get { return NAngleNumericUpDown; }
+            get { return _NNumericUpDown; }
             set
             {
-                NAngleNumericUpDown = value;
+                _NNumericUpDown = value;
                 renewFigure();
             }
         }
@@ -52,7 +52,11 @@ namespace Draw.Drawer
             Pen = new Pen(Color.Black, 1);
             _previousBitmaps = new LinkedList<Bitmap>();
             _previousBitmaps.AddLast(_mainBitmap);
+            LastPoint = new Point(0, 0);
 
+            Fabric = new PenFabric();
+            Figures = new List<AbstractFigure>();
+            renewFigure();
             //Drawer = new PenDrawer();
         }
 
@@ -95,6 +99,7 @@ namespace Draw.Drawer
         private void CreateMainBitmap()
         {
             _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
+            _tmpBitmap = _mainBitmap;
         }
 
         public void Resize(int width, int height)
@@ -156,8 +161,8 @@ namespace Draw.Drawer
                 isFilled = Figure.IsFilled;
             }
             Figure = Fabric.CreateFigure();
-            Figure.Color = Canvas.Current.Pen.Color;
-            Figure.Width = (int)Canvas.Current.Pen.Width;
+            Figure.Color = Pen.Color;
+            Figure.Width = (int)Pen.Width;
             Figure.FillFigure(isFilled);
 
             if (Fabric is NAngleByPointsFabric)
@@ -187,7 +192,7 @@ namespace Draw.Drawer
             Figure.Color = color;
             Pen.Color = color;
         }
-        internal Bitmap DrawAll()
+        internal void DrawAll()
         {
             DeleteAllFigures();
             foreach (AbstractFigure figure in Figures)
@@ -195,7 +200,6 @@ namespace Draw.Drawer
                 DrawFigure(figure);
                 EndDraw();
             }
-            return GetImage();
         }
     }
 }

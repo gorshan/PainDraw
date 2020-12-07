@@ -21,15 +21,6 @@ namespace Draw
         public Canvas Canvas { get; private set; }
         private IMouseHandler _mouseHandler;
 
-        //private Point Canvas.Current.LastPoint;
-        private bool _mouseDown;
-
-        //private IFabric Canvas.Current.Fabric;
-        //private AbstractFigure Canvas.Current.Figure;
-        //private List<AbstractFigure> Canvas.Current.Figures;
-
-        private string _mode;
-
         public Form1()
         {
             InitializeComponent();
@@ -38,18 +29,10 @@ namespace Draw
         private void Form1_Load(object sender, EventArgs e)
         {
             Canvas.Create(pictureBox1.Width, pictureBox1.Height);
-            pictureBox1.Image = Canvas.Current.GetImage();
-
-            Canvas.Current.LastPoint = new Point(0, 0);
-            _mouseDown = false;
-
-            Canvas.Current.Fabric = new PenFabric();
-            _mouseHandler = new PaintMouseHandler();
-             _mode = "Paint";
-            Canvas.Current.Figures = new List<AbstractFigure>();
-            Canvas.Current.renewFigure();
-
             Canvas.Current.NAngleNumericUpDown = Convert.ToInt32(NAngleNumericUpDown.Value);
+            pictureBox1.Image = Canvas.Current.GetImage();            
+            _mouseHandler = new PaintMouseHandler();
+
             widthText.Text = WigthScrollBar.Value + "";
             ColorButton.BackColor = Canvas.Current.Pen.Color;
             SetSizeLabel();
@@ -57,95 +40,18 @@ namespace Draw
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            _mouseDown = true;
-            Canvas.Current.LastPoint = e.Location;
-            switch (_mode)
-            {
-                case "Paint":
-                    _mouseHandler.OnMouseDown(e.Location);
-                    break;
-                case "Figure":
-                    Canvas.Current.Figure = null;
-                    foreach (AbstractFigure figure in Canvas.Current.Figures)
-                    {
-                        if (figure.IsThisFigure(e.Location))
-                        {
-                            Canvas.Current.Figure = figure;
-                            Canvas.Current.Figures.Remove(Canvas.Current.Figure);
-                            DrawAll();
-                            break;
-                        }
-                    }
-                    break;
-                case "MoveFace":
-                    Canvas.Current.Figure = null;
-                    foreach (AbstractFigure figure in Canvas.Current.Figures)
-                    {
-                        if (((SquareFigure)figure).IsThisFigure(e.Location))
-                        {
-                            Canvas.Current.Figure = figure;
-                            Canvas.Current.Figures.Remove(Canvas.Current.Figure);
-                            DrawAll();
-                            break;
-                        }
-                    }
-                    break;
-                case "Pipette":
-                    Color pixelColor = Canvas.Current.Pen.Color;
-                    pixelColor = Canvas.Current.GetImage().GetPixel(e.X, e.Y);
-                    ColorButton.BackColor = pixelColor;
-                    Canvas.Current.Pen.Color = pixelColor;
-                    Canvas.Current.Figure.Color = pixelColor;
-                    _mode = "Paint";
-                    _mouseDown = false;
-                    break;
-                case "Delete":
-                    Canvas.Current.Figure = null;
-                    break;
-            }
+            pictureBox1.Image = _mouseHandler.OnMouseDown(e.Location);
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_mouseDown)
-            {
-                switch (_mode)
-                {
-                    case "Paint":
-                        _mouseHandler.OnMouseMove(e.Location);
-
-                        break;
-                    case "Figure":
-                        MoveFigure(e.Location);
-
-                        break;
-                    case "MoveFace":
-                        MoveFaceFigure(e.Location);
-                        break;
-                    case "Delete":
-                        DeleteFigure(e.Location);
-                        break;
-                }
-
-                pictureBox1.Image = Canvas.Current.GetTmpImage();
-            }
+            pictureBox1.Image = _mouseHandler.OnMouseMove(e.Location);           
         }
 
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            _mouseHandler.OnMouseUp(e.Location);
-            //Canvas.Current.EndDraw();
-            //_mouseDown = false;
-            //if (Canvas.Current.Figure != null && !Canvas.Current.Figures.Contains(Canvas.Current.Figure) && !(Canvas.Current.Figure.IsEmpty()))
-            //{
-            //    Canvas.Current.Figures.Add(Canvas.Current.Figure);
-            //}
-            //if (!(Canvas.Current.Figure is NPointsFigure) ||
-            //    ((NPointsFigure)Canvas.Current.Figure).IsFull())
-            //{
-            //    Canvas.Current.renewFigure();
-            //}
+            pictureBox1.Image = _mouseHandler.OnMouseUp(e.Location);       
         }
 
 
@@ -172,43 +78,61 @@ namespace Draw
 
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.ChangeFabric(new RightTriangleFabric());            
-            _mode = "Paint";
+            Canvas.Current.ChangeFabric(new RightTriangleFabric());     
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
         private void RectangleButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new RectangleFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.ChangeFabric(new IsoscelesTriangleFabric());            
-            _mode = "Paint";
+            Canvas.Current.ChangeFabric(new IsoscelesTriangleFabric());
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
         private void LineButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new LineFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
         private void SquareButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new SquareFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
         private void RightNAngleButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new NAngleFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
@@ -217,14 +141,20 @@ namespace Draw
         private void EllipsButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new EllipseFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
         private void CircleButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new CircleFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
@@ -232,21 +162,30 @@ namespace Draw
         private void PenButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new PenFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }      
 
         private void TriangleByPoints_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new TriangleByPointsFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
         private void NAngleButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new NAngleByPointsFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
         
@@ -254,40 +193,57 @@ namespace Draw
         private void PolyLine_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new PolylineByPointsFabric());
-            _mode = "Paint";
+            if(!(_mouseHandler is PaintMouseHandler))
+            {
+                _mouseHandler = new PaintMouseHandler();
+            }
             SettingsForm(sender);
         }
 
         private void workWithFigureButton_Click(object sender, EventArgs e)
         {
-            _mode = "Figure";
+            if(!(_mouseHandler is MoveFigureMouseHandler))
+            {
+                _mouseHandler = new MoveFigureMouseHandler();
+            }
             SettingsForm(sender);
-        }
-        private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            Canvas.Current.NAngleNumericUpDown = Convert.ToInt32(NAngleNumericUpDown.Value);
         }
 
         private void pipette_button_Click(object sender, EventArgs e)
         {
-            _mode = "Pipette";
+            if (!(_mouseHandler is PipetteMouseHandler))
+            {
+                _mouseHandler = new PipetteMouseHandler(ColorButton);
+            }
             SettingsForm(sender);
         }
 
         private void MoveFace_Click(object sender, EventArgs e)
         {
-            _mode = "MoveFace";
+            if (!(_mouseHandler is MoveFaceMouseHandler))
+            {
+                _mouseHandler = new MoveFaceMouseHandler();
+            }
+            SettingsForm(sender);
+        }
+        private void DeleteFigureButton_Click(object sender, EventArgs e)
+        {
+            if (!(_mouseHandler is DeleteFigureMouseHandler))
+            {
+                _mouseHandler = new DeleteFigureMouseHandler();
+            }
+            SettingsForm(sender);
         }
 
+        private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            Canvas.Current.NAngleNumericUpDown = Convert.ToInt32(NAngleNumericUpDown.Value);
+        }
         private void FillFigureButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.Figure.FillFigure();
         }
 
-        private void DeleteFigureButton_Click(object sender, EventArgs e)
-        {
-            _mode = "Delete";
-        }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
