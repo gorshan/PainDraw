@@ -30,7 +30,7 @@ namespace Draw
         {
             Canvas.Create(pictureBox1.Width, pictureBox1.Height);
             Canvas.Current.NAngleNumericUpDown = Convert.ToInt32(NAngleNumericUpDown.Value);
-            pictureBox1.Image = Canvas.Current.GetImage();            
+            pictureBox1.Image = Canvas.Current.GetImage();
             _mouseHandler = new PaintMouseHandler();
 
             widthText.Text = WigthScrollBar.Value + "";
@@ -45,13 +45,13 @@ namespace Draw
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            pictureBox1.Image = _mouseHandler.OnMouseMove(e.Location);           
+            pictureBox1.Image = _mouseHandler.OnMouseMove(e.Location);
         }
 
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            pictureBox1.Image = _mouseHandler.OnMouseUp(e.Location);       
+            pictureBox1.Image = _mouseHandler.OnMouseUp(e.Location);
         }
 
 
@@ -78,8 +78,8 @@ namespace Draw
 
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.ChangeFabric(new RightTriangleFabric());     
-            if(!(_mouseHandler is PaintMouseHandler))
+            Canvas.Current.ChangeFabric(new RightTriangleFabric());
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
@@ -89,7 +89,7 @@ namespace Draw
         private void RectangleButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new RectangleFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
@@ -99,7 +99,7 @@ namespace Draw
         private void IsoscelesTriangleButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new IsoscelesTriangleFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
@@ -109,7 +109,7 @@ namespace Draw
         private void LineButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new LineFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
@@ -119,7 +119,7 @@ namespace Draw
         private void SquareButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new SquareFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
@@ -129,19 +129,19 @@ namespace Draw
         private void RightNAngleButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new NAngleFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
             SettingsForm(sender);
         }
 
-        
+
 
         private void EllipsButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new EllipseFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
@@ -151,7 +151,7 @@ namespace Draw
         private void CircleButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new CircleFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
@@ -162,17 +162,17 @@ namespace Draw
         private void PenButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new PenFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
             SettingsForm(sender);
-        }      
+        }
 
         private void TriangleByPoints_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new TriangleByPointsFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
@@ -182,18 +182,18 @@ namespace Draw
         private void NAngleButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new NAngleByPointsFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
             SettingsForm(sender);
         }
-        
+
 
         private void PolyLine_Click(object sender, EventArgs e)
         {
             Canvas.Current.ChangeFabric(new PolylineByPointsFabric());
-            if(!(_mouseHandler is PaintMouseHandler))
+            if (!(_mouseHandler is PaintMouseHandler))
             {
                 _mouseHandler = new PaintMouseHandler();
             }
@@ -202,7 +202,7 @@ namespace Draw
 
         private void workWithFigureButton_Click(object sender, EventArgs e)
         {
-            if(!(_mouseHandler is MoveFigureMouseHandler))
+            if (!(_mouseHandler is MoveFigureMouseHandler))
             {
                 _mouseHandler = new MoveFigureMouseHandler();
             }
@@ -259,7 +259,7 @@ namespace Draw
         private void CancelLast_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = Canvas.Current.CancelLastAction();
-            
+
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -276,67 +276,6 @@ namespace Draw
 
         }
 
-
-        private void UpdateFigure(Point endPoint)
-        {
-            Canvas.Current.Figure.Update(Canvas.Current.LastPoint, endPoint);
-            Canvas.Current.DrawFigure(Canvas.Current.Figure);
-        }
-
-        private void MoveFigure(Point endPoint)
-        {
-            if (Canvas.Current.Figure != null)
-            {
-                Point d = new Point(endPoint.X - Canvas.Current.LastPoint.X, endPoint.Y - Canvas.Current.LastPoint.Y);
-                Canvas.Current.LastPoint = endPoint;
-                Canvas.Current.Figure.Move(d);
-                Canvas.Current.DrawFigure(Canvas.Current.Figure);
-            }
-        }
-
-        private void MoveFaceFigure(Point endPoint)
-        {
-            if (Canvas.Current.Figure != null)
-            {
-                Point d = new Point(endPoint.X - Canvas.Current.LastPoint.X, endPoint.Y - Canvas.Current.LastPoint.Y);
-                Canvas.Current.LastPoint = endPoint;
-               ((SquareFigure)Canvas.Current.Figure).MoveFace(d);
-                Canvas.Current.DrawFigure(Canvas.Current.Figure);
-            }
-        }
-
-
-        private void DeleteFigure(Point location)
-        {
-            foreach (AbstractFigure figure in Canvas.Current.Figures)
-            {
-                if (figure.IsThisFigure(location))
-                {
-                    Canvas.Current.Figures.Remove(figure);
-                    DrawAll();
-                    //pictureBox1.Image = Canvas.Current.GetImage();
-                    break;
-                }
-            }
-        }
-
-        private void DrawAll()
-        {
-            Canvas.Current.DeleteAllFigures();
-            foreach (AbstractFigure figure in Canvas.Current.Figures)
-            {
-                Canvas.Current.DrawFigure(figure);
-                Canvas.Current.EndDraw();
-            }
-            pictureBox1.Image = Canvas.Current.GetImage();
-
-        }
-
-
-        private void SetSizeLabel()
-        {
-            SizeLabel.Text = $"{pictureBox1.Width} x {pictureBox1.Width}";
-        }
 
         private void SettingsForm(object sender)
         {
@@ -359,7 +298,9 @@ namespace Draw
             pictureBox1.Image = Canvas.Current.GetImage();
             SetSizeLabel();
         }
-
-        
+        private void SetSizeLabel()
+        {
+            SizeLabel.Text = $"{pictureBox1.Width} x {pictureBox1.Width}";
+        }
     }
 }
