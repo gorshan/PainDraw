@@ -290,7 +290,7 @@ namespace Draw
         }
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
-            if (Canvas == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
+            if (Canvas.Current == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
             {
                 return;
             }

@@ -107,6 +107,7 @@ namespace Draw.Drawer
             Bitmap tmp = _mainBitmap;
             _mainBitmap = new Bitmap(width, height);
             Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
+            _tmpBitmap = _mainBitmap;
             tmp.Dispose();
         }
 
