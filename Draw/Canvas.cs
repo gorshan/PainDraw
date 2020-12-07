@@ -14,7 +14,7 @@ namespace Draw.Drawer
         private LinkedList<Bitmap> _previousBitmaps;
         public Pen Pen { get; set; }
         public Color Color { get; set; }
-               
+
         public Canvas(int width, int height)
         {
             _mainBitmap = new Bitmap(width, height);
@@ -22,7 +22,7 @@ namespace Draw.Drawer
             Pen = new Pen(Color.Black, 1);
             _previousBitmaps = new LinkedList<Bitmap>();
             _previousBitmaps.AddLast(_mainBitmap);
-           
+
             //Drawer = new PenDrawer();
         }
 
@@ -63,8 +63,8 @@ namespace Draw.Drawer
         public void Resize(int width, int height)
         {
             Bitmap tmp = _mainBitmap;
-            _mainBitmap = new Bitmap(width,height);
-            Graphics.FromImage(_mainBitmap).DrawImage(tmp,new Point(0,0));
+            _mainBitmap = new Bitmap(width, height);
+            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
             tmp.Dispose();
         }
 
@@ -91,7 +91,7 @@ namespace Draw.Drawer
             }
         }
 
-        public Bitmap ChangeBackgroundColor (Color color)
+        public Bitmap ChangeBackgroundColor(Color color)
         {
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(color);

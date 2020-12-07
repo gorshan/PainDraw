@@ -380,7 +380,7 @@ namespace Draw
                 {
                     _figures.Remove(figure);
                     DrawAll();
-                    pictureBox1.Image = Canvas.GetImage();
+                    //pictureBox1.Image = Canvas.GetImage();
                     break;
                 }
             }
