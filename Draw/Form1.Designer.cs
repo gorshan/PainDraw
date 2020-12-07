@@ -58,10 +58,10 @@ namespace Draw
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.workWithFigureButton = new System.Windows.Forms.Button();
             this.MoveFace = new System.Windows.Forms.Button();
-            this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FillFigureButton = new System.Windows.Forms.Button();
             this.DeleteFigureButton = new System.Windows.Forms.Button();
+            this.logoPictureBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -438,7 +438,8 @@ namespace Draw
             this.workWithFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.workWithFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.workWithFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("workWithFigureButton.Image")));
-            this.workWithFigureButton.Location = new System.Drawing.Point(3, 3);
+            this.workWithFigureButton.Location = new System.Drawing.Point(2, 2);
+            this.workWithFigureButton.Margin = new System.Windows.Forms.Padding(2);
             this.workWithFigureButton.Name = "workWithFigureButton";
             this.workWithFigureButton.Size = new System.Drawing.Size(25, 25);
             this.workWithFigureButton.TabIndex = 22;
@@ -450,13 +451,39 @@ namespace Draw
             this.MoveFace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.MoveFace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MoveFace.Image = ((System.Drawing.Image)(resources.GetObject("MoveFace.Image")));
-            this.MoveFace.Location = new System.Drawing.Point(33, 2);
+            this.MoveFace.Location = new System.Drawing.Point(31, 2);
             this.MoveFace.Margin = new System.Windows.Forms.Padding(2);
             this.MoveFace.Name = "MoveFace";
             this.MoveFace.Size = new System.Drawing.Size(25, 25);
             this.MoveFace.TabIndex = 26;
             this.MoveFace.UseVisualStyleBackColor = false;
             this.MoveFace.Click += new System.EventHandler(this.MoveFace_Click);
+            // 
+            // FillFigureButton
+            // 
+            this.FillFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.FillFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FillFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("FillFigureButton.Image")));
+            this.FillFigureButton.Location = new System.Drawing.Point(60, 2);
+            this.FillFigureButton.Margin = new System.Windows.Forms.Padding(2);
+            this.FillFigureButton.Name = "FillFigureButton";
+            this.FillFigureButton.Size = new System.Drawing.Size(25, 25);
+            this.FillFigureButton.TabIndex = 27;
+            this.FillFigureButton.UseVisualStyleBackColor = false;
+            this.FillFigureButton.Click += new System.EventHandler(this.FillFigureButton_Click);
+            // 
+            // DeleteFigureButton
+            // 
+            this.DeleteFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.DeleteFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteFigureButton.Image")));
+            this.DeleteFigureButton.Location = new System.Drawing.Point(89, 2);
+            this.DeleteFigureButton.Margin = new System.Windows.Forms.Padding(2);
+            this.DeleteFigureButton.Name = "DeleteFigureButton";
+            this.DeleteFigureButton.Size = new System.Drawing.Size(25, 25);
+            this.DeleteFigureButton.TabIndex = 28;
+            this.DeleteFigureButton.UseVisualStyleBackColor = false;
+            this.DeleteFigureButton.Click += new System.EventHandler(this.DeleteFigureButton_Click);
             // 
             // logoPictureBox
             // 
@@ -483,30 +510,6 @@ namespace Draw
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
-            // 
-            // FillFigureButton
-            // 
-            this.FillFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.FillFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FillFigureButton.Location = new System.Drawing.Point(63, 3);
-            this.FillFigureButton.Name = "FillFigureButton";
-            this.FillFigureButton.Size = new System.Drawing.Size(75, 23);
-            this.FillFigureButton.TabIndex = 27;
-            this.FillFigureButton.Text = "Fill Figure";
-            this.FillFigureButton.UseVisualStyleBackColor = false;
-            this.FillFigureButton.Click += new System.EventHandler(this.FillFigureButton_Click);
-            // 
-            // DeleteFigureButton
-            // 
-            this.DeleteFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.DeleteFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteFigureButton.Location = new System.Drawing.Point(144, 3);
-            this.DeleteFigureButton.Name = "DeleteFigureButton";
-            this.DeleteFigureButton.Size = new System.Drawing.Size(75, 23);
-            this.DeleteFigureButton.TabIndex = 28;
-            this.DeleteFigureButton.Text = "Delete Fig";
-            this.DeleteFigureButton.UseVisualStyleBackColor = false;
-            this.DeleteFigureButton.Click += new System.EventHandler(this.DeleteFigureButton_Click);
             // 
             // Form1
             // 
