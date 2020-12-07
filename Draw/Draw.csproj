@@ -50,6 +50,8 @@
     <Compile Include="Canvas.cs" />
     <Compile Include="Drawer\AngleFiguresDrawer.cs" />
     <Compile Include="Drawer\EllipseDrawer.cs" />
+    <Compile Include="Drawer\FilledAngleFiguresDrawer.cs" />
+    <Compile Include="Drawer\FilledEllipseDrawer.cs" />
     <Compile Include="Drawer\IDrawer.cs" />
     <Compile Include="Drawer\PenDrawer.cs" />
     <Compile Include="Fabrics\CircleFabric.cs" />
@@ -200,6 +202,17 @@
   <ItemGroup>
     <None Include="Resources\Move.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\MoveFace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MoveFace1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move Face.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move Face1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

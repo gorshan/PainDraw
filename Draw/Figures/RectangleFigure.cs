@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Draw.Canvases;
+using Draw.Drawer;
 using Draw.Drawer;
 using Draw.Figures;
 

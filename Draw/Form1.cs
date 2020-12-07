@@ -1,4 +1,4 @@
-﻿using Draw.Canvases;
+﻿using Draw.Drawer;
 using Draw.Fabrics;
 using Draw.Figures;
 using System;
@@ -282,9 +282,15 @@ namespace Draw
 
         private void renewFigure()
         {
+            bool isFilled = false;
+            if (_figure != null)
+            {
+                isFilled = _figure.IsFilled;
+            }
             _figure = _fabric.CreateFigure();
             _figure.Color = Canvas.Pen.Color;
             _figure.Width = (int)Canvas.Pen.Width;
+            _figure.FillFigure(isFilled);
 
             if (_fabric is NAngleByPointsFabric)
             {
@@ -407,6 +413,11 @@ namespace Draw
         private void MoveFace_Click(object sender, EventArgs e)
         {
             _mode = "MoveFace";
+        }
+
+        private void FillFigureButton_Click(object sender, EventArgs e)
+        {
+            _figure.FillFigure();
         }
     }
 }
