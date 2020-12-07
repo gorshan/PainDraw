@@ -119,13 +119,15 @@ namespace Draw
                     case "MoveFace":
                         MoveFaceFigure(e.Location);
                         break;
+                    case "Delete":
+                        DeleteFigure(e.Location);
+                        break;
                 }
 
                 pictureBox1.Image = Canvas.GetTmpImage();
             }
         }
-        
-        
+
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
@@ -369,16 +371,30 @@ namespace Draw
             }
         }
 
+
+        private void DeleteFigure(Point location)
+        {
+            foreach (AbstractFigure figure in _figures)
+            {
+                if (figure.IsThisFigure(location))
+                {
+                    _figures.Remove(figure);
+                    DrawAll();
+                    pictureBox1.Image = Canvas.GetImage();
+                    break;
+                }
+            }
+        }
+
         private void DrawAll()
         {
             Canvas.DeleteAllFigures();
             foreach (AbstractFigure figure in _figures)
             {
-                Canvas.Pen.Color = figure.Color;
-                Canvas.Pen.Width = figure.Width;
                 Canvas.DrawFigure(figure);
                 Canvas.EndDraw();
             }
+            pictureBox1.Image = Canvas.GetImage();
 
         }
 
@@ -418,6 +434,11 @@ namespace Draw
         private void FillFigureButton_Click(object sender, EventArgs e)
         {
             _figure.FillFigure();
+        }
+
+        private void DeleteFigureButton_Click(object sender, EventArgs e)
+        {
+            _mode = "Delete";
         }
     }
 }

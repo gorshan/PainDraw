@@ -61,6 +61,7 @@ namespace Draw
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FillFigureButton = new System.Windows.Forms.Button();
+            this.DeleteFigureButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -426,9 +427,10 @@ namespace Draw
             this.flowLayoutPanel2.Controls.Add(this.workWithFigureButton);
             this.flowLayoutPanel2.Controls.Add(this.MoveFace);
             this.flowLayoutPanel2.Controls.Add(this.FillFigureButton);
+            this.flowLayoutPanel2.Controls.Add(this.DeleteFigureButton);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(455, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 29);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(237, 29);
             this.flowLayoutPanel2.TabIndex = 25;
             // 
             // workWithFigureButton
@@ -493,6 +495,18 @@ namespace Draw
             this.FillFigureButton.Text = "Fill Figure";
             this.FillFigureButton.UseVisualStyleBackColor = false;
             this.FillFigureButton.Click += new System.EventHandler(this.FillFigureButton_Click);
+            // 
+            // DeleteFigureButton
+            // 
+            this.DeleteFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.DeleteFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteFigureButton.Location = new System.Drawing.Point(144, 3);
+            this.DeleteFigureButton.Name = "DeleteFigureButton";
+            this.DeleteFigureButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteFigureButton.TabIndex = 28;
+            this.DeleteFigureButton.Text = "Delete Fig";
+            this.DeleteFigureButton.UseVisualStyleBackColor = false;
+            this.DeleteFigureButton.Click += new System.EventHandler(this.DeleteFigureButton_Click);
             // 
             // Form1
             // 
@@ -562,6 +576,7 @@ namespace Draw
         private System.Windows.Forms.Button workWithFigureButton;
         private System.Windows.Forms.Button MoveFace;
         private System.Windows.Forms.Button FillFigureButton;
+        private System.Windows.Forms.Button DeleteFigureButton;
     }
 }
 
