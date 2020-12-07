@@ -100,6 +100,7 @@ namespace Draw.Drawer
         {
             _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
             _tmpBitmap = _mainBitmap;
+            GC.Collect();
         }
 
         public void Resize(int width, int height)
@@ -108,7 +109,7 @@ namespace Draw.Drawer
             _mainBitmap = new Bitmap(width + 500, height+500);
             Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
             _tmpBitmap = _mainBitmap;
-            tmp.Dispose();
+            GC.Collect();
         }
 
         public Bitmap CancelLastAction()

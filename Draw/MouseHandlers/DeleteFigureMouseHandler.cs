@@ -35,6 +35,7 @@ namespace Draw.MouseHandlers
                 if(Canvas.Current.Figures.Count == 0)
                 {
                     Canvas.Current.DrawAll();
+                    _mouseDown = false;
                 }
             }
             return Canvas.Current.GetImage();
