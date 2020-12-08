@@ -37,11 +37,12 @@ namespace Draw.Figures
             r2 = (endPoint.Y - startPoint.Y)/2;
             double x = startPoint.X + r1;
             double y = startPoint.Y + r2;
-            
+           
             for (int i = 0; i < N; i++)
             {
                 Points.Add(new PointF(Convert.ToInt32(x + r1 * Math.Cos((2 * Math.PI * i) / N)),
                                      Convert.ToInt32(y + r2 * Math.Sin((2 * Math.PI * i) / N))));
+
             }
         }
 
