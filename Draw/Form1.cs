@@ -18,7 +18,6 @@ namespace Draw
 {
     public partial class Form1 : Form
     {
-        public Canvas Canvas { get; private set; }
         private IMouseHandler _mouseHandler;
 
         public Form1()
@@ -48,11 +47,14 @@ namespace Draw
             pictureBox1.Image = _mouseHandler.OnMouseMove(e.Location);
         }
 
-
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+
         {
             pictureBox1.Image = _mouseHandler.OnMouseUp(e.Location);
+
+
         }
+
 
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
@@ -74,7 +76,6 @@ namespace Draw
             pictureBox1.Image = Canvas.Current.GetImage();
 
         }
-
 
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
@@ -273,12 +274,11 @@ namespace Draw
                 Canvas.Current.ChangeColor(colorDialog1.Color);
             }
             ColorButton.BackColor = colorDialog1.Color;
-
         }
-
 
         private void SettingsForm(object sender)
         {
+
             if (sender == NAngleButton || sender == RightNAngleButton)
             {
                 NAngleNumericUpDown.Visible = true;
@@ -287,12 +287,19 @@ namespace Draw
             {
                 NAngleNumericUpDown.Visible = false;
             }
+
         }
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
             if (Canvas.Current == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
             {
-                return;
+                if (Canvas.Current == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
+                {
+                    return;
+                }
+                Canvas.Current.Resize(pictureBox1.Width, pictureBox1.Height);
+                pictureBox1.Image = Canvas.Current.GetImage();
+                SetSizeLabel();
             }
             Canvas.Current.Resize(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = Canvas.Current.GetImage();
@@ -304,3 +311,5 @@ namespace Draw
         }
     }
 }
+
+  
