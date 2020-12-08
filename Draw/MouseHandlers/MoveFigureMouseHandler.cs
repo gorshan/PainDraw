@@ -18,7 +18,7 @@ namespace Draw.MouseHandlers
             _mouseDown = true;
             Canvas.Current.LastPoint = location;
             Canvas.Current.Figure = null;
-            Bitmap bitmapBeforeChange = Canvas.Current.GetImage();
+            Bitmap bitmapBeforeChange = Canvas.Current.MainBitmap;
             foreach (AbstractFigure figure in Canvas.Current.Figures)
             {
                 if (figure.IsThisFigure(location))
@@ -41,7 +41,7 @@ namespace Draw.MouseHandlers
                 Canvas.Current.Figure.Move(d);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
             }
-            return Canvas.Current.GetTmpImage();
+            return Canvas.Current.TmpBitmap;
         }
 
         public Bitmap OnMouseUp(Point location)
@@ -57,7 +57,7 @@ namespace Draw.MouseHandlers
             {
                 Canvas.Current.RenewFigure();
             }
-            return Canvas.Current.GetImage();
+            return Canvas.Current.MainBitmap;
         }
     }
 }

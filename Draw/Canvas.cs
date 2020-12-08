@@ -15,7 +15,6 @@ namespace Draw.Drawer
         public Bitmap TmpBitmap { get; set; }
         private Graphics _graphics;
         private LinkedList<Bitmap> _previousBitmaps;
-        public IBitmapOperation Operation { get; set; }
         public Pen Pen { get; set; }
         public Color Color { get; set; }
 
@@ -23,6 +22,8 @@ namespace Draw.Drawer
         public AbstractFigure Figure { get; set; }
         public List<AbstractFigure> Figures { get; set; }
         public Point LastPoint { get; set; }
+
+        private OperationCreator _operations;
 
         public static Canvas Current
         {
@@ -44,11 +45,7 @@ namespace Draw.Drawer
 
         private static Canvas _obj;
 
-        public static void Create(int width, int height)
-        {
-            _obj = new Canvas(width, height);
-        }
-        public Canvas(int width, int height)
+        public Canvas(int width, int height, OperationCreator operations)
         {
             MainBitmap = new Bitmap(width + 500, height+ 500);
             _graphics = Graphics.FromImage(MainBitmap);
@@ -56,17 +53,21 @@ namespace Draw.Drawer
             _previousBitmaps = new LinkedList<Bitmap>();
             _previousBitmaps.AddLast(MainBitmap);
             LastPoint = new Point(0, 0);
-
+            _operations = operations;
             Fabric = new PenFabric();
             Figures = new List<AbstractFigure>();
             RenewFigure();
          
         }
+        public static void Create(int width, int height, OperationCreator operation)
+        {
+            _obj = new Canvas(width, height, operation);
+        }
 
 
         public Bitmap Action(IOperationParameters parameters)
         {
-            return Operation.Action(parameters);             
+            return _operations.GetOperation(parameters.GetType()).Action(parameters);             
         }
 
         public void DrawFigure(AbstractFigure figure)
@@ -75,16 +76,6 @@ namespace Draw.Drawer
             _graphics = Graphics.FromImage(TmpBitmap);
             figure.Drawer.DrawFigure(_graphics, new Pen(figure.Color, figure.Width), figure.GetPoints());
             GC.Collect();
-        }
-
-        public Bitmap GetTmpImage()
-        {
-            return TmpBitmap;
-        }
-
-        public Bitmap GetImage()
-        {
-            return MainBitmap;
         }
 
         public void EndDraw()

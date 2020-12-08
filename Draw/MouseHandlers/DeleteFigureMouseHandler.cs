@@ -16,7 +16,7 @@ namespace Draw.MouseHandlers
         public Bitmap OnMouseDown(Point location)
         {
             _mouseDown = true;
-            return Canvas.Current.GetImage();
+            return Canvas.Current.MainBitmap;
         }
 
         public Bitmap OnMouseMove(Point location)
@@ -38,13 +38,13 @@ namespace Draw.MouseHandlers
                     _mouseDown = false;
                 }
             }
-            return Canvas.Current.GetImage();
+            return Canvas.Current.MainBitmap;
         }
 
         public Bitmap OnMouseUp(Point location)
         {
             _mouseDown = false;
-            return Canvas.Current.GetImage();
+            return Canvas.Current.MainBitmap;
         }
     }
 }

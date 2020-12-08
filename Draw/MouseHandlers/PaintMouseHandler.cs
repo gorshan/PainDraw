@@ -21,17 +21,17 @@ namespace Draw.MouseHandlers
                 OnMouseMove(location);
                 _mouseDown = false;
             }
-            return Canvas.Current.GetImage();
+            return Canvas.Current.MainBitmap;
         }
 
         public Bitmap OnMouseMove(Point location)
         {
-            Bitmap forReturn = Canvas.Current.GetImage();
+            Bitmap forReturn = Canvas.Current.MainBitmap;
             if (_mouseDown)
             {
                 Canvas.Current.Figure.Update(Canvas.Current.LastPoint, location);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
-                forReturn = Canvas.Current.GetTmpImage();
+                forReturn = Canvas.Current.TmpBitmap;
             }
             return forReturn;
         }
@@ -41,7 +41,7 @@ namespace Draw.MouseHandlers
             Canvas.Current.EndDraw();
             _mouseDown = false;
 
-            Bitmap bitmap = Canvas.Current.GetImage();
+            Bitmap bitmap = Canvas.Current.MainBitmap;
             //Graphics graphics = Graphics.FromImage(bitmap);
             //Point[] points;
             //if (Canvas.Current.Figure is CircleFigure)

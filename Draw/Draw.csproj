@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitmapOperations\OperationCreator.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\ClearBitmapOperation.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\ClearOperationParameters.cs" />
     <Compile Include="BitmapOperations\OperationParameters\SizeOperationParameter.cs" />
     <Compile Include="BitmapOperations\OperationParameters\IOperationParameters.cs" />
     <Compile Include="BitmapOperations\IBitmapOperation.cs" />
