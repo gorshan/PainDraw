@@ -63,18 +63,6 @@ namespace Draw
             {
                 Canvas.Current.RenewFigure();
             }
-
-            pictureBox1.Image = Canvas.Current.ChangeBackgroundColor(colorDialog1.Color);
-
-            foreach (AbstractFigure figure in Canvas.Current.Figures)
-            {
-                Canvas.Current.Pen.Color = figure.Color;
-                Canvas.Current.Pen.Width = figure.Width;
-                Canvas.Current.DrawFigure(figure);
-                Canvas.Current.EndDraw();
-            }
-            pictureBox1.Image = Canvas.Current.GetImage();
-
         }
 
         private void RightTriangleButton_Click(object sender, EventArgs e)
@@ -308,6 +296,19 @@ namespace Draw
         private void SetSizeLabel()
         {
             SizeLabel.Text = $"{pictureBox1.Width} x {pictureBox1.Width}";
+        }
+
+
+        private void ChangeBackgroundColor_Click(object sender, EventArgs e)
+        {
+            Canvas.Current.Color = colorDialog1.Color;
+            Canvas.Current.DrawAll();
+            pictureBox1.Image = Canvas.Current.GetImage();
+        }
+
+        private void MoveVertex_Click(object sender, EventArgs e)
+        {
+            _mouseHandler = new MoveVertexMouseHandler();
         }
     }
 }

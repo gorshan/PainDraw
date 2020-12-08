@@ -21,7 +21,6 @@ namespace Draw.Figures
             Drawer = new PenDrawer();
         }
 
-
         private void AddPoint(Point startPoint, Point endPoint)
         {
             if (_lastPoint == null)
@@ -43,14 +42,6 @@ namespace Draw.Figures
         public override void Update(Point startPoint, Point endPoint)
         {
             AddPoint(startPoint, endPoint);
-        }
-
-        public override void Move(Point delta)
-        {
-            for (int i = 0; i < Points.Count(); i++)
-            {
-                Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
-            }
         }
 
         public override bool IsThisFigure(Point point)
@@ -78,6 +69,21 @@ namespace Draw.Figures
         public override void FillFigure()
         {
             IsFilled = !IsFilled;
+        }
+
+        public override void MoveFace(Point delta)
+        {
+
+        }
+
+        public override bool IsThisVertex(Point point)
+        {
+            return false;
+        }
+
+        public override void MoveVertex(Point delta)
+        {
+
         }
     }
 }

@@ -57,7 +57,7 @@ namespace Draw.Drawer
             Fabric = new PenFabric();
             Figures = new List<AbstractFigure>();
             RenewFigure();
-            //Drawer = new PenDrawer();
+         
         }
 
 
@@ -177,24 +177,24 @@ namespace Draw.Drawer
             }
         }
 
-        internal void ChangeFabric(IFabric fabric)
+        public void ChangeFabric(IFabric fabric)
         {
             Fabric = fabric;
             RenewFigure();
         }
 
-        internal void ChangeWidth(int width)
+        public void ChangeWidth(int width)
         {
             Pen.Width = width;
             Figure.Width = width;
         }
 
-        internal void ChangeColor(Color color)
+        public void ChangeColor(Color color)
         {
             Figure.Color = color;
             Pen.Color = color;
         }
-        internal void DrawAll()
+        public void DrawAll()
         {
             DeleteAllFigures();
             foreach (AbstractFigure figure in Figures)

@@ -97,5 +97,17 @@ namespace Draw.Figures
             }
             return points.ToArray();
         }
+        public override void MoveVertex(Point delta)
+        {
+
+        }
+        public override bool IsThisVertex(Point point)
+        {
+            return false;
+        }
+        public override void MoveFace(Point delta)
+        {
+            
+        }
     }
 }

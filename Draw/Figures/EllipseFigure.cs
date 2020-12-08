@@ -79,5 +79,20 @@ namespace Draw.Figures
                 Drawer = new EllipseDrawer();
             }
         }
+
+        public override void MoveFace(Point delta)
+        {
+            
+        }
+
+        public override bool IsThisVertex(Point point)
+        {
+            return false;
+        }
+
+        public override void MoveVertex(Point delta)
+        {
+            
+        }
     }
 }

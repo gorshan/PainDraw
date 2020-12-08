@@ -88,6 +88,7 @@
     <Compile Include="MouseHandlers\IMouseHandler.cs" />
     <Compile Include="MouseHandlers\MoveFaceMouseHandler.cs" />
     <Compile Include="MouseHandlers\MoveFigureMouseHandler.cs" />
+    <Compile Include="MouseHandlers\MoveVertexMouseHandler.cs" />
     <Compile Include="MouseHandlers\PaintMouseHandler.cs" />
     <Compile Include="MouseHandlers\PipetteMouseHandler.cs" />
     <Compile Include="Program.cs" />
@@ -225,6 +226,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MoveVertex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChangeBackground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

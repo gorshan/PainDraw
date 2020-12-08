@@ -12,7 +12,6 @@ namespace Draw.Fabrics
         public AbstractFigure CreateFigure()
         {
             return new PenFigure();
-            //throw new NotImplementedException();
         }
     }
 }
