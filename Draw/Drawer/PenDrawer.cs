@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace Draw.Canvases
+namespace Draw.Drawer
 {
     internal class PenDrawer : IDrawer
     {

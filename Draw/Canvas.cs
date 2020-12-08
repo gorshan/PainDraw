@@ -1,10 +1,11 @@
-﻿using Draw.Figures;
+﻿using Draw.Fabrics;
+using Draw.Figures;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Draw.Canvases
+namespace Draw.Drawer
 {
     public class Canvas
     {
@@ -14,15 +15,48 @@ namespace Draw.Canvases
         private LinkedList<Bitmap> _previousBitmaps;
         public Pen Pen { get; set; }
         public Color Color { get; set; }
-               
+
+        public IFabric Fabric { get; set; }
+        public AbstractFigure Figure { get; set; }
+        public List<AbstractFigure> Figures { get; set; }
+        public Point LastPoint { get; set; }
+
+        public static Canvas Current
+        {
+            get { return _obj; }
+            private set { }
+        }
+
+
+        private int _NNumericUpDown;
+        public int NAngleNumericUpDown
+        {
+            get { return _NNumericUpDown; }
+            set
+            {
+                _NNumericUpDown = value;
+                RenewFigure();
+            }
+        }
+
+        private static Canvas _obj;
+
+        public static void Create(int width, int height)
+        {
+            _obj = new Canvas(width, height);
+        }
         public Canvas(int width, int height)
         {
-            _mainBitmap = new Bitmap(width, height);
+            _mainBitmap = new Bitmap(width + 500, height+ 500);
             _graphics = Graphics.FromImage(_mainBitmap);
             Pen = new Pen(Color.Black, 1);
             _previousBitmaps = new LinkedList<Bitmap>();
             _previousBitmaps.AddLast(_mainBitmap);
-           
+            LastPoint = new Point(0, 0);
+
+            Fabric = new PenFabric();
+            Figures = new List<AbstractFigure>();
+            RenewFigure();
             //Drawer = new PenDrawer();
         }
 
@@ -57,15 +91,25 @@ namespace Draw.Canvases
 
         public void Clear()
         {
+            CreateMainBitmap();
+            Figure.Clear();
+            Figures.Clear();
+        }
+
+        private void CreateMainBitmap()
+        {
             _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
+            _tmpBitmap = _mainBitmap;
+            GC.Collect();
         }
 
         public void Resize(int width, int height)
         {
             Bitmap tmp = _mainBitmap;
-            _mainBitmap = new Bitmap(width,height);
-            Graphics.FromImage(_mainBitmap).DrawImage(tmp,new Point(0,0));
-            tmp.Dispose();
+            _mainBitmap = new Bitmap(width + 500, height+500);
+            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
+            _tmpBitmap = _mainBitmap;
+            GC.Collect();
         }
 
         public Bitmap CancelLastAction()
@@ -76,6 +120,12 @@ namespace Draw.Canvases
             }
             _mainBitmap = _previousBitmaps.Last.Value;
             _previousBitmaps.RemoveLast();
+
+            if (Figures.Count != 0)
+            {
+                Figures.RemoveAt(Figures.Count - 1);
+            }
+
             return _mainBitmap;
         }
 
@@ -91,7 +141,7 @@ namespace Draw.Canvases
             }
         }
 
-        public Bitmap ChangeBackgroundColor (Color color)
+        public Bitmap ChangeBackgroundColor(Color color)
         {
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(color);
@@ -101,8 +151,57 @@ namespace Draw.Canvases
 
         public void DeleteAllFigures()
         {
-            Clear();
+            CreateMainBitmap();
             ChangeBackgroundColor(Color);
+        }
+
+        public void RenewFigure()
+        {
+            bool isFilled = false;
+            if (Figure != null)
+            {
+                isFilled = Figure.IsFilled;
+            }
+            Figure = Fabric.CreateFigure();
+            Figure.Color = Pen.Color;
+            Figure.Width = (int)Pen.Width;
+            Figure.FillFigure(isFilled);
+
+            if (Fabric is NAngleByPointsFabric)
+            {
+                ((NPointsFigure)Figure).N = NAngleNumericUpDown;
+            }
+            if (Figure is NAngleFigure)
+            {
+                ((NAngleFigure)Figure).N = NAngleNumericUpDown;
+            }
+        }
+
+        internal void ChangeFabric(IFabric fabric)
+        {
+            Fabric = fabric;
+            RenewFigure();
+        }
+
+        internal void ChangeWidth(int width)
+        {
+            Pen.Width = width;
+            Figure.Width = width;
+        }
+
+        internal void ChangeColor(Color color)
+        {
+            Figure.Color = color;
+            Pen.Color = color;
+        }
+        internal void DrawAll()
+        {
+            DeleteAllFigures();
+            foreach (AbstractFigure figure in Figures)
+            {
+                DrawFigure(figure);
+                EndDraw();
+            }
         }
     }
 }

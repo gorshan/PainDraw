@@ -1,4 +1,4 @@
-﻿using Draw.Canvases;
+﻿using Draw.Drawer;
 using Draw.Drawer;
 using System;
 using System.Collections.Generic;
@@ -11,10 +11,11 @@ namespace Draw.Figures
 {
     public class LineFigure : AbstractFigure
     {
-        private Point[] _points;
+
+        
         public LineFigure()
         {
-            Drawer = new AngleFiguresDrawer();
+            Drawer = new PenDrawer();
         }
 
         public override void Update(Point startPoint, Point endPoint)
@@ -49,5 +50,10 @@ namespace Draw.Figures
         }
       
 
+
+        public override void FillFigure()
+        {
+            IsFilled = !IsFilled;
+        }
     }
 }

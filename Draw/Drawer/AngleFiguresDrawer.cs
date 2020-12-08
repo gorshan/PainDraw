@@ -1,7 +1,7 @@
 ﻿using Draw.Drawer;
 using System.Drawing;
 
-namespace Draw.Canvases
+namespace Draw.Drawer
 {
     public class AngleFiguresDrawer : IDrawer
     {
