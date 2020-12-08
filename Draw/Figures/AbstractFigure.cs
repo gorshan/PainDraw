@@ -39,7 +39,7 @@ namespace Draw.Figures
 
         public bool IsEmpty()
         {
-            if (Points == null  && Points.Count == 0)
+            if (Points == null  || Points.Count == 0)
             {
                 return true;
             }
