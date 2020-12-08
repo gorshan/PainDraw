@@ -1,4 +1,6 @@
-﻿using Draw.Drawer;
+﻿using Draw.BitmapOperations;
+using Draw.BitmapOperations.OperationParameters;
+using Draw.Drawer;
 using Draw.Fabrics;
 using Draw.Figures;
 using Draw.MouseHandlers;
@@ -279,19 +281,12 @@ namespace Draw
         }
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
-            if (Canvas.Current == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
+            if (Canvas.Current != null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
             {
-                if (Canvas.Current == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
-                {
-                    return;
-                }
-                Canvas.Current.Resize(pictureBox1.Width, pictureBox1.Height);
-                pictureBox1.Image = Canvas.Current.GetImage();
+                Canvas.Current.Operation = new ResizeBitmapOperation();                 
+                pictureBox1.Image = Canvas.Current.Action(new SizeOperationParameter(pictureBox1.Width, pictureBox1.Height));
                 SetSizeLabel();
             }
-            Canvas.Current.Resize(pictureBox1.Width, pictureBox1.Height);
-            pictureBox1.Image = Canvas.Current.GetImage();
-            SetSizeLabel();
         }
         private void SetSizeLabel()
         {

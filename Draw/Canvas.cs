@@ -1,4 +1,6 @@
-﻿using Draw.Fabrics;
+﻿using Draw.BitmapOperations;
+using Draw.BitmapOperations.OperationParameters;
+using Draw.Fabrics;
 using Draw.Figures;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace Draw.Drawer
         public Bitmap TmpBitmap { get; set; }
         private Graphics _graphics;
         private LinkedList<Bitmap> _previousBitmaps;
+        public IBitmapOperation Operation { get; set; }
         public Pen Pen { get; set; }
         public Color Color { get; set; }
 
@@ -61,6 +64,11 @@ namespace Draw.Drawer
         }
 
 
+        public Bitmap Action(IOperationParameters parameters)
+        {
+            return Operation.Action(parameters);             
+        }
+
         public void DrawFigure(AbstractFigure figure)
         {
             TmpBitmap = (Bitmap)MainBitmap.Clone();
@@ -99,15 +107,6 @@ namespace Draw.Drawer
         private void CreateMainBitmap()
         {
             MainBitmap = new Bitmap(MainBitmap.Width, MainBitmap.Height);
-            TmpBitmap = MainBitmap;
-            GC.Collect();
-        }
-
-        public void Resize(int width, int height)
-        {
-            Bitmap tmp = MainBitmap;
-            MainBitmap = new Bitmap(width + 500, height+500);
-            Graphics.FromImage(MainBitmap).DrawImage(tmp, new Point(0, 0));
             TmpBitmap = MainBitmap;
             GC.Collect();
         }

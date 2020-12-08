@@ -1,14 +1,15 @@
 ﻿using Draw.BitmapOperations.OperationParameters;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Draw.BitmapOperations
 {
-    public interface IBitmapAction
+    public interface IBitmapOperation
     {
-        void Action(IOperationParameters operationParameters);
+        Bitmap Action(IOperationParameters operationParameters);
     }
 }

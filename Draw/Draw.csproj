@@ -47,10 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BitmapOperations\OperationParameters\NewSizeOperationParameter.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\SizeOperationParameter.cs" />
     <Compile Include="BitmapOperations\OperationParameters\IOperationParameters.cs" />
-    <Compile Include="BitmapOperations\IBitmapAction.cs" />
-    <Compile Include="BitmapOperations\ResizeBitmapAction.cs" />
+    <Compile Include="BitmapOperations\IBitmapOperation.cs" />
+    <Compile Include="BitmapOperations\ResizeBitmapOperation.cs" />
     <Compile Include="Canvas.cs" />
     <Compile Include="Drawer\AngleFiguresDrawer.cs" />
     <Compile Include="Drawer\EllipseDrawer.cs" />
