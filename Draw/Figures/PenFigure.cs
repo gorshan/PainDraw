@@ -77,5 +77,15 @@ namespace Draw.Figures
         {
             throw new NotImplementedException();
         }
+
+        public override bool IsThisVertex(Point point)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void MoveVertex(Point delta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

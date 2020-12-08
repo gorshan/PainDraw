@@ -61,6 +61,7 @@ namespace Draw
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MoveFace = new System.Windows.Forms.Button();
             this.ChangeBackgroundColor = new System.Windows.Forms.Button();
+            this.MoveVertex = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -466,7 +467,7 @@ namespace Draw
             // 
             this.MoveFace.Location = new System.Drawing.Point(1010, 13);
             this.MoveFace.Name = "MoveFace";
-            this.MoveFace.Size = new System.Drawing.Size(75, 38);
+            this.MoveFace.Size = new System.Drawing.Size(31, 38);
             this.MoveFace.TabIndex = 26;
             this.MoveFace.Text = "MoveFace";
             this.MoveFace.UseVisualStyleBackColor = true;
@@ -474,13 +475,23 @@ namespace Draw
             // 
             // ChangeBackgroundColor
             // 
-            this.ChangeBackgroundColor.Location = new System.Drawing.Point(1091, 12);
+            this.ChangeBackgroundColor.Location = new System.Drawing.Point(1047, 12);
             this.ChangeBackgroundColor.Name = "ChangeBackgroundColor";
-            this.ChangeBackgroundColor.Size = new System.Drawing.Size(75, 39);
+            this.ChangeBackgroundColor.Size = new System.Drawing.Size(36, 39);
             this.ChangeBackgroundColor.TabIndex = 27;
             this.ChangeBackgroundColor.Text = "Background";
             this.ChangeBackgroundColor.UseVisualStyleBackColor = true;
             this.ChangeBackgroundColor.Click += new System.EventHandler(this.ChangeBackgroundColor_Click);
+            // 
+            // MoveVertex
+            // 
+            this.MoveVertex.Location = new System.Drawing.Point(1089, 12);
+            this.MoveVertex.Name = "MoveVertex";
+            this.MoveVertex.Size = new System.Drawing.Size(37, 37);
+            this.MoveVertex.TabIndex = 28;
+            this.MoveVertex.Text = "MoveVertex";
+            this.MoveVertex.UseVisualStyleBackColor = true;
+            this.MoveVertex.Click += new System.EventHandler(this.MoveVertex_Click);
             // 
             // Form1
             // 
@@ -488,6 +499,7 @@ namespace Draw
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1509, 788);
+            this.Controls.Add(this.MoveVertex);
             this.Controls.Add(this.ChangeBackgroundColor);
             this.Controls.Add(this.MoveFace);
             this.Controls.Add(this.logoPictureBox);
@@ -552,6 +564,7 @@ namespace Draw
         private System.Windows.Forms.Button workWithFigureButton;
         private System.Windows.Forms.Button MoveFace;
         private System.Windows.Forms.Button ChangeBackgroundColor;
+        private System.Windows.Forms.Button MoveVertex;
     }
 }
 

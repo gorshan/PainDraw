@@ -90,6 +90,19 @@ namespace Draw
                         }
                     }
                     break;
+                case "Vertex":
+                    _figure = null;
+                    foreach (AbstractFigure figure in _figures)
+                    {
+                        if (figure.IsThisVertex(e.Location))
+                        {
+                            _figure = figure;
+                            _figures.Remove(_figure);
+                            DrawAll();
+                            break;
+                        }
+                    }
+                    break;
                 case "Pipette":
                     Color pixelColor = Canvas.Pen.Color;
                     pixelColor = Canvas.GetImage().GetPixel(e.X, e.Y);
@@ -118,6 +131,9 @@ namespace Draw
                         break;
                     case "MoveFace":
                         MoveFaceFigure(e.Location);
+                        break;
+                    case "Vertex":
+                        MoveVertexFigure(e.Location);
                         break;
                 }
 
@@ -351,6 +367,17 @@ namespace Draw
             }
         }
 
+        private void MoveVertexFigure(Point endPoint)
+        {
+            if (_figure != null)
+            {
+                Point d = new Point(endPoint.X - _lastPoint.X, endPoint.Y - _lastPoint.Y);
+                _lastPoint = endPoint;
+                _figure.MoveVertex(d);
+                Canvas.DrawFigure(_figure);
+            }
+        }
+
         private void DrawAll()
         {
             Canvas.DeleteAllFigures();
@@ -409,6 +436,11 @@ namespace Draw
                 Canvas.EndDraw();
             }
             pictureBox1.Image = Canvas.GetImage();
+        }
+
+        private void MoveVertex_Click(object sender, EventArgs e)
+        {
+            _mode = "Vertex";
         }
     }
 }

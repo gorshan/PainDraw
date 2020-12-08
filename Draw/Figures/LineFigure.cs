@@ -11,7 +11,7 @@ namespace Draw.Figures
 {
     public class LineFigure : AbstractFigure
     {
-       
+        private Point[] _points;
         public LineFigure()
         {
             Drawer = new AngleFiguresDrawer();
@@ -54,7 +54,36 @@ namespace Draw.Figures
 
         public override void MoveFace(Point delta)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        public override bool IsThisVertex(Point point)
+        {
+
+            foreach (Point p in Points)
+            {
+                if (p == point)
+                {
+                    _points = new Point[] { p };
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public override void MoveVertex(Point delta)
+        {
+            if (_points != null)
+            {
+                for (int i = 0; i < Points.Count; i++)
+                {
+                    if (Points[i] == _points[0])
+                    {
+                        _points[0] = new Point(_points[0].X + delta.X, _points[0].Y + delta.Y);
+                        Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
+                    }
+                }
+            }
         }
     }
 }
