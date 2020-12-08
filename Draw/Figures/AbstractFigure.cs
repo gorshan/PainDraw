@@ -31,7 +31,28 @@ namespace Draw.Figures
                 Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
             }
         }
+        //start
+        private bool Contain(Point start, Point end, Point checkPoint, double accuracy)
+        {
+            double x1 = start.X;
+            double y1 = start.Y;
+            double x2 = end.X;
+            double y2 = end.Y;
+            double x = checkPoint.X;
+            double y = checkPoint.Y;
 
+            if (CheckInside(x, x1, x2, accuracy) && CheckInside(y, y1, y2, accuracy))
+                return 
+                    Math.Abs((x - x1) * (y2 - y1) - (y - y1) * (x2 - x1)) < accuracy / 2 * Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+            else return false;
+        }
+        private bool CheckInside(double x, double a, double b, double accuracy)
+        {
+            if ((x > a - accuracy && x < b + accuracy) || (x > b - accuracy && x < a + accuracy))
+                return true;
+            else return false;
+        }
+        //end
         public virtual bool IsThisFigure(Point point)
         {
             Point p1 = Points[Points.Count - 1];
@@ -40,9 +61,10 @@ namespace Draw.Figures
             {
                 p2 = p;
                 if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
-                    <= Math.Abs(20 * ((p2.Y - p1.Y) + (p2.X - p1.X)))
-                    && (((p1.X <= point.X) && (point.X <= p2.X)) || ((p1.X >= point.X) && (point.X >= p2.X)))
-                    && (((p1.Y <= point.Y) && (point.Y <= p2.Y)) || ((p1.Y >= point.Y) && (point.Y >= p2.Y))))
+                    <= Width*0.75 * Math.Sqrt(Math.Pow(p2.X - p1.X, 2) + Math.Pow(p2.Y - p1.Y, 2))
+                    //Math.Abs(20 * ((p2.Y - p1.Y) + (p2.X - p1.X)))
+                    && (((p1.X -Width <= point.X) && (point.X <= p2.X +Width)) || ((p1.X +Width >= point.X) && (point.X >= p2.X-Width)))
+                    && (((p1.Y-Width <= point.Y) && (point.Y <= p2.Y+Width)) || ((p1.Y +Width >= point.Y) && (point.Y >= p2.Y-Width))))
                 {
                     PointsFace = new Point[] { p1, p2 };
                     return true;
