@@ -18,7 +18,6 @@ namespace Draw
 {
     public partial class Form1 : Form
     {
-        public Canvas Canvas { get; private set; }
         private IMouseHandler _mouseHandler;
 
         public Form1()
@@ -52,23 +51,10 @@ namespace Draw
 
         {
             pictureBox1.Image = _mouseHandler.OnMouseUp(e.Location);
-            if (_mode == "Paint")
-            {
-                Bitmap bitmap = Canvas.GetImage();
-                Graphics graphics = Graphics.FromImage(bitmap);
-                Point[] points;
-                if (_figure is CircleFigure)
-                    points = ((CircleFigure)_figure).GetPointsInner(bitmap.Width, bitmap.Height);
-                else
-                    points = ((EllipseFigure)_figure).GetPointsInner(bitmap.Width, bitmap.Height);
-                foreach (Point p in points)
-                {
-                    bitmap.SetPixel(p.X, p.Y, Color.Black);
-                }
-                pictureBox1.Image = bitmap;
-            }
+
+
         }
-        
+
 
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
@@ -90,14 +76,6 @@ namespace Draw
             pictureBox1.Image = Canvas.Current.GetImage();
 
         }
-
-            private void RightTriangleButton_Click(object sender, EventArgs e)
-            {
-                _fabric = new RightTriangleFabric();
-                renewFigure();
-                _mode = "Paint";
-                SettingsForm(sender);
-            }
 
         private void RightTriangleButton_Click(object sender, EventArgs e)
         {
@@ -289,68 +267,38 @@ namespace Draw
             Canvas.Current.SaveBitmap();
         }
 
-            private void ClearButton_Click(object sender, EventArgs e)
+        private void colorButton_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Canvas.Current.ChangeColor(colorDialog1.Color);
             }
-
-            private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
-            {
-                Canvas.Pen.Width = WigthScrollBar.Value;
-                _figure.Width = WigthScrollBar.Value;
-                widthText.Text = WigthScrollBar.Value + "";
-            }
-            private void CancelLast_Click(object sender, EventArgs e)
-            {
-                pictureBox1.Image = Canvas.CancelLastAction();
-                if (_figures.Count != 0)
-                {
-                    _figures.RemoveAt(_figures.Count - 1);
-                }
-            }
-            private void saveButton_Click(object sender, EventArgs e)
-            {
-                Canvas.SaveBitmap();
-            }
-
-            private void colorButton_Click(object sender, EventArgs e)
-            {
-                if (colorDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    _figure.Color = colorDialog1.Color;
-                    Canvas.Pen.Color = colorDialog1.Color;
-                }
-                ColorButton.BackColor = colorDialog1.Color;
+            ColorButton.BackColor = colorDialog1.Color;
+        }
 
         private void SettingsForm(object sender)
         {
+
             if (sender == NAngleButton || sender == RightNAngleButton)
             {
-                SizeLabel.Text = $"{pictureBox1.Width} x {pictureBox1.Width}";
+                NAngleNumericUpDown.Visible = true;
+            }
+            else
+            {
+                NAngleNumericUpDown.Visible = false;
             }
 
-            private void SettingsForm(object sender)
-            {
-                if (sender == NAngleButton || sender == RightNAngleButton)
-                {
-                    NAngleNumericUpDown.Visible = true;
-                }
-                else
-                {
-                    NAngleNumericUpDown.Visible = false;
-                }
-            }
         }
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
             if (Canvas.Current == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
             {
-                if (Canvas == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
+                if (Canvas.Current == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
                 {
                     return;
                 }
-                Canvas.Resize(pictureBox1.Width, pictureBox1.Height);
-                pictureBox1.Image = Canvas.GetImage();
+                Canvas.Current.Resize(pictureBox1.Width, pictureBox1.Height);
+                pictureBox1.Image = Canvas.Current.GetImage();
                 SetSizeLabel();
             }
             Canvas.Current.Resize(pictureBox1.Width, pictureBox1.Height);
@@ -362,5 +310,6 @@ namespace Draw
             SizeLabel.Text = $"{pictureBox1.Width} x {pictureBox1.Width}";
         }
     }
+}
 
   
