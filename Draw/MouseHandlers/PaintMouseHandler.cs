@@ -40,16 +40,16 @@ namespace Draw.MouseHandlers
             _mouseDown = false;
 
             Bitmap bitmap = Canvas.Current.GetImage();
-            //Graphics graphics = Graphics.FromImage(bitmap);
-            //Point[] points;
-            //if (Canvas.Current.Figure is CircleFigure)
-            //    points = ((CircleFigure)Canvas.Current.Figure).GetPointsInner(bitmap.Width, bitmap.Height);
-            //else
-            //    points = ((EllipseFigure)Canvas.Current.Figure).GetPointsInner(bitmap.Width, bitmap.Height);
-            //foreach (Point p in points)
-            //{
-            //    bitmap.SetPixel(p.X, p.Y, Color.Black);
-            //}
+            Graphics graphics = Graphics.FromImage(bitmap);
+            Point[] points;
+            if (Canvas.Current.Figure is CircleFigure)
+                points = ((CircleFigure)Canvas.Current.Figure).GetPointsInner(bitmap.Width, bitmap.Height);
+            else
+                points = ((EllipseFigure)Canvas.Current.Figure).GetPointsInner(bitmap.Width, bitmap.Height);
+            foreach (Point p in points)
+            {
+                bitmap.SetPixel(p.X, p.Y, Color.Black);
+            }
 
             if (Canvas.Current.Figure != null && !Canvas.Current.Figures.Contains(Canvas.Current.Figure) && !(Canvas.Current.Figure.IsEmpty()))
             {

@@ -44,7 +44,7 @@ namespace Draw.Figures
             int x0 = Points[0].X + (Points[2].X / 2);
             int y0 = Points[1].X + (Points[3].X/2);
             int res = (((point.X - x0) * (point.X - x0) + (point.Y - y0) * (point.Y - y0)) - (r * r));
-            if (res <= 200*Width && res >=-200*Width)
+            if (res <= 150*Width && res >=-150*Width)
             {
                 return true;
             }
