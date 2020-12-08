@@ -81,7 +81,7 @@ namespace Draw
                     _figure = null;
                     foreach (AbstractFigure figure in _figures)
                     {
-                        if (((SquareFigure)figure).IsThisFigure(e.Location))
+                        if (figure.IsThisFigure(e.Location))
                         {
                             _figure = figure;
                             _figures.Remove(_figure);
@@ -149,18 +149,6 @@ namespace Draw
             {
                 renewFigure();
             }
-
-            pictureBox1.Image = Canvas.ChangeBackgroundColor(colorDialog1.Color);
-
-            foreach (AbstractFigure figure in _figures)
-            {
-                Canvas.Pen.Color = figure.Color;
-                Canvas.Pen.Width = figure.Width;
-                Canvas.DrawFigure(figure);
-                Canvas.EndDraw();
-            }
-            pictureBox1.Image = Canvas.GetImage();
-
         }
 
 
@@ -358,7 +346,7 @@ namespace Draw
             {
                 Point d = new Point(endPoint.X - _lastPoint.X, endPoint.Y - _lastPoint.Y);
                 _lastPoint = endPoint;
-               ((SquareFigure)_figure).MoveFace(d);
+               _figure.MoveFace(d);
                 Canvas.DrawFigure(_figure);
             }
         }
@@ -407,6 +395,20 @@ namespace Draw
         private void MoveFace_Click(object sender, EventArgs e)
         {
             _mode = "MoveFace";
+        }
+
+        private void ChangeBackgroundColor_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Canvas.ChangeBackgroundColor(colorDialog1.Color);
+
+            foreach (AbstractFigure figure in _figures)
+            {
+                Canvas.Pen.Color = figure.Color;
+                Canvas.Pen.Width = figure.Width;
+                Canvas.DrawFigure(figure);
+                Canvas.EndDraw();
+            }
+            pictureBox1.Image = Canvas.GetImage();
         }
     }
 }

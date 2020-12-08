@@ -12,7 +12,7 @@ namespace Draw.Figures
     {
         public IDrawer Drawer{ get; protected set; }
 
-
+        public Point [] PointsFace { get; set; }
         public List<Point> Points { get; set; }
 
         public Color Color { get; set; }
@@ -23,6 +23,7 @@ namespace Draw.Figures
         public abstract void Move(Point delta);
 
         public abstract bool IsThisFigure(Point point);
+
         public Point[] GetPoints()
         {
             return Points.ToArray();
@@ -43,5 +44,6 @@ namespace Draw.Figures
             return false;
         }
 
+        public abstract void MoveFace(Point delta);
     }
 }

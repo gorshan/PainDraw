@@ -29,12 +29,17 @@ namespace Draw.Figures
 
         public override void Move(Point delta)
         {
-            throw new NotImplementedException();
+            
         }
 
         public override bool IsThisFigure(Point point)
         {
-            throw new NotImplementedException();
+            return false;
+        }
+
+        public override void MoveFace(Point delta)
+        {
+            
         }
     }
 }

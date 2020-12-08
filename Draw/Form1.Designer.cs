@@ -60,6 +60,7 @@ namespace Draw
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MoveFace = new System.Windows.Forms.Button();
+            this.ChangeBackgroundColor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -471,12 +472,23 @@ namespace Draw
             this.MoveFace.UseVisualStyleBackColor = true;
             this.MoveFace.Click += new System.EventHandler(this.MoveFace_Click);
             // 
+            // ChangeBackgroundColor
+            // 
+            this.ChangeBackgroundColor.Location = new System.Drawing.Point(1091, 12);
+            this.ChangeBackgroundColor.Name = "ChangeBackgroundColor";
+            this.ChangeBackgroundColor.Size = new System.Drawing.Size(75, 39);
+            this.ChangeBackgroundColor.TabIndex = 27;
+            this.ChangeBackgroundColor.Text = "Background";
+            this.ChangeBackgroundColor.UseVisualStyleBackColor = true;
+            this.ChangeBackgroundColor.Click += new System.EventHandler(this.ChangeBackgroundColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1509, 788);
+            this.Controls.Add(this.ChangeBackgroundColor);
             this.Controls.Add(this.MoveFace);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -539,6 +551,7 @@ namespace Draw
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button workWithFigureButton;
         private System.Windows.Forms.Button MoveFace;
+        private System.Windows.Forms.Button ChangeBackgroundColor;
     }
 }
 

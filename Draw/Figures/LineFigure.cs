@@ -51,5 +51,10 @@ namespace Draw.Figures
             }
             return false;
         }
+
+        public override void MoveFace(Point delta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
