@@ -26,12 +26,14 @@ namespace Draw.MouseHandlers
 
         public Bitmap OnMouseMove(Point location)
         {
+            Bitmap forReturn = Canvas.Current.GetImage();
             if (_mouseDown)
             {
                 Canvas.Current.Figure.Update(Canvas.Current.LastPoint, location);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
+                forReturn = Canvas.Current.GetTmpImage();
             }
-            return Canvas.Current.GetTmpImage();
+            return forReturn;
         }
 
         public Bitmap OnMouseUp(Point location)

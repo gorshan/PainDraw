@@ -9,8 +9,8 @@ namespace Draw.Drawer
 {
     public class Canvas
     {
-        private Bitmap _mainBitmap;
-        private Bitmap _tmpBitmap;
+        public Bitmap MainBitmap { get; set; }
+        public Bitmap TmpBitmap { get; set; }
         private Graphics _graphics;
         private LinkedList<Bitmap> _previousBitmaps;
         public Pen Pen { get; set; }
@@ -47,11 +47,11 @@ namespace Draw.Drawer
         }
         public Canvas(int width, int height)
         {
-            _mainBitmap = new Bitmap(width + 500, height+ 500);
-            _graphics = Graphics.FromImage(_mainBitmap);
+            MainBitmap = new Bitmap(width + 500, height+ 500);
+            _graphics = Graphics.FromImage(MainBitmap);
             Pen = new Pen(Color.Black, 1);
             _previousBitmaps = new LinkedList<Bitmap>();
-            _previousBitmaps.AddLast(_mainBitmap);
+            _previousBitmaps.AddLast(MainBitmap);
             LastPoint = new Point(0, 0);
 
             Fabric = new PenFabric();
@@ -63,20 +63,20 @@ namespace Draw.Drawer
 
         public void DrawFigure(AbstractFigure figure)
         {
-            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-            _graphics = Graphics.FromImage(_tmpBitmap);
+            TmpBitmap = (Bitmap)MainBitmap.Clone();
+            _graphics = Graphics.FromImage(TmpBitmap);
             figure.Drawer.DrawFigure(_graphics, new Pen(figure.Color, figure.Width), figure.GetPoints());
             GC.Collect();
         }
 
         public Bitmap GetTmpImage()
         {
-            return _tmpBitmap;
+            return TmpBitmap;
         }
 
         public Bitmap GetImage()
         {
-            return _mainBitmap;
+            return MainBitmap;
         }
 
         public void EndDraw()
@@ -85,8 +85,8 @@ namespace Draw.Drawer
             {
                 _previousBitmaps.RemoveFirst();
             }
-            _previousBitmaps.AddLast(_mainBitmap);
-            _mainBitmap = _tmpBitmap;
+            _previousBitmaps.AddLast(MainBitmap);
+            MainBitmap = TmpBitmap;
         }
 
         public void Clear()
@@ -98,17 +98,17 @@ namespace Draw.Drawer
 
         private void CreateMainBitmap()
         {
-            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
-            _tmpBitmap = _mainBitmap;
+            MainBitmap = new Bitmap(MainBitmap.Width, MainBitmap.Height);
+            TmpBitmap = MainBitmap;
             GC.Collect();
         }
 
         public void Resize(int width, int height)
         {
-            Bitmap tmp = _mainBitmap;
-            _mainBitmap = new Bitmap(width + 500, height+500);
-            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
-            _tmpBitmap = _mainBitmap;
+            Bitmap tmp = MainBitmap;
+            MainBitmap = new Bitmap(width + 500, height+500);
+            Graphics.FromImage(MainBitmap).DrawImage(tmp, new Point(0, 0));
+            TmpBitmap = MainBitmap;
             GC.Collect();
         }
 
@@ -116,9 +116,9 @@ namespace Draw.Drawer
         {
             if (_previousBitmaps.Count == 0)
             {
-                return _mainBitmap;
+                return MainBitmap;
             }
-            _mainBitmap = _previousBitmaps.Last.Value;
+            MainBitmap = _previousBitmaps.Last.Value;
             _previousBitmaps.RemoveLast();
 
             if (Figures.Count != 0)
@@ -126,7 +126,7 @@ namespace Draw.Drawer
                 Figures.RemoveAt(Figures.Count - 1);
             }
 
-            return _mainBitmap;
+            return MainBitmap;
         }
 
         public void SaveBitmap()
@@ -137,16 +137,16 @@ namespace Draw.Drawer
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                _mainBitmap.Save(saveFileDialog.FileName);
+                MainBitmap.Save(saveFileDialog.FileName);
             }
         }
 
         public Bitmap ChangeBackgroundColor(Color color)
         {
-            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics = Graphics.FromImage(MainBitmap);
             _graphics.Clear(color);
             Color = color;
-            return _mainBitmap;
+            return MainBitmap;
         }
 
         public void DeleteAllFigures()
