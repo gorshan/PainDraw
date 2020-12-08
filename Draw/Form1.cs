@@ -40,18 +40,6 @@ namespace Draw
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             pictureBox1.Image = _mouseHandler.OnMouseDown(e.Location);
-                case "Vertex":
-                    _figure = null;
-                    foreach (AbstractFigure figure in _figures)
-                    {
-                        if (figure.IsThisVertex(e.Location))
-                        {
-                            _figure = figure;
-                            _figures.Remove(_figure);
-                            DrawAll();
-                            break;
-                        }
-                    }
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -276,16 +264,6 @@ namespace Draw
             ColorButton.BackColor = colorDialog1.Color;
         }
 
-        private void MoveVertexFigure(Point endPoint)
-        {
-            if (_figure != null)
-                Point d = new Point(endPoint.X - _lastPoint.X, endPoint.Y - _lastPoint.Y);
-            {
-                _lastPoint = endPoint;
-                _figure.MoveVertex(d);
-                Canvas.DrawFigure(_figure);
-            }
-        }
         private void SettingsForm(object sender)
         {
 
@@ -320,23 +298,17 @@ namespace Draw
             SizeLabel.Text = $"{pictureBox1.Width} x {pictureBox1.Width}";
         }
 
+
         private void ChangeBackgroundColor_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = Canvas.ChangeBackgroundColor(colorDialog1.Color);
-
-            foreach (AbstractFigure figure in _figures)
-            {
-                Canvas.Pen.Color = figure.Color;
-                Canvas.Pen.Width = figure.Width;
-                Canvas.DrawFigure(figure);
-                Canvas.EndDraw();
-            }
-            pictureBox1.Image = Canvas.GetImage();
+            Canvas.Current.Color = colorDialog1.Color;
+            Canvas.Current.DrawAll();
+            pictureBox1.Image = Canvas.Current.GetImage();
         }
 
         private void MoveVertex_Click(object sender, EventArgs e)
         {
-            _mode = "Vertex";
+            _mouseHandler = new MoveVertexMouseHandler();
         }
     }
 }

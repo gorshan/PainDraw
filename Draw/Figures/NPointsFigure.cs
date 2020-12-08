@@ -83,4 +83,5 @@ namespace Draw.Figures
         {
             IsFilled = !IsFilled;
         }
+    }
 }

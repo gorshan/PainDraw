@@ -102,8 +102,8 @@ namespace Draw.Figures
 
         }
         public override bool IsThisVertex(Point point)
-            return false;
         {
+            return false;
         }
         public override void MoveFace(Point delta)
         {
