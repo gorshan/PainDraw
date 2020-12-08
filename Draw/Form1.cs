@@ -147,6 +147,19 @@ namespace Draw
         {
             Canvas.EndDraw();
             _mouseDown = false;
+            //if (_mode == "Paint")
+            //{
+            //    Bitmap bitmap = Canvas.GetImage();
+            //    Graphics graphics = Graphics.FromImage(bitmap);
+            //    Point[] points;
+                
+            //        points = _figure.GetPointsInner(bitmap.Width, bitmap.Height);
+              
+            //    foreach (Point p in points)
+            //    {
+            //        bitmap.SetPixel(p.X, p.Y, Color.Black);
+            //    }
+            //}
             if (_figure != null && !_figures.Contains(_figure) && !(_figure.IsEmpty()))
             {
                 _figures.Add(_figure);

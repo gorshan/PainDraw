@@ -44,12 +44,12 @@ namespace Draw.Figures
 
         public override bool IsThisVertex(Point point)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public override void MoveVertex(Point delta)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
