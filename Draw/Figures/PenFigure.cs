@@ -1,4 +1,4 @@
-﻿using Draw.Canvases;
+﻿using Draw.Drawer;
 using Draw.Drawer;
 using System;
 using System.Collections.Generic;
@@ -13,6 +13,7 @@ namespace Draw.Figures
     public class PenFigure : AbstractFigure
     {
         private Point _lastPoint;
+        
 
         public PenFigure()
         {
@@ -54,9 +55,10 @@ namespace Draw.Figures
 
         public override bool IsThisFigure(Point point)
         {
-            Point p1;
+            Point p1 = new Point(0,0);
             Point p2;
             
+            if(Points.Count != 0)
                 p1 = Points[0];
             foreach (Point p in Points)
             {
@@ -71,6 +73,11 @@ namespace Draw.Figures
                 p1 = p2;
             }
             return false;
+        }
+
+        public override void FillFigure()
+        {
+            IsFilled = !IsFilled;
         }
     }
 }

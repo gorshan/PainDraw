@@ -1,4 +1,4 @@
-﻿using Draw.Canvases;
+﻿using Draw.Drawer;
 using Draw.Drawer;
 using System;
 using System.Collections.Generic;
@@ -11,11 +11,28 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-   
-      public class NPointsFigure : AbstractFigure
+
+    public class NPointsFigure : AbstractFigure
     {
         public int N { get; set; }
-        
+        public override int Width
+        {
+            get
+            {
+                if (IsFilled && N != int.MaxValue)
+                {
+                    return 1;
+                }
+                return _width;
+            }
+            set
+            {
+                _width = value;
+            }
+        }
+        private int _width;
+
+
         public NPointsFigure(int n)
         {
             N = n;
@@ -48,7 +65,14 @@ namespace Draw.Figures
                 Points.Add(endPoint);
                 if (Points.Count == N)
                 {
-                    Drawer = new AngleFiguresDrawer();
+                    if (IsFilled)
+                    {
+                        Drawer = new FilledAngleFiguresDrawer();
+                    }
+                    else
+                    {
+                        Drawer = new AngleFiguresDrawer();
+                    }
                 }
             }
         }
@@ -63,7 +87,7 @@ namespace Draw.Figures
 
         public override bool IsThisFigure(Point point)
         {
-            Point p1 = Points[Points.Count-1];
+            Point p1 = Points[Points.Count - 1];
             Point p2;
             foreach (Point p in Points)
             {
@@ -78,6 +102,11 @@ namespace Draw.Figures
                 p1 = p2;
             }
             return false;
+        }
+
+        public override void FillFigure()
+        {
+            IsFilled = !IsFilled;
         }
     }
 }

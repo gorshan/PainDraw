@@ -50,6 +50,8 @@
     <Compile Include="Canvas.cs" />
     <Compile Include="Drawer\AngleFiguresDrawer.cs" />
     <Compile Include="Drawer\EllipseDrawer.cs" />
+    <Compile Include="Drawer\FilledAngleFiguresDrawer.cs" />
+    <Compile Include="Drawer\FilledEllipseDrawer.cs" />
     <Compile Include="Drawer\IDrawer.cs" />
     <Compile Include="Drawer\PenDrawer.cs" />
     <Compile Include="Fabrics\CircleFabric.cs" />
@@ -82,6 +84,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MouseHandlers\DeleteFigureMouseHandler.cs" />
+    <Compile Include="MouseHandlers\IMouseHandler.cs" />
+    <Compile Include="MouseHandlers\MoveFaceMouseHandler.cs" />
+    <Compile Include="MouseHandlers\MoveFigureMouseHandler.cs" />
+    <Compile Include="MouseHandlers\PaintMouseHandler.cs" />
+    <Compile Include="MouseHandlers\PipetteMouseHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -200,6 +208,23 @@
   <ItemGroup>
     <None Include="Resources\Move.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\MoveFace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MoveFace1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move Face.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move Face1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillFigure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
