@@ -12,9 +12,9 @@ namespace Draw.Figures
     {
         public IDrawer Drawer{ get; protected set; }
 
-        public Point [] PointsFace { get; set; }
-        public Point Vertex { get; set; }
-        public List<Point> Points { get; set; }
+        public PointF [] PointsFace { get; set; }
+        public PointF Vertex { get; set; }
+        public List<PointF> Points { get; set; }
 
         public Color Color { get; set; }
 
@@ -22,21 +22,21 @@ namespace Draw.Figures
 
         public bool IsFilled { get; set; } = false;
 
-        public abstract void Update(Point startPoint, Point endPoint);
+        public abstract void Update(PointF startPoint, PointF endPoint);
 
-        public  virtual void Move(Point delta)
+        public  virtual void Move(PointF delta)
         {
             for (int i = 0; i < Points.Count(); i++)
             {
-                Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
+                Points[i] = new PointF(Points[i].X + delta.X, Points[i].Y + delta.Y);
             }
         }
         
-        public virtual bool IsThisFigure(Point point)
+        public virtual bool IsThisFigure(PointF point)
         {
-            Point p1 = Points[Points.Count - 1];
-            Point p2;
-            foreach (Point p in Points)
+            PointF p1 = Points[Points.Count - 1];
+            PointF p2;
+            foreach (PointF p in Points)
             {
                 p2 = p;
                 if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
@@ -44,7 +44,7 @@ namespace Draw.Figures
                     && (((p1.X -Width <= point.X) && (point.X <= p2.X +Width)) || ((p1.X +Width >= point.X) && (point.X >= p2.X-Width)))
                     && (((p1.Y-Width <= point.Y) && (point.Y <= p2.Y+Width)) || ((p1.Y +Width >= point.Y) && (point.Y >= p2.Y-Width))))
                 {
-                    PointsFace = new Point[] { p1, p2 };
+                    PointsFace = new PointF[] { p1, p2 };
                     return true;
                 }
                 p1 = p2;
@@ -52,7 +52,7 @@ namespace Draw.Figures
             return false;
         }
 
-        public virtual void MoveFace(Point delta)
+        public virtual void MoveFace(PointF delta)
         {
             if (PointsFace != null)
             {
@@ -60,21 +60,21 @@ namespace Draw.Figures
                 {
                     if (Points[i] == PointsFace[0])
                     {
-                        PointsFace[0] = new Point(PointsFace[0].X + delta.X, PointsFace[0].Y + delta.Y);
-                        Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
+                        PointsFace[0] = new PointF(PointsFace[0].X + delta.X, PointsFace[0].Y + delta.Y);
+                        Points[i] = new PointF(Points[i].X + delta.X, Points[i].Y + delta.Y);
                     }
                     if (Points[i] == PointsFace[1])
                     {
-                        PointsFace[1] = new Point(PointsFace[1].X + delta.X, PointsFace[1].Y + delta.Y);
-                        Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
+                        PointsFace[1] = new PointF(PointsFace[1].X + delta.X, PointsFace[1].Y + delta.Y);
+                        Points[i] = new PointF(Points[i].X + delta.X, Points[i].Y + delta.Y);
                     }
                 }
             }
         }
 
-        public virtual bool IsThisVertex(Point point)
+        public virtual bool IsThisVertex(PointF point)
         {
-            foreach (Point p in Points)
+            foreach (PointF p in Points)
             {
                 if (Math.Abs(point.X - p.X) < 5 && Math.Abs(point.Y - p.Y) < 5)
                 {
@@ -84,7 +84,7 @@ namespace Draw.Figures
             }
             return false;
         }
-        public virtual void MoveVertex(Point delta)
+        public virtual void MoveVertex(PointF delta)
         {
             if (Vertex != null)
             {
@@ -92,14 +92,14 @@ namespace Draw.Figures
                 {
                     if (Points[i] == Vertex)
                     {
-                        Vertex = new Point(Vertex.X + delta.X, Vertex.Y + delta.Y);
-                        Points[i] = new Point(Points[i].X + delta.X, Points[i].Y + delta.Y);
+                        Vertex = new PointF(Vertex.X + delta.X, Vertex.Y + delta.Y);
+                        Points[i] = new PointF(Points[i].X + delta.X, Points[i].Y + delta.Y);
                     }
                 }
             }
         }
 
-        public Point[] GetPoints()
+        public PointF[] GetPoints()
         {
             return Points.ToArray();
         }
@@ -137,15 +137,15 @@ namespace Draw.Figures
             IsFilled = !fill;
             FillFigure();
         }
-        public Point[] GetPointsInner(int width, int height)
+        public PointF[] GetPointsInner(int width, int height)
         {
-            LinkedList<Point> points = new LinkedList<Point>();
+            LinkedList<PointF> points = new LinkedList<PointF>();
 
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < height; j++)
                 {
-                    Point point = new Point(i, j);
+                    PointF point = new PointF(i, j);
                     if (IsThisVertex(point))
                     {
                         points.AddLast(point);

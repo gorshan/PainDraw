@@ -11,7 +11,7 @@ namespace Draw.Figures
 {
     public class NAngleFigure : AbstractFigure
     {
-        private Point[] _points;
+        private PointF[] _points;
         public int N { get; set; }
 
         public NAngleFigure()
@@ -25,9 +25,9 @@ namespace Draw.Figures
             Drawer = new AngleFiguresDrawer();
         }
 
-        public override void Update(Point startPoint, Point endPoint)
+        public override void Update(PointF startPoint, PointF endPoint)
         {
-            Points = new List<Point>();
+            Points = new List<PointF>();
             double r;
             //r = Math.Sqrt(Math.Pow(((double)endPoint.Y - startPoint.Y), 2.0) + Math.Pow(((double)endPoint.X - startPoint.X), 2.0));
             r = Math.Sqrt(Math.Pow(endPoint.Y - startPoint.Y, 2) + Math.Pow(endPoint.X - startPoint.X, 2));
@@ -38,12 +38,10 @@ namespace Draw.Figures
             double x = startPoint.X + r1;
             double y = startPoint.Y + r2;
             
-            
-            
             for (int i = 0; i < N; i++)
             {
-                Points.Add(new Point(Convert.ToInt32(x + r1 * Math.Cos((2 * Math.PI * i) / N)),
-                                      Convert.ToInt32(y + r2 * Math.Sin((2 * Math.PI * i) / N))));
+                Points.Add(new PointF(Convert.ToInt32(x + r1 * Math.Cos((2 * Math.PI * i) / N)),
+                                     Convert.ToInt32(y + r2 * Math.Sin((2 * Math.PI * i) / N))));
             }
         }
 
