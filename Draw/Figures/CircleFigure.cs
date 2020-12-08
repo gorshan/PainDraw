@@ -1,4 +1,4 @@
-﻿using Draw.Canvases;
+﻿using Draw.Drawer;
 using Draw.Drawer;
 using System;
 using System.Collections.Generic;
@@ -65,6 +65,19 @@ namespace Draw.Figures
             //    p1 = p2;
             //}
             //return false;
+        }
+
+        public override void FillFigure()
+        {
+            IsFilled = !IsFilled;
+            if (IsFilled)
+            {
+                Drawer = new FilledEllipseDrawer();
+            }
+            else
+            {
+                Drawer = new EllipseDrawer();
+            }
         }
 
         public Point[] GetPointsInner( int width, int height)

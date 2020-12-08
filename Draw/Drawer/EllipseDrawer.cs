@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.Canvases
+namespace Draw.Drawer
 {
     public class EllipseDrawer : IDrawer
     {

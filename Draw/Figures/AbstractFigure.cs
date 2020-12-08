@@ -16,7 +16,10 @@ namespace Draw.Figures
         public List<Point> Points { get; set; }
 
         public Color Color { get; set; }
-        public int Width { get; set; }
+
+        public virtual int Width { get; set; }
+
+        public bool IsFilled { get; set; } = false;
 
         public abstract void Update(Point startPoint, Point endPoint);
 
@@ -30,8 +33,36 @@ namespace Draw.Figures
 
         public void Clear()
         {
+            if (Points != null)
             Points.Clear();
         }
 
+        public bool IsEmpty()
+        {
+            if (Points == null  && Points.Count == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public virtual void FillFigure()
+        {
+            IsFilled = !IsFilled;
+            if (IsFilled)
+            {
+                Drawer = new FilledAngleFiguresDrawer();
+            }
+            else
+            {
+                Drawer = new AngleFiguresDrawer();
+            }
+        }
+        
+        public void FillFigure(bool fill)
+        {
+            IsFilled = !fill;
+            FillFigure();
+        }
     }
 }

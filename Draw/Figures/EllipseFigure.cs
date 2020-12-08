@@ -1,4 +1,4 @@
-﻿using Draw.Canvases;
+﻿using Draw.Drawer;
 using Draw.Drawer;
 using System;
 using System.Collections.Generic;
@@ -65,6 +65,19 @@ namespace Draw.Figures
                 }
             }
             return points.ToArray();
+        }
+
+        public override void FillFigure()
+        {
+            IsFilled = !IsFilled;
+            if (IsFilled)
+            {
+                Drawer = new FilledEllipseDrawer();
+            }
+            else
+            {
+                Drawer = new EllipseDrawer();
+            }
         }
     }
 }
