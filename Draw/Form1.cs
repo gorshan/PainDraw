@@ -55,8 +55,6 @@ namespace Draw
 
         }
 
-
-
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
             if (Canvas.Current.Fabric is PolylineByPointsFabric)

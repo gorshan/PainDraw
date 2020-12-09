@@ -171,9 +171,9 @@ namespace Draw.Drawer
             {
                 ((NPointsFigure)Figure).N = NAngleNumericUpDown;
             }
-            if (Figure is NAngleFigure)
+            if (Figure is RightNAngleFigure)
             {
-                ((NAngleFigure)Figure).N = NAngleNumericUpDown;
+                ((RightNAngleFigure)Figure).N = NAngleNumericUpDown;
             }
         }
 

@@ -73,7 +73,7 @@
     <Compile Include="Figures\IsoscelesTriangleFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
     <Compile Include="Figures\NPointsFigure.cs" />
-    <Compile Include="Figures\NAngleFigure.cs" />
+    <Compile Include="Figures\RightNAngleFigure.cs" />
     <Compile Include="Figures\PenFigure.cs" />
     <Compile Include="Figures\RectangleFigure.cs" />
     <Compile Include="Figures\RightTriangleFigure.cs" />
