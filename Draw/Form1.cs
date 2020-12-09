@@ -310,6 +310,11 @@ namespace Draw
         {
             _mouseHandler = new MoveVertexMouseHandler();
         }
+
+        private void Scale_Click(object sender, EventArgs e)
+        {
+            _mouseHandler = new ScaleOfFigureMouseHandler();
+        }
     }
 }
 

@@ -154,5 +154,20 @@ namespace Draw.Figures
             }
             return points.ToArray();
         }
+
+        public void Scale(Point delta)
+        {
+        
+            for (int i = 1; i < Points.Count; i++)
+            {
+                if (Points[0].X >= Points[i].X)
+                { Points[i] = new Point(Points[i].X + delta.X, Points[i].Y); }
+                if (Points[0].Y >= Points[i].Y)
+                { Points[i] = new Point(Points[i].X , Points[i].Y + delta.Y); }
+            }
+
+            
+        }
+
     }
 }

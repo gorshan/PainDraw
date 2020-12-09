@@ -62,6 +62,7 @@ namespace Draw
             this.DeleteFigureButton = new System.Windows.Forms.Button();
             this.ChangeBackgroundColor = new System.Windows.Forms.Button();
             this.MoveVertex = new System.Windows.Forms.Button();
+            this.Scale = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
@@ -425,6 +426,7 @@ namespace Draw
             this.flowLayoutPanel2.Controls.Add(this.DeleteFigureButton);
             this.flowLayoutPanel2.Controls.Add(this.ChangeBackgroundColor);
             this.flowLayoutPanel2.Controls.Add(this.MoveVertex);
+            this.flowLayoutPanel2.Controls.Add(this.Scale);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(682, 6);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -504,6 +506,19 @@ namespace Draw
             this.MoveVertex.TabIndex = 1;
             this.MoveVertex.UseVisualStyleBackColor = false;
             this.MoveVertex.Click += new System.EventHandler(this.MoveVertex_Click);
+            // 
+            // Scale
+            // 
+            this.Scale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.Scale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Scale.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Scale.Image = ((System.Drawing.Image)(resources.GetObject("Scale.Image")));
+            this.Scale.Location = new System.Drawing.Point(267, 3);
+            this.Scale.Name = "Scale";
+            this.Scale.Size = new System.Drawing.Size(38, 38);
+            this.Scale.TabIndex = 26;
+            this.Scale.UseVisualStyleBackColor = false;
+            this.Scale.Click += new System.EventHandler(this.Scale_Click);
             // 
             // logoPictureBox
             // 
@@ -602,6 +617,7 @@ namespace Draw
         private System.Windows.Forms.Button DeleteFigureButton;
         private System.Windows.Forms.Button ChangeBackgroundColor;
         private System.Windows.Forms.Button MoveVertex;
+        private System.Windows.Forms.Button Scale;
     }
 }
 
