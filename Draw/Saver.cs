@@ -10,11 +10,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Draw.Serialazers;
 
 namespace Draw
 {
     public class Saver
     {
+        private static Dictionary<Type, ISerialazer> _serialazers = new Dictionary<Type, ISerialazer>()
+        {
+            {typeof(SquareFigure), new SquareSerialazer() }
+        };
+        private static Dictionary<string, ISerialazer> _deserialazers = new Dictionary<string, ISerialazer>()
+        {
+            {"Square", new SquareSerialazer() }
+        };
+
         public static void SaveImage(Bitmap bitmap)
         {
             var saveFileDialog = new SaveFileDialog();
@@ -38,7 +48,7 @@ namespace Draw
                 JArray jArray = new JArray();
                 for (int i = 0; i < figures.Count; i++)
                 {
-                    jArray.Add(JsonConvert.SerializeObject(figures[i]));
+                    jArray.Add(_serialazers[figures[i].GetType()].Serialaze(figures[i]));
 
                 }
                 //formatter.WriteObject(saveFileDialog.OpenFile(), figures[0]);
@@ -58,7 +68,16 @@ namespace Draw
             {
                 string json = File.ReadAllText(openFileDialog.FileName);
                 JArray jArray = JArray.Parse(json);
-                AbstractFigure square = JsonConvert.DeserializeObject<AbstractFigure>(jArray[0].ToString());
+                if(jArray.Count != 0)
+                {
+                    loadFigures = new List<AbstractFigure>();
+                }
+                for(int i = 0; i < jArray.Count; i++)
+                {
+                    JArray jFigure = JArray.Parse(jArray[i].ToString());
+                    loadFigures.Add( _deserialazers[jFigure[0].ToString()].Deserialaze(jFigure[1].ToString()));
+                }
+                //AbstractFigure square = JsonConvert.DeserializeObject<SquareFigure>(jArray[0].ToString());
                 //loadFigures = JsonSerializer.Deserialize<List<AbstractFigure>>(json);
                 //File.WriteAllText(openFileDialog.FileName, json);
             }
