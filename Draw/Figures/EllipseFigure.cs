@@ -18,13 +18,6 @@ namespace Draw.Figures
 
         public override void Update(PointF startPoint, PointF endPoint)
         {
-            //Points = new List<PointF>
-            //{
-            //    new PointF(startPoint.X, 0),
-            //    new PointF(startPoint.Y, 0),
-            //    new PointF(endPoint.X - startPoint.X, 0),
-            //    new PointF(endPoint.Y - startPoint.Y, 0)
-            //}; old realization
             Points = new List<PointF>();
             int N = 50;
             double r1;

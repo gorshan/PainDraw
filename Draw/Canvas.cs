@@ -34,9 +34,10 @@ namespace Draw.Drawer
             get { return _NNumericUpDown; }
             set
             {
-                _NNumericUpDown = value;
-                RenewFigure();
+                    _NNumericUpDown = value;
+                    RenewFigure();
             }
+
         }
 
         private static Canvas _obj;
