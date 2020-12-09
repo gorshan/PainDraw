@@ -95,6 +95,7 @@ namespace Draw.Drawer
             CreateMainBitmap();
             Figure.Clear();
             Figures.Clear();
+            Color = Color.Transparent;
         }
 
         private void CreateMainBitmap()
