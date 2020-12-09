@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Draw.Drawer
 {
+    
     public class Canvas
     {
         private Bitmap _mainBitmap;
@@ -24,24 +25,24 @@ namespace Draw.Drawer
         public static Canvas Current
         {
             get { return _obj; }
-            private set { }
+            set { _obj = value; }
         }
 
 
-        private int _NNumericUpDown;
-        public int NAngleNumericUpDown
+        private int _NAngle;
+        public int NAngle
         {
-            get { return _NNumericUpDown; }
+            get { return _NAngle; }
             set
             {
-                _NNumericUpDown = value;
+                _NAngle = value;
                 RenewFigure();
             }
         }
 
         private static Canvas _obj;
 
-        public Canvas(int width, int height)
+        private Canvas(int width, int height)
         {
             _mainBitmap = new Bitmap(width + 500, height+ 500);
             _graphics = Graphics.FromImage(_mainBitmap);
@@ -159,11 +160,11 @@ namespace Draw.Drawer
 
             if (Fabric is NAngleByPointsFabric)
             {
-                ((NPointsFigure)Figure).N = NAngleNumericUpDown;
+                ((NPointsFigure)Figure).N = NAngle;
             }
             if (Figure is RightNAngleFigure)
             {
-                ((RightNAngleFigure)Figure).N = NAngleNumericUpDown;
+                ((RightNAngleFigure)Figure).N = NAngle;
             }
         }
 
