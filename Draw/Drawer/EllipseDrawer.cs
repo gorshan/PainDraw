@@ -10,7 +10,7 @@ namespace Draw.Drawer
 {
     public class EllipseDrawer : IDrawer
     {
-        public void DrawFigure(Graphics graphics, Pen pen, Point[] figurePoints)
+        public void DrawFigure(Graphics graphics, Pen pen, PointF[] figurePoints)
         {
             graphics.DrawEllipse(pen, figurePoints[0].X, figurePoints[1].X, figurePoints[2].X, figurePoints[3].X);
         }

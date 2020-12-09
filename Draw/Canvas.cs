@@ -19,7 +19,7 @@ namespace Draw.Drawer
         public IFabric Fabric { get; set; }
         public AbstractFigure Figure { get; set; }
         public List<AbstractFigure> Figures { get; set; }
-        public Point LastPoint { get; set; }
+        public PointF LastPoint { get; set; }
 
         public static Canvas Current
         {
@@ -52,7 +52,7 @@ namespace Draw.Drawer
             Pen = new Pen(Color.Black, 1);
             _previousBitmaps = new LinkedList<Bitmap>();
             _previousBitmaps.AddLast(_mainBitmap);
-            LastPoint = new Point(0, 0);
+            LastPoint = new PointF(0, 0);
 
             Fabric = new PenFabric();
             Figures = new List<AbstractFigure>();
@@ -107,7 +107,7 @@ namespace Draw.Drawer
         {
             Bitmap tmp = _mainBitmap;
             _mainBitmap = new Bitmap(width + 500, height+500);
-            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
+            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new PointF(0, 0));
             _tmpBitmap = _mainBitmap;
             GC.Collect();
         }

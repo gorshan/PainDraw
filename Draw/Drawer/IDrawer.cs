@@ -10,6 +10,6 @@ namespace Draw.Drawer
 {
     public interface IDrawer
     {
-        void DrawFigure(Graphics graphics, Pen pen, Point[] figurePoints);
+        void DrawFigure(Graphics graphics, Pen pen, PointF[] figurePoints);
     }
 }

@@ -16,48 +16,54 @@ namespace Draw.Figures
             Drawer = new EllipseDrawer();
         }
 
-        public override void Update(Point startPoint, Point endPoint)
+        public override void Update(PointF startPoint, PointF endPoint)
         {
-            Points = new List<Point>
+            Points = new List<PointF>
             {
-                new Point(startPoint.X),
-                new Point(startPoint.Y),
-                new Point(endPoint.X - startPoint.X),
-                new Point(endPoint.Y - startPoint.Y)
+                new PointF(startPoint.X, 0),
+                new PointF(startPoint.Y, 0),
+                new PointF(endPoint.X - startPoint.X, 0),
+                new PointF(endPoint.Y - startPoint.Y, 0)
             };
         }
 
-        public override void Move(Point delta)
+        public override void Move(PointF delta)
         {
-            Points[0] = new Point(Points[0].X + delta.X, Points[0].Y);
-            Points[1] = new Point(Points[1].X + delta.Y, Points[1].Y);
+            Points[0] = new PointF(Points[0].X + delta.X, Points[0].Y);
+            Points[1] = new PointF(Points[1].X + delta.Y, Points[1].Y);
 
-            //center = new Point(center.X + delta.X, center.Y + delta.Y);
+            //center = new PointF(center.X + delta.X, center.Y + delta.Y);
         }
 
-        public override bool IsThisFigure(Point point)
+        public override bool IsThisFigure(PointF point)
         {
-            int x0 = Points[0].X + (Points[2].X / 2);
-            int y0 = Points[1].X + (Points[3].X / 2);
+            double x0 = Points[0].X + (Points[2].X / 2);
+            double y0 = Points[1].X + (Points[3].X / 2);
             double rx = Points[2].X / 2;
             double ry = Points[3].X / 2;
-            double res = (((point.X - x0)* (point.X - x0)) / (rx * rx)) + (((point.Y - y0)* (point.Y - y0) )/ (ry * ry)) - 1;
-            if (res <= 0.1*Width && res >= -0.1*Width)
+            double res = Math.Pow(point.X - x0, 2) / Math.Pow(rx, 2) + Math.Pow(point.Y - y0, 2)/ Math.Pow(ry, 2) - 1;
+            double resCircleIn = Math.Pow(point.X - x0, 2) + Math.Pow(point.Y - y0, 2) - Math.Pow((rx - ry)/2 + Width, 2);
+            double resCircleOut = Math.Pow(point.X - x0, 2) + Math.Pow(point.Y - y0, 2) - Math.Pow((rx - ry) / 2 + 2*Width, 2);
+            double resInner = Math.Pow(point.X - x0, 2) / Math.Pow(rx - Width, 2) + Math.Pow(point.Y - y0, 2) / Math.Pow(ry + Width, 2) - 1;
+            double resOuter = Math.Pow(point.X - x0, 2) / Math.Pow(rx + Width, 2) + Math.Pow(point.Y - y0, 2) / Math.Pow(ry + 2*Width, 2) - 1;
+            
+            if (resCircleIn <= resInner && resCircleOut <= resOuter)
+                //(res <= 0.1*Width && res >= -0.1*Width)
             {
                 return true;
             }
             return false;
         }
 
-        public Point[] GetPointsInner(int width, int height)
+        public PointF[] GetPointsInner(int width, int height)
         {
-            LinkedList<Point> points = new LinkedList<Point>();
+            LinkedList<PointF> points = new LinkedList<PointF>();
 
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < height; j++)
                 {
-                    Point point = new Point(i, j);
+                    PointF point = new PointF(i, j);
                     if (IsThisFigure(point))
                     {
                         points.AddLast(point);
@@ -80,17 +86,17 @@ namespace Draw.Figures
             }
         }
 
-        public override void MoveFace(Point delta)
+        public override void MoveFace(PointF delta)
         {
             
         }
 
-        public override bool IsThisVertex(Point point)
+        public override bool IsThisVertex(PointF point)
         {
             return false;
         }
 
-        public override void MoveVertex(Point delta)
+        public override void MoveVertex(PointF delta)
         {
             
         }

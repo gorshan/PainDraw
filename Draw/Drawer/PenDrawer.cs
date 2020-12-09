@@ -6,7 +6,7 @@ namespace Draw.Drawer
 {
     internal class PenDrawer : IDrawer
     {
-        public void DrawFigure(Graphics graphics, Pen pen, Point[] figurePoints)
+        public void DrawFigure(Graphics graphics, Pen pen, PointF[] figurePoints)
         {
             pen.StartCap = LineCap.Round;
             pen.EndCap = LineCap.Round;

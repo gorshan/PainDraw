@@ -9,7 +9,7 @@ namespace Draw.Drawer
 {
     public class FilledAngleFiguresDrawer : IDrawer
     {
-        public void DrawFigure(Graphics graphics, Pen pen, Point[] figurePoints)
+        public void DrawFigure(Graphics graphics, Pen pen, PointF[] figurePoints)
         {
             graphics.FillPolygon(new SolidBrush(pen.Color), figurePoints);
         }

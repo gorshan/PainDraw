@@ -9,8 +9,8 @@ namespace Draw.MouseHandlers
 {
     public interface IMouseHandler
     {
-        Bitmap OnMouseDown(Point location);
-        Bitmap OnMouseMove(Point location);
-        Bitmap OnMouseUp(Point location);
+        Bitmap OnMouseDown(PointF location);
+        Bitmap OnMouseMove(PointF location);
+        Bitmap OnMouseUp(PointF location);
     }
 }
