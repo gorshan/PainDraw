@@ -41,10 +41,6 @@ namespace Draw.Drawer
 
         private static Canvas _obj;
 
-        public static void Create(int width, int height)
-        {
-            _obj = new Canvas(width, height);
-        }
         public Canvas(int width, int height)
         {
             _mainBitmap = new Bitmap(width + 500, height+ 500);
@@ -58,6 +54,10 @@ namespace Draw.Drawer
             Figures = new List<AbstractFigure>();
             RenewFigure();
          
+        }
+        public static void Create(int width, int height)
+        {
+            _obj = new Canvas(width, height);
         }
 
 
@@ -129,17 +129,7 @@ namespace Draw.Drawer
             return _mainBitmap;
         }
 
-        public void SaveBitmap()
-        {
-            var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg;*.jpe;*.jfif|BMP|*.bmp|GIF|*.gif";
-            saveFileDialog.FileName = "figure";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                _mainBitmap.Save(saveFileDialog.FileName);
-            }
-        }
+        
 
         public Bitmap ChangeBackgroundColor(Color color)
         {
