@@ -41,9 +41,9 @@ namespace Draw.Figures
             {
                 p2 = p;
                 if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
-                    <= Width*0.75 * Math.Sqrt(Math.Pow(p2.X - p1.X, 2) + Math.Pow(p2.Y - p1.Y, 2))
-                    && (((p1.X -Width <= point.X) && (point.X <= p2.X +Width)) || ((p1.X +Width >= point.X) && (point.X >= p2.X-Width)))
-                    && (((p1.Y-Width <= point.Y) && (point.Y <= p2.Y+Width)) || ((p1.Y +Width >= point.Y) && (point.Y >= p2.Y-Width))))
+                    <= Width*0.8 * Math.Sqrt(Math.Pow(p2.X - p1.X, 2) + Math.Pow(p2.Y - p1.Y, 2))
+                    && (((p1.X - Width <= point.X) && (point.X <= p2.X + Width)) || ((p1.X + Width >= point.X) && (point.X >= p2.X - Width)))
+                    && (((p1.Y - Width <= point.Y) && (point.Y <= p2.Y + Width)) || ((p1.Y + Width >= point.Y) && (point.Y >= p2.Y - Width))))
                 {
                     PointsFace = new PointF[] { p1, p2 };
                     return true;

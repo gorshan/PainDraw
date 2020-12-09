@@ -116,9 +116,11 @@ namespace Draw.Drawer
         {
             if (_previousBitmaps.Count == 0)
             {
+                _tmpBitmap = _mainBitmap;
                 return _mainBitmap;
             }
             _mainBitmap = _previousBitmaps.Last.Value;
+            _tmpBitmap = _mainBitmap;
             _previousBitmaps.RemoveLast();
 
             if (Figures.Count != 0)
