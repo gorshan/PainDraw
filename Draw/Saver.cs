@@ -18,11 +18,29 @@ namespace Draw
     {
         private static Dictionary<Type, ISerialazer> _serialazers = new Dictionary<Type, ISerialazer>()
         {
-            {typeof(SquareFigure), new SquareSerialazer() }
+            {typeof(SquareFigure), new SquareSerialazer() },
+            {typeof(CircleFigure) , new CircleSerialazer()},
+            { typeof(EllipseFigure), new EllipseSerialazer()},
+            { typeof(IsoscelesTriangleFigure), new IsoscelesTriangleSerialazer()},
+            { typeof(LineFigure), new LineSerialazer()},
+            { typeof(NPointsFigure), new NPointsFigureSerialazer()},
+            { typeof(PenFigure), new PenSerialazer()},
+            { typeof(RectangleFigure), new RectangleSerialazer()},
+            { typeof(RightNAngleFigure), new RightNAngleSerialazer()},
+            { typeof(RightTriangleFigure), new RightTriangleSerialazer()}
         };
         private static Dictionary<string, ISerialazer> _deserialazers = new Dictionary<string, ISerialazer>()
         {
-            {"Square", new SquareSerialazer() }
+            {"Square", new SquareSerialazer() },
+            { "Circle", new CircleSerialazer()},
+            { "Ellipse", new EllipseSerialazer()},
+            { "IsoscelesTriangle", new IsoscelesTriangleSerialazer()},
+            { "Line", new LineSerialazer()},
+            { "NPointsFigure", new NPointsFigureSerialazer()},
+            { "Pen", new PenSerialazer()},
+            { "Rectangle", new RectangleSerialazer()},
+            { "RightNAngle", new RightNAngleSerialazer()},
+            { "RightTriangle", new RightTriangleSerialazer()}
         };
 
         public static void SaveImage(Bitmap bitmap)

@@ -126,7 +126,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Saver.cs" />
+    <Compile Include="Serialazers\CircleSerialazer.cs" />
+    <Compile Include="Serialazers\EllipseSerialazer.cs" />
     <Compile Include="Serialazers\ISerialazer.cs" />
+    <Compile Include="Serialazers\IsoscelesTriangleSerialazer.cs" />
+    <Compile Include="Serialazers\LineSerialazer.cs" />
+    <Compile Include="Serialazers\NPointsFigureSerialazer.cs" />
+    <Compile Include="Serialazers\PenSerialazer.cs" />
+    <Compile Include="Serialazers\RectangleSerialazer.cs" />
+    <Compile Include="Serialazers\RightNAngleSerialazer.cs" />
+    <Compile Include="Serialazers\RightTriangleSerialazer.cs" />
     <Compile Include="Serialazers\SquareSerialazer.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
