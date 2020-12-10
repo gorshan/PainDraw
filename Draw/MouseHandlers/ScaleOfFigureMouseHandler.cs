@@ -36,9 +36,13 @@ namespace Draw.MouseHandlers
         {
             if (_mouseDown && Canvas.Current.Figure != null)
             {
-                Point d = new Point(location.X - Canvas.Current.LastPoint.X, location.Y - Canvas.Current.LastPoint.Y);
+                double m = 1.05;
+                if (location.X - Canvas.Current.LastPoint.X < 0)
+                {           
+                    m = 0.95;
+                }
                 Canvas.Current.LastPoint = location;
-                Canvas.Current.Figure.Scale(d);
+                Canvas.Current.Figure.Scale(m);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
             }
             return Canvas.Current.GetTmpImage();

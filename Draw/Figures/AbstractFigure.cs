@@ -155,18 +155,26 @@ namespace Draw.Figures
             return points.ToArray();
         }
 
-        public void Scale(Point delta)
+        public Point FindCentre()
         {
-        
-            for (int i = 1; i < Points.Count; i++)
+            Point centre = new Point(
+               x: Points.Sum(x => x.X) / Points.Count,
+               y: Points.Sum(x => x.Y) / Points.Count);
+            return centre;
+        }
+
+        public void Scale(double m)
+        {
+            Point centre = FindCentre();
+
+            for (int i = 0; i < Points.Count; i++)
             {
-                if (Points[0].X >= Points[i].X)
-                { Points[i] = new Point(Points[i].X + delta.X, Points[i].Y); }
-                if (Points[0].Y >= Points[i].Y)
-                { Points[i] = new Point(Points[i].X , Points[i].Y + delta.Y); }
+                Points[i] = new Point(
+                    x: (int)(centre.X + (Points[i].X - centre.X)*m),
+                    y: (int)(centre.Y + (Points[i].Y - centre.Y)*m));
             }
 
-            
+
         }
 
     }
