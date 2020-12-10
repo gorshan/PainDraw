@@ -28,7 +28,7 @@ namespace Draw
         private void Form1_Load(object sender, EventArgs e)
         {
             Canvas.Create(pictureBox1.Width, pictureBox1.Height);
-            Canvas.Current.NAngleNumericUpDown = Convert.ToInt32(NAngleNumericUpDown.Value);
+            Canvas.Current.NAngle = Convert.ToInt32(NAngleNumericUpDown.Value);
             pictureBox1.Image = Canvas.Current.GetImage();
             _mouseHandler = new PaintMouseHandler();
 
@@ -54,8 +54,6 @@ namespace Draw
 
 
         }
-
-
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
@@ -226,7 +224,7 @@ namespace Draw
 
         private void NAngleNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            Canvas.Current.NAngleNumericUpDown = Convert.ToInt32(NAngleNumericUpDown.Value);
+            Canvas.Current.NAngle = Convert.ToInt32(NAngleNumericUpDown.Value);
         }
         private void FillFigureButton_Click(object sender, EventArgs e)
         {
@@ -250,9 +248,9 @@ namespace Draw
             pictureBox1.Image = Canvas.Current.CancelLastAction();
 
         }
-        private void saveButton_Click(object sender, EventArgs e)
+        private void saveImageButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.SaveBitmap();
+            Saver.SaveImage((Bitmap)pictureBox1.Image);
         }
 
         private void colorButton_Click(object sender, EventArgs e)
@@ -309,6 +307,22 @@ namespace Draw
         private void MoveVertex_Click(object sender, EventArgs e)
         {
             _mouseHandler = new MoveVertexMouseHandler();
+        }
+
+        private void SaveProjectButton_Click(object sender, EventArgs e)
+        {
+            Saver.SaveProject(Canvas.Current.Figures);
+        }
+
+        private void LoadProjectButton_Click(object sender, EventArgs e)
+        {
+            List<AbstractFigure> figures = Saver.LoadProject();
+            if(figures != null)
+            {
+                Canvas.Current.Figures = figures;
+                Canvas.Current.DrawAll();
+                pictureBox1.Image = Canvas.Current.GetImage();
+            }
         }
     }
 }

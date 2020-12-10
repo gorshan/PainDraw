@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Draw.Drawer
 {
+    
     public class Canvas
     {
         private Bitmap _mainBitmap;
@@ -24,28 +25,24 @@ namespace Draw.Drawer
         public static Canvas Current
         {
             get { return _obj; }
-            private set { }
+            set { _obj = value; }
         }
 
 
-        private int _NNumericUpDown;
-        public int NAngleNumericUpDown
+        private int _NAngle;
+        public int NAngle
         {
-            get { return _NNumericUpDown; }
+            get { return _NAngle; }
             set
             {
-                _NNumericUpDown = value;
+                _NAngle = value;
                 RenewFigure();
             }
         }
 
         private static Canvas _obj;
 
-        public static void Create(int width, int height)
-        {
-            _obj = new Canvas(width, height);
-        }
-        public Canvas(int width, int height)
+        private Canvas(int width, int height)
         {
             _mainBitmap = new Bitmap(width + 500, height+ 500);
             _graphics = Graphics.FromImage(_mainBitmap);
@@ -58,6 +55,10 @@ namespace Draw.Drawer
             Figures = new List<AbstractFigure>();
             RenewFigure();
          
+        }
+        public static void Create(int width, int height)
+        {
+            _obj = new Canvas(width, height);
         }
 
 
@@ -94,6 +95,7 @@ namespace Draw.Drawer
             CreateMainBitmap();
             Figure.Clear();
             Figures.Clear();
+            Color = Color.Transparent;
         }
 
         private void CreateMainBitmap()
@@ -129,17 +131,7 @@ namespace Draw.Drawer
             return _mainBitmap;
         }
 
-        public void SaveBitmap()
-        {
-            var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg;*.jpe;*.jfif|BMP|*.bmp|GIF|*.gif";
-            saveFileDialog.FileName = "figure";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                _mainBitmap.Save(saveFileDialog.FileName);
-            }
-        }
+        
 
         public Bitmap ChangeBackgroundColor(Color color)
         {
@@ -169,11 +161,11 @@ namespace Draw.Drawer
 
             if (Fabric is NAngleByPointsFabric)
             {
-                ((NPointsFigure)Figure).N = NAngleNumericUpDown;
+                ((NPointsFigure)Figure).N = NAngle;
             }
-            if (Figure is NAngleFigure)
+            if (Figure is RightNAngleFigure)
             {
-                ((NAngleFigure)Figure).N = NAngleNumericUpDown;
+                ((RightNAngleFigure)Figure).N = NAngle;
             }
         }
 

@@ -14,7 +14,6 @@ namespace Draw.Figures
 
     public class NPointsFigure : AbstractFigure
     {
-        private PointF[] _points;
         public int N { get; set; }
         public override int Width
         {
