@@ -54,7 +54,7 @@ namespace Draw.Figures
                 else
                     k = -1;
 
-                double phi = k* Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * Math.PI / 180;
+                double phi = k * Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * Math.PI / 180;
                 Canvas.Current.LastPoint = endPoint;
                 Canvas.Current.Figure.Rotate(phi);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
