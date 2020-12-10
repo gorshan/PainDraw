@@ -174,7 +174,7 @@ namespace Draw.Drawer
             {
                 ((NPointsFigure)Figure).N = NAngleNumericUpDown;
             }
-            if (Figure is NAngleFigure)
+            if (Fabric is NAngleFabric)
             {
                 ((NAngleFigure)Figure).N = NAngleNumericUpDown;
             }

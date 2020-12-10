@@ -12,7 +12,12 @@ namespace Draw.Figures
     public class NAngleFigure : AbstractFigure
     {
         private PointF[] _points;
-        public int N { get; set; }
+        private int _n;
+        public int N { 
+            get { return _n; }
+            set { _n = value; } 
+        }
+
 
         public NAngleFigure()
         {
