@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    public class NAngleFigure : AbstractFigure
+    public class RightNAngleFigure : AbstractFigure
     {
         private PointF[] _points;
         private int _n;
@@ -19,12 +19,12 @@ namespace Draw.Figures
         }
 
 
-        public NAngleFigure()
+        public RightNAngleFigure()
         {
             Drawer = new AngleFiguresDrawer();
         }
 
-        public NAngleFigure(int n)
+        public RightNAngleFigure(int n)
         {
             N = n;
             Drawer = new AngleFiguresDrawer();
