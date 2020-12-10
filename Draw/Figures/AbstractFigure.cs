@@ -31,15 +31,30 @@ namespace Draw.Figures
                 Points[i] = new PointF(Points[i].X + delta.X, Points[i].Y + delta.Y);
             }
         }
+
+        public PointF FindCentre()
+        {
+            PointF centre = new PointF(
+               x: Points.Sum(x => x.X) / Points.Count,
+               y: Points.Sum(x => x.Y) / Points.Count);
+            return centre;
+        }
         public void RotateFigure(PointF endPoint)
         {
-            double a = Math.Sqrt(Canvas.Current.LastPoint.X * Canvas.Current.LastPoint.X + Canvas.Current.LastPoint.Y * Canvas.Current.LastPoint.Y);
-            double b = Math.Sqrt(endPoint.X * endPoint.X + endPoint.Y * endPoint.Y);
+            int k;
+            PointF centre = FindCenter();
+            double a = Math.Sqrt(Math.Pow(Canvas.Current.LastPoint.X - centre.X, 2) + Math.Pow(Canvas.Current.LastPoint.Y - centre.Y, 2));
+            double b = Math.Sqrt(Math.Pow(endPoint.X - centre.X, 2) + Math.Pow(endPoint.Y - centre.Y, 2));
             double c = Math.Sqrt(Math.Pow(endPoint.X - Canvas.Current.LastPoint.X, 2) + Math.Pow(endPoint.Y - Canvas.Current.LastPoint.Y, 2));
             if (Canvas.Current.Figure != null)
             {
                 //double phi = Math.Acos((Canvas.Current.LastPoint.X * endPoint.X + Canvas.Current.LastPoint.Y * endPoint.Y) / a / b);
-                double phi = Math.Acos((a * a + b * b - c * c) / (2 * a * b));
+                if (Canvas.Current.LastPoint.X - centre.X > 0)
+                    k = 1;
+                else
+                    k = -1;
+
+                double phi = k* Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * Math.PI / 180;
                 Canvas.Current.LastPoint = endPoint;
                 Canvas.Current.Figure.Rotate(phi);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
