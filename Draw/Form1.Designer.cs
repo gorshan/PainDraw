@@ -63,9 +63,9 @@ namespace Draw
             this.ChangeBackgroundColor = new System.Windows.Forms.Button();
             this.MoveVertex = new System.Windows.Forms.Button();
             this.Scale = new System.Windows.Forms.Button();
+            this.FillFigure = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.FillFigure = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -428,6 +428,7 @@ namespace Draw
             this.flowLayoutPanel2.Controls.Add(this.ChangeBackgroundColor);
             this.flowLayoutPanel2.Controls.Add(this.MoveVertex);
             this.flowLayoutPanel2.Controls.Add(this.Scale);
+            this.flowLayoutPanel2.Controls.Add(this.FillFigure);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(682, 6);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -462,7 +463,7 @@ namespace Draw
             // 
             this.FillFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.FillFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FillFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("FillFigureButton.Image")));
+            this.FillFigureButton.Image = new Bitmap(((System.Drawing.Image)(resources.GetObject("FillFigureButton.Image"))), 15, 15);
             this.FillFigureButton.Location = new System.Drawing.Point(91, 3);
             this.FillFigureButton.Name = "FillFigureButton";
             this.FillFigureButton.Size = new System.Drawing.Size(38, 38);
@@ -521,6 +522,19 @@ namespace Draw
             this.Scale.UseVisualStyleBackColor = false;
             this.Scale.Click += new System.EventHandler(this.Scale_Click);
             // 
+            // FillFigure
+            // 
+            this.FillFigure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.FillFigure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FillFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FillFigure.Image = ((System.Drawing.Image)(resources.GetObject("FillFigure.Image")));
+            this.FillFigure.Location = new System.Drawing.Point(311, 3);
+            this.FillFigure.Name = "FillFigure";
+            this.FillFigure.Size = new System.Drawing.Size(38, 38);
+            this.FillFigure.TabIndex = 27;
+            this.FillFigure.UseVisualStyleBackColor = false;
+            this.FillFigure.Click += new System.EventHandler(this.FillFigure_Click);
+            // 
             // logoPictureBox
             // 
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
@@ -547,26 +561,12 @@ namespace Draw
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // FillFigure
-            // 
-            this.FillFigure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.FillFigure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FillFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FillFigure.Image = ((System.Drawing.Image)(resources.GetObject("FillFigure.Image")));
-            this.FillFigure.Location = new System.Drawing.Point(1113, 16);
-            this.FillFigure.Name = "FillFigure";
-            this.FillFigure.Size = new System.Drawing.Size(38, 38);
-            this.FillFigure.TabIndex = 27;
-            this.FillFigure.UseVisualStyleBackColor = false;
-            this.FillFigure.Click += new System.EventHandler(this.FillFigure_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.FillFigure);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.SizeLabel);

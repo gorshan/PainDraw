@@ -12,6 +12,7 @@ namespace Draw.Drawer
         public void DrawFigure(Graphics graphics, Pen pen, PointF[] figurePoints)
         {
             graphics.FillPolygon(new SolidBrush(pen.Color), figurePoints);
+            graphics.DrawPolygon(new Pen(Color.Black, pen.Width), figurePoints);
         }
     }
 }
