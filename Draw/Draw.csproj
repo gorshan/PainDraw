@@ -85,6 +85,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="MouseHandlers\DeleteFigureMouseHandler.cs" />
+    <Compile Include="MouseHandlers\FillFigureMouseHandler.cs" />
     <Compile Include="MouseHandlers\IMouseHandler.cs" />
     <Compile Include="MouseHandlers\MoveFaceMouseHandler.cs" />
     <Compile Include="MouseHandlers\MoveFigureMouseHandler.cs" />

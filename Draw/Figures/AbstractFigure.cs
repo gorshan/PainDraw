@@ -18,7 +18,7 @@ namespace Draw.Figures
         public List<PointF> Points { get; set; }
 
         public Color Color { get; set; }
-
+        public Color ColorInside { get; set; }
         public virtual int Width { get; set; }
 
         public bool IsFilled { get; set; } = false;
@@ -102,7 +102,7 @@ namespace Draw.Figures
 
         public PointF[] GetPoints()
         {
-            return Points.ToArray();
+            return Points?.ToArray() ?? Array.Empty<PointF>();
         }
 
         public void Clear()
@@ -178,6 +178,54 @@ namespace Draw.Figures
 
 
         }
+
+
+       public bool IsPointInsidePolygon(PointF[] points, float x, float y)
+        {
+            float  S, S1, S2, S3;
+            int i1, i2, N;
+            bool flag = false;
+            N = points.Length;
+            for (int n = 0; n < N; n++)
+            {
+                flag = false;
+                i1 = n < N - 1 ? n + 1 : 0;
+                while (!flag)
+                {
+                    i2 = i1 + 1;
+                    if (i2 >= N)
+                        i2 = 0;
+                    if (i2 == (n < N - 1 ? n + 1 : 0))
+                        break;
+
+                    S = Math.Abs(points[i1].X * (points[i2].Y - points[n].Y) +
+                             points[i2].X * (points[n].Y - points[i1].Y) +
+                             points[n].X * (points[i1].Y - points[i2].Y));
+                    S1 = Math.Abs(points[i1].X * (points[i2].Y - y) +
+                              points[i2].X * (y - points[i1].Y) +
+                              x * (points[i1].Y - points[i2].Y));
+                    S2 = Math.Abs(points[n].X * (points[i2].Y - y) +
+                              points[i2].X * (y - points[n].Y) +
+                              x * (points[n].Y - points[i2].Y));
+                    S3 = Math.Abs(points[i1].X * (points[n].Y - y) +
+                              points[n].X * (y - points[i1].Y) +
+                              x * (points[i1].Y - points[n].Y));
+                    if (S == S1 + S2 + S3)
+                    {
+                        flag = true;
+                        break;
+                    }
+                    i1 = i1 + 1;
+                    if (i1 >= N)
+                        i1 = 0;
+                }
+                if (!flag)
+                    break;
+            }
+            return flag;
+        }
+
+
 
     }
 }

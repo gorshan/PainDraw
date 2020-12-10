@@ -315,6 +315,11 @@ namespace Draw
         {
             _mouseHandler = new ScaleOfFigureMouseHandler();
         }
+
+        private void FillFigure_Click(object sender, EventArgs e)
+        {
+            _mouseHandler = new FillFigureMouseHandler();
+        }
     }
 }
 
