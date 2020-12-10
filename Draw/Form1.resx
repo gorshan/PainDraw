@@ -319,14 +319,14 @@
   </data>
   <data name="ChangeBackgroundColor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFuSURBVDhPvdQ/KEVRAMfxo0T+L7JQiFUpWaQoizIgq8nG
-        hoFFJhajQSabwWCz+FfP/xWlZCNkQCIR4ft73XO793LfO4+XX316nXPv/b3uPadj/jtFWMA6RlCIP6UY
-        CXzi0fs9QyN+lRJsQUUyhEE84QEtyCgq3IbKJnGFS5SjGXe4RS2cUopdqHBME6QXH9iBitvxjlWkTRn2
-        ECy0mYDmn7GCG2/cgFxMB0yhFcnCffxUaDOMN+geqwfKEU48+lT3MGtIVWjThFPY0g5E0w9dMy/Qa6VL
-        N15hS5cQjV+6Ae3FSg1iYgsvoIXSg/ocWtxg/NI2aIU3kaeJSGzhOepxCD14jXwE45cqWjkNllGgCS/R
-        QqUCA6hJjsIJleZgHpo4Rif6YAvr4JJQqaJibR3tR12QTAqVb6U2VRjHDKqhPxOXxJYGo+NuDtFVjotT
-        qRZKN2W1tAu6SYs460AHjfZvyuj1F3HgSGfIKLIdY74Ax2F5bkwEw0oAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
+        JQAAFiUBSVIk8AAAAW5JREFUOE+91D8oRVEAx/GjRP4vslCIVSlZpCiLMiCrycaGgUUmFqNBJpvBYLP4
+        V8//FaVkI2RAIhHh+3vdc7v3ct87j5dffXqdc+/9ve49p2P+O0VYwDpGUIg/pRgJfOLR+z1DI36VEmxB
+        RTKEQTzhAS3IKCrchsomcYVLlKMZd7hFLZxSil2ocEwTpBcf2IGK2/GOVaRNGfYQLLSZgOafsYIbb9yA
+        XEwHTKEVycJ9/FRoM4w36B6rB8oRTjz6VPcwa0hVaNOEU9jSDkTTD10zL9BrpUs3XmFLlxCNX7oB7cVK
+        DWJiCy+ghdKD+hxa3GD80jZohTeRp4lIbOE56nEIPXiNfATjlypaOQ2WUaAJL9FCpQIDqEmOwgmV5mAe
+        mjhGJ/pgC+vgklCpomJtHe1HXZBMCpVvpTZVGMcMqqE/E5fElgaj424O0VWOi1OpFko3ZbW0C7pJizjr
+        QAeN9m/K6PUXceBIZ8gosh1jvgDHYXluTATDSgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="MoveVertex.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

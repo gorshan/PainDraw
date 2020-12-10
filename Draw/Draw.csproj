@@ -91,6 +91,7 @@
     <Compile Include="MouseHandlers\MoveVertexMouseHandler.cs" />
     <Compile Include="MouseHandlers\PaintMouseHandler.cs" />
     <Compile Include="MouseHandlers\PipetteMouseHandler.cs" />
+    <Compile Include="MouseHandlers\RotateFigureMouseHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

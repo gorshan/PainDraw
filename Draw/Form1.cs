@@ -310,6 +310,11 @@ namespace Draw
         {
             _mouseHandler = new MoveVertexMouseHandler();
         }
+
+        private void rotateButton_Click(object sender, EventArgs e)
+        {
+            _mouseHandler = new RotateFigureMouseHandler();
+        }
     }
 }
 

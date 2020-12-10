@@ -66,7 +66,7 @@ namespace Draw.Figures
             return center;
         }
 
-        public void Rotate(double phi)
+        public void Rotate(float phi)
         {
             PointF center = FindCenter();
             for (int i = 0; i < Points.Count(); i++)
