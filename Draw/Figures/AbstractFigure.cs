@@ -31,7 +31,35 @@ namespace Draw.Figures
                 Points[i] = new PointF(Points[i].X + delta.X, Points[i].Y + delta.Y);
             }
         }
-        
+        public void RotateFigure(PointF endPoint)
+        {
+            double a = Math.Sqrt(Canvas.Current.LastPoint.X * Canvas.Current.LastPoint.X + Canvas.Current.LastPoint.Y * Canvas.Current.LastPoint.Y);
+            double b = Math.Sqrt(endPoint.X * endPoint.X + endPoint.Y * endPoint.Y);
+            double c = Math.Sqrt(Math.Pow(endPoint.X - Canvas.Current.LastPoint.X, 2) + Math.Pow(endPoint.Y - Canvas.Current.LastPoint.Y, 2));
+            if (Canvas.Current.Figure != null)
+            {
+                //double phi = Math.Acos((Canvas.Current.LastPoint.X * endPoint.X + Canvas.Current.LastPoint.Y * endPoint.Y) / a / b);
+                double phi = Math.Acos((a * a + b * b - c * c) / (2 * a * b));
+                Canvas.Current.LastPoint = endPoint;
+                Canvas.Current.Figure.Rotate(phi);
+                Canvas.Current.DrawFigure(Canvas.Current.Figure);
+            }
+        }
+
+        public void Rotate(double phi)
+        {
+            PointF center = FindCenter();
+            for (int i = 0; i < Points.Count(); i++)
+            {
+                PointF points = Points[i];
+                PointF delta = new PointF(points.X - center.X, points.Y - center.Y);
+                Points[i] = new PointF(
+                    (float)(center.X + delta.X * Math.Cos(phi) - delta.Y * Math.Sin(phi)),
+                    (float)(center.Y + delta.X * Math.Sin(phi) + delta.Y * Math.Cos(phi))
+                    );
+            }
+        }
+
         public virtual bool IsThisFigure(PointF point)
 
         {
@@ -66,19 +94,7 @@ namespace Draw.Figures
             return center;
         }
 
-        public void Rotate(float phi)
-        {
-            PointF center = FindCenter();
-            for (int i = 0; i < Points.Count(); i++)
-            {
-                PointF points = Points[i];
-                PointF delta = new PointF(points.X - center.X, points.Y - center.Y);
-                Points[i] = new PointF(
-                    (int)(center.X + delta.X * Math.Cos(phi) - delta.Y * Math.Sin(phi)),
-                    (int)(center.Y + delta.X * Math.Sin(phi) + delta.Y * Math.Cos(phi))
-                    );
-            }
-        }
+       
 
         public virtual void MoveFace(PointF delta)
         {
