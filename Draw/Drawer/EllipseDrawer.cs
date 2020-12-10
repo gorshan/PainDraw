@@ -12,7 +12,7 @@ namespace Draw.Drawer
     {
         public void DrawFigure(Graphics graphics, Pen pen, PointF[] figurePoints)
         {
-            graphics.DrawEllipse(pen, figurePoints[0].X, figurePoints[1].X, figurePoints[2].X, figurePoints[3].X);
+            //graphics.DrawEllipse(pen, figurePoints[0].X, figurePoints[1].X, figurePoints[2].X, figurePoints[3].X);
         }
     }
 }

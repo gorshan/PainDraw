@@ -20,7 +20,7 @@ namespace Draw.MouseHandlers
         public Bitmap OnMouseDown(PointF location)
         {
             Color pixelColor = Canvas.Current.Pen.Color;
-            pixelColor = Canvas.Current.GetImage().GetPixel((int)location.X,(int)location.Y);
+            pixelColor = Canvas.Current.GetImage().GetPixel((int)location.X, (int)location.Y);
             ColorButton.BackColor = pixelColor;
             Canvas.Current.Pen.Color = pixelColor;
             Canvas.Current.Figure.Color = pixelColor;

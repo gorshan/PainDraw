@@ -13,18 +13,26 @@ namespace Draw.Figures
     {
         public EllipseFigure()
         {
-            Drawer = new EllipseDrawer();
+            Drawer = new AngleFiguresDrawer();
         }
 
         public override void Update(PointF startPoint, PointF endPoint)
         {
-            Points = new List<PointF>
+            Points = new List<PointF>();
+            int N = 50;
+            double r1;
+            double r2;
+            r1 = (endPoint.X - startPoint.X) / 2;
+            r2 = (endPoint.Y - startPoint.Y) / 2;
+            double x = startPoint.X + r1;
+            double y = startPoint.Y + r2;
+
+            for (int i = 0; i < N; i++)
             {
-                new PointF(startPoint.X, 0),
-                new PointF(0, startPoint.Y),
-                new PointF(endPoint.X - startPoint.X, 0),
-                new PointF(0, endPoint.Y - startPoint.Y)
-            };
+                Points.Add(new PointF(Convert.ToInt32(x + r1 * Math.Cos((2 * Math.PI * i) / N)),
+                                     Convert.ToInt32(y + r2 * Math.Sin((2 * Math.PI * i) / N))));
+
+            }
         }
 
         public override void Move(PointF delta)
@@ -32,13 +40,13 @@ namespace Draw.Figures
             Points[0] = new PointF(Points[0].X + delta.X, Points[0].Y);
             Points[1] = new PointF(Points[1].X + delta.Y, Points[1].Y);
 
-            //center = new Point(center.X + delta.X, center.Y + delta.Y);
+            //center = new PointF(center.X + delta.X, center.Y + delta.Y);
         }
 
-        public override bool IsThisFigure(PointF point)
+        public override bool IsThisFigure(Point point)
         {
-            double x0 = Points[0].X + (Points[2].X / 2);
-            double y0 = Points[1].X + (Points[3].X / 2);
+            int x0 = Points[0].X + (Points[2].X / 2);
+            int y0 = Points[1].X + (Points[3].X / 2);
             double rx = Points[2].X / 2;
             double ry = Points[3].X / 2;
             double res = (((point.X - x0)* (point.X - x0)) / (rx * rx)) + (((point.Y - y0)* (point.Y - y0) )/ (ry * ry)) - 1;
@@ -76,7 +84,7 @@ namespace Draw.Figures
             }
             else
             {
-                Drawer = new EllipseDrawer();
+                Drawer = new AngleFiguresDrawer();
             }
         }
 

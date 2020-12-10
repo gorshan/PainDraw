@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Draw.Drawer
 {
+    
     public class Canvas
     {
         private Bitmap _mainBitmap;
@@ -24,24 +25,25 @@ namespace Draw.Drawer
         public static Canvas Current
         {
             get { return _obj; }
-            private set { }
+            set { _obj = value; }
         }
 
 
-        private int _NNumericUpDown;
-        public int NAngleNumericUpDown
+        private int _NAngle;
+        public int NAngle
         {
-            get { return _NNumericUpDown; }
+            get { return _NAngle; }
             set
             {
-                _NNumericUpDown = value;
+                _NAngle = value;
                 RenewFigure();
             }
+
         }
 
         private static Canvas _obj;
 
-        public static void Create(int width, int height)
+        private Canvas(int width, int height)
         {
             _obj = new Canvas(width, height);
         }
@@ -52,12 +54,16 @@ namespace Draw.Drawer
             Pen = new Pen(Color.Black, 1);
             _previousBitmaps = new LinkedList<Bitmap>();
             _previousBitmaps.AddLast(_mainBitmap);
-            LastPoint = new PointF(0, 0);
+            LastPoint = new Point(0, 0);
 
             Fabric = new PenFabric();
             Figures = new List<AbstractFigure>();
             RenewFigure();
          
+        }
+        public static void Create(int width, int height)
+        {
+            _obj = new Canvas(width, height);
         }
 
 
@@ -94,6 +100,7 @@ namespace Draw.Drawer
             CreateMainBitmap();
             Figure.Clear();
             Figures.Clear();
+            Color = Color.Transparent;
         }
 
         private void CreateMainBitmap()
@@ -107,7 +114,7 @@ namespace Draw.Drawer
         {
             Bitmap tmp = _mainBitmap;
             _mainBitmap = new Bitmap(width + 500, height+500);
-            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new PointF(0, 0));
+            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
             _tmpBitmap = _mainBitmap;
             GC.Collect();
         }
@@ -123,23 +130,22 @@ namespace Draw.Drawer
 
             if (Figures.Count != 0)
             {
+                _tmpBitmap = _mainBitmap;
+                return _mainBitmap;
+            }
+            _mainBitmap = _previousBitmaps.Last.Value;
+            _tmpBitmap = _mainBitmap;
+            _previousBitmaps.RemoveLast();
+
+            if (Figures.Count != 0)
+            {
                 Figures.RemoveAt(Figures.Count - 1);
             }
 
             return _mainBitmap;
         }
 
-        public void SaveBitmap()
-        {
-            var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg;*.jpe;*.jfif|BMP|*.bmp|GIF|*.gif";
-            saveFileDialog.FileName = "figure";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                _mainBitmap.Save(saveFileDialog.FileName);
-            }
-        }
+        
 
         public Bitmap ChangeBackgroundColor(Color color)
         {
@@ -170,11 +176,11 @@ namespace Draw.Drawer
 
             if (Fabric is NAngleByPointsFabric)
             {
-                ((NPointsFigure)Figure).N = NAngleNumericUpDown;
+                ((NPointsFigure)Figure).N = NAngle;
             }
-            if (Figure is NAngleFigure)
+            if (Fabric is NAngleFabric)
             {
-                ((NAngleFigure)Figure).N = NAngleNumericUpDown;
+                ((RightNAngleFigure)Figure).N = NAngle;
             }
         }
 

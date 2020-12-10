@@ -33,7 +33,56 @@ namespace Draw.Figures
             }
         }
 
+        public PointF FindCenter()
+        {
+            PointF centre = new PointF(
+               x: Points.Sum(x => x.X) / Points.Count,
+               y: Points.Sum(x => x.Y) / Points.Count);
+            return centre;
+        }
+
+        public double FindRotateAngle(PointF endPoint)
+        {
+            int k;
+            double phi = 0;
+            PointF centre = FindCenter();
+            double a = Math.Sqrt(Math.Pow(Canvas.Current.LastPoint.X - centre.X, 2) + Math.Pow(Canvas.Current.LastPoint.Y - centre.Y, 2));
+            double b = Math.Sqrt(Math.Pow(endPoint.X - centre.X, 2) + Math.Pow(endPoint.Y - centre.Y, 2));
+            double c = Math.Sqrt(Math.Pow(endPoint.X - Canvas.Current.LastPoint.X, 2) + Math.Pow(endPoint.Y - Canvas.Current.LastPoint.Y, 2));
+            
+                //double phi = Math.Acos((Canvas.Current.LastPoint.X * endPoint.X + Canvas.Current.LastPoint.Y * endPoint.Y) / a / b);
+                //if (Canvas.Current.LastPoint.X - centre.X > 0)
+                //    k = 1;
+                //else
+                //    k = -1;
+
+                phi =  Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * Math.PI / 180;
+            
+            return phi;
+        }
+
+        public void Rotate(PointF endPoint)
+        {
+            PointF center = FindCenter();
+            double phi = FindRotateAngle(endPoint);
+            if (Canvas.Current.Figure != null)
+            {
+                Canvas.Current.LastPoint = endPoint;
+                for (int i = 0; i < Points.Count(); i++)
+                {
+                    PointF points = Points[i];
+                    PointF delta = new PointF(points.X - center.X, points.Y - center.Y);
+                    Points[i] = new PointF(
+                        (float)(center.X + delta.X * Math.Cos(phi) - delta.Y * Math.Sin(phi)),
+                        (float)(center.Y + delta.X * Math.Sin(phi) + delta.Y * Math.Cos(phi))
+                        );
+                }
+                Canvas.Current.DrawFigure(Canvas.Current.Figure);
+            }
+        }
+
         public virtual bool IsThisFigure(PointF point)
+
         {
             PointF p1 = Points[Points.Count - 1];
             PointF p2;
@@ -41,9 +90,9 @@ namespace Draw.Figures
             {
                 p2 = p;
                 if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
-                    <= Math.Abs(20 * ((p2.Y - p1.Y) + (p2.X - p1.X)))
-                    && (((p1.X <= point.X) && (point.X <= p2.X)) || ((p1.X >= point.X) && (point.X >= p2.X)))
-                    && (((p1.Y <= point.Y) && (point.Y <= p2.Y)) || ((p1.Y >= point.Y) && (point.Y >= p2.Y))))
+                    <= Width*0.8 * Math.Sqrt(Math.Pow(p2.X - p1.X, 2) + Math.Pow(p2.Y - p1.Y, 2))
+                    && (((p1.X - Width <= point.X) && (point.X <= p2.X + Width)) || ((p1.X + Width >= point.X) && (point.X >= p2.X - Width)))
+                    && (((p1.Y - Width <= point.Y) && (point.Y <= p2.Y + Width)) || ((p1.Y + Width >= point.Y) && (point.Y >= p2.Y - Width))))
                 {
                     PointsFace = new PointF[] { p1, p2 };
                     return true;
@@ -52,6 +101,7 @@ namespace Draw.Figures
             }
             return false;
         }
+
 
         public virtual void MoveFace(PointF delta)
         {

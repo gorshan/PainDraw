@@ -9,17 +9,22 @@ using System.Threading.Tasks;
 
 namespace Draw.Figures
 {
-    public class NAngleFigure : AbstractFigure
+    public class RightNAngleFigure : AbstractFigure
     {
-        private Point[] _points;
-        public int N { get; set; }
+        private PointF[] _points;
+        private int _n;
+        public int N { 
+            get { return _n; }
+            set { _n = value; } 
+        }
 
-        public NAngleFigure()
+
+        public RightNAngleFigure()
         {
             Drawer = new AngleFiguresDrawer();
         }
 
-        public NAngleFigure(int n)
+        public RightNAngleFigure(int n)
         {
             N = n;
             Drawer = new AngleFiguresDrawer();
@@ -30,10 +35,12 @@ namespace Draw.Figures
             Points = new List<PointF>();
             double r;
             r = Math.Sqrt(Math.Pow(endPoint.Y - startPoint.Y, 2) + Math.Pow(endPoint.X - startPoint.X, 2));
+           
             for (int i = 0; i < N; i++)
             {
-                Points.Add(new Point(Convert.ToInt32(startPoint.X + r * Math.Cos((2 * Math.PI * i) / N)),
-                                      Convert.ToInt32(startPoint.Y + r * Math.Sin((2 * Math.PI * i) / N))));
+                Points.Add(new PointF(Convert.ToInt32(startPoint.X + r * Math.Cos((2 * Math.PI * i) / N)),
+                                     Convert.ToInt32(startPoint.Y + r * Math.Sin((2 * Math.PI * i) / N))));
+
             }
         }
 
