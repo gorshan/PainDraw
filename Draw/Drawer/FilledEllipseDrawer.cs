@@ -9,7 +9,7 @@ namespace Draw.Drawer
 {
     public class FilledEllipseDrawer : IDrawer
     {
-        public void DrawFigure(Graphics graphics, Pen pen, Point[] figurePoints)
+        public void DrawFigure(Graphics graphics, Pen pen, PointF[] figurePoints)
         {
             graphics.FillEllipse(new SolidBrush(pen.Color), figurePoints[0].X, figurePoints[1].X, figurePoints[2].X, figurePoints[3].X);
         }

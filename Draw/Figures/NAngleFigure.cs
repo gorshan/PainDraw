@@ -25,9 +25,9 @@ namespace Draw.Figures
             Drawer = new AngleFiguresDrawer();
         }
 
-        public override void Update(Point startPoint, Point endPoint)
+        public override void Update(PointF startPoint, PointF endPoint)
         {
-            Points = new List<Point>();
+            Points = new List<PointF>();
             double r;
             r = Math.Sqrt(Math.Pow(endPoint.Y - startPoint.Y, 2) + Math.Pow(endPoint.X - startPoint.X, 2));
             for (int i = 0; i < N; i++)

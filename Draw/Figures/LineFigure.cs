@@ -18,20 +18,20 @@ namespace Draw.Figures
             Drawer = new PenDrawer();
         }
 
-        public override void Update(Point startPoint, Point endPoint)
+        public override void Update(PointF startPoint, PointF endPoint)
         {
-            Points = new List<Point>
+            Points = new List<PointF>
             {
                 startPoint,
                 endPoint
             };
         }
 
-        public override bool IsThisFigure(Point point)
+        public override bool IsThisFigure(PointF point)
         {
-            Point p1 = Points[0];
-            Point p2 = Points[1];
-            foreach (Point p in Points)
+            PointF p1 = Points[0];
+            PointF p2 = Points[1];
+            foreach (PointF p in Points)
             {
                 if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
                     <= Math.Abs(10 * ((p2.Y - p1.Y) + (p2.X - p1.X)))
@@ -44,7 +44,7 @@ namespace Draw.Figures
             return false;
         }
 
-        public override void MoveFace(Point delta)
+        public override void MoveFace(PointF delta)
         {
             
         }

@@ -12,7 +12,7 @@ namespace Draw.MouseHandlers
     public class ScaleOfFigureMouseHandler : IMouseHandler
     {
         private bool _mouseDown;
-        public Bitmap OnMouseDown(Point location)
+        public Bitmap OnMouseDown(PointF location)
         {
             _mouseDown = true;
             Canvas.Current.LastPoint = location;
@@ -32,7 +32,7 @@ namespace Draw.MouseHandlers
 
         }
 
-        public Bitmap OnMouseMove(Point location)
+        public Bitmap OnMouseMove(PointF location)
         {
             if (_mouseDown && Canvas.Current.Figure != null)
             {
@@ -48,7 +48,7 @@ namespace Draw.MouseHandlers
             return Canvas.Current.GetTmpImage();
         }
 
-        public Bitmap OnMouseUp(Point location)
+        public Bitmap OnMouseUp(PointF location)
         {
             Canvas.Current.EndDraw();
             _mouseDown = false;
