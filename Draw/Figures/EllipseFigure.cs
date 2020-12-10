@@ -13,18 +13,26 @@ namespace Draw.Figures
     {
         public EllipseFigure()
         {
-            Drawer = new EllipseDrawer();
+            Drawer = new AngleFiguresDrawer();
         }
 
         public override void Update(PointF startPoint, PointF endPoint)
         {
-            Points = new List<PointF>
+            Points = new List<PointF>();
+            int N = 50;
+            double r1;
+            double r2;
+            r1 = (endPoint.X - startPoint.X) / 2;
+            r2 = (endPoint.Y - startPoint.Y) / 2;
+            double x = startPoint.X + r1;
+            double y = startPoint.Y + r2;
+
+            for (int i = 0; i < N; i++)
             {
-                new PointF(startPoint.X, 0),
-                new PointF(startPoint.Y, 0),
-                new PointF(endPoint.X - startPoint.X, 0),
-                new PointF(endPoint.Y - startPoint.Y, 0)
-            };
+                Points.Add(new PointF(Convert.ToInt32(x + r1 * Math.Cos((2 * Math.PI * i) / N)),
+                                     Convert.ToInt32(y + r2 * Math.Sin((2 * Math.PI * i) / N))));
+
+            }
         }
 
         public override void Move(PointF delta)
@@ -35,25 +43,25 @@ namespace Draw.Figures
             //center = new PointF(center.X + delta.X, center.Y + delta.Y);
         }
 
-        public override bool IsThisFigure(PointF point)
-        {
-            double x0 = Points[0].X + (Points[2].X / 2);
-            double y0 = Points[1].X + (Points[3].X / 2);
-            double rx = Points[2].X / 2;
-            double ry = Points[3].X / 2;
-            double res = Math.Pow(point.X - x0, 2) / Math.Pow(rx, 2) + Math.Pow(point.Y - y0, 2)/ Math.Pow(ry, 2) - 1;
-            double resCircleIn = Math.Pow(point.X - x0, 2) + Math.Pow(point.Y - y0, 2) - Math.Pow((rx - ry)/2 + Width, 2);
-            double resCircleOut = Math.Pow(point.X - x0, 2) + Math.Pow(point.Y - y0, 2) - Math.Pow((rx - ry) / 2 + 2*Width, 2);
-            double resInner = Math.Pow(point.X - x0, 2) / Math.Pow(rx - Width, 2) + Math.Pow(point.Y - y0, 2) / Math.Pow(ry + Width, 2) - 1;
-            double resOuter = Math.Pow(point.X - x0, 2) / Math.Pow(rx + Width, 2) + Math.Pow(point.Y - y0, 2) / Math.Pow(ry + 2*Width, 2) - 1;
+        //public override bool IsThisFigure(PointF point)
+        //{
+        //    double x0 = Points[0].X + (Points[2].X / 2);
+        //    double y0 = Points[1].X + (Points[3].X / 2);
+        //    double rx = Points[2].X / 2;
+        //    double ry = Points[3].X / 2;
+        //    double res = Math.Pow(point.X - x0, 2) / Math.Pow(rx, 2) + Math.Pow(point.Y - y0, 2)/ Math.Pow(ry, 2) - 1;
+        //    double resCircleIn = Math.Pow(point.X - x0, 2) + Math.Pow(point.Y - y0, 2) - Math.Pow((rx - ry)/2 + Width, 2);
+        //    double resCircleOut = Math.Pow(point.X - x0, 2) + Math.Pow(point.Y - y0, 2) - Math.Pow((rx - ry) / 2 + 2*Width, 2);
+        //    double resInner = Math.Pow(point.X - x0, 2) / Math.Pow(rx - Width, 2) + Math.Pow(point.Y - y0, 2) / Math.Pow(ry + Width, 2) - 1;
+        //    double resOuter = Math.Pow(point.X - x0, 2) / Math.Pow(rx + Width, 2) + Math.Pow(point.Y - y0, 2) / Math.Pow(ry + 2*Width, 2) - 1;
             
-            if (resCircleIn <= resInner && resCircleOut <= resOuter)
-                //(res <= 0.1*Width && res >= -0.1*Width)
-            {
-                return true;
-            }
-            return false;
-        }
+        //    if (resCircleIn <= resInner && resCircleOut <= resOuter)
+        //        //(res <= 0.1*Width && res >= -0.1*Width)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         public PointF[] GetPointsInner(int width, int height)
         {
@@ -82,7 +90,7 @@ namespace Draw.Figures
             }
             else
             {
-                Drawer = new EllipseDrawer();
+                Drawer = new AngleFiguresDrawer();
             }
         }
 

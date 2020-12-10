@@ -38,6 +38,7 @@ namespace Draw.Drawer
                 _NAngle = value;
                 RenewFigure();
             }
+
         }
 
         private static Canvas _obj;
@@ -118,9 +119,11 @@ namespace Draw.Drawer
         {
             if (_previousBitmaps.Count == 0)
             {
+                _tmpBitmap = _mainBitmap;
                 return _mainBitmap;
             }
             _mainBitmap = _previousBitmaps.Last.Value;
+            _tmpBitmap = _mainBitmap;
             _previousBitmaps.RemoveLast();
 
             if (Figures.Count != 0)
@@ -163,7 +166,7 @@ namespace Draw.Drawer
             {
                 ((NPointsFigure)Figure).N = NAngle;
             }
-            if (Figure is RightNAngleFigure)
+            if (Fabric is NAngleFabric)
             {
                 ((RightNAngleFigure)Figure).N = NAngle;
             }

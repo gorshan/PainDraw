@@ -123,6 +123,7 @@
     <Compile Include="MouseHandlers\MoveVertexMouseHandler.cs" />
     <Compile Include="MouseHandlers\PaintMouseHandler.cs" />
     <Compile Include="MouseHandlers\PipetteMouseHandler.cs" />
+    <Compile Include="MouseHandlers\RotateFigureMouseHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Saver.cs" />
@@ -277,6 +278,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ChangeBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10-102527_rotating-instagram-tool-symbol-comments-rotating-tool-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
