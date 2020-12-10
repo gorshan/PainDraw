@@ -43,10 +43,6 @@ namespace Draw.Drawer
 
         private static Canvas _obj;
 
-        private Canvas(int width, int height)
-        {
-            _obj = new Canvas(width, height);
-        }
         public Canvas(int width, int height)
         {
             _mainBitmap = new Bitmap(width + 500, height+ 500);

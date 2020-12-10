@@ -43,19 +43,6 @@ namespace Draw.Figures
             //center = new PointF(center.X + delta.X, center.Y + delta.Y);
         }
 
-        public override bool IsThisFigure(Point point)
-        {
-            int x0 = Points[0].X + (Points[2].X / 2);
-            int y0 = Points[1].X + (Points[3].X / 2);
-            double rx = Points[2].X / 2;
-            double ry = Points[3].X / 2;
-            double res = (((point.X - x0)* (point.X - x0)) / (rx * rx)) + (((point.Y - y0)* (point.Y - y0) )/ (ry * ry)) - 1;
-            if (res <= 0.1*Width && res >= -0.1*Width)
-            {
-                return true;
-            }
-            return false;
-        }
 
         public PointF[] GetPointsInner(int width, int height)
         {
