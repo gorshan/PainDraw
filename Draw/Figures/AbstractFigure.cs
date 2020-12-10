@@ -32,16 +32,18 @@ namespace Draw.Figures
             }
         }
 
-        public PointF FindCentre()
+        public PointF FindCenter()
         {
             PointF centre = new PointF(
                x: Points.Sum(x => x.X) / Points.Count,
                y: Points.Sum(x => x.Y) / Points.Count);
             return centre;
         }
-        public void RotateFigure(PointF endPoint)
+
+        public double FindRotateAngle(PointF endPoint)
         {
             int k;
+            double phi = 0;
             PointF centre = FindCenter();
             double a = Math.Sqrt(Math.Pow(Canvas.Current.LastPoint.X - centre.X, 2) + Math.Pow(Canvas.Current.LastPoint.Y - centre.Y, 2));
             double b = Math.Sqrt(Math.Pow(endPoint.X - centre.X, 2) + Math.Pow(endPoint.Y - centre.Y, 2));
@@ -54,15 +56,17 @@ namespace Draw.Figures
                 else
                     k = -1;
 
-                double phi = k * Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * Math.PI / 180;
-                Canvas.Current.LastPoint = endPoint;
-                Canvas.Current.Figure.Rotate(phi);
-                Canvas.Current.DrawFigure(Canvas.Current.Figure);
+                phi = k * Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * Math.PI / 180;
             }
+            return phi;
         }
 
-        public void Rotate(double phi)
+        
+
+        public void Rotate(PointF endPoint)
         {
+            Canvas.Current.LastPoint = endPoint;
+            double phi = FindRotateAngle(endPoint);
             PointF center = FindCenter();
             for (int i = 0; i < Points.Count(); i++)
             {
@@ -73,6 +77,7 @@ namespace Draw.Figures
                     (float)(center.Y + delta.X * Math.Sin(phi) + delta.Y * Math.Cos(phi))
                     );
             }
+            Canvas.Current.DrawFigure(Canvas.Current.Figure);
         }
 
         public virtual bool IsThisFigure(PointF point)
@@ -96,20 +101,6 @@ namespace Draw.Figures
             return false;
         }
 
-        public PointF FindCenter()
-        {
-            float xCenter = 0;
-            float yCenter = 0;
-            for (int i = 0; i < Points.Count(); i++)
-            {
-                xCenter += Points[i].X;
-                yCenter += Points[i].Y;
-            }
-            PointF center = new PointF(xCenter / Points.Count(), yCenter / Points.Count());
-            return center;
-        }
-
-       
 
         public virtual void MoveFace(PointF delta)
         {

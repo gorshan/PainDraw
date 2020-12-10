@@ -38,7 +38,7 @@ namespace Draw.MouseHandlers
             {
                 PointF d = new PointF(location.X - Canvas.Current.LastPoint.X, location.Y - Canvas.Current.LastPoint.Y);
                 Canvas.Current.LastPoint = location;
-                Canvas.Current.Figure.RotateFigure(d);
+                Canvas.Current.Figure.Rotate(d);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
             }
             return Canvas.Current.GetTmpImage();
