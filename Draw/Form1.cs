@@ -39,7 +39,7 @@ namespace Draw
             t.SetToolTip(ColorButton, "Color");
             t.SetToolTip(pipette_button, "Pipette");
             t.SetToolTip(CancelLast, "Cancel last");
-            t.SetToolTip(saveButton, "Save image");
+            t.SetToolTip(saveImageButton, "Save image");
             t.SetToolTip(ClearButton, "Clear all");
             t.SetToolTip(ChangeBackgroundColor, "Background color");
 

@@ -21,7 +21,7 @@ namespace Draw.MouseHandlers
             Bitmap bitmapBeforeChange = Canvas.Current.GetImage();
             foreach (AbstractFigure figure in Canvas.Current.Figures)
             {
-                if (((SquareFigure)figure).IsThisFigure(location))
+                if ((figure).IsThisFigure(location))
                 {
                     Canvas.Current.Figure = figure;
                     Canvas.Current.Figures.Remove(Canvas.Current.Figure);

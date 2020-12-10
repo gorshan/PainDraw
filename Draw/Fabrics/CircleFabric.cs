@@ -11,7 +11,7 @@ namespace Draw.Fabrics
     {
         public AbstractFigure CreateFigure()
         {
-            return new NAngleFigure(50);
+            return new RightNAngleFigure(50);
         }
     }
 }
