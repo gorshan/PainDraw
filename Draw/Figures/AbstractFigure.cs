@@ -48,8 +48,7 @@ namespace Draw.Figures
             double a = Math.Sqrt(Math.Pow(Canvas.Current.LastPoint.X - centre.X, 2) + Math.Pow(Canvas.Current.LastPoint.Y - centre.Y, 2));
             double b = Math.Sqrt(Math.Pow(endPoint.X - centre.X, 2) + Math.Pow(endPoint.Y - centre.Y, 2));
             double c = Math.Sqrt(Math.Pow(endPoint.X - Canvas.Current.LastPoint.X, 2) + Math.Pow(endPoint.Y - Canvas.Current.LastPoint.Y, 2));
-            if (Canvas.Current.Figure != null)
-            {
+            
                 //double phi = Math.Acos((Canvas.Current.LastPoint.X * endPoint.X + Canvas.Current.LastPoint.Y * endPoint.Y) / a / b);
                 if (Canvas.Current.LastPoint.X - centre.X > 0)
                     k = 1;
@@ -57,7 +56,7 @@ namespace Draw.Figures
                     k = -1;
 
                 phi = k * Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * Math.PI / 180;
-            }
+            
             return phi;
         }
 
@@ -65,19 +64,22 @@ namespace Draw.Figures
 
         public void Rotate(PointF endPoint)
         {
-            Canvas.Current.LastPoint = endPoint;
-            double phi = FindRotateAngle(endPoint);
             PointF center = FindCenter();
-            for (int i = 0; i < Points.Count(); i++)
+            double phi = FindRotateAngle(endPoint);
+            if (Canvas.Current.Figure != null)
             {
-                PointF points = Points[i];
-                PointF delta = new PointF(points.X - center.X, points.Y - center.Y);
-                Points[i] = new PointF(
-                    (float)(center.X + delta.X * Math.Cos(phi) - delta.Y * Math.Sin(phi)),
-                    (float)(center.Y + delta.X * Math.Sin(phi) + delta.Y * Math.Cos(phi))
-                    );
+                Canvas.Current.LastPoint = endPoint;
+                for (int i = 0; i < Points.Count(); i++)
+                {
+                    PointF points = Points[i];
+                    PointF delta = new PointF(points.X - center.X, points.Y - center.Y);
+                    Points[i] = new PointF(
+                        (float)(center.X + delta.X * Math.Cos(phi) - delta.Y * Math.Sin(phi)),
+                        (float)(center.Y + delta.X * Math.Sin(phi) + delta.Y * Math.Cos(phi))
+                        );
+                }
+                Canvas.Current.DrawFigure(Canvas.Current.Figure);
             }
-            Canvas.Current.DrawFigure(Canvas.Current.Figure);
         }
 
         public virtual bool IsThisFigure(PointF point)
