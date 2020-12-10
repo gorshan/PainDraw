@@ -234,5 +234,8 @@
   <ItemGroup>
     <None Include="Resources\ChangeBackground.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10-102527_rotating-instagram-tool-symbol-comments-rotating-tool-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -62,9 +62,9 @@ namespace Draw
             this.DeleteFigureButton = new System.Windows.Forms.Button();
             this.ChangeBackgroundColor = new System.Windows.Forms.Button();
             this.MoveVertex = new System.Windows.Forms.Button();
+            this.rotateButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rotateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -76,7 +76,7 @@ namespace Draw
             // NAngleNumericUpDown
             // 
             this.NAngleNumericUpDown.Location = new System.Drawing.Point(11, 466);
-            this.NAngleNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NAngleNumericUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.NAngleNumericUpDown.Minimum = new decimal(new int[] {
             3,
             0,
@@ -146,7 +146,7 @@ namespace Draw
             this.ToolLayoutPanel.Controls.Add(this.NAngleButton);
             this.ToolLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.ToolLayoutPanel.Location = new System.Drawing.Point(11, 46);
-            this.ToolLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ToolLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.ToolLayoutPanel.Name = "ToolLayoutPanel";
             this.ToolLayoutPanel.Size = new System.Drawing.Size(137, 412);
             this.ToolLayoutPanel.TabIndex = 22;
@@ -369,8 +369,9 @@ namespace Draw
             this.flowLayoutPanel1.Controls.Add(this.CancelLast);
             this.flowLayoutPanel1.Controls.Add(this.saveButton);
             this.flowLayoutPanel1.Controls.Add(this.ClearButton);
+            this.flowLayoutPanel1.Controls.Add(this.ChangeBackgroundColor);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(155, 5);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(267, 36);
             this.flowLayoutPanel1.TabIndex = 24;
@@ -432,12 +433,12 @@ namespace Draw
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(40)))));
             this.flowLayoutPanel2.Controls.Add(this.workWithFigureButton);
             this.flowLayoutPanel2.Controls.Add(this.MoveFace);
+            this.flowLayoutPanel2.Controls.Add(this.MoveVertex);
+            this.flowLayoutPanel2.Controls.Add(this.rotateButton);
             this.flowLayoutPanel2.Controls.Add(this.FillFigureButton);
             this.flowLayoutPanel2.Controls.Add(this.DeleteFigureButton);
-            this.flowLayoutPanel2.Controls.Add(this.ChangeBackgroundColor);
-            this.flowLayoutPanel2.Controls.Add(this.MoveVertex);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(606, 5);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(316, 36);
             this.flowLayoutPanel2.TabIndex = 25;
@@ -473,7 +474,7 @@ namespace Draw
             this.FillFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.FillFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FillFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("FillFigureButton.Image")));
-            this.FillFigureButton.Location = new System.Drawing.Point(83, 2);
+            this.FillFigureButton.Location = new System.Drawing.Point(163, 2);
             this.FillFigureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FillFigureButton.Name = "FillFigureButton";
             this.FillFigureButton.Size = new System.Drawing.Size(34, 30);
@@ -486,7 +487,7 @@ namespace Draw
             this.DeleteFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.DeleteFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteFigureButton.Image")));
-            this.DeleteFigureButton.Location = new System.Drawing.Point(123, 2);
+            this.DeleteFigureButton.Location = new System.Drawing.Point(203, 2);
             this.DeleteFigureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DeleteFigureButton.Name = "DeleteFigureButton";
             this.DeleteFigureButton.Size = new System.Drawing.Size(34, 30);
@@ -500,7 +501,7 @@ namespace Draw
             this.ChangeBackgroundColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeBackgroundColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ChangeBackgroundColor.Image = ((System.Drawing.Image)(resources.GetObject("ChangeBackgroundColor.Image")));
-            this.ChangeBackgroundColor.Location = new System.Drawing.Point(163, 2);
+            this.ChangeBackgroundColor.Location = new System.Drawing.Point(203, 2);
             this.ChangeBackgroundColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChangeBackgroundColor.Name = "ChangeBackgroundColor";
             this.ChangeBackgroundColor.Size = new System.Drawing.Size(34, 30);
@@ -514,7 +515,7 @@ namespace Draw
             this.MoveVertex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MoveVertex.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MoveVertex.Image = ((System.Drawing.Image)(resources.GetObject("MoveVertex.Image")));
-            this.MoveVertex.Location = new System.Drawing.Point(203, 2);
+            this.MoveVertex.Location = new System.Drawing.Point(83, 2);
             this.MoveVertex.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MoveVertex.Name = "MoveVertex";
             this.MoveVertex.Size = new System.Drawing.Size(34, 30);
@@ -522,11 +523,23 @@ namespace Draw
             this.MoveVertex.UseVisualStyleBackColor = false;
             this.MoveVertex.Click += new System.EventHandler(this.MoveVertex_Click);
             // 
+            // rotateButton
+            // 
+            this.rotateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.rotateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rotateButton.Image = ((System.Drawing.Image)(resources.GetObject("rotateButton.Image")));
+            this.rotateButton.Location = new System.Drawing.Point(123, 3);
+            this.rotateButton.Name = "rotateButton";
+            this.rotateButton.Size = new System.Drawing.Size(34, 30);
+            this.rotateButton.TabIndex = 29;
+            this.rotateButton.UseVisualStyleBackColor = false;
+            this.rotateButton.Click += new System.EventHandler(this.rotateButton_Click);
+            // 
             // logoPictureBox
             // 
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
             this.logoPictureBox.Location = new System.Drawing.Point(11, 5);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(137, 38);
             this.logoPictureBox.TabIndex = 25;
@@ -549,16 +562,6 @@ namespace Draw
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // rotateButton
-            // 
-            this.rotateButton.Location = new System.Drawing.Point(944, 14);
-            this.rotateButton.Name = "rotateButton";
-            this.rotateButton.Size = new System.Drawing.Size(75, 23);
-            this.rotateButton.TabIndex = 29;
-            this.rotateButton.Text = "Rotate";
-            this.rotateButton.UseVisualStyleBackColor = true;
-            this.rotateButton.Click += new System.EventHandler(this.rotateButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -571,7 +574,6 @@ namespace Draw
             this.Controls.Add(this.ToolLayoutPanel);
             this.Controls.Add(this.widthText);
             this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.rotateButton);
             this.Controls.Add(this.NAngleNumericUpDown);
             this.Controls.Add(this.WigthScrollBar);
             this.Controls.Add(this.pictureBox1);

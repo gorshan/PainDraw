@@ -35,6 +35,20 @@ namespace Draw
             widthText.Text = WigthScrollBar.Value + "";
             ColorButton.BackColor = Canvas.Current.Pen.Color;
             SetSizeLabel();
+            ToolTip t = new ToolTip();
+            t.SetToolTip(ColorButton, "Color");
+            t.SetToolTip(pipette_button, "Pipette");
+            t.SetToolTip(CancelLast, "Cancel last");
+            t.SetToolTip(saveButton, "Save image");
+            t.SetToolTip(ClearButton, "Clear all");
+            t.SetToolTip(ChangeBackgroundColor, "Background color");
+
+            t.SetToolTip(workWithFigureButton, "Move figure");
+            t.SetToolTip(MoveFace, "Move edge");
+            t.SetToolTip(MoveVertex, "Move top");
+            t.SetToolTip(rotateButton, "Rotate figure");
+            //fills
+            t.SetToolTip(DeleteFigureButton, "Delete figure");
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
