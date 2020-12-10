@@ -50,17 +50,15 @@ namespace Draw.Figures
             double c = Math.Sqrt(Math.Pow(endPoint.X - Canvas.Current.LastPoint.X, 2) + Math.Pow(endPoint.Y - Canvas.Current.LastPoint.Y, 2));
             
                 //double phi = Math.Acos((Canvas.Current.LastPoint.X * endPoint.X + Canvas.Current.LastPoint.Y * endPoint.Y) / a / b);
-                if (Canvas.Current.LastPoint.X - centre.X > 0)
-                    k = 1;
-                else
-                    k = -1;
+                //if (Canvas.Current.LastPoint.X - centre.X > 0)
+                //    k = 1;
+                //else
+                //    k = -1;
 
-                phi = k * Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * Math.PI / 180;
+                phi =  Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * Math.PI / 180;
             
             return phi;
         }
-
-        
 
         public void Rotate(PointF endPoint)
         {
