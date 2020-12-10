@@ -21,7 +21,7 @@ namespace Draw.MouseHandlers
             Bitmap bitmapBeforeChange = Canvas.Current.GetImage();
             foreach (AbstractFigure figure in Canvas.Current.Figures)
             {
-                if ((figure).IsThisFigure(location))
+                if (figure.IsThisFigure(location))
                 {
                     Canvas.Current.Figure = figure;
                     Canvas.Current.Figures.Remove(Canvas.Current.Figure);
@@ -38,7 +38,7 @@ namespace Draw.MouseHandlers
             {
                 PointF d = new PointF(location.X - Canvas.Current.LastPoint.X, location.Y - Canvas.Current.LastPoint.Y);
                 Canvas.Current.LastPoint = location;
-                ((SquareFigure)Canvas.Current.Figure).MoveFace(d);
+                (Canvas.Current.Figure).MoveFace(d);
                 Canvas.Current.DrawFigure(Canvas.Current.Figure);
             }
             return Canvas.Current.GetTmpImage();

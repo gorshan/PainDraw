@@ -44,6 +44,28 @@ namespace Draw.Figures
             AddPoint(startPoint, endPoint);
         }
 
+        public override bool IsThisFigure(PointF point)
+        {
+            PointF p1 = new PointF(0,0);
+            PointF p2;
+            
+            if(Points.Count != 0)
+                p1 = Points[0];
+            foreach (PointF p in Points)
+            {
+                p2 = p;
+                if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
+                    <= Math.Abs(10 * ((p2.Y - p1.Y) + (p2.X - p1.X)))
+                    && (((p1.X <= point.X) && (point.X <= p2.X)) || ((p1.X >= point.X) && (point.X >= p2.X)))
+                    && (((p1.Y <= point.Y) && (point.Y <= p2.Y)) || ((p1.Y >= point.Y) && (point.Y >= p2.Y))))
+                {
+                    return true;
+                }
+                p1 = p2;
+            }
+            return false;
+        }
+
         public override void FillFigure()
         {
             IsFilled = !IsFilled;

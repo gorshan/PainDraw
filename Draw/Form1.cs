@@ -323,6 +323,16 @@ namespace Draw
             _mouseHandler = new MoveVertexMouseHandler();
         }
 
+        private void Scale_Click(object sender, EventArgs e)
+        {
+            _mouseHandler = new ScaleOfFigureMouseHandler();
+        }
+
+        private void FillFigure_Click(object sender, EventArgs e)
+        {
+            _mouseHandler = new FillFigureMouseHandler();
+        }
+
         private void SaveProjectButton_Click(object sender, EventArgs e)
         {
             Saver.SaveProject(Canvas.Current.Figures);

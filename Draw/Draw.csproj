@@ -117,12 +117,14 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="MouseHandlers\DeleteFigureMouseHandler.cs" />
+    <Compile Include="MouseHandlers\FillFigureMouseHandler.cs" />
     <Compile Include="MouseHandlers\IMouseHandler.cs" />
     <Compile Include="MouseHandlers\MoveFaceMouseHandler.cs" />
     <Compile Include="MouseHandlers\MoveFigureMouseHandler.cs" />
     <Compile Include="MouseHandlers\MoveVertexMouseHandler.cs" />
     <Compile Include="MouseHandlers\PaintMouseHandler.cs" />
     <Compile Include="MouseHandlers\PipetteMouseHandler.cs" />
+    <Compile Include="MouseHandlers\ScaleOfFigureMouseHandler.cs" />
     <Compile Include="MouseHandlers\RotateFigureMouseHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

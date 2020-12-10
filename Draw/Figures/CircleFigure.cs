@@ -50,9 +50,9 @@ namespace Draw.Figures
             }
             return false;
 
-            //PointF p1 = Points[3];
-            //PointF p2;
-            //foreach (PointF p in Points)
+            //Point p1 = Points[3];
+            //Point p2;
+            //foreach (Point p in Points)
             //{
             //    p2 = p;
             //    if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))

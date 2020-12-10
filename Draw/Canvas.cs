@@ -43,14 +43,14 @@ namespace Draw.Drawer
 
         private static Canvas _obj;
 
-        private Canvas(int width, int height)
+        public Canvas(int width, int height)
         {
             _mainBitmap = new Bitmap(width + 500, height+ 500);
             _graphics = Graphics.FromImage(_mainBitmap);
             Pen = new Pen(Color.Black, 1);
             _previousBitmaps = new LinkedList<Bitmap>();
             _previousBitmaps.AddLast(_mainBitmap);
-            LastPoint = new PointF(0, 0);
+            LastPoint = new Point(0, 0);
 
             Fabric = new PenFabric();
             Figures = new List<AbstractFigure>();
@@ -110,7 +110,7 @@ namespace Draw.Drawer
         {
             Bitmap tmp = _mainBitmap;
             _mainBitmap = new Bitmap(width + 500, height+500);
-            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new PointF(0, 0));
+            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
             _tmpBitmap = _mainBitmap;
             GC.Collect();
         }
@@ -118,6 +118,13 @@ namespace Draw.Drawer
         public Bitmap CancelLastAction()
         {
             if (_previousBitmaps.Count == 0)
+            {
+                return _mainBitmap;
+            }
+            _mainBitmap = _previousBitmaps.Last.Value;
+            _previousBitmaps.RemoveLast();
+
+            if (Figures.Count != 0)
             {
                 _tmpBitmap = _mainBitmap;
                 return _mainBitmap;
@@ -159,6 +166,7 @@ namespace Draw.Drawer
             }
             Figure = Fabric.CreateFigure();
             Figure.Color = Pen.Color;
+            Figure.ColorInside = Pen.Color;
             Figure.Width = (int)Pen.Width;
             Figure.FillFigure(isFilled);
 
