@@ -78,9 +78,20 @@ namespace Draw.Figures
         }
 
 
-        //public override void FillFigure()
-        //{
-        //    IsFilled = !IsFilled;
-        //}
+        public override void FillFigure()
+        {
+            IsFilled = !IsFilled;
+            if (Points.Count == N)
+            {
+                if (IsFilled)
+                {
+                    Drawer = new FilledAngleFiguresDrawer();
+                }
+                else
+                {
+                    Drawer = new AngleFiguresDrawer();
+                }
+            }
+        }
     }
 }

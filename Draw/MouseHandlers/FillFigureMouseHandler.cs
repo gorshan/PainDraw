@@ -23,7 +23,6 @@ namespace Draw.MouseHandlers
                 foreach (AbstractFigure figure in Canvas.Current.Figures)
                 {
                     var points = figure.GetPoints();
-                    //if (points == null) continue;
                     if (figure.IsPointInsidePolygon(points, location.X, location.Y))
                     {
                         figurka = figure;
