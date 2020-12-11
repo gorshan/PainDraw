@@ -78,9 +78,9 @@ namespace Draw.Figures
         }
 
 
-        public override void FillFigure()
-        {
-            IsFilled = !IsFilled;
-        }
+        //public override void FillFigure()
+        //{
+        //    IsFilled = !IsFilled;
+        //}
     }
 }

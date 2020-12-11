@@ -81,9 +81,7 @@
   <ItemGroup>
     <Compile Include="Canvas.cs" />
     <Compile Include="Drawer\AngleFiguresDrawer.cs" />
-    <Compile Include="Drawer\EllipseDrawer.cs" />
     <Compile Include="Drawer\FilledAngleFiguresDrawer.cs" />
-    <Compile Include="Drawer\FilledEllipseDrawer.cs" />
     <Compile Include="Drawer\IDrawer.cs" />
     <Compile Include="Drawer\PenDrawer.cs" />
     <Compile Include="Fabrics\CircleFabric.cs" />

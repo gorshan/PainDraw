@@ -67,7 +67,7 @@ namespace Draw.Figures
             IsFilled = !IsFilled;
             if (IsFilled)
             {
-                Drawer = new FilledEllipseDrawer();
+                Drawer = new FilledAngleFiguresDrawer();
             }
             else
             {
