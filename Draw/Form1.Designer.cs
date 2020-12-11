@@ -69,12 +69,14 @@ namespace Draw
             this.Scale = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.NAngleNumericUpDown)).BeginInit();
             this.ToolLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // NAngleNumericUpDown
@@ -373,9 +375,6 @@ namespace Draw
             this.flowLayoutPanel1.Controls.Add(this.ChangeBackgroundColor);
             this.flowLayoutPanel1.Controls.Add(this.CancelLast);
             this.flowLayoutPanel1.Controls.Add(this.ClearButton);
-            this.flowLayoutPanel1.Controls.Add(this.saveImageButton);
-            this.flowLayoutPanel1.Controls.Add(this.SaveProjectButton);
-            this.flowLayoutPanel1.Controls.Add(this.LoadProjectButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(155, 5);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -439,8 +438,8 @@ namespace Draw
             // 
             this.saveImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.saveImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveImageButton.Image = ((System.Drawing.Image)(resources.GetObject("saveImageButton.Image")));
-            this.saveImageButton.Location = new System.Drawing.Point(200, 2);
+            this.saveImageButton.Image = new Bitmap((System.Drawing.Image)(resources.GetObject("saveImageButton.Image")), 18, 18);
+            this.saveImageButton.Location = new System.Drawing.Point(3, 2);
             this.saveImageButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saveImageButton.Name = "saveImageButton";
             this.saveImageButton.Size = new System.Drawing.Size(33, 31);
@@ -452,8 +451,8 @@ namespace Draw
             // 
             this.SaveProjectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.SaveProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveProjectButton.Image = new Bitmap((System.Drawing.Image)(resources.GetObject("SaveProjectButton.Image")), 20, 20);
-            this.SaveProjectButton.Location = new System.Drawing.Point(239, 2);
+            this.SaveProjectButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveProjectButton.Image")));
+            this.SaveProjectButton.Location = new System.Drawing.Point(81, 2);
             this.SaveProjectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SaveProjectButton.Name = "SaveProjectButton";
             this.SaveProjectButton.Size = new System.Drawing.Size(33, 31);
@@ -465,8 +464,8 @@ namespace Draw
             // 
             this.LoadProjectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.LoadProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoadProjectButton.Image = new Bitmap((System.Drawing.Image)(resources.GetObject("LoadProjectButton.Image")), 20, 20);
-            this.LoadProjectButton.Location = new System.Drawing.Point(278, 2);
+            this.LoadProjectButton.Image = ((System.Drawing.Image)(resources.GetObject("LoadProjectButton.Image")));
+            this.LoadProjectButton.Location = new System.Drawing.Point(42, 2);
             this.LoadProjectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoadProjectButton.Name = "LoadProjectButton";
             this.LoadProjectButton.Size = new System.Drawing.Size(33, 31);
@@ -488,7 +487,7 @@ namespace Draw
             this.flowLayoutPanel2.Location = new System.Drawing.Point(676, 5);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(450, 36);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(365, 36);
             this.flowLayoutPanel2.TabIndex = 25;
             // 
             // workWithFigureButton
@@ -625,12 +624,23 @@ namespace Draw
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.saveImageButton);
+            this.flowLayoutPanel3.Controls.Add(this.LoadProjectButton);
+            this.flowLayoutPanel3.Controls.Add(this.SaveProjectButton);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(1084, 5);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(121, 37);
+            this.flowLayoutPanel3.TabIndex = 26;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1217, 599);
+            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.SizeLabel);
@@ -652,6 +662,7 @@ namespace Draw
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -701,6 +712,7 @@ namespace Draw
         private System.Windows.Forms.Button rotateButton;
         private System.Windows.Forms.Button Scale;
         private System.Windows.Forms.Button FillFigure;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
     }
 }
 
