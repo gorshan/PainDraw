@@ -246,7 +246,7 @@ namespace Draw
         }
         private void CancelLast_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = Canvas.Current.CancelLastAction();
+            pictureBox1.Image = Canvas.Current.Action(new CancelLastActionParameter());
 
         }
         private void saveButton_Click(object sender, EventArgs e)

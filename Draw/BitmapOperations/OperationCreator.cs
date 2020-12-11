@@ -11,7 +11,8 @@ namespace Draw.BitmapOperations
     {
         private Dictionary<Type, IBitmapOperation> _operations = new Dictionary<Type, IBitmapOperation>() {
             {typeof(SizeOperationParameter), new ResizeBitmapOperation() },
-            {typeof(ClearOperationParameters), new ClearBitmapOperation() }
+            {typeof(ClearOperationParameters), new ClearBitmapOperation() },
+            {typeof(CancelLastActionParameter), new CancelLastActionOperation() }
         };
 
         public IBitmapOperation GetOperation(Type type)

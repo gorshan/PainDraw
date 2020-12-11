@@ -14,7 +14,7 @@ namespace Draw.Drawer
         public Bitmap MainBitmap { get; set; }
         public Bitmap TmpBitmap { get; set; }
         private Graphics _graphics;
-        private LinkedList<Bitmap> _previousBitmaps;
+        public LinkedList<Bitmap> PreviousBitmaps { get; set; }
         public Pen Pen { get; set; }
         public Color Color { get; set; }
 
@@ -50,8 +50,8 @@ namespace Draw.Drawer
             MainBitmap = new Bitmap(width + 500, height+ 500);
             _graphics = Graphics.FromImage(MainBitmap);
             Pen = new Pen(Color.Black, 1);
-            _previousBitmaps = new LinkedList<Bitmap>();
-            _previousBitmaps.AddLast(MainBitmap);
+            PreviousBitmaps = new LinkedList<Bitmap>();
+            PreviousBitmaps.AddLast(MainBitmap);
             LastPoint = new Point(0, 0);
             _operations = operations;
             Fabric = new PenFabric();
@@ -80,11 +80,11 @@ namespace Draw.Drawer
 
         public void EndDraw()
         {
-            if (_previousBitmaps.Count >= 5)
+            if (PreviousBitmaps.Count >= 5)
             {
-                _previousBitmaps.RemoveFirst();
+                PreviousBitmaps.RemoveFirst();
             }
-            _previousBitmaps.AddLast(MainBitmap);
+            PreviousBitmaps.AddLast(MainBitmap);
             MainBitmap = TmpBitmap;
         }
 
@@ -104,12 +104,12 @@ namespace Draw.Drawer
 
         public Bitmap CancelLastAction()
         {
-            if (_previousBitmaps.Count == 0)
+            if (PreviousBitmaps.Count == 0)
             {
                 return MainBitmap;
             }
-            MainBitmap = _previousBitmaps.Last.Value;
-            _previousBitmaps.RemoveLast();
+            MainBitmap = PreviousBitmaps.Last.Value;
+            PreviousBitmaps.RemoveLast();
 
             if (Figures.Count != 0)
             {

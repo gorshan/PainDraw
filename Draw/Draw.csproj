@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitmapOperations\CancelLastActionOperation.cs" />
     <Compile Include="BitmapOperations\OperationCreator.cs" />
-    <Compile Include="BitmapOperations\OperationParameters\ClearBitmapOperation.cs" />
+    <Compile Include="BitmapOperations\ClearBitmapOperation.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\CancelLastActionParameter.cs" />
     <Compile Include="BitmapOperations\OperationParameters\ClearOperationParameters.cs" />
     <Compile Include="BitmapOperations\OperationParameters\SizeOperationParameter.cs" />
     <Compile Include="BitmapOperations\OperationParameters\IOperationParameters.cs" />
