@@ -13,7 +13,7 @@ namespace Draw.Drawer
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
         private Graphics _graphics;
-        private LinkedList<Bitmap> _previousBitmaps;
+        private LinkedList<CanvasCondition> _previousConditions;
         public Pen Pen { get; set; }
         public Color Color { get; set; }
 
@@ -48,8 +48,8 @@ namespace Draw.Drawer
             _mainBitmap = new Bitmap(width + 500, height+ 500);
             _graphics = Graphics.FromImage(_mainBitmap);
             Pen = new Pen(Color.Black, 1);
-            _previousBitmaps = new LinkedList<Bitmap>();
-            _previousBitmaps.AddLast(_mainBitmap);
+            _previousConditions = new LinkedList<CanvasCondition>();
+            _previousConditions.AddLast(new CanvasCondition(_mainBitmap, Figures));
             LastPoint = new Point(0, 0);
 
             Fabric = new PenFabric();
@@ -83,11 +83,11 @@ namespace Draw.Drawer
 
         public void EndDraw()
         {
-            if (_previousBitmaps.Count >= 5)
+            if (_previousConditions.Count >= 5)
             {
-                _previousBitmaps.RemoveFirst();
+                _previousConditions.RemoveFirst();
             }
-            _previousBitmaps.AddLast(_mainBitmap);
+            _previousConditions.AddLast(new CanvasCondition(_mainBitmap,Figures));
             _mainBitmap = _tmpBitmap;
         }
 
@@ -117,26 +117,14 @@ namespace Draw.Drawer
 
         public Bitmap CancelLastAction()
         {
-            if (_previousBitmaps.Count == 0)
+            if (_previousConditions.Count == 0)
             {
                 return _mainBitmap;
             }
-            _mainBitmap = _previousBitmaps.Last.Value;
-            _previousBitmaps.RemoveLast();
-
-            if (Figures.Count != 0)
-            {
-                _tmpBitmap = _mainBitmap;
-                return _mainBitmap;
-            }
-            _mainBitmap = _previousBitmaps.Last.Value;
+            _mainBitmap = _previousConditions.Last.Value.RestoreBitmap;
             _tmpBitmap = _mainBitmap;
-            _previousBitmaps.RemoveLast();
-
-            if (Figures.Count != 0)
-            {
-                Figures.RemoveAt(Figures.Count - 1);
-            }
+            Figures = _previousConditions.Last.Value.RestoreFigures;
+            _previousConditions.RemoveLast();
 
             return _mainBitmap;
         }

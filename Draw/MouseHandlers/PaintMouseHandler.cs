@@ -36,10 +36,8 @@ namespace Draw.MouseHandlers
 
         public Bitmap OnMouseUp(PointF location)
         {
-            Canvas.Current.EndDraw();
             _mouseDown = false;
 
-            Bitmap bitmap = Canvas.Current.GetImage();
             //Graphics graphics = Graphics.FromImage(bitmap);
             //PointF[] points;
             //if (Canvas.Current.Figure is CircleFigure)
@@ -60,6 +58,8 @@ namespace Draw.MouseHandlers
             {
                 Canvas.Current.RenewFigure();
             }
+            Canvas.Current.EndDraw();
+            Bitmap bitmap = Canvas.Current.GetImage();
             return bitmap;
         }
     }

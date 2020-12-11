@@ -58,7 +58,6 @@ namespace Draw.MouseHandlers
             //figurka.IsFilled = false;
             //Canvas.Current.DrawFigure(figurka);
 
-            Canvas.Current.EndDraw();
 
             if (Canvas.Current.Figure != null && !Canvas.Current.Figures.Contains(Canvas.Current.Figure) && !(Canvas.Current.Figure.IsEmpty()))
             {
@@ -70,6 +69,7 @@ namespace Draw.MouseHandlers
             {
                 Canvas.Current.RenewFigure();
             }
+            Canvas.Current.EndDraw();
             return Canvas.Current.GetImage();
         }
     }

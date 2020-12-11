@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Canvas.cs" />
+    <Compile Include="CanvasCondition.cs" />
     <Compile Include="Drawer\AngleFiguresDrawer.cs" />
     <Compile Include="Drawer\EllipseDrawer.cs" />
     <Compile Include="Drawer\FilledAngleFiguresDrawer.cs" />

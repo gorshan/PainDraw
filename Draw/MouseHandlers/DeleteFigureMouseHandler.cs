@@ -44,6 +44,7 @@ namespace Draw.MouseHandlers
         public Bitmap OnMouseUp(PointF location)
         {
             _mouseDown = false;
+            
             return Canvas.Current.GetImage();
         }
     }
