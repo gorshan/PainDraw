@@ -281,17 +281,17 @@
   </data>
   <data name="saveImageButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAH0SURBVDhPrZXNSxtREMB3s59xN1mTxnwhBHKMRSyhp4Lp
-        wVPBYxCFXnoVSptCkR57EhFESg+lUDx6CFTwT+i1B0G8SFuqRagVRRQPBcv6m+ZFqnYxsg4Mbz72/Wbe
-        vEeiOY6zoOv6H03TwjgqDGFpYpim2UJHY2pLNaaFEhAjjiiGdNsbsNFomBxpzjCMA/TYtu13pVKpT6Vv
-        DgT2OpFI7LM+cV13CvsH0PcqfXMgXX0F8Ey5GtAJoCdhGOriXwtkw2Qmk7mrXAFuAnypXMk/BnjUE9D3
-        /Qfc2CmQNZmdxADMCADoC449jf2LdfHvBiQSWKvVfEBfLMtaYdMhoJZKJbBfkfuGbgOb5Vtb5aKBMmg2
-        fK9Wq0EymXwqXWWz2UGVjpT/AlOp1Lg8Ts/zHorfbDZhG5/pti2+Ep1Czyn8pjsOkSvAYrE4QDc/Ocq8
-        BLuSTqfvyzwp9qhcLt8Bvsp3J+gB+5a70CtAPvxIN+uVSsWV4L9CN2/JbQHZZt3g9odyudw9Cu3RQLte
-        r1sXgASXSP4OgmBEApeFIv2AdgB/KBQKngprjGaYInvA2jDGCHWAovIsxIkSmacyL0g+nx+mmV2gm7gd
-        INU/RW3oRWQEMHYxz48s7cYSbn6cpQNUA40l55ci7w7n9n5gOe5t/QWcOo6zcAa3UKnux0lGpgAAAABJ
-        RU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIBSURBVDhPnZQ/aFNRFMbfe0le8l7y8nikFrSxENQlQ3Wo
+        LS2dXRx0MFhSMJksVotbaKGSTQcHZxOwS4cQEEqXUmtRcegkCm79s3RrUSh0raS/zyaiNm1JDhzuOd85
+        33fPve+PEY1GX5mm+cswjEY3Lq5t21VDQSQSeRgOh4e7cbhFNH4iajQEKDjDTCbP0DcI8XoikegRpgL5
+        DZZdxecKxePxAXrehkKhj6yrHOWZ4ziXVOtICGIdkRrkIYjj9C+x3lftTCEIfb7vZ7LZrK0ckU2ONqk4
+        Fov10//Gsqxp5acKIRCQlzUB5KvCmOg1RB3pNrVpfJn4jmpthXK5XEgjk69B3KJ5FthlwjRxBfF1au/Y
+        4BF4IE5bIcABfJG8xBEeIPbFdV01ynz8It6LOwJkJ4R0JMAX7FpH5HK5XLaI56ktqkmmJ0VtjunukVrC
+        /hcao3gX4mfGviVQ5nneNV62DR7/BAKjkD4w5Ta+TpynJfaPEEkBsff4jO5JYMuYYooNdiB/pe9lMpm8
+        wmaP6V2TGOsobcdCNH7Ca7yxFwT8bel02qFWYaJC63VIpVIeAnp6K9SeA+0L14f3nZ1vKmlnuq9m+MeC
+        IPAReoLQN9JDYbqjp6y/v51OrDlZifBAuYRGFHRjcAdZ9lq/kaJuv0vPo/FDr3+1+T/RzXfsErFte+EI
+        70yHvP3zQesAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="SaveProjectButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

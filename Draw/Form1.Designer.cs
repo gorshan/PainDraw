@@ -438,7 +438,7 @@ namespace Draw
             // 
             this.saveImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.saveImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveImageButton.Image = new Bitmap((System.Drawing.Image)(resources.GetObject("saveImageButton.Image")), 18, 18);
+            this.saveImageButton.Image = ((System.Drawing.Image)(resources.GetObject("saveImageButton.Image")));
             this.saveImageButton.Location = new System.Drawing.Point(3, 2);
             this.saveImageButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saveImageButton.Name = "saveImageButton";
@@ -452,7 +452,7 @@ namespace Draw
             this.SaveProjectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.SaveProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveProjectButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveProjectButton.Image")));
-            this.SaveProjectButton.Location = new System.Drawing.Point(81, 2);
+            this.SaveProjectButton.Location = new System.Drawing.Point(42, 2);
             this.SaveProjectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SaveProjectButton.Name = "SaveProjectButton";
             this.SaveProjectButton.Size = new System.Drawing.Size(33, 31);
@@ -465,7 +465,7 @@ namespace Draw
             this.LoadProjectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.LoadProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoadProjectButton.Image = ((System.Drawing.Image)(resources.GetObject("LoadProjectButton.Image")));
-            this.LoadProjectButton.Location = new System.Drawing.Point(42, 2);
+            this.LoadProjectButton.Location = new System.Drawing.Point(81, 2);
             this.LoadProjectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoadProjectButton.Name = "LoadProjectButton";
             this.LoadProjectButton.Size = new System.Drawing.Size(33, 31);
@@ -627,8 +627,8 @@ namespace Draw
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.saveImageButton);
-            this.flowLayoutPanel3.Controls.Add(this.LoadProjectButton);
             this.flowLayoutPanel3.Controls.Add(this.SaveProjectButton);
+            this.flowLayoutPanel3.Controls.Add(this.LoadProjectButton);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(1084, 5);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(121, 37);
