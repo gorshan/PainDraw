@@ -40,6 +40,8 @@ namespace Draw
             t.SetToolTip(pipette_button, "Pipette");
             t.SetToolTip(CancelLast, "Cancel last");
             t.SetToolTip(saveImageButton, "Save image");
+            t.SetToolTip(SaveProjectButton, "Save project");
+            t.SetToolTip(LoadProjectButton, "Load project");
             t.SetToolTip(ClearButton, "Clear all");
             t.SetToolTip(ChangeBackgroundColor, "Background color");
 
