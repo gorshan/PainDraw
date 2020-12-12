@@ -102,33 +102,22 @@ namespace Draw.Drawer
             GC.Collect();
         }
 
-        public Bitmap CancelLastAction()
+        public Bitmap CancelLastAction(IOperationParameters parameters)
         {
-            if (PreviousBitmaps.Count == 0)
-            {
-                return MainBitmap;
-            }
-            MainBitmap = PreviousBitmaps.Last.Value;
-            PreviousBitmaps.RemoveLast();
-
-            if (Figures.Count != 0)
-            {
-                Figures.RemoveAt(Figures.Count - 1);
-            }
-
-            return MainBitmap;
+            return _operations.GetOperation(parameters.GetType()).Action(parameters);
         }
 
-        public void SaveBitmap()
+        public Bitmap SaveBitmapOperation(IOperationParameters parameters)
         {
-            var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg;*.jpe;*.jfif|BMP|*.bmp|GIF|*.gif";
-            saveFileDialog.FileName = "figure";
+            return _operations.GetOperation(parameters.GetType()).Action(parameters);
+            //var saveFileDialog = new SaveFileDialog();
+            //saveFileDialog.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg;*.jpe;*.jfif|BMP|*.bmp|GIF|*.gif";
+            //saveFileDialog.FileName = "figure";
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                MainBitmap.Save(saveFileDialog.FileName);
-            }
+            //if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    MainBitmap.Save(saveFileDialog.FileName);
+            //}
         }
 
         public Bitmap ChangeBackgroundColor(Color color)

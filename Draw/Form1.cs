@@ -251,7 +251,7 @@ namespace Draw
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Canvas.Current.SaveBitmap();
+            pictureBox1.Image = Canvas.Current.Action(new SaveBitmapOperationParametrs());
         }
 
         private void colorButton_Click(object sender, EventArgs e)
