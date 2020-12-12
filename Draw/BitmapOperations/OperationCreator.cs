@@ -14,7 +14,10 @@ namespace Draw.BitmapOperations
             {typeof(ClearOperationParameters), new ClearBitmapOperation() },
             {typeof(CancelLastActionParameter), new CancelLastActionOperation() },
             {typeof(SaveBitmapOperationParameters), new SaveBitmapOperation() },
-            {typeof(ChangeBackgroundColorOperationParameters), new ChangeBackgroundColorOperation() }
+            {typeof(ChangeBackgroundColorOperationParameters), new ChangeBackgroundColorOperation() },
+            {typeof(DrawFigureOperationParameters), new DrawFigureOperation() },
+            {typeof(DrawAllFigureOperationParameters), new DrawAllFigureOperation() },
+            {typeof(EndDrawOperationParameters), new EndDrawOperation() }
         };
 
         public IBitmapOperation GetOperation(Type type)

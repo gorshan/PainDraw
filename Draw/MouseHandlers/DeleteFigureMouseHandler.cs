@@ -1,4 +1,5 @@
-﻿using Draw.Drawer;
+﻿using Draw.BitmapOperations.OperationParameters;
+using Draw.Drawer;
 using Draw.Figures;
 using System;
 using System.Collections.Generic;
@@ -28,13 +29,13 @@ namespace Draw.MouseHandlers
                     if (figure.IsThisFigure(location))
                     {
                         Canvas.Current.Figures.Remove(figure);
-                        Canvas.Current.DrawAll();
+                        Canvas.Current.MainBitmap = Canvas.Current.Action(new DrawAllFigureOperationParameters());
                         break;
                     }
                 }
                 if(Canvas.Current.Figures.Count == 0)
                 {
-                    Canvas.Current.DrawAll();
+                    Canvas.Current.MainBitmap = Canvas.Current.Action(new DrawAllFigureOperationParameters());
                     _mouseDown = false;
                 }
             }

@@ -8,5 +8,6 @@ namespace Draw.BitmapOperations.OperationParameters
 {
     public interface IOperationParameters
     {
+
     }
 }

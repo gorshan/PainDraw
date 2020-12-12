@@ -1,4 +1,5 @@
-﻿using Draw.Drawer;
+﻿using Draw.BitmapOperations.OperationParameters;
+using Draw.Drawer;
 using Draw.Figures;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace Draw.MouseHandlers
             if (_mouseDown)
             {
                 Canvas.Current.Figure.Update(Canvas.Current.LastPoint, location);
-                Canvas.Current.DrawFigure(Canvas.Current.Figure);
+                Canvas.Current.TmpBitmap = Canvas.Current.Action(new DrawFigureOperationParameters(Canvas.Current.Figure));
                 forReturn = Canvas.Current.TmpBitmap;
             }
             return forReturn;
@@ -38,7 +39,7 @@ namespace Draw.MouseHandlers
 
         public Bitmap OnMouseUp(Point location)
         {
-            Canvas.Current.EndDraw();
+            Canvas.Current.MainBitmap = Canvas.Current.Action(new EndDrawOperationParameters());
             _mouseDown = false;
 
             Bitmap bitmap = Canvas.Current.MainBitmap;

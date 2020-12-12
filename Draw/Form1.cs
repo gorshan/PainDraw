@@ -294,9 +294,8 @@ namespace Draw
         {
             pictureBox1.Image = Canvas.Current.Action(new ChangeBackgroundColorOperationParameters(colorDialog1
                 .Color));
-           // Canvas.Current.Color = colorDialog1.Color;
-            Canvas.Current.DrawAll();
-            pictureBox1.Image = Canvas.Current.MainBitmap;
+            Canvas.Current.Color = colorDialog1.Color;
+            pictureBox1.Image = Canvas.Current.Action(new DrawAllFigureOperationParameters());
         }
 
         private void MoveVertex_Click(object sender, EventArgs e)

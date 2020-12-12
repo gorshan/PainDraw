@@ -1,4 +1,5 @@
-﻿using Draw.Drawer;
+﻿using Draw.BitmapOperations.OperationParameters;
+using Draw.Drawer;
 using Draw.Figures;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Draw.MouseHandlers
                 {
                     Canvas.Current.Figure = figure;
                     Canvas.Current.Figures.Remove(Canvas.Current.Figure);
-                    Canvas.Current.DrawAll();
+                    Canvas.Current.MainBitmap = Canvas.Current.Action(new DrawAllFigureOperationParameters());
                     break;
                 }
             }
@@ -40,7 +41,7 @@ namespace Draw.MouseHandlers
                 Point d = new Point(location.X - Canvas.Current.LastPoint.X, location.Y - Canvas.Current.LastPoint.Y);
                 Canvas.Current.LastPoint = location;
                 Canvas.Current.Figure.MoveVertex(d);
-                Canvas.Current.DrawFigure(Canvas.Current.Figure);
+                Canvas.Current.TmpBitmap = Canvas.Current.Action(new DrawFigureOperationParameters(Canvas.Current.Figure));
             }
 
             return Canvas.Current.TmpBitmap;
@@ -48,7 +49,7 @@ namespace Draw.MouseHandlers
 
         public Bitmap OnMouseUp(Point location)
         {
-            Canvas.Current.EndDraw();
+             Canvas.Current.MainBitmap = Canvas.Current.Action(new EndDrawOperationParameters());
             _mouseDown = false;
             if (Canvas.Current.Figure != null && !Canvas.Current.Figures.Contains(Canvas.Current.Figure) && !(Canvas.Current.Figure.IsEmpty()))
             {
