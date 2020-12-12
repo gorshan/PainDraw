@@ -13,7 +13,7 @@ namespace Draw.Drawer
     {
         public Bitmap MainBitmap { get; set; }
         public Bitmap TmpBitmap { get; set; }
-        private Graphics _graphics;
+        public Graphics Graphics;
         public LinkedList<Bitmap> PreviousBitmaps { get; set; }
         public Pen Pen { get; set; }
         public Color Color { get; set; }
@@ -48,7 +48,7 @@ namespace Draw.Drawer
         public Canvas(int width, int height, OperationCreator operations)
         {
             MainBitmap = new Bitmap(width + 500, height+ 500);
-            _graphics = Graphics.FromImage(MainBitmap);
+            Graphics = Graphics.FromImage(MainBitmap);
             Pen = new Pen(Color.Black, 1);
             PreviousBitmaps = new LinkedList<Bitmap>();
             PreviousBitmaps.AddLast(MainBitmap);
@@ -73,8 +73,8 @@ namespace Draw.Drawer
         public void DrawFigure(AbstractFigure figure)
         {
             TmpBitmap = (Bitmap)MainBitmap.Clone();
-            _graphics = Graphics.FromImage(TmpBitmap);
-            figure.Drawer.DrawFigure(_graphics, new Pen(figure.Color, figure.Width), figure.GetPoints());
+            Graphics = Graphics.FromImage(TmpBitmap);
+            figure.Drawer.DrawFigure(Graphics, new Pen(figure.Color, figure.Width), figure.GetPoints());
             GC.Collect();
         }
 
@@ -110,29 +110,22 @@ namespace Draw.Drawer
         public Bitmap SaveBitmapOperation(IOperationParameters parameters)
         {
             return _operations.GetOperation(parameters.GetType()).Action(parameters);
-            //var saveFileDialog = new SaveFileDialog();
-            //saveFileDialog.Filter = "PNG|*.png|JPEG|*.jpg;*.jpeg;*.jpe;*.jfif|BMP|*.bmp|GIF|*.gif";
-            //saveFileDialog.FileName = "figure";
-
-            //if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    MainBitmap.Save(saveFileDialog.FileName);
-            //}
         }
 
-        public Bitmap ChangeBackgroundColor(Color color)
+        public Bitmap ChangeBackgroundColorOperation(IOperationParameters parameters)
         {
-            _graphics = Graphics.FromImage(MainBitmap);
-            _graphics.Clear(color);
-            Color = color;
-            return MainBitmap;
+            return _operations.GetOperation(parameters.GetType()).Action(parameters);
+            //  _graphics = Graphics.FromImage(MainBitmap);
+            //_graphics.Clear(color);
+            //Color = color;
+            //return MainBitmap;
         }
 
-        public void DeleteAllFigures()
-        {
-            CreateMainBitmap();
-            ChangeBackgroundColor(Color);
-        }
+        //public void DeleteAllFigures(IOperationParameters parameters)
+        //{
+        //    CreateMainBitmap();
+        //    ChangeBackgroundColorOperation(parameters);
+        //}
 
         public void RenewFigure()
         {
@@ -175,7 +168,7 @@ namespace Draw.Drawer
         }
         public void DrawAll()
         {
-            DeleteAllFigures();
+           // DeleteAllFigures();
             foreach (AbstractFigure figure in Figures)
             {
                 DrawFigure(figure);

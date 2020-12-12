@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Draw.BitmapOperations.OperationParameters
 {
-   public class SaveBitmapOperationParametrs : IOperationParameters
+   public class SaveBitmapOperationParameters : IOperationParameters
     {
 
     }

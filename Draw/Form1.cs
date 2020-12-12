@@ -251,7 +251,7 @@ namespace Draw
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = Canvas.Current.Action(new SaveBitmapOperationParametrs());
+            pictureBox1.Image = Canvas.Current.Action(new SaveBitmapOperationParameters());
         }
 
         private void colorButton_Click(object sender, EventArgs e)
@@ -292,7 +292,9 @@ namespace Draw
 
         private void ChangeBackgroundColor_Click(object sender, EventArgs e)
         {
-            Canvas.Current.Color = colorDialog1.Color;
+            pictureBox1.Image = Canvas.Current.Action(new ChangeBackgroundColorOperationParameters(colorDialog1
+                .Color));
+           // Canvas.Current.Color = colorDialog1.Color;
             Canvas.Current.DrawAll();
             pictureBox1.Image = Canvas.Current.MainBitmap;
         }
