@@ -12,27 +12,26 @@ namespace Draw.MouseHandlers
 {
     public class FillFigureMouseHandler : IMouseHandler
     {
-        private AbstractFigure figurka;
+        
         public Bitmap OnMouseDown(PointF location)
         {
          
             Canvas.Current.LastPoint = location;
-            Bitmap bitmapBeforeChange = Canvas.Current.GetImage();
             if (Canvas.Current.Figure != null)
             {
                 foreach (AbstractFigure figure in Canvas.Current.Figures)
                 {
                     var points = figure.GetPoints();
-                    //if (points == null) continue;
                     if (figure.IsPointInsidePolygon(points, location.X, location.Y))
                     {
-                        figurka = figure;
+                        figure.ColorBackgroundFigure = Canvas.Current.Pen.Color;
                         figure.FillFigure();
+                        Canvas.Current.DrawFigure(figure);
+                    }
+                    if (figure.IsThisFigure(location))
+                    {
                         figure.Color = Canvas.Current.Pen.Color;
                         Canvas.Current.DrawFigure(figure);
-                     //  Canvas.Current.EndDraw();
-                        
-                     //  Canvas.Current.EndDraw();
                     }
                 }
             }
@@ -41,22 +40,12 @@ namespace Draw.MouseHandlers
 
         public Bitmap OnMouseMove(PointF location)
         {
-            //if (_mouseDown && Canvas.Current.Figure != null)
-            //{
-            //    foreach (AbstractFigure figure in Canvas.Current.Figures)
-            //    {
-            //        if ( figure.IsPointInsidePolygon(figure.Points, location.X, location.Y)
-            //    }
-            //}
+          
             return Canvas.Current.GetTmpImage();
         }
 
         public Bitmap OnMouseUp(PointF location)
         {
-
-            //figurka.Color = figurka.ColorInside;
-            //figurka.IsFilled = false;
-            //Canvas.Current.DrawFigure(figurka);
 
             Canvas.Current.EndDraw();
 

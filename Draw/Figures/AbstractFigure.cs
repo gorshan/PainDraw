@@ -18,7 +18,7 @@ namespace Draw.Figures
         public List<PointF> Points { get; set; }
 
         public Color Color { get; set; }
-        public Color ColorInside { get; set; }
+        public Color ColorBackgroundFigure { get; set; }
         public virtual int Width { get; set; }
 
         public bool IsFilled { get; set; } = false;
@@ -82,7 +82,6 @@ namespace Draw.Figures
         }
 
         public virtual bool IsThisFigure(PointF point)
-
         {
             PointF p1 = Points[Points.Count - 1];
             PointF p2;
@@ -175,7 +174,7 @@ namespace Draw.Figures
             IsFilled = !IsFilled;
             if (IsFilled)
             {
-                Drawer = new FilledAngleFiguresDrawer();
+                Drawer = new FilledAngleFiguresDrawer(Color, ColorBackgroundFigure);
             }
             else
             {
@@ -186,6 +185,7 @@ namespace Draw.Figures
         public void FillFigure(bool fill)
         {
             IsFilled = !fill;
+
             FillFigure();
         }
         public PointF[] GetPointsInner(int width, int height)

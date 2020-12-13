@@ -14,7 +14,7 @@ namespace Draw.Figures
 
         public CircleFigure()
         {
-            Drawer = new EllipseDrawer();
+            Drawer = new AngleFiguresDrawer();
         }
 
         int r;
@@ -72,11 +72,11 @@ namespace Draw.Figures
             IsFilled = !IsFilled;
             if (IsFilled)
             {
-                Drawer = new FilledEllipseDrawer();
+                Drawer = new FilledAngleFiguresDrawer(Color, ColorBackgroundFigure);
             }
             else
             {
-                Drawer = new EllipseDrawer();
+                Drawer = new AngleFiguresDrawer();
             }
         }
 

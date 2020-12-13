@@ -166,7 +166,7 @@ namespace Draw.Drawer
             }
             Figure = Fabric.CreateFigure();
             Figure.Color = Pen.Color;
-            Figure.ColorInside = Pen.Color;
+            Figure.ColorBackgroundFigure = Pen.Color;
             Figure.Width = (int)Pen.Width;
             Figure.FillFigure(isFilled);
 

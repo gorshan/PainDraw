@@ -42,6 +42,7 @@ namespace Draw.Figures
 
         public NPointsFigure()
         {
+            N = 3;
             Points = new List<PointF>();
             Drawer = new PenDrawer();
         }
@@ -63,11 +64,11 @@ namespace Draw.Figures
             if (Points.Count < N)
             {
                 Points.Add(endPoint);
-                if (Points.Count == N)
+                if (Points.Count >= N)
                 {
                     if (IsFilled)
                     {
-                        Drawer = new FilledAngleFiguresDrawer();
+                        Drawer = new FilledAngleFiguresDrawer(Color, ColorBackgroundFigure);
                     }
                     else
                     {
@@ -81,6 +82,17 @@ namespace Draw.Figures
         public override void FillFigure()
         {
             IsFilled = !IsFilled;
+            if (Points.Count >= N)
+            {
+                if (IsFilled)
+                {
+                    Drawer = new FilledAngleFiguresDrawer(Color, ColorBackgroundFigure);
+                }
+                else
+                {
+                    Drawer = new AngleFiguresDrawer();
+                }
+            }
         }
     }
 }
