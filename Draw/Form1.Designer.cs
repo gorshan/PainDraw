@@ -82,7 +82,7 @@ namespace Draw
             // NAngleNumericUpDown
             // 
             this.NAngleNumericUpDown.Location = new System.Drawing.Point(14, 475);
-            this.NAngleNumericUpDown.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.NAngleNumericUpDown.Margin = new System.Windows.Forms.Padding(5);
             this.NAngleNumericUpDown.Minimum = new decimal(new int[] {
             3,
             0,
@@ -152,7 +152,7 @@ namespace Draw
             this.ToolLayoutPanel.Controls.Add(this.NAngleButton);
             this.ToolLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.ToolLayoutPanel.Location = new System.Drawing.Point(15, 57);
-            this.ToolLayoutPanel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ToolLayoutPanel.Margin = new System.Windows.Forms.Padding(5);
             this.ToolLayoutPanel.Name = "ToolLayoutPanel";
             this.ToolLayoutPanel.Size = new System.Drawing.Size(133, 408);
             this.ToolLayoutPanel.TabIndex = 22;
@@ -377,7 +377,7 @@ namespace Draw
             this.flowLayoutPanel1.Controls.Add(this.ClearButton);
             this.flowLayoutPanel1.Controls.Add(this.DeleteFigureButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(155, 5);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(246, 36);
             this.flowLayoutPanel1.TabIndex = 24;
@@ -498,7 +498,7 @@ namespace Draw
             this.flowLayoutPanel2.Controls.Add(this.FillFigure);
             this.flowLayoutPanel2.Controls.Add(this.FillFigureButton);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(586, 5);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(255, 36);
             this.flowLayoutPanel2.TabIndex = 25;
@@ -601,7 +601,7 @@ namespace Draw
             // 
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
             this.logoPictureBox.Location = new System.Drawing.Point(11, 5);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(5);
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(137, 38);
             this.logoPictureBox.TabIndex = 25;
@@ -616,7 +616,7 @@ namespace Draw
             this.pictureBox1.Location = new System.Drawing.Point(155, 47);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1060, 551);
+            this.pictureBox1.Size = new System.Drawing.Size(1105, 551);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
@@ -639,7 +639,7 @@ namespace Draw
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(1217, 599);
+            this.ClientSize = new System.Drawing.Size(1262, 599);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -652,7 +652,7 @@ namespace Draw
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(1);
-            this.MinimumSize = new System.Drawing.Size(680, 567);
+            this.MinimumSize = new System.Drawing.Size(1100, 567);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.Form1_ChangeSize);
