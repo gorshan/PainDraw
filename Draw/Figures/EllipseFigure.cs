@@ -39,8 +39,6 @@ namespace Draw.Figures
         {
             Points[0] = new PointF(Points[0].X + delta.X, Points[0].Y);
             Points[1] = new PointF(Points[1].X + delta.Y, Points[1].Y);
-
-            //center = new PointF(center.X + delta.X, center.Y + delta.Y);
         }
 
 

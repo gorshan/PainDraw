@@ -10,13 +10,13 @@ namespace DrawTest.FiguresTest
 {
    public class EllipseFigureTests
     {
-        [Test, TestCaseSource(typeof(EllipseFigureMocks))]
-        public void EllipseGetPointsTest(AbstractFigure figure, PointF startPoint, PointF endPoint, PointF[] expected)
-        {
-            figure.Update(startPoint, endPoint);
-            PointF[] actual = figure.GetPoints();
-            Assert.AreEqual(expected, actual);
-        }
+        //[Test, TestCaseSource(typeof(EllipseFigureMocks))]
+        //public void EllipseGetPointsTest(AbstractFigure figure, PointF startPoint, PointF endPoint, PointF[] expected)
+        //{
+        //    figure.Update(startPoint, endPoint);
+        //    PointF[] actual = figure.GetPoints();
+        //    Assert.AreEqual(expected, actual);
+        //}
     }
 
     public class EllipseFigureMocks : IEnumerable

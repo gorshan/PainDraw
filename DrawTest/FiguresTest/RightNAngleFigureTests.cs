@@ -10,13 +10,13 @@ namespace DrawTest.FiguresTest
 {
     public class RightNAngleFigureTests
     {
-        //[Test, TestCaseSource(typeof(RightNAnglePointsMock))]
-        //public void RightNAngleGetPointsTest(AbstractFigure figure, PointF startPoint, PointF endPoint, PointF[] expected)
-        //{
-        //    figure.Update(startPoint, endPoint);
-        //    PointF[] actual = figure.GetPoints();
-        //    Assert.AreEqual(expected, actual);
-        //}
+        [Test, TestCaseSource(typeof(RightNAnglePointsMock))]
+        public void RightNAngleGetPointsTest(AbstractFigure figure, PointF startPoint, PointF endPoint, PointF[] expected)
+        {
+            figure.Update(startPoint, endPoint);
+            PointF[] actual = figure.GetPoints();
+            Assert.AreEqual(expected, actual);
+        }
     }
     public class RightNAnglePointsMock: IEnumerable
     {

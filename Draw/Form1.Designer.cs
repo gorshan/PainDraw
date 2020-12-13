@@ -629,7 +629,7 @@ namespace Draw
             this.flowLayoutPanel3.Controls.Add(this.saveImageButton);
             this.flowLayoutPanel3.Controls.Add(this.SaveProjectButton);
             this.flowLayoutPanel3.Controls.Add(this.LoadProjectButton);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(1220, 6);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(1075, 6);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(136, 46);
