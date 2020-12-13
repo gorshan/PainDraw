@@ -341,8 +341,8 @@ namespace Draw
             if(figures != null)
             {
                 Canvas.Current.Figures = figures;
-                Canvas.Current.DrawAll();
-                pictureBox1.Image = Canvas.Current.GetImage();
+                Canvas.Current.MainBitmap = Canvas.Current.Action(new DrawAllFigureOperationParameters());
+                pictureBox1.Image = Canvas.Current.MainBitmap;
             }
         }
 

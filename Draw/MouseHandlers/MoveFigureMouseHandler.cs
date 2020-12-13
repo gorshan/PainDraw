@@ -51,7 +51,7 @@ namespace Draw.MouseHandlers
             _mouseDown = false;
             if (Canvas.Current.Figure != null && !Canvas.Current.Figures.Contains(Canvas.Current.Figure) && !(Canvas.Current.Figure.IsEmpty()))
             {
-                Canvas.Current.Figures.Add(Canvas.Current.Figure);
+                Canvas.Current.Figures.Insert(0, Canvas.Current.Figure);
             }
             if (!(Canvas.Current.Figure is NPointsFigure) ||
                 ((NPointsFigure)Canvas.Current.Figure).IsFull())

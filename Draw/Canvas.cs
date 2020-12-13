@@ -70,48 +70,6 @@ namespace Draw.Drawer
             return _operations.GetOperation(parameters.GetType()).Action(parameters);             
         }
 
-        //public Bitmap DrawFigureOperation(IOperationParameters parameters)
-        //{
-        //    return _operations.GetOperation(parameters.GetType()).Action(parameters);
-
-        //    //TmpBitmap = (Bitmap)MainBitmap.Clone();
-        //    //Graphics = Graphics.FromImage(TmpBitmap);
-        //    //figure.Drawer.DrawFigure(Graphics, new Pen(figure.Color, figure.Width), figure.GetPoints());
-        //    //GC.Collect();
-        //}
-
-        //public Bitmap EndDrawOperation(IOperationParameters parameters)
-        //{
-        //    return _operations.GetOperation(parameters.GetType()).Action(parameters);
-        //    //    if (PreviousBitmaps.Count >= 5)
-        //    //    {
-        //    //        PreviousBitmaps.RemoveFirst();
-        //    //    }
-        //    //    PreviousBitmaps.AddLast(MainBitmap);
-        //    //    MainBitmap = TmpBitmap;
-        //}
-
-        //public Bitmap ClearBitmapOperation(IOperationParameters parameters)
-        //{
-        //    return _operations.GetOperation(parameters.GetType()).Action(parameters);
-        //}
-
-        //public Bitmap CancelLastAction(IOperationParameters parameters)
-        //{
-        //    return _operations.GetOperation(parameters.GetType()).Action(parameters);
-        //}
-
-        //public Bitmap SaveBitmapOperation(IOperationParameters parameters)
-        //{
-        //    return _operations.GetOperation(parameters.GetType()).Action(parameters);
-        //}
-
-        //public Bitmap ChangeBackgroundColorOperation(IOperationParameters parameters)
-        //{
-        //    return _operations.GetOperation(parameters.GetType()).Action(parameters);
-        //}
-
-
         public void RenewFigure()
         {
             bool isFilled = false;
@@ -152,16 +110,5 @@ namespace Draw.Drawer
             Figure.Color = color;
             Pen.Color = color;
         }
-        //public Bitmap DrawAllFigureOperation(IOperationParameters parameters)
-        //{
-        //    return _operations.GetOperation(parameters.GetType()).Action(parameters);
-
-        //    //DeleteAllFigures();
-        //    //foreach (AbstractFigure figure in Figures)
-        //    //{
-        //    //    TmpBitmap = Canvas.Current.Action(new DrawFigureOperationParameters(figure));
-        //    //    EndDraw();
-        //    //}
-        //}
     }
 }
