@@ -67,7 +67,7 @@ namespace Draw.Figures
                 {
                     if (IsFilled)
                     {
-                        Drawer = new FilledAngleFiguresDrawer();
+                        Drawer = new FilledAngleFiguresDrawer(Color, ColorBackgroundFigure);
                     }
                     else
                     {
@@ -85,7 +85,7 @@ namespace Draw.Figures
             {
                 if (IsFilled)
                 {
-                    Drawer = new FilledAngleFiguresDrawer();
+                    Drawer = new FilledAngleFiguresDrawer(Color, ColorBackgroundFigure);
                 }
                 else
                 {

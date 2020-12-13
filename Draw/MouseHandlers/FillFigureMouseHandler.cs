@@ -24,7 +24,7 @@ namespace Draw.MouseHandlers
                     var points = figure.GetPoints();
                     if (figure.IsPointInsidePolygon(points, location.X, location.Y))
                     {
-                        figure.ColorInside = Canvas.Current.Pen.Color;
+                        figure.ColorBackgroundFigure = Canvas.Current.Pen.Color;
                         figure.FillFigure();
                         Canvas.Current.DrawFigure(figure);
                     }
