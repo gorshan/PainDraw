@@ -500,7 +500,7 @@ namespace Draw
             this.flowLayoutPanel2.Location = new System.Drawing.Point(586, 5);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(255, 36);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(290, 36);
             this.flowLayoutPanel2.TabIndex = 25;
             // 
             // workWithFigureButton
@@ -589,7 +589,7 @@ namespace Draw
             this.FillFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.FillFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FillFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("FillFigureButton.Image")));
-            this.FillFigureButton.Location = new System.Drawing.Point(3, 37);
+            this.FillFigureButton.Location = new System.Drawing.Point(237, 2);
             this.FillFigureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FillFigureButton.Name = "FillFigureButton";
             this.FillFigureButton.Size = new System.Drawing.Size(33, 31);
