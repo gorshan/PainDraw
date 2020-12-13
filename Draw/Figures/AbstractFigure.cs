@@ -82,7 +82,6 @@ namespace Draw.Figures
         }
 
         public virtual bool IsThisFigure(PointF point)
-
         {
             PointF p1 = Points[Points.Count - 1];
             PointF p2;
