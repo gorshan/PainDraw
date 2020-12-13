@@ -55,6 +55,7 @@ namespace Draw
             this.ChangeBackgroundColor = new System.Windows.Forms.Button();
             this.CancelLast = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
+            this.DeleteFigureButton = new System.Windows.Forms.Button();
             this.saveImageButton = new System.Windows.Forms.Button();
             this.SaveProjectButton = new System.Windows.Forms.Button();
             this.LoadProjectButton = new System.Windows.Forms.Button();
@@ -63,10 +64,9 @@ namespace Draw
             this.MoveFace = new System.Windows.Forms.Button();
             this.MoveVertex = new System.Windows.Forms.Button();
             this.rotateButton = new System.Windows.Forms.Button();
-            this.FillFigureButton = new System.Windows.Forms.Button();
-            this.DeleteFigureButton = new System.Windows.Forms.Button();
-            this.FillFigure = new System.Windows.Forms.Button();
             this.Scale = new System.Windows.Forms.Button();
+            this.FillFigure = new System.Windows.Forms.Button();
+            this.FillFigureButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -81,15 +81,15 @@ namespace Draw
             // 
             // NAngleNumericUpDown
             // 
-            this.NAngleNumericUpDown.Location = new System.Drawing.Point(16, 594);
-            this.NAngleNumericUpDown.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.NAngleNumericUpDown.Location = new System.Drawing.Point(14, 475);
+            this.NAngleNumericUpDown.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.NAngleNumericUpDown.Minimum = new decimal(new int[] {
             3,
             0,
             0,
             0});
             this.NAngleNumericUpDown.Name = "NAngleNumericUpDown";
-            this.NAngleNumericUpDown.Size = new System.Drawing.Size(151, 26);
+            this.NAngleNumericUpDown.Size = new System.Drawing.Size(134, 22);
             this.NAngleNumericUpDown.TabIndex = 15;
             this.NAngleNumericUpDown.Value = new decimal(new int[] {
             3,
@@ -104,11 +104,11 @@ namespace Draw
             this.WigthScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.WigthScrollBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.WigthScrollBar.LargeChange = 1;
-            this.WigthScrollBar.Location = new System.Drawing.Point(441, 8);
+            this.WigthScrollBar.Location = new System.Drawing.Point(405, 7);
             this.WigthScrollBar.Maximum = 50;
             this.WigthScrollBar.Minimum = 3;
             this.WigthScrollBar.Name = "WigthScrollBar";
-            this.WigthScrollBar.Size = new System.Drawing.Size(199, 16);
+            this.WigthScrollBar.Size = new System.Drawing.Size(177, 16);
             this.WigthScrollBar.TabIndex = 16;
             this.WigthScrollBar.Value = 3;
             this.WigthScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.WigthScrollBar_Scroll);
@@ -119,10 +119,10 @@ namespace Draw
             this.widthText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.widthText.Enabled = false;
             this.widthText.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.widthText.Location = new System.Drawing.Point(541, 35);
+            this.widthText.Location = new System.Drawing.Point(481, 28);
             this.widthText.Margin = new System.Windows.Forms.Padding(1);
             this.widthText.Name = "widthText";
-            this.widthText.Size = new System.Drawing.Size(24, 19);
+            this.widthText.Size = new System.Drawing.Size(21, 15);
             this.widthText.TabIndex = 17;
             // 
             // ColorButton
@@ -130,7 +130,7 @@ namespace Draw
             this.ColorButton.Location = new System.Drawing.Point(3, 2);
             this.ColorButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ColorButton.Name = "ColorButton";
-            this.ColorButton.Size = new System.Drawing.Size(37, 39);
+            this.ColorButton.Size = new System.Drawing.Size(33, 31);
             this.ColorButton.TabIndex = 18;
             this.ColorButton.UseVisualStyleBackColor = true;
             this.ColorButton.Click += new System.EventHandler(this.colorButton_Click);
@@ -151,10 +151,10 @@ namespace Draw
             this.ToolLayoutPanel.Controls.Add(this.RightNAngleButton);
             this.ToolLayoutPanel.Controls.Add(this.NAngleButton);
             this.ToolLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ToolLayoutPanel.Location = new System.Drawing.Point(17, 71);
-            this.ToolLayoutPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ToolLayoutPanel.Location = new System.Drawing.Point(15, 57);
+            this.ToolLayoutPanel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ToolLayoutPanel.Name = "ToolLayoutPanel";
-            this.ToolLayoutPanel.Size = new System.Drawing.Size(150, 510);
+            this.ToolLayoutPanel.Size = new System.Drawing.Size(133, 408);
             this.ToolLayoutPanel.TabIndex = 22;
             this.ToolLayoutPanel.WrapContents = false;
             // 
@@ -169,7 +169,7 @@ namespace Draw
             this.PenButton.Margin = new System.Windows.Forms.Padding(1);
             this.PenButton.Name = "PenButton";
             this.PenButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PenButton.Size = new System.Drawing.Size(153, 39);
+            this.PenButton.Size = new System.Drawing.Size(136, 31);
             this.PenButton.TabIndex = 1;
             this.PenButton.Text = "Pen";
             this.PenButton.UseVisualStyleBackColor = false;
@@ -182,10 +182,10 @@ namespace Draw
             this.LineButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.LineButton.Image = ((System.Drawing.Image)(resources.GetObject("LineButton.Image")));
             this.LineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LineButton.Location = new System.Drawing.Point(1, 42);
+            this.LineButton.Location = new System.Drawing.Point(1, 34);
             this.LineButton.Margin = new System.Windows.Forms.Padding(1);
             this.LineButton.Name = "LineButton";
-            this.LineButton.Size = new System.Drawing.Size(153, 39);
+            this.LineButton.Size = new System.Drawing.Size(136, 31);
             this.LineButton.TabIndex = 2;
             this.LineButton.Text = "Line";
             this.LineButton.UseVisualStyleBackColor = false;
@@ -198,10 +198,10 @@ namespace Draw
             this.PolyLine.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.PolyLine.Image = ((System.Drawing.Image)(resources.GetObject("PolyLine.Image")));
             this.PolyLine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PolyLine.Location = new System.Drawing.Point(1, 83);
+            this.PolyLine.Location = new System.Drawing.Point(1, 67);
             this.PolyLine.Margin = new System.Windows.Forms.Padding(1);
             this.PolyLine.Name = "PolyLine";
-            this.PolyLine.Size = new System.Drawing.Size(152, 39);
+            this.PolyLine.Size = new System.Drawing.Size(135, 31);
             this.PolyLine.TabIndex = 18;
             this.PolyLine.Text = "PolyLine";
             this.PolyLine.UseVisualStyleBackColor = false;
@@ -214,10 +214,10 @@ namespace Draw
             this.SquareButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.SquareButton.Image = ((System.Drawing.Image)(resources.GetObject("SquareButton.Image")));
             this.SquareButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SquareButton.Location = new System.Drawing.Point(1, 124);
+            this.SquareButton.Location = new System.Drawing.Point(1, 100);
             this.SquareButton.Margin = new System.Windows.Forms.Padding(1);
             this.SquareButton.Name = "SquareButton";
-            this.SquareButton.Size = new System.Drawing.Size(153, 39);
+            this.SquareButton.Size = new System.Drawing.Size(136, 31);
             this.SquareButton.TabIndex = 4;
             this.SquareButton.Text = "Square";
             this.SquareButton.UseVisualStyleBackColor = false;
@@ -230,10 +230,10 @@ namespace Draw
             this.RectangleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.RectangleButton.Image = ((System.Drawing.Image)(resources.GetObject("RectangleButton.Image")));
             this.RectangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RectangleButton.Location = new System.Drawing.Point(1, 165);
+            this.RectangleButton.Location = new System.Drawing.Point(1, 133);
             this.RectangleButton.Margin = new System.Windows.Forms.Padding(1);
             this.RectangleButton.Name = "RectangleButton";
-            this.RectangleButton.Size = new System.Drawing.Size(153, 39);
+            this.RectangleButton.Size = new System.Drawing.Size(136, 31);
             this.RectangleButton.TabIndex = 3;
             this.RectangleButton.Text = "Rectangle";
             this.RectangleButton.UseVisualStyleBackColor = false;
@@ -246,10 +246,10 @@ namespace Draw
             this.CircleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.CircleButton.Image = ((System.Drawing.Image)(resources.GetObject("CircleButton.Image")));
             this.CircleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CircleButton.Location = new System.Drawing.Point(1, 206);
+            this.CircleButton.Location = new System.Drawing.Point(1, 166);
             this.CircleButton.Margin = new System.Windows.Forms.Padding(1);
             this.CircleButton.Name = "CircleButton";
-            this.CircleButton.Size = new System.Drawing.Size(153, 39);
+            this.CircleButton.Size = new System.Drawing.Size(136, 31);
             this.CircleButton.TabIndex = 5;
             this.CircleButton.Text = "Circle";
             this.CircleButton.UseVisualStyleBackColor = false;
@@ -263,10 +263,10 @@ namespace Draw
             this.EllipsButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.EllipsButton.Image = ((System.Drawing.Image)(resources.GetObject("EllipsButton.Image")));
             this.EllipsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EllipsButton.Location = new System.Drawing.Point(1, 247);
+            this.EllipsButton.Location = new System.Drawing.Point(1, 199);
             this.EllipsButton.Margin = new System.Windows.Forms.Padding(1);
             this.EllipsButton.Name = "EllipsButton";
-            this.EllipsButton.Size = new System.Drawing.Size(153, 39);
+            this.EllipsButton.Size = new System.Drawing.Size(136, 31);
             this.EllipsButton.TabIndex = 6;
             this.EllipsButton.Text = "Ellipse";
             this.EllipsButton.UseVisualStyleBackColor = false;
@@ -279,10 +279,10 @@ namespace Draw
             this.IsoscelesTriangleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.IsoscelesTriangleButton.Image = ((System.Drawing.Image)(resources.GetObject("IsoscelesTriangleButton.Image")));
             this.IsoscelesTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IsoscelesTriangleButton.Location = new System.Drawing.Point(3, 289);
+            this.IsoscelesTriangleButton.Location = new System.Drawing.Point(3, 233);
             this.IsoscelesTriangleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.IsoscelesTriangleButton.Name = "IsoscelesTriangleButton";
-            this.IsoscelesTriangleButton.Size = new System.Drawing.Size(152, 39);
+            this.IsoscelesTriangleButton.Size = new System.Drawing.Size(135, 31);
             this.IsoscelesTriangleButton.TabIndex = 7;
             this.IsoscelesTriangleButton.Text = "Iso. Triangle";
             this.IsoscelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -296,10 +296,10 @@ namespace Draw
             this.TriangleByPoints.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.TriangleByPoints.Image = ((System.Drawing.Image)(resources.GetObject("TriangleByPoints.Image")));
             this.TriangleByPoints.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TriangleByPoints.Location = new System.Drawing.Point(3, 332);
+            this.TriangleByPoints.Location = new System.Drawing.Point(3, 268);
             this.TriangleByPoints.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TriangleByPoints.Name = "TriangleByPoints";
-            this.TriangleByPoints.Size = new System.Drawing.Size(152, 39);
+            this.TriangleByPoints.Size = new System.Drawing.Size(135, 31);
             this.TriangleByPoints.TabIndex = 16;
             this.TriangleByPoints.Text = "Triangle";
             this.TriangleByPoints.UseVisualStyleBackColor = false;
@@ -312,10 +312,10 @@ namespace Draw
             this.RightTriangleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.RightTriangleButton.Image = ((System.Drawing.Image)(resources.GetObject("RightTriangleButton.Image")));
             this.RightTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RightTriangleButton.Location = new System.Drawing.Point(3, 375);
+            this.RightTriangleButton.Location = new System.Drawing.Point(3, 303);
             this.RightTriangleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RightTriangleButton.Name = "RightTriangleButton";
-            this.RightTriangleButton.Size = new System.Drawing.Size(152, 39);
+            this.RightTriangleButton.Size = new System.Drawing.Size(135, 31);
             this.RightTriangleButton.TabIndex = 8;
             this.RightTriangleButton.Text = "Right Trangle";
             this.RightTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -330,10 +330,10 @@ namespace Draw
             this.RightNAngleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.RightNAngleButton.Image = ((System.Drawing.Image)(resources.GetObject("RightNAngleButton.Image")));
             this.RightNAngleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RightNAngleButton.Location = new System.Drawing.Point(3, 418);
+            this.RightNAngleButton.Location = new System.Drawing.Point(3, 338);
             this.RightNAngleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RightNAngleButton.Name = "RightNAngleButton";
-            this.RightNAngleButton.Size = new System.Drawing.Size(152, 39);
+            this.RightNAngleButton.Size = new System.Drawing.Size(135, 31);
             this.RightNAngleButton.TabIndex = 10;
             this.RightNAngleButton.Text = "Right N-angle";
             this.RightNAngleButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -347,10 +347,10 @@ namespace Draw
             this.NAngleButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.NAngleButton.Image = ((System.Drawing.Image)(resources.GetObject("NAngleButton.Image")));
             this.NAngleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NAngleButton.Location = new System.Drawing.Point(3, 461);
+            this.NAngleButton.Location = new System.Drawing.Point(3, 373);
             this.NAngleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NAngleButton.Name = "NAngleButton";
-            this.NAngleButton.Size = new System.Drawing.Size(152, 39);
+            this.NAngleButton.Size = new System.Drawing.Size(135, 31);
             this.NAngleButton.TabIndex = 9;
             this.NAngleButton.Text = "N-angle";
             this.NAngleButton.UseVisualStyleBackColor = false;
@@ -360,10 +360,10 @@ namespace Draw
             // 
             this.SizeLabel.AutoSize = true;
             this.SizeLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SizeLabel.Location = new System.Drawing.Point(55, 629);
+            this.SizeLabel.Location = new System.Drawing.Point(49, 503);
             this.SizeLabel.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.SizeLabel.Name = "SizeLabel";
-            this.SizeLabel.Size = new System.Drawing.Size(51, 20);
+            this.SizeLabel.Size = new System.Drawing.Size(46, 17);
             this.SizeLabel.TabIndex = 23;
             this.SizeLabel.Text = "label1";
             // 
@@ -376,10 +376,10 @@ namespace Draw
             this.flowLayoutPanel1.Controls.Add(this.CancelLast);
             this.flowLayoutPanel1.Controls.Add(this.ClearButton);
             this.flowLayoutPanel1.Controls.Add(this.DeleteFigureButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(174, 6);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(155, 5);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(263, 45);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(246, 36);
             this.flowLayoutPanel1.TabIndex = 24;
             // 
             // pipette_button
@@ -387,10 +387,10 @@ namespace Draw
             this.pipette_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.pipette_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pipette_button.Image = ((System.Drawing.Image)(resources.GetObject("pipette_button.Image")));
-            this.pipette_button.Location = new System.Drawing.Point(46, 2);
+            this.pipette_button.Location = new System.Drawing.Point(42, 2);
             this.pipette_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pipette_button.Name = "pipette_button";
-            this.pipette_button.Size = new System.Drawing.Size(37, 39);
+            this.pipette_button.Size = new System.Drawing.Size(33, 31);
             this.pipette_button.TabIndex = 20;
             this.pipette_button.UseVisualStyleBackColor = false;
             this.pipette_button.Click += new System.EventHandler(this.pipette_button_Click);
@@ -401,10 +401,10 @@ namespace Draw
             this.ChangeBackgroundColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeBackgroundColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ChangeBackgroundColor.Image = ((System.Drawing.Image)(resources.GetObject("ChangeBackgroundColor.Image")));
-            this.ChangeBackgroundColor.Location = new System.Drawing.Point(90, 2);
+            this.ChangeBackgroundColor.Location = new System.Drawing.Point(82, 2);
             this.ChangeBackgroundColor.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ChangeBackgroundColor.Name = "ChangeBackgroundColor";
-            this.ChangeBackgroundColor.Size = new System.Drawing.Size(37, 39);
+            this.ChangeBackgroundColor.Size = new System.Drawing.Size(33, 31);
             this.ChangeBackgroundColor.TabIndex = 0;
             this.ChangeBackgroundColor.UseVisualStyleBackColor = false;
             this.ChangeBackgroundColor.Click += new System.EventHandler(this.ChangeBackgroundColor_Click);
@@ -414,10 +414,10 @@ namespace Draw
             this.CancelLast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.CancelLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelLast.Image = ((System.Drawing.Image)(resources.GetObject("CancelLast.Image")));
-            this.CancelLast.Location = new System.Drawing.Point(134, 2);
+            this.CancelLast.Location = new System.Drawing.Point(122, 2);
             this.CancelLast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CancelLast.Name = "CancelLast";
-            this.CancelLast.Size = new System.Drawing.Size(37, 39);
+            this.CancelLast.Size = new System.Drawing.Size(33, 31);
             this.CancelLast.TabIndex = 20;
             this.CancelLast.UseVisualStyleBackColor = false;
             this.CancelLast.Click += new System.EventHandler(this.CancelLast_Click);
@@ -427,13 +427,26 @@ namespace Draw
             this.ClearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearButton.Image = ((System.Drawing.Image)(resources.GetObject("ClearButton.Image")));
-            this.ClearButton.Location = new System.Drawing.Point(177, 2);
+            this.ClearButton.Location = new System.Drawing.Point(161, 2);
             this.ClearButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(37, 39);
+            this.ClearButton.Size = new System.Drawing.Size(33, 31);
             this.ClearButton.TabIndex = 12;
             this.ClearButton.UseVisualStyleBackColor = false;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // DeleteFigureButton
+            // 
+            this.DeleteFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.DeleteFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteFigureButton.Image")));
+            this.DeleteFigureButton.Location = new System.Drawing.Point(200, 2);
+            this.DeleteFigureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DeleteFigureButton.Name = "DeleteFigureButton";
+            this.DeleteFigureButton.Size = new System.Drawing.Size(33, 31);
+            this.DeleteFigureButton.TabIndex = 28;
+            this.DeleteFigureButton.UseVisualStyleBackColor = false;
+            this.DeleteFigureButton.Click += new System.EventHandler(this.DeleteFigureButton_Click);
             // 
             // saveImageButton
             // 
@@ -443,7 +456,7 @@ namespace Draw
             this.saveImageButton.Location = new System.Drawing.Point(3, 2);
             this.saveImageButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saveImageButton.Name = "saveImageButton";
-            this.saveImageButton.Size = new System.Drawing.Size(37, 39);
+            this.saveImageButton.Size = new System.Drawing.Size(33, 31);
             this.saveImageButton.TabIndex = 20;
             this.saveImageButton.UseVisualStyleBackColor = false;
             this.saveImageButton.Click += new System.EventHandler(this.saveImageButton_Click);
@@ -453,10 +466,10 @@ namespace Draw
             this.SaveProjectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.SaveProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveProjectButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveProjectButton.Image")));
-            this.SaveProjectButton.Location = new System.Drawing.Point(46, 2);
+            this.SaveProjectButton.Location = new System.Drawing.Point(42, 2);
             this.SaveProjectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SaveProjectButton.Name = "SaveProjectButton";
-            this.SaveProjectButton.Size = new System.Drawing.Size(37, 39);
+            this.SaveProjectButton.Size = new System.Drawing.Size(33, 31);
             this.SaveProjectButton.TabIndex = 26;
             this.SaveProjectButton.UseVisualStyleBackColor = false;
             this.SaveProjectButton.Click += new System.EventHandler(this.SaveProjectButton_Click);
@@ -466,10 +479,10 @@ namespace Draw
             this.LoadProjectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.LoadProjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoadProjectButton.Image = ((System.Drawing.Image)(resources.GetObject("LoadProjectButton.Image")));
-            this.LoadProjectButton.Location = new System.Drawing.Point(89, 2);
+            this.LoadProjectButton.Location = new System.Drawing.Point(81, 2);
             this.LoadProjectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoadProjectButton.Name = "LoadProjectButton";
-            this.LoadProjectButton.Size = new System.Drawing.Size(37, 39);
+            this.LoadProjectButton.Size = new System.Drawing.Size(33, 31);
             this.LoadProjectButton.TabIndex = 27;
             this.LoadProjectButton.UseVisualStyleBackColor = false;
             this.LoadProjectButton.Click += new System.EventHandler(this.LoadProjectButton_Click);
@@ -484,10 +497,10 @@ namespace Draw
             this.flowLayoutPanel2.Controls.Add(this.Scale);
             this.flowLayoutPanel2.Controls.Add(this.FillFigure);
             this.flowLayoutPanel2.Controls.Add(this.FillFigureButton);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(644, 6);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(586, 5);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(303, 45);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(255, 36);
             this.flowLayoutPanel2.TabIndex = 25;
             // 
             // workWithFigureButton
@@ -498,7 +511,7 @@ namespace Draw
             this.workWithFigureButton.Location = new System.Drawing.Point(3, 2);
             this.workWithFigureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.workWithFigureButton.Name = "workWithFigureButton";
-            this.workWithFigureButton.Size = new System.Drawing.Size(37, 39);
+            this.workWithFigureButton.Size = new System.Drawing.Size(33, 31);
             this.workWithFigureButton.TabIndex = 22;
             this.workWithFigureButton.UseVisualStyleBackColor = false;
             this.workWithFigureButton.Click += new System.EventHandler(this.workWithFigureButton_Click);
@@ -508,10 +521,10 @@ namespace Draw
             this.MoveFace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.MoveFace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MoveFace.Image = ((System.Drawing.Image)(resources.GetObject("MoveFace.Image")));
-            this.MoveFace.Location = new System.Drawing.Point(46, 2);
+            this.MoveFace.Location = new System.Drawing.Point(42, 2);
             this.MoveFace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MoveFace.Name = "MoveFace";
-            this.MoveFace.Size = new System.Drawing.Size(37, 39);
+            this.MoveFace.Size = new System.Drawing.Size(33, 31);
             this.MoveFace.TabIndex = 26;
             this.MoveFace.UseVisualStyleBackColor = false;
             this.MoveFace.Click += new System.EventHandler(this.MoveFace_Click);
@@ -522,10 +535,10 @@ namespace Draw
             this.MoveVertex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MoveVertex.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MoveVertex.Image = ((System.Drawing.Image)(resources.GetObject("MoveVertex.Image")));
-            this.MoveVertex.Location = new System.Drawing.Point(89, 2);
+            this.MoveVertex.Location = new System.Drawing.Point(81, 2);
             this.MoveVertex.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MoveVertex.Name = "MoveVertex";
-            this.MoveVertex.Size = new System.Drawing.Size(37, 39);
+            this.MoveVertex.Size = new System.Drawing.Size(33, 31);
             this.MoveVertex.TabIndex = 1;
             this.MoveVertex.UseVisualStyleBackColor = false;
             this.MoveVertex.Click += new System.EventHandler(this.MoveVertex_Click);
@@ -535,53 +548,13 @@ namespace Draw
             this.rotateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.rotateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rotateButton.Image = ((System.Drawing.Image)(resources.GetObject("rotateButton.Image")));
-            this.rotateButton.Location = new System.Drawing.Point(132, 2);
+            this.rotateButton.Location = new System.Drawing.Point(120, 2);
             this.rotateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rotateButton.Name = "rotateButton";
-            this.rotateButton.Size = new System.Drawing.Size(37, 39);
+            this.rotateButton.Size = new System.Drawing.Size(33, 31);
             this.rotateButton.TabIndex = 29;
             this.rotateButton.UseVisualStyleBackColor = false;
             this.rotateButton.Click += new System.EventHandler(this.rotateButton_Click);
-            // 
-            // FillFigureButton
-            // 
-            this.FillFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.FillFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FillFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("FillFigureButton.Image")));
-            this.FillFigureButton.Location = new System.Drawing.Point(261, 2);
-            this.FillFigureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.FillFigureButton.Name = "FillFigureButton";
-            this.FillFigureButton.Size = new System.Drawing.Size(37, 39);
-            this.FillFigureButton.TabIndex = 27;
-            this.FillFigureButton.UseVisualStyleBackColor = false;
-            this.FillFigureButton.Click += new System.EventHandler(this.FillFigureButton_Click);
-            // 
-            // DeleteFigureButton
-            // 
-            this.DeleteFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.DeleteFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteFigureButton.Image")));
-            this.DeleteFigureButton.Location = new System.Drawing.Point(220, 2);
-            this.DeleteFigureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.DeleteFigureButton.Name = "DeleteFigureButton";
-            this.DeleteFigureButton.Size = new System.Drawing.Size(37, 39);
-            this.DeleteFigureButton.TabIndex = 28;
-            this.DeleteFigureButton.UseVisualStyleBackColor = false;
-            this.DeleteFigureButton.Click += new System.EventHandler(this.DeleteFigureButton_Click);
-            // 
-            // FillFigure
-            // 
-            this.FillFigure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.FillFigure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FillFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FillFigure.Image = ((System.Drawing.Image)(resources.GetObject("FillFigure.Image")));
-            this.FillFigure.Location = new System.Drawing.Point(218, 2);
-            this.FillFigure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.FillFigure.Name = "FillFigure";
-            this.FillFigure.Size = new System.Drawing.Size(37, 39);
-            this.FillFigure.TabIndex = 27;
-            this.FillFigure.UseVisualStyleBackColor = false;
-            this.FillFigure.Click += new System.EventHandler(this.FillFigure_Click);
             // 
             // Scale
             // 
@@ -589,21 +562,48 @@ namespace Draw
             this.Scale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Scale.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Scale.Image = ((System.Drawing.Image)(resources.GetObject("Scale.Image")));
-            this.Scale.Location = new System.Drawing.Point(175, 2);
+            this.Scale.Location = new System.Drawing.Point(159, 2);
             this.Scale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Scale.Name = "Scale";
-            this.Scale.Size = new System.Drawing.Size(37, 39);
+            this.Scale.Size = new System.Drawing.Size(33, 31);
             this.Scale.TabIndex = 26;
             this.Scale.UseVisualStyleBackColor = false;
             this.Scale.Click += new System.EventHandler(this.Scale_Click);
             // 
+            // FillFigure
+            // 
+            this.FillFigure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.FillFigure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FillFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FillFigure.Image = ((System.Drawing.Image)(resources.GetObject("FillFigure.Image")));
+            this.FillFigure.Location = new System.Drawing.Point(198, 2);
+            this.FillFigure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FillFigure.Name = "FillFigure";
+            this.FillFigure.Size = new System.Drawing.Size(33, 31);
+            this.FillFigure.TabIndex = 27;
+            this.FillFigure.UseVisualStyleBackColor = false;
+            this.FillFigure.Click += new System.EventHandler(this.FillFigure_Click);
+            // 
+            // FillFigureButton
+            // 
+            this.FillFigureButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.FillFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FillFigureButton.Image = ((System.Drawing.Image)(resources.GetObject("FillFigureButton.Image")));
+            this.FillFigureButton.Location = new System.Drawing.Point(3, 37);
+            this.FillFigureButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FillFigureButton.Name = "FillFigureButton";
+            this.FillFigureButton.Size = new System.Drawing.Size(33, 31);
+            this.FillFigureButton.TabIndex = 27;
+            this.FillFigureButton.UseVisualStyleBackColor = false;
+            this.FillFigureButton.Click += new System.EventHandler(this.FillFigureButton_Click);
+            // 
             // logoPictureBox
             // 
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
-            this.logoPictureBox.Location = new System.Drawing.Point(12, 6);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.logoPictureBox.Location = new System.Drawing.Point(11, 5);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(154, 48);
+            this.logoPictureBox.Size = new System.Drawing.Size(137, 38);
             this.logoPictureBox.TabIndex = 25;
             this.logoPictureBox.TabStop = false;
             // 
@@ -613,10 +613,10 @@ namespace Draw
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.pictureBox1.Location = new System.Drawing.Point(174, 59);
+            this.pictureBox1.Location = new System.Drawing.Point(155, 47);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1192, 689);
+            this.pictureBox1.Size = new System.Drawing.Size(1060, 551);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
@@ -629,18 +629,17 @@ namespace Draw
             this.flowLayoutPanel3.Controls.Add(this.saveImageButton);
             this.flowLayoutPanel3.Controls.Add(this.SaveProjectButton);
             this.flowLayoutPanel3.Controls.Add(this.LoadProjectButton);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(1075, 6);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(956, 5);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(136, 46);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(121, 37);
             this.flowLayoutPanel3.TabIndex = 26;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(1369, 749);
+            this.ClientSize = new System.Drawing.Size(1217, 599);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -653,7 +652,7 @@ namespace Draw
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(1);
-            this.MinimumSize = new System.Drawing.Size(763, 697);
+            this.MinimumSize = new System.Drawing.Size(680, 567);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.Form1_ChangeSize);
