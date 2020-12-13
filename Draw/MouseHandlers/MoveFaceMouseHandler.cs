@@ -1,4 +1,5 @@
-﻿using Draw.Drawer;
+﻿using Draw.BitmapOperations.OperationParameters;
+using Draw.Drawer;
 using Draw.Figures;
 using System;
 using System.Collections.Generic;
@@ -18,14 +19,14 @@ namespace Draw.MouseHandlers
             _mouseDown = true;
             Canvas.Current.LastPoint = location;
             Canvas.Current.Figure = null;
-            Bitmap bitmapBeforeChange = Canvas.Current.GetImage();
+            Bitmap bitmapBeforeChange = Canvas.Current.MainBitmap;
             foreach (AbstractFigure figure in Canvas.Current.Figures)
             {
                 if (figure.IsThisFigure(location))
                 {
                     Canvas.Current.Figure = figure;
                     Canvas.Current.Figures.Remove(Canvas.Current.Figure);
-                    Canvas.Current.DrawAll();
+                    Canvas.Current.MainBitmap = Canvas.Current.Action(new DrawAllFigureOperationParameters());
                     break;
                 }
             }
@@ -39,25 +40,25 @@ namespace Draw.MouseHandlers
                 PointF d = new PointF(location.X - Canvas.Current.LastPoint.X, location.Y - Canvas.Current.LastPoint.Y);
                 Canvas.Current.LastPoint = location;
                 (Canvas.Current.Figure).MoveFace(d);
-                Canvas.Current.DrawFigure(Canvas.Current.Figure);
+                Canvas.Current.TmpBitmap = Canvas.Current.Action(new DrawFigureOperationParameters(Canvas.Current.Figure));
             }
-            return Canvas.Current.GetTmpImage();
+            return Canvas.Current.TmpBitmap;
         }
 
         public Bitmap OnMouseUp(PointF location)
         {
-            Canvas.Current.EndDraw();
+            Canvas.Current.MainBitmap = Canvas.Current.Action(new EndDrawOperationParameters());
             _mouseDown = false;
             if (Canvas.Current.Figure != null && !Canvas.Current.Figures.Contains(Canvas.Current.Figure) && !(Canvas.Current.Figure.IsEmpty()))
             {
-                Canvas.Current.Figures.Add(Canvas.Current.Figure);
+                Canvas.Current.Figures.Insert(0, Canvas.Current.Figure);
             }
             if (!(Canvas.Current.Figure is NPointsFigure) ||
                 ((NPointsFigure)Canvas.Current.Figure).IsFull())
             {
                 Canvas.Current.RenewFigure();
             }
-            return Canvas.Current.GetImage();
+            return Canvas.Current.MainBitmap;
         }
     }
 }

@@ -79,6 +79,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitmapOperations\CancelLastActionOperation.cs" />
+    <Compile Include="BitmapOperations\ChangeBackgroundColorOperation.cs" />
+    <Compile Include="BitmapOperations\DrawAllFigureOperation.cs" />
+    <Compile Include="BitmapOperations\DrawFigureOperation.cs" />
+    <Compile Include="BitmapOperations\EndDrawOperation.cs" />
+    <Compile Include="BitmapOperations\OperationCreator.cs" />
+    <Compile Include="BitmapOperations\ClearBitmapOperation.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\CancelLastActionParameter.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\ChangeBackgroundColorOperationParameters.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\ClearOperationParameters.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\DrawAllFigureOperationParameters.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\DrawFigureOperationParameters.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\EndDrawOperationParameters.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\SaveBitmapOperationParameters.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\SizeOperationParameter.cs" />
+    <Compile Include="BitmapOperations\OperationParameters\IOperationParameters.cs" />
+    <Compile Include="BitmapOperations\IBitmapOperation.cs" />
+    <Compile Include="BitmapOperations\ResizeBitmapOperation.cs" />
+    <Compile Include="BitmapOperations\SaveBitmapOperation.cs" />
     <Compile Include="Canvas.cs" />
     <Compile Include="Drawer\AngleFiguresDrawer.cs" />
     <Compile Include="Drawer\FilledAngleFiguresDrawer.cs" />

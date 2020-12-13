@@ -1,4 +1,6 @@
-﻿using Draw.Fabrics;
+﻿using Draw.BitmapOperations;
+using Draw.BitmapOperations.OperationParameters;
+using Draw.Fabrics;
 using Draw.Figures;
 using System;
 using System.Collections.Generic;
@@ -7,20 +9,20 @@ using System.Windows.Forms;
 
 namespace Draw.Drawer
 {
-    
     public class Canvas
     {
-        private Bitmap _mainBitmap;
-        private Bitmap _tmpBitmap;
-        private Graphics _graphics;
-        private LinkedList<Bitmap> _previousBitmaps;
+        public Bitmap MainBitmap { get; set; }
+        public Bitmap TmpBitmap { get; set; }
+        public Graphics Graphics { get; set; }
+        public LinkedList<Bitmap> PreviousBitmaps { get; set; }
         public Pen Pen { get; set; }
         public Color Color { get; set; }
-
         public IFabric Fabric { get; set; }
         public AbstractFigure Figure { get; set; }
         public List<AbstractFigure> Figures { get; set; }
         public PointF LastPoint { get; set; }
+
+        private OperationCreator _operations;
 
         public static Canvas Current
         {
@@ -43,118 +45,29 @@ namespace Draw.Drawer
 
         private static Canvas _obj;
 
-        public Canvas(int width, int height)
+        public Canvas(int width, int height, OperationCreator operations)
         {
-            _mainBitmap = new Bitmap(width + 500, height+ 500);
-            _graphics = Graphics.FromImage(_mainBitmap);
+            MainBitmap = new Bitmap(width + 500, height+ 500);
+            Graphics = Graphics.FromImage(MainBitmap);
             Pen = new Pen(Color.Black, 1);
-            _previousBitmaps = new LinkedList<Bitmap>();
-            _previousBitmaps.AddLast(_mainBitmap);
+            PreviousBitmaps = new LinkedList<Bitmap>();
+            PreviousBitmaps.AddLast(MainBitmap);
             LastPoint = new Point(0, 0);
-
+            _operations = operations;
             Fabric = new PenFabric();
             Figures = new List<AbstractFigure>();
             RenewFigure();
          
         }
-        public static void Create(int width, int height)
+        public static void Create(int width, int height, OperationCreator operation)
         {
-            _obj = new Canvas(width, height);
+            _obj = new Canvas(width, height, operation);
         }
 
 
-        public void DrawFigure(AbstractFigure figure)
+        public Bitmap Action(IOperationParameters parameters)
         {
-            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-            _graphics = Graphics.FromImage(_tmpBitmap);
-            figure.Drawer.DrawFigure(_graphics, new Pen(figure.Color, figure.Width), figure.GetPoints());
-            GC.Collect();
-        }
-
-        public Bitmap GetTmpImage()
-        {
-            return _tmpBitmap;
-        }
-
-        public Bitmap GetImage()
-        {
-            return _mainBitmap;
-        }
-
-        public void EndDraw()
-        {
-            if (_previousBitmaps.Count >= 5)
-            {
-                _previousBitmaps.RemoveFirst();
-            }
-            _previousBitmaps.AddLast(_mainBitmap);
-            _mainBitmap = _tmpBitmap;
-        }
-
-        public void Clear()
-        {
-            CreateMainBitmap();
-            Figure.Clear();
-            Figures.Clear();
-            Color = Color.Transparent;
-        }
-
-        private void CreateMainBitmap()
-        {
-            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
-            _tmpBitmap = _mainBitmap;
-            GC.Collect();
-        }
-
-        public void Resize(int width, int height)
-        {
-            Bitmap tmp = _mainBitmap;
-            _mainBitmap = new Bitmap(width + 500, height+500);
-            Graphics.FromImage(_mainBitmap).DrawImage(tmp, new Point(0, 0));
-            _tmpBitmap = _mainBitmap;
-            GC.Collect();
-        }
-
-        public Bitmap CancelLastAction()
-        {
-            if (_previousBitmaps.Count == 0)
-            {
-                return _mainBitmap;
-            }
-            _mainBitmap = _previousBitmaps.Last.Value;
-            _previousBitmaps.RemoveLast();
-
-            if (Figures.Count != 0)
-            {
-                _tmpBitmap = _mainBitmap;
-                return _mainBitmap;
-            }
-            _mainBitmap = _previousBitmaps.Last.Value;
-            _tmpBitmap = _mainBitmap;
-            _previousBitmaps.RemoveLast();
-
-            if (Figures.Count != 0)
-            {
-                Figures.RemoveAt(Figures.Count - 1);
-            }
-
-            return _mainBitmap;
-        }
-
-        
-
-        public Bitmap ChangeBackgroundColor(Color color)
-        {
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.Clear(color);
-            Color = color;
-            return _mainBitmap;
-        }
-
-        public void DeleteAllFigures()
-        {
-            CreateMainBitmap();
-            ChangeBackgroundColor(Color);
+            return _operations.GetOperation(parameters.GetType()).Action(parameters);             
         }
 
         public void RenewFigure()
@@ -196,15 +109,6 @@ namespace Draw.Drawer
         {
             Figure.Color = color;
             Pen.Color = color;
-        }
-        public void DrawAll()
-        {
-            DeleteAllFigures();
-            foreach (AbstractFigure figure in Figures)
-            {
-                DrawFigure(figure);
-                EndDraw();
-            }
         }
     }
 }

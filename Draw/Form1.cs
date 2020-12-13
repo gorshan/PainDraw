@@ -1,4 +1,6 @@
-﻿using Draw.Drawer;
+﻿using Draw.BitmapOperations;
+using Draw.BitmapOperations.OperationParameters;
+using Draw.Drawer;
 using Draw.Fabrics;
 using Draw.Figures;
 using Draw.MouseHandlers;
@@ -27,9 +29,9 @@ namespace Draw
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Canvas.Create(pictureBox1.Width, pictureBox1.Height);
+            Canvas.Create(pictureBox1.Width, pictureBox1.Height, new OperationCreator());
             Canvas.Current.NAngle = Convert.ToInt32(NAngleNumericUpDown.Value);
-            pictureBox1.Image = Canvas.Current.GetImage();
+            pictureBox1.Image = Canvas.Current.MainBitmap;
             _mouseHandler = new PaintMouseHandler();
 
             widthText.Text = WigthScrollBar.Value + "";
@@ -250,9 +252,8 @@ namespace Draw
 
 
         private void ClearButton_Click(object sender, EventArgs e)
-        {
-            Canvas.Current.Clear();
-            pictureBox1.Image = Canvas.Current.GetImage();
+        {            
+            pictureBox1.Image = Canvas.Current.Action(new ClearOperationParameters());
         }
 
         private void WigthScrollBar_Scroll(object sender, ScrollEventArgs e)
@@ -262,12 +263,12 @@ namespace Draw
         }
         private void CancelLast_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = Canvas.Current.CancelLastAction();
+            pictureBox1.Image = Canvas.Current.Action(new CancelLastActionParameter());
 
         }
         private void saveImageButton_Click(object sender, EventArgs e)
         {
-            Saver.SaveImage((Bitmap)pictureBox1.Image);
+            pictureBox1.Image = Canvas.Current.Action(new SaveBitmapOperationParameters());
         }
 
         private void colorButton_Click(object sender, EventArgs e)
@@ -294,19 +295,11 @@ namespace Draw
         }
         private void Form1_ChangeSize(object sender, EventArgs e)
         {
-            if (Canvas.Current == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
-            {
-                if (Canvas.Current == null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
-                {
-                    return;
-                }
-                Canvas.Current.Resize(pictureBox1.Width, pictureBox1.Height);
-                pictureBox1.Image = Canvas.Current.GetImage();
+            if (Canvas.Current != null || pictureBox1.Width <= 0 || pictureBox1.Height <= 0)
+            {                
+                pictureBox1.Image = Canvas.Current.Action(new SizeOperationParameter(pictureBox1.Width, pictureBox1.Height));
                 SetSizeLabel();
             }
-            Canvas.Current.Resize(pictureBox1.Width, pictureBox1.Height);
-            pictureBox1.Image = Canvas.Current.GetImage();
-            SetSizeLabel();
         }
         private void SetSizeLabel()
         {
@@ -316,9 +309,10 @@ namespace Draw
 
         private void ChangeBackgroundColor_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = Canvas.Current.Action(new ChangeBackgroundColorOperationParameters(colorDialog1
+                .Color));
             Canvas.Current.Color = colorDialog1.Color;
-            Canvas.Current.DrawAll();
-            pictureBox1.Image = Canvas.Current.GetImage();
+            pictureBox1.Image = Canvas.Current.Action(new DrawAllFigureOperationParameters());
         }
 
         private void MoveVertex_Click(object sender, EventArgs e)
@@ -347,8 +341,8 @@ namespace Draw
             if(figures != null)
             {
                 Canvas.Current.Figures = figures;
-                Canvas.Current.DrawAll();
-                pictureBox1.Image = Canvas.Current.GetImage();
+                Canvas.Current.MainBitmap = Canvas.Current.Action(new DrawAllFigureOperationParameters());
+                pictureBox1.Image = Canvas.Current.MainBitmap;
             }
         }
 

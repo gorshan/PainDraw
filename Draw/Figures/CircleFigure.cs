@@ -1,5 +1,4 @@
 ﻿using Draw.Drawer;
-using Draw.Drawer;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
