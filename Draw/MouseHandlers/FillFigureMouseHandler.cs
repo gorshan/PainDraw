@@ -28,6 +28,11 @@ namespace Draw.MouseHandlers
                         figure.FillFigure();
                         Canvas.Current.DrawFigure(figure);
                     }
+                    if (figure.IsThisFigure(location))
+                    {
+                        figure.Color = Canvas.Current.Pen.Color;
+                        Canvas.Current.DrawFigure(figure);
+                    }
                 }
             }
               return Canvas.Current.GetTmpImage();

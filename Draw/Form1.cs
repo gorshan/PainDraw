@@ -240,6 +240,7 @@ namespace Draw
         {
             Canvas.Current.NAngle = Convert.ToInt32(NAngleNumericUpDown.Value);
         }
+
         private void FillFigureButton_Click(object sender, EventArgs e)
         {
             Canvas.Current.Figure.FillFigure();
