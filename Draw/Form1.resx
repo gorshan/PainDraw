@@ -281,17 +281,17 @@
   </data>
   <data name="saveImageButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIBSURBVDhPnZQ/aFNRFMbfe0le8l7y8nikFrSxENQlQ3Wo
-        LS2dXRx0MFhSMJksVotbaKGSTQcHZxOwS4cQEEqXUmtRcegkCm79s3RrUSh0raS/zyaiNm1JDhzuOd85
-        33fPve+PEY1GX5mm+cswjEY3Lq5t21VDQSQSeRgOh4e7cbhFNH4iajQEKDjDTCbP0DcI8XoikegRpgL5
-        DZZdxecKxePxAXrehkKhj6yrHOWZ4ziXVOtICGIdkRrkIYjj9C+x3lftTCEIfb7vZ7LZrK0ckU2ONqk4
-        Fov10//Gsqxp5acKIRCQlzUB5KvCmOg1RB3pNrVpfJn4jmpthXK5XEgjk69B3KJ5FthlwjRxBfF1au/Y
-        4BF4IE5bIcABfJG8xBEeIPbFdV01ynz8It6LOwJkJ4R0JMAX7FpH5HK5XLaI56ktqkmmJ0VtjunukVrC
-        /hcao3gX4mfGviVQ5nneNV62DR7/BAKjkD4w5Ta+TpynJfaPEEkBsff4jO5JYMuYYooNdiB/pe9lMpm8
-        wmaP6V2TGOsobcdCNH7Ca7yxFwT8bel02qFWYaJC63VIpVIeAnp6K9SeA+0L14f3nZ1vKmlnuq9m+MeC
-        IPAReoLQN9JDYbqjp6y/v51OrDlZifBAuYRGFHRjcAdZ9lq/kaJuv0vPo/FDr3+1+T/RzXfsErFte+EI
-        70yHvP3zQesAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
+        dAAAEnQB3mYfeAAAAgFJREFUOE+dlD9oU1EUxt97SV7yXvLyeKQWtLEQ1CVDdagtLZ1dHHQwWFIwmSxW
+        i1tooZJNBwdnE7BLhxAQSpdSa1Fx6CQKbv2zdGtRKHStpL/PJqI2bUkOHO453znfd8+9748RjUZfmab5
+        yzCMRjcurm3bVUNBJBJ5GA6Hh7txuEU0fiJqNAQoOMNMJs/QNwjxeiKR6BGmAvkNll3F5wrF4/EBet6G
+        QqGPrKsc5ZnjOJdU60gIYh2RGuQhiOP0L7HeV+1MIQh9vu9nstmsrRyRTY42qTgWi/XT/8ayrGnlpwoh
+        EJCXNQHkq8KY6DVEHek2tWl8mfiOam2FcrlcSCOTr0HconkW2GXCNHEF8XVq79jgEXggTlshwAF8kbzE
+        ER4g9sV1XTXKfPwi3os7AmQnhHQkwBfsWkfkcrlctojnqS2qSaYnRW2O6e6RWsL+FxqjeBfiZ8a+JVDm
+        ed41XrYNHv8EAqOQPjDlNr5OnKcl9o8QSQGx9/iM7klgy5hiig12IH+l72UymbzCZo/pXZMY6yhtx0I0
+        fsJrvLEXBPxt6XTaoVZhokLrdUilUh4Cenor1J4D7QvXh/ednW8qaWe6r2b4x4Ig8BF6gtA30kNhuqOn
+        rL+/nU6sOVmJ8EC5hEYUdGNwB1n2Wr+Rom6/S8+j8UOvf7X5P9HNd+wSsW174QjvTIe8/fNB6wAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <data name="SaveProjectButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
