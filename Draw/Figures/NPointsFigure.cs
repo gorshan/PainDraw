@@ -14,7 +14,6 @@ namespace Draw.Figures
 
     public class NPointsFigure : AbstractFigure
     {
-        private Point[] _points;
         public int N { get; set; }
         public override int Width
         {
@@ -37,13 +36,14 @@ namespace Draw.Figures
         public NPointsFigure(int n)
         {
             N = n;
-            Points = new List<Point>();
+            Points = new List<PointF>();
             Drawer = new PenDrawer();
         }
 
         public NPointsFigure()
         {
-            Points = new List<Point>();
+            N = 3;
+            Points = new List<PointF>();
             Drawer = new PenDrawer();
         }
 
@@ -59,16 +59,16 @@ namespace Draw.Figures
             }
         }
 
-        public override void Update(Point startPoint, Point endPoint)
+        public override void Update(PointF startPoint, PointF endPoint)
         {
             if (Points.Count < N)
             {
                 Points.Add(endPoint);
-                if (Points.Count == N)
+                if (Points.Count >= N)
                 {
                     if (IsFilled)
                     {
-                        Drawer = new FilledAngleFiguresDrawer();
+                        Drawer = new FilledAngleFiguresDrawer(Color, ColorBackgroundFigure);
                     }
                     else
                     {
@@ -82,6 +82,17 @@ namespace Draw.Figures
         public override void FillFigure()
         {
             IsFilled = !IsFilled;
+            if (Points.Count >= N)
+            {
+                if (IsFilled)
+                {
+                    Drawer = new FilledAngleFiguresDrawer(Color, ColorBackgroundFigure);
+                }
+                else
+                {
+                    Drawer = new AngleFiguresDrawer();
+                }
+            }
         }
     }
 }

@@ -12,16 +12,16 @@ namespace Draw.Figures
 {
     public class PenFigure : AbstractFigure
     {
-        private Point _lastPoint;
+        private PointF _lastPoint;
         
 
         public PenFigure()
         {
-            Points = new List<Point>();
+            Points = new List<PointF>();
             Drawer = new PenDrawer();
         }
 
-        private void AddPoint(Point startPoint, Point endPoint)
+        private void AddPoint(PointF startPoint, PointF endPoint)
         {
             if (_lastPoint == null)
             {
@@ -39,19 +39,19 @@ namespace Draw.Figures
             Points.Clear();
         }
 
-        public override void Update(Point startPoint, Point endPoint)
+        public override void Update(PointF startPoint, PointF endPoint)
         {
             AddPoint(startPoint, endPoint);
         }
 
-        public override bool IsThisFigure(Point point)
+        public override bool IsThisFigure(PointF point)
         {
-            Point p1 = new Point(0,0);
-            Point p2;
+            PointF p1 = new PointF(0,0);
+            PointF p2;
             
             if(Points.Count != 0)
                 p1 = Points[0];
-            foreach (Point p in Points)
+            foreach (PointF p in Points)
             {
                 p2 = p;
                 if (Math.Abs((point.X - p1.X) * (p2.Y - p1.Y) - (point.Y - p1.Y) * (p2.X - p1.X))
@@ -71,17 +71,17 @@ namespace Draw.Figures
             IsFilled = !IsFilled;
         }
 
-        public override void MoveFace(Point delta)
+        public override void MoveFace(PointF delta)
         {
 
         }
 
-        public override bool IsThisVertex(Point point)
+        public override bool IsThisVertex(PointF point)
         {
             return false;
         }
 
-        public override void MoveVertex(Point delta)
+        public override void MoveVertex(PointF delta)
         {
 
         }

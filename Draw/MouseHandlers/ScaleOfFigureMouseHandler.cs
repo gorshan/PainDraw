@@ -1,5 +1,4 @@
-﻿using Draw.BitmapOperations.OperationParameters;
-using Draw.Drawer;
+﻿using Draw.Drawer;
 using Draw.Figures;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Draw.MouseHandlers
 {
-    public class MoveVertexMouseHandler : IMouseHandler
+    public class ScaleOfFigureMouseHandler : IMouseHandler
     {
         private bool _mouseDown;
         public Bitmap OnMouseDown(PointF location)
@@ -18,38 +17,40 @@ namespace Draw.MouseHandlers
             _mouseDown = true;
             Canvas.Current.LastPoint = location;
             Canvas.Current.Figure = null;
-            Bitmap bitmapBeforeChange = Canvas.Current.MainBitmap;
+            Bitmap bitmapBeforeChange = Canvas.Current.GetImage();
             foreach (AbstractFigure figure in Canvas.Current.Figures)
             {
-                if (figure.IsThisVertex(location))
+                if (figure.IsThisFigure(location))
                 {
                     Canvas.Current.Figure = figure;
                     Canvas.Current.Figures.Remove(Canvas.Current.Figure);
-                    Canvas.Current.MainBitmap = Canvas.Current.Action(new DrawAllFigureOperationParameters());
+                    Canvas.Current.DrawAll();
                     break;
                 }
             }
-            
             return bitmapBeforeChange;
+
         }
 
         public Bitmap OnMouseMove(PointF location)
         {
-
             if (_mouseDown && Canvas.Current.Figure != null)
             {
-                PointF d = new PointF(location.X - Canvas.Current.LastPoint.X, location.Y - Canvas.Current.LastPoint.Y);
+                double m = 1.05;
+                if (location.X - Canvas.Current.LastPoint.X < 0)
+                {           
+                    m = 0.95;
+                }
                 Canvas.Current.LastPoint = location;
-                Canvas.Current.Figure.MoveVertex(d);
-                Canvas.Current.TmpBitmap = Canvas.Current.Action(new DrawFigureOperationParameters(Canvas.Current.Figure));
+                Canvas.Current.Figure.Scale(m);
+                Canvas.Current.DrawFigure(Canvas.Current.Figure);
             }
-
-            return Canvas.Current.TmpBitmap;
+            return Canvas.Current.GetTmpImage();
         }
 
         public Bitmap OnMouseUp(PointF location)
         {
-             Canvas.Current.MainBitmap = Canvas.Current.Action(new EndDrawOperationParameters());
+            Canvas.Current.EndDraw();
             _mouseDown = false;
             if (Canvas.Current.Figure != null && !Canvas.Current.Figures.Contains(Canvas.Current.Figure) && !(Canvas.Current.Figure.IsEmpty()))
             {
@@ -60,7 +61,7 @@ namespace Draw.MouseHandlers
             {
                 Canvas.Current.RenewFigure();
             }
-            return Canvas.Current.MainBitmap;
+            return Canvas.Current.GetImage();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Draw.MouseHandlers
     {
         private bool _mouseDown;
 
-        public Bitmap OnMouseDown(Point location)
+        public Bitmap OnMouseDown(PointF location)
         {
             _mouseDown = true;
             Canvas.Current.LastPoint = location;
@@ -33,11 +33,11 @@ namespace Draw.MouseHandlers
             return bitmapBeforeChange;
         }
 
-        public Bitmap OnMouseMove(Point location)
+        public Bitmap OnMouseMove(PointF location)
         {
             if (_mouseDown && Canvas.Current.Figure != null)
             {
-                Point d = new Point(location.X - Canvas.Current.LastPoint.X, location.Y - Canvas.Current.LastPoint.Y);
+                PointF d = new PointF(location.X - Canvas.Current.LastPoint.X, location.Y - Canvas.Current.LastPoint.Y);
                 Canvas.Current.LastPoint = location;
                 Canvas.Current.Figure.Move(d);
                 Canvas.Current.TmpBitmap = Canvas.Current.Action(new DrawFigureOperationParameters(Canvas.Current.Figure));
@@ -45,7 +45,7 @@ namespace Draw.MouseHandlers
             return Canvas.Current.TmpBitmap;
         }
 
-        public Bitmap OnMouseUp(Point location)
+        public Bitmap OnMouseUp(PointF location)
         {
             Canvas.Current.MainBitmap = Canvas.Current.Action(new EndDrawOperationParameters());
             _mouseDown = false;

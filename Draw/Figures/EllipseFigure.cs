@@ -13,51 +13,46 @@ namespace Draw.Figures
     {
         public EllipseFigure()
         {
-            Drawer = new EllipseDrawer();
+            Drawer = new AngleFiguresDrawer();
         }
 
-        public override void Update(Point startPoint, Point endPoint)
+        public override void Update(PointF startPoint, PointF endPoint)
         {
-            Points = new List<Point>
+            Points = new List<PointF>();
+            int N = 50;
+            double r1;
+            double r2;
+            r1 = (endPoint.X - startPoint.X) / 2;
+            r2 = (endPoint.Y - startPoint.Y) / 2;
+            double x = startPoint.X + r1;
+            double y = startPoint.Y + r2;
+
+            for (int i = 0; i < N; i++)
             {
-                new Point(startPoint.X),
-                new Point(startPoint.Y),
-                new Point(endPoint.X - startPoint.X),
-                new Point(endPoint.Y - startPoint.Y)
-            };
-        }
+                Points.Add(new PointF(Convert.ToInt32(x + r1 * Math.Cos((2 * Math.PI * i) / N)),
+                                     Convert.ToInt32(y + r2 * Math.Sin((2 * Math.PI * i) / N))));
 
-        public override void Move(Point delta)
-        {
-            Points[0] = new Point(Points[0].X + delta.X, Points[0].Y);
-            Points[1] = new Point(Points[1].X + delta.Y, Points[1].Y);
-
-            //center = new Point(center.X + delta.X, center.Y + delta.Y);
-        }
-
-        public override bool IsThisFigure(Point point)
-        {
-            int x0 = Points[0].X + (Points[2].X / 2);
-            int y0 = Points[1].X + (Points[3].X / 2);
-            double rx = Points[2].X / 2;
-            double ry = Points[3].X / 2;
-            double res = (((point.X - x0)* (point.X - x0)) / (rx * rx)) + (((point.Y - y0)* (point.Y - y0) )/ (ry * ry)) - 1;
-            if (res <= 0.1*Width && res >= -0.1*Width)
-            {
-                return true;
             }
-            return false;
         }
 
-        public Point[] GetPointsInner(int width, int height)
+        public override void Move(PointF delta)
         {
-            LinkedList<Point> points = new LinkedList<Point>();
+            Points[0] = new PointF(Points[0].X + delta.X, Points[0].Y);
+            Points[1] = new PointF(Points[1].X + delta.Y, Points[1].Y);
+
+            //center = new PointF(center.X + delta.X, center.Y + delta.Y);
+        }
+
+
+        public PointF[] GetPointsInner(int width, int height)
+        {
+            LinkedList<PointF> points = new LinkedList<PointF>();
 
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < height; j++)
                 {
-                    Point point = new Point(i, j);
+                    PointF point = new PointF(i, j);
                     if (IsThisFigure(point))
                     {
                         points.AddLast(point);
@@ -72,25 +67,25 @@ namespace Draw.Figures
             IsFilled = !IsFilled;
             if (IsFilled)
             {
-                Drawer = new FilledEllipseDrawer();
+                Drawer = new FilledAngleFiguresDrawer(Color, ColorBackgroundFigure);
             }
             else
             {
-                Drawer = new EllipseDrawer();
+                Drawer = new AngleFiguresDrawer();
             }
         }
 
-        public override void MoveFace(Point delta)
+        public override void MoveFace(PointF delta)
         {
             
         }
 
-        public override bool IsThisVertex(Point point)
+        public override bool IsThisVertex(PointF point)
         {
             return false;
         }
 
-        public override void MoveVertex(Point delta)
+        public override void MoveVertex(PointF delta)
         {
             
         }

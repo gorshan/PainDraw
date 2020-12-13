@@ -20,26 +20,27 @@ namespace Draw.Drawer
         public IFabric Fabric { get; set; }
         public AbstractFigure Figure { get; set; }
         public List<AbstractFigure> Figures { get; set; }
-        public Point LastPoint { get; set; }
+        public PointF LastPoint { get; set; }
 
         private OperationCreator _operations;
 
         public static Canvas Current
         {
             get { return _obj; }
-            private set { }
+            set { _obj = value; }
         }
 
 
-        private int _NNumericUpDown;
-        public int NAngleNumericUpDown
+        private int _NAngle;
+        public int NAngle
         {
-            get { return _NNumericUpDown; }
+            get { return _NAngle; }
             set
             {
-                _NNumericUpDown = value;
+                _NAngle = value;
                 RenewFigure();
             }
+
         }
 
         private static Canvas _obj;
@@ -120,16 +121,17 @@ namespace Draw.Drawer
             }
             Figure = Fabric.CreateFigure();
             Figure.Color = Pen.Color;
+            Figure.ColorBackgroundFigure = Pen.Color;
             Figure.Width = (int)Pen.Width;
             Figure.FillFigure(isFilled);
 
             if (Fabric is NAngleByPointsFabric)
             {
-                ((NPointsFigure)Figure).N = NAngleNumericUpDown;
+                ((NPointsFigure)Figure).N = NAngle;
             }
-            if (Figure is NAngleFigure)
+            if (Fabric is NAngleFabric)
             {
-                ((NAngleFigure)Figure).N = NAngleNumericUpDown;
+                ((RightNAngleFigure)Figure).N = NAngle;
             }
         }
 

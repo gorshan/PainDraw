@@ -18,14 +18,14 @@ namespace Draw.Figures
         }
 
 
-        public override void Update(Point startPoint, Point endPoint)
+        public override void Update(PointF startPoint, PointF endPoint)
         {
-            Points = new List<Point>
+            Points = new List<PointF>
             {
                 startPoint,
-                new Point(startPoint.X, endPoint.Y),
+                new PointF(startPoint.X, endPoint.Y),
                 endPoint,
-                new Point(endPoint.X, startPoint.Y)
+                new PointF(endPoint.X, startPoint.Y)
             };
         }
 

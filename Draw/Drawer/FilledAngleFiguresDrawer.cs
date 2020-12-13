@@ -9,9 +9,19 @@ namespace Draw.Drawer
 {
     public class FilledAngleFiguresDrawer : IDrawer
     {
-        public void DrawFigure(Graphics graphics, Pen pen, Point[] figurePoints)
+        public Color ColorBackground { get; set; }
+        public Color Color { get; set; }
+
+        public FilledAngleFiguresDrawer(Color color, Color colorBackground)
         {
-            graphics.FillPolygon(new SolidBrush(pen.Color), figurePoints);
+            ColorBackground = colorBackground;
+            Color = color;
+        }
+
+        public void DrawFigure(Graphics graphics, Pen pen, PointF[] figurePoints)
+        {
+            graphics.FillPolygon(new SolidBrush(ColorBackground), figurePoints);
+            graphics.DrawPolygon(new Pen(Color, pen.Width), figurePoints);
         }
     }
 }

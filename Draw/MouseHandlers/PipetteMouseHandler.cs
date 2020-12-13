@@ -17,7 +17,7 @@ namespace Draw.MouseHandlers
             ColorButton = colorButton;
         }
 
-        public Bitmap OnMouseDown(Point location)
+        public Bitmap OnMouseDown(PointF location)
         {
             Color pixelColor = Canvas.Current.Pen.Color;
             pixelColor = Canvas.Current.MainBitmap.GetPixel(location.X, location.Y);
@@ -27,12 +27,12 @@ namespace Draw.MouseHandlers
             return Canvas.Current.MainBitmap;
         }
 
-        public Bitmap OnMouseMove(Point location)
+        public Bitmap OnMouseMove(PointF location)
         {
             return Canvas.Current.MainBitmap;
         }
 
-        public Bitmap OnMouseUp(Point location)
+        public Bitmap OnMouseUp(PointF location)
         {
             return Canvas.Current.MainBitmap;
         }
