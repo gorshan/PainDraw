@@ -227,7 +227,6 @@ namespace Draw.Figures
             N = points.Length;
             for (int n = 0; n < N; n++)
             {
-                flag = false;
                 i1 = n < N - 1 ? n + 1 : 0;
                 while (!flag)
                 {
