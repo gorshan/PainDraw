@@ -23,6 +23,7 @@ namespace Draw.BitmapOperations
         {
             Canvas.Current.MainBitmap = new Bitmap(Canvas.Current.MainBitmap.Width, Canvas.Current.MainBitmap.Height);
             Canvas.Current.TmpBitmap = Canvas.Current.MainBitmap;
+            Canvas.Current.Color = Color.Transparent;
             GC.Collect();
         }
     }
