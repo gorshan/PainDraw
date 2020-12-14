@@ -25,7 +25,7 @@ namespace Draw.MouseHandlers
                 {
                     Canvas.Current.Figure = figure;
                     Canvas.Current.Figures.Remove(Canvas.Current.Figure);
-                    Canvas.Current.Action(new DrawFigureOperationParameters(Canvas.Current.Figure));
+                    Canvas.Current.Action(new DrawAllFigureOperationParameters());
                     break;
                 }
             }
